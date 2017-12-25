@@ -20,6 +20,8 @@ import App from './containers/App';
 import routes from './routes';
 import { port, host } from './config';
 
+const DEV_HOST = 'https://jsonplaceholder.typicode.com';
+
 const app = express();
 
 // Using helmet to secure Express with various HTTP headers
@@ -52,6 +54,7 @@ if (__DEV__) {
   );
 
   app.use(require('webpack-hot-middleware')(compiler));
+  app.use('/api', require('express-http-proxy')(DEV_HOST));
 }
 
 // Register server-side rendering middleware

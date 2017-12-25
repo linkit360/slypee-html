@@ -2,7 +2,7 @@
 
 import type { Dispatch, GetState, ThunkAction, ReduxState } from '../types';
 
-const API_URL = 'https://jsonplaceholder.typicode.com/users';
+const API_URL = '/api/users';
 
 // Export this for unit testing more easily
 export const fetchUsers = (
