@@ -1,0 +1,38 @@
+@import '../../theme/variables';
+
+.header {
+  height: 126px;
+  background-color: $color-white;
+  background-image: url('../../images/logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.buttonMenu {
+  height: 48px !important;
+  margin-left: 64px !important;
+  margin-top: 44px !important;
+  color: $color-orange !important;
+  padding-right: 10px !important;
+
+  span {
+    font-size: 20px !important;
+  }
+}
+
+.buttonMenuArrow {
+  color: $color-grey !important;
+  position: relative;
+  top: 5px;
+  top: 8px;
+  left: 1px;
+  width: 20px !important;
+}
+
+.menu {
+  min-width: 268px;
+
+  a {
+    text-decoration: none;
+  }
+}
