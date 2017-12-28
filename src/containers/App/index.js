@@ -12,6 +12,7 @@ import routes from '../../routes';
 import HeaderContainer from '../HeaderContainer';
 // Import your global styles here
 import '../../theme/normalize.css';
+import '../../theme/fonts.css';
 import styles from './styles.scss';
 
 const App = (): Element<'div'> => {

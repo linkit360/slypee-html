@@ -14,19 +14,20 @@
   margin-top: 44px !important;
   color: $color-orange !important;
   padding-right: 10px !important;
+  width: 189px !important;
 
   span {
     font-size: 20px !important;
   }
 }
 
-.buttonMenuArrow {
-  color: $color-grey !important;
+.buttonMenuIcon {
+  color: $color-grey;
   position: relative;
   top: 5px;
   top: 8px;
-  left: 1px;
-  width: 20px !important;
+  left: 8px;
+  width: 20px;
 }
 
 .menu {
@@ -35,4 +36,23 @@
   a {
     text-decoration: none;
   }
+}
+
+.buttonSignIn {
+  position: absolute !important;
+  right: 67px;
+  top: 40px;
+  height: 48px !important;
+  padding-left: 10px !important;
+
+  span {
+    text-transform: none !important;
+    font-size: 20px !important;
+  }
+}
+
+.buttonSignInIcon {
+  color: $color-grey;
+  position: relative;
+  top: 10px;
 }

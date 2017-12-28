@@ -40,7 +40,7 @@ class Header extends React.Component {
           label="CATEGORIES"
           labelPosition="before"
           icon={
-            <Icon className={styles.buttonMenuArrow} name="arrow-drop-down" />
+            <Icon className={styles.buttonMenuIcon} name="arrow-drop-down" />
           }
         />
         <Popover
@@ -61,9 +61,17 @@ class Header extends React.Component {
           </Menu>
         </Popover>
         <FlatButton
+          className={styles.buttonSignIn}
           href="/signin"
           label="Sign in"
-          icon={<Icon className={styles.buttonSignIn} name="arrow-drop-down" />}
+          icon={
+            <Icon
+              className={styles.buttonSignInIcon}
+              name="account-circle"
+              width={30}
+              height={30}
+            />
+          }
         />
       </div>
     );
