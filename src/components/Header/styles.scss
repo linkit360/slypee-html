@@ -56,3 +56,24 @@
   position: relative;
   top: 10px;
 }
+
+.search {
+  border: 1px solid $color-light-gray;
+  border-radius: 1px;
+  height: 45px !important;
+  width: 306px !important;
+  padding-left: 20px;
+  box-sizing: border-box;
+
+  div:first-child {
+    font-size: 17.3px;
+    top: 10px;
+  }
+}
+
+.searchBlock {
+  display: inline-block;
+  position: absolute;
+  right: 243px;
+  top: 45px;
+}

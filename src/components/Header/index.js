@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import FlatButton from 'material-ui/FlatButton';
 import Popover from 'material-ui/Popover';
 import Menu from 'material-ui/Menu';
+import TextField from 'material-ui/TextField';
 import MenuItem from './MenuItem';
 import Icon from '../Interface/Icon';
 import styles from './styles.scss';
@@ -73,6 +74,13 @@ class Header extends React.Component {
             />
           }
         />
+        <div className={styles.searchBlock}>
+          <TextField
+            className={styles.search}
+            hintText="Search your content here"
+            underlineShow={false}
+          />
+        </div>
       </div>
     );
   }
