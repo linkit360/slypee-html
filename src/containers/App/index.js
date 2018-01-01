@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import _ from 'lodash/fp';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 import config from '../../config';
 import routes from '../../routes';
@@ -13,6 +14,12 @@ import routes from '../../routes';
 import '../../theme/normalize.css';
 import '../../theme/fonts.css';
 import styles from './styles.scss';
+
+const muiTheme = getMuiTheme({
+  palette: {
+    textColor: '#263238'
+  }
+});
 
 const App = (): Element<'div'> => {
   // wrap <Route> and use this everywhere instead, then when
@@ -30,7 +37,7 @@ const App = (): Element<'div'> => {
   );
 
   return (
-    <MuiThemeProvider>
+    <MuiThemeProvider muiTheme={muiTheme}>
       <div className={styles.App}>
         <Helmet {...config.app} />
         <Switch>{routes.map(route => RouteWithSubRoutes(route))}</Switch>

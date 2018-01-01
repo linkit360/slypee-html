@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import NotFoundPage from '_containers/NotFound';
+import NotFoundPage from '_pages/NotFound';
+import HeaderContainer from '_containers/HeaderContainer';
 import { bindActionCreators } from 'redux';
 import { fetchCategories, changeTab } from '_actions/categories';
-import Header from '_components/Header';
 
 const tabs = [
   '',
@@ -17,7 +17,7 @@ const tabs = [
   'videos'
 ];
 
-class MainContainer extends React.Component {
+class MainPage extends React.Component {
   static propTypes = {
     categories: PropTypes.object.isRequired,
     match: PropTypes.any.isRequired,
@@ -38,21 +38,14 @@ class MainContainer extends React.Component {
   };
 
   render() {
-    const { categories, match: { params: { tab } } } = this.props;
+    const { match: { params: { tab } } } = this.props;
     const activeTab = tab || '';
 
     if (!tabs.includes(activeTab)) {
       return <NotFoundPage />;
     }
 
-    return (
-      <Header
-        categories={categories.categories}
-        activeTab={activeTab}
-        onSearch={value => console.log(value)}
-        onTabChange={this.handleTabChange}
-      />
-    );
+    return <HeaderContainer activeTab={activeTab} />;
   }
 }
 
@@ -69,4 +62,4 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

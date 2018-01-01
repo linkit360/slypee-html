@@ -49,6 +49,8 @@ class Header extends React.Component {
   render() {
     const { categories, activeTab } = this.props;
 
+    console.log(styles.tabs);
+
     return (
       <div>
         <div className={styles.headerTop}>
