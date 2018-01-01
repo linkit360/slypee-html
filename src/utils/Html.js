@@ -1,5 +1,4 @@
 import React from 'react';
-import type { Element } from 'react';
 import Helmet from 'react-helmet';
 import serialize from 'serialize-javascript';
 import _ from 'lodash/fp';
@@ -44,7 +43,7 @@ const Html = ({ store, htmlContent }: Props): Element<'html'> => {
         ))}
         {/* Styles will be presented in development mode */}
         {/* I put all of the styles here to smoothen the flick */}
-        {_.keys(assets.styles).length === 0 ? (
+        {/* _.keys(assets.styles).length === 0 ? (
           <style
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{
@@ -58,7 +57,8 @@ const Html = ({ store, htmlContent }: Props): Element<'html'> => {
                 require('../components/UserCard/styles.scss')._style
             }}
           />
-        ) : null}
+        ) : null
+        */}
       </head>
       <body>
         <div

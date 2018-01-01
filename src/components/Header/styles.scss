@@ -1,6 +1,6 @@
 @import '../../theme/variables';
 
-.header {
+.headerTop {
   height: 126px;
   background-color: $color-white;
   background-image: url('../../images/logo.png');
@@ -10,8 +10,9 @@
 
 .buttonMenu {
   height: 48px !important;
-  margin-left: 64px !important;
-  margin-top: 44px !important;
+  position: absolute !important;
+  top: 44px;
+  left: 3%;
   color: $color-orange !important;
   padding-right: 10px !important;
   width: 189px !important;
@@ -33,6 +34,10 @@
 .menu {
   min-width: 268px;
 
+  span {
+    color: $color-black !important;
+  }
+
   a {
     text-decoration: none;
   }
@@ -40,10 +45,11 @@
 
 .buttonSignIn {
   position: absolute !important;
-  right: 67px;
+  right: 3.5%;
   top: 40px;
   height: 48px !important;
   padding-left: 10px !important;
+  color: $color-black !important;
 
   span {
     text-transform: none !important;
@@ -57,13 +63,22 @@
   top: 10px;
 }
 
+.searchBlock {
+  display: inline-block;
+  position: absolute;
+  right: 12.9%;
+  top: 45px;
+}
+
 .search {
   border: 1px solid $color-light-gray;
   border-radius: 1px;
   height: 45px !important;
   width: 306px !important;
   padding-left: 20px;
+  padding-right: 10px;
   box-sizing: border-box;
+  top: -3px;
 
   div:first-child {
     font-size: 17.3px;
@@ -71,9 +86,28 @@
   }
 }
 
-.searchBlock {
-  display: inline-block;
-  position: absolute;
-  right: 243px;
-  top: 45px;
+.buttonSearch {
+  background-color: $color-orange !important;
+  height: 45px !important;
+  width: 75px !important;
+  min-width: 75px !important;
+  position: relative !important;
+}
+
+.buttonSearchIcon {
+  color: white;
+  position: relative;
+  top: 5px;
+}
+
+.tabs {
+  div:nth-child(1) {
+    background-color: $color-black !important;
+  }
+
+  div:nth-child(2) {
+    div {
+      background-color: $color-orange !important;
+    }
+  }
 }

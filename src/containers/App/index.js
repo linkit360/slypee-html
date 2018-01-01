@@ -9,7 +9,6 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import config from '../../config';
 import routes from '../../routes';
-import HeaderContainer from '../HeaderContainer';
 // Import your global styles here
 import '../../theme/normalize.css';
 import '../../theme/fonts.css';
@@ -34,7 +33,6 @@ const App = (): Element<'div'> => {
     <MuiThemeProvider>
       <div className={styles.App}>
         <Helmet {...config.app} />
-        <HeaderContainer />
         <Switch>{routes.map(route => RouteWithSubRoutes(route))}</Switch>
       </div>
     </MuiThemeProvider>

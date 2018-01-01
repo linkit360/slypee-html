@@ -8,6 +8,7 @@ import { Provider } from 'react-redux';
 import createHistory from 'history/createBrowserHistory';
 import { ConnectedRouter } from 'react-router-redux';
 import RedBox from 'redbox-react';
+import rootSaga from '_sagas';
 
 import configureStore from './configureStore';
 
@@ -15,6 +16,8 @@ import configureStore from './configureStore';
 const initialState = window.__INITIAL_STATE__;
 const history = createHistory();
 const store = configureStore(history, initialState);
+store.runSaga(rootSaga);
+
 const mountNode = document.getElementById('react-view');
 
 const renderApp = () => {

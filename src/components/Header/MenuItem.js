@@ -1,30 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MenuItemMIU from 'material-ui/MenuItem';
 import { Link } from 'react-router-dom';
+import MenuItemMIU from 'material-ui/MenuItem';
 import styles from './styles.scss';
 
-class MenuItem extends React.Component {
-  static propTypes = {
-    primaryText: PropTypes.string.isRequired,
-    route: PropTypes.string.isRequired
-  };
+const MenuItem = ({ primaryText, route }) => (
+  <Link to={`/category/${route}`}>
+    <MenuItemMIU className={styles.Link} primaryText={primaryText} />
+  </Link>
+);
 
-  handleClick = event => {
-    const { route } = this.props;
-    event.preventDefault();
-
-    console.log(route);
-  };
-
-  render() {
-    const { primaryText, route } = this.props;
-    return (
-      <Link to={`/category/${route}`}>
-        <MenuItemMIU className={styles.Link} primaryText={primaryText} />
-      </Link>
-    );
-  }
-}
+MenuItem.propTypes = {
+  primaryText: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired
+};
 
 export default MenuItem;

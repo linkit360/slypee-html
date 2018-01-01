@@ -1,9 +1,25 @@
 const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
+const path = require('path');
 
 module.exports = {
   // debug: true,
   // webpack_assets_file_path: 'webpack-assets.json',
-  // webpack_stats_file_path: 'webpack-stats.json',
+  webpack_stats_file_path: 'webpack-stats.json',
+  modulesDirectories: ['src', 'node_modules'],
+  alias: {
+    _constants: path.resolve(process.cwd(), 'src/actions/constants'),
+    _sagas: path.resolve(process.cwd(), 'src/sagas'),
+    _api: path.resolve(process.cwd(), 'src/api'),
+    _reducers: path.resolve(process.cwd(), 'src/reducers'),
+    _actions: path.resolve(process.cwd(), 'src/actions'),
+    _components: path.resolve(process.cwd(), 'src/components'),
+    _containers: path.resolve(process.cwd(), 'src/containers'),
+    _pages: path.resolve(process.cwd(), 'src/pages'),
+    _styles: path.resolve(process.cwd(), 'src/styles'),
+    _utils: path.resolve(process.cwd(), 'src/utils'),
+    _images: path.resolve(process.cwd(), 'images'),
+    _modals: path.resolve(process.cwd(), 'src/modals')
+  },
   assets: {
     images: {
       extensions: ['png', 'jpg', 'jpeg', 'gif'],
