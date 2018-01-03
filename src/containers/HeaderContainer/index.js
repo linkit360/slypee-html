@@ -2,12 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchCategories, changeTab } from '_actions/categories';
+import { fetchCategories, changeTab } from '_actions';
 import Header from '_components/Header';
 
 class HeaderContainer extends React.Component {
   static propTypes = {
-    categories: PropTypes.object.isRequired,
+    categories: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     activeTab: PropTypes.string.isRequired,
     fetchCategories: PropTypes.func.isRequired,
     changeTab: PropTypes.func.isRequired
@@ -16,7 +16,7 @@ class HeaderContainer extends React.Component {
   componentWillMount() {
     const { categories } = this.props;
 
-    if (!categories.categories) {
+    if (!categories) {
       this.props.fetchCategories();
     }
   }
@@ -28,9 +28,13 @@ class HeaderContainer extends React.Component {
   render() {
     const { activeTab, categories } = this.props;
 
+    if (!categories) {
+      return null;
+    }
+
     return (
       <Header
-        categories={categories.categories}
+        categories={categories}
         activeTab={activeTab}
         onSearch={value => console.log(value)}
         onTabChange={this.handleTabChange}
@@ -40,7 +44,7 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories
+  categories: state.categories.list
 });
 
 const mapDispatchToProps = dispatch =>

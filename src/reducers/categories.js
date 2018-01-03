@@ -1,7 +1,7 @@
 import _ from 'lodash/fp';
 
 const initialState = {
-  categories: [
+  list: [
     { value: 'Auto', route: 'auto' },
     { value: 'Business', route: 'business' },
     { value: 'Videos', route: 'videos' },
@@ -32,18 +32,18 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'CATEGORIES_REQUESTING':
+    case 'FETCH_CATEGORIES_REQUEST':
       return _.assign(state, {
-        readyStatus: 'CATEGORIES_REQUESTING'
+        readyStatus: 'REQUESTING'
       });
-    case 'CATEGORIES_FAILURE':
+    case 'FETCH_CATEGORIES_FAILURE':
       return _.assign(state, {
-        readyStatus: 'CATEGORIES_FAILURE',
+        readyStatus: 'FAILURE',
         err: action.err
       });
-    case 'CATEGORIES_SUCCESS':
+    case 'FETCH_CATEGORIES_SUCCESS':
       return _.assign(state, {
-        readyStatus: 'CATEGORIES_SUCCESS',
+        readyStatus: 'SUCCESS',
         list: action.data
       });
     default:

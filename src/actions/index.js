@@ -7,4 +7,6 @@ export const changeTab = tabName => ({
   tabName
 });
 
-export const x = 10;
+export const fetchSlider = () => ({
+  type: 'FETCH_SLIDER_REQUEST'
+});

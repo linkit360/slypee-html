@@ -5,7 +5,7 @@ export const fetchCategories = () =>
     url: '/categories'
   });
 
-export const fetchCurrentCourses = courseSlug =>
+export const fetchSlider = () =>
   Req.GET({
-    url: `/courses/${courseSlug}`
+    url: '/slider'
   });

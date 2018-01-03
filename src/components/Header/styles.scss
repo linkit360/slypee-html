@@ -1,4 +1,4 @@
-@import '../../theme/variables';
+@import '~theme/variables';
 
 .headerTop {
   height: 126px;
@@ -100,13 +100,23 @@
 }
 
 .tabs {
+  background-color: $color-black !important;
+  padding-left: 4%;
+  padding-right: 2%;
+
+  button {
+    font-size: 20px !important;
+    height: 63px;
+  }
+
   div:nth-child(1) {
-    background-color: $color-black !important;
+    background-color: transparent !important;
   }
 
   div:nth-child(2) {
     div {
       background-color: $color-orange !important;
+      height: 6px !important;
     }
   }
 }

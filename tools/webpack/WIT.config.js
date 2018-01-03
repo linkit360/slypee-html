@@ -15,7 +15,7 @@ module.exports = {
     _components: path.resolve(process.cwd(), 'src/components'),
     _containers: path.resolve(process.cwd(), 'src/containers'),
     _pages: path.resolve(process.cwd(), 'src/pages'),
-    _styles: path.resolve(process.cwd(), 'src/styles'),
+    _theme: path.resolve(process.cwd(), 'src/theme'),
     _utils: path.resolve(process.cwd(), 'src/utils'),
     _images: path.resolve(process.cwd(), 'images'),
     _modals: path.resolve(process.cwd(), 'src/modals')

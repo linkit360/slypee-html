@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import NotFoundPage from '_pages/NotFound';
 import HeaderContainer from '_containers/HeaderContainer';
-import { bindActionCreators } from 'redux';
-import { fetchCategories, changeTab } from '_actions/categories';
+import HomeContainer from '_containers/HomeContainer';
 
 const tabs = [
   '',
@@ -17,24 +15,18 @@ const tabs = [
   'videos'
 ];
 
-class MainPage extends React.Component {
-  static propTypes = {
-    categories: PropTypes.object.isRequired,
-    match: PropTypes.any.isRequired,
-    fetchCategories: PropTypes.func.isRequired,
-    changeTab: PropTypes.func.isRequired
-  };
-
-  componentWillMount() {
-    const { categories } = this.props;
-
-    if (!categories.categories) {
-      this.props.fetchCategories();
-    }
+const getContent = activeTab => {
+  switch (activeTab) {
+    case '':
+      return <HomeContainer />;
+    default:
+      return null;
   }
+};
 
-  handleTabChange = value => {
-    this.props.changeTab(value);
+class MainPage extends React.PureComponent {
+  static propTypes = {
+    match: PropTypes.any.isRequired
   };
 
   render() {
@@ -45,21 +37,13 @@ class MainPage extends React.Component {
       return <NotFoundPage />;
     }
 
-    return <HeaderContainer activeTab={activeTab} />;
+    return (
+      <div>
+        <HeaderContainer activeTab={activeTab} />
+        {getContent(activeTab)}
+      </div>
+    );
   }
 }
 
-const mapStateToProps = state => ({
-  categories: state.categories
-});
-
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(
-    {
-      fetchCategories,
-      changeTab
-    },
-    dispatch
-  );
-
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default MainPage;

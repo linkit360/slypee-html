@@ -4,23 +4,32 @@ import * as api from '_api';
 
 import { push } from 'react-router-redux';
 
-function* fetchCategories() {
+function* fetch(name, apiFunc) {
   try {
-    const response = yield call(api.fetchCategories);
+    const data = yield call(apiFunc);
 
-    yield put({ type: 'FETCH_CATEGORIES_SUCCESS', response });
+    yield put({ type: `FETCH_${name}_SUCCESS`, data });
   } catch (e) {
-    yield put({ type: 'FETCH_CATEGORIES_FAILURE', message: e.message });
+    yield put({ type: `FETCH_${name}_FAILURE'}`, err: e.message });
   }
+}
+
+function* fetchCategories() {
+  yield fetch('CATEGORIES', api.fetchCategories);
 }
 
 function* changeTab({ tabName }) {
   yield put(push(`/${tabName}`));
 }
 
+function* fetchSlider() {
+  yield fetch('SLIDER', api.fetchCategories);
+}
+
 export default function*() {
   yield all([
     takeLatest('FETCH_CATEGORIES_REQUEST', fetchCategories),
-    takeLatest('CHANGE_TAB', changeTab)
+    takeLatest('CHANGE_TAB', changeTab),
+    takeLatest('FETCH_SLIDER_REQUEST', fetchSlider)
   ]);
 }

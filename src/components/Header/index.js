@@ -17,20 +17,20 @@ class Header extends React.Component {
     onTabChange: PropTypes.func.isRequired
   };
 
-  state = { open: false };
+  state = { isMenuOpen: false };
 
   handleClick = event => {
     event.preventDefault();
 
     this.setState({
-      open: true,
+      isMenuOpen: true,
       anchorEl: event.currentTarget
     });
   };
 
   handleRequestClose = () => {
     this.setState({
-      open: false
+      isMenuOpen: false
     });
   };
 
@@ -48,8 +48,7 @@ class Header extends React.Component {
 
   render() {
     const { categories, activeTab } = this.props;
-
-    console.log(styles.tabs);
+    const { isMenuOpen } = this.state;
 
     return (
       <div>
@@ -64,7 +63,7 @@ class Header extends React.Component {
             }
           />
           <Popover
-            open={this.state.open}
+            open={isMenuOpen}
             anchorEl={this.state.anchorEl}
             anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
             targetOrigin={{ horizontal: 'left', vertical: 'top' }}
