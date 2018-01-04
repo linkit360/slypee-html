@@ -31,11 +31,18 @@
   width: 20px;
 }
 
+.menuPopover {
+  width: 252px;
+}
+
 .menu {
   min-width: 268px;
 
   span {
     color: $color-black !important;
+    font-size: 18px !important;
+    line-height: 50px !important;
+    margin-left: 20px !important;
   }
 
   a {

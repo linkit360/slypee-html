@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import FlatButton from 'material-ui/FlatButton';
-import Slick from 'react-slick';
+import Slick from '_components/interface/Slick';
 import styles from './styles.scss';
 
 class Slider extends React.PureComponent {
@@ -9,20 +9,11 @@ class Slider extends React.PureComponent {
     slides: PropTypes.arrayOf(PropTypes.object).isRequired
   };
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.root.innerSlider.onWindowResized();
-    }, 0);
-  }
-
-  rootRef = ref => (this.root = ref);
-
   render() {
     const { slides } = this.props;
 
     return (
       <Slick
-        ref={this.rootRef}
         className={styles.slider}
         dots
         infinite
@@ -30,6 +21,7 @@ class Slider extends React.PureComponent {
         slidesToShow={1}
         slidesToScroll={1}
         arrows={false}
+        startResizeHack
       >
         {slides.map((slide, index) => (
           <div

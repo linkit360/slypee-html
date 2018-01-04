@@ -63,6 +63,7 @@ class Header extends React.Component {
             }
           />
           <Popover
+            className={styles.menuPopover}
             open={isMenuOpen}
             anchorEl={this.state.anchorEl}
             anchorOrigin={{ horizontal: 'left', vertical: 'bottom' }}
