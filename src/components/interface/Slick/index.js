@@ -1,18 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ReactSlick from 'react-slick';
 import './styles.scss';
 
-class Slick extends React.PureComponent {
-  static propTypes = {
-    startResizeHack: PropTypes.bool.isRequired
-  };
-
+export default class Slick extends React.PureComponent {
   componentDidMount() {
     setTimeout(() => {
-      if (this.props.startResizeHack) {
-        this.root.innerSlider.onWindowResized();
-      }
+      this.root.innerSlider.onWindowResized();
     }, 0);
   }
 
@@ -22,5 +15,3 @@ class Slick extends React.PureComponent {
     return <ReactSlick ref={this.rootRef} {...this.props} />;
   }
 }
-
-export default Slick;

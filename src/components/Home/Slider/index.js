@@ -4,7 +4,7 @@ import FlatButton from 'material-ui/FlatButton';
 import Slick from '_components/interface/Slick';
 import styles from './styles.scss';
 
-class Slider extends React.PureComponent {
+export default class Slider extends React.PureComponent {
   static propTypes = {
     slides: PropTypes.arrayOf(PropTypes.object).isRequired
   };
@@ -48,5 +48,3 @@ class Slider extends React.PureComponent {
     );
   }
 }
-
-export default Slider;

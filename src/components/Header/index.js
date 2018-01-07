@@ -9,7 +9,7 @@ import Icon from '_components/interface/Icon';
 import MenuItem from './MenuItem';
 import styles from './styles.scss';
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   static propTypes = {
     categories: PropTypes.arrayOf(PropTypes.object).isRequired,
     activeTab: PropTypes.string.isRequired,
@@ -132,5 +132,3 @@ class Header extends React.Component {
     );
   }
 }
-
-export default Header;

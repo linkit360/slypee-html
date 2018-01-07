@@ -7,3 +7,8 @@
   font-family: Roboto-Black;
   src: url(../fonts/Roboto-Black.ttf);
 }
+
+@font-face {
+  font-family: Roboto-Regular;
+  src: url(../fonts/Roboto-Regular.ttf);
+}

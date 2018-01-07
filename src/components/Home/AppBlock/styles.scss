@@ -1,0 +1,40 @@
+.header {
+  margin-top: 53px;
+  height: 66px;
+  position: relative;
+}
+
+.name {
+  font-size: 27px;
+  text-transform: uppercase;
+  padding-left: 3px;
+}
+
+.buttonMore {
+  width: 91px !important;
+  height: 47px !important;
+  background-color: #4db6ac !important;
+  position: absolute !important;
+  right: 8px;
+  top: -5px;
+
+  span {
+    color: white !important;
+    line-height: 47px;
+  }
+}
+
+.card {
+  position: relative;
+  left: 4px;
+}
+
+.slick {
+  margin-right: -16px;
+
+  :global {
+    .slick-list {
+      height: 420px;
+    }
+  }
+}

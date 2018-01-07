@@ -4,8 +4,8 @@
   :global {
     .slick-dots {
       width: 120px;
-      bottom: 8%;
-      right: 3.5%;
+      bottom: 8.5%;
+      right: 4%;
 
       li {
         width: 12px;
@@ -27,6 +27,7 @@
 }
 
 .slide {
+  color: white;
   background-size: cover;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
@@ -44,7 +45,7 @@
 
 .sliderTextBlock {
   position: absolute;
-  top: 18%;
+  top: 18.9%;
   left: 11.5%;
 }
 
@@ -67,8 +68,8 @@
 }
 
 .sliderButton {
-  margin-top: 56px !important;
-  margin-left: 6px !important;
+  margin-top: 54px !important;
+  margin-left: 10px !important;
   width: 225px !important;
   height: 68px !important;
   background-color: $color-orange !important;

@@ -1,0 +1,60 @@
+@import '~theme/variables';
+
+.card {
+  width: 224px;
+  height: 395px;
+  border-radius: 4px !important;
+  padding-top: 11px;
+  position: relative;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  margin: auto;
+}
+
+.content {
+  padding: 0 33px;
+  padding-top: 21px;
+}
+
+.link {
+  text-decoration: none;
+  color: $color-black;
+  font-size: 20px;
+  line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  &:visited,
+  &:active {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.category {
+  font-family: 'Roboto-Regular', sans-serif;
+  color: #9e9e9e;
+  font-size: 15px;
+  margin-top: 4px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 29px;
+  left: 29px;
+}
+
+.cost {
+  position: relative;
+  top: 2px;
+}
