@@ -17,11 +17,22 @@ export default class AppBlock extends React.PureComponent {
 
   handleSliderChange = (e, value) => {
     const { apps } = this.props;
-    console.log(Math.round(value * (apps.length - SLIDES_TO_SHOW)));
-    this.slick.root.innerSlider.slickGoTo(
-      Math.round(value * (apps.length - SLIDES_TO_SHOW))
-    );
+    const index = Math.round(value * (apps.length - SLIDES_TO_SHOW));
+    this.slickIndex = index;
+    setTimeout(() => {
+      this.slickGoTo(this.slickIndex);
+    }, 200);
   };
+
+  handleSlickChange = index => {
+    if (index !== this.slickIndex) {
+      this.slickGoTo(this.slickIndex);
+    }
+  };
+
+  slickGoTo(index) {
+    this.slick.root.innerSlider.slickGoTo(index);
+  }
 
   slickRef = ref => (this.slick = ref);
 
@@ -41,6 +52,7 @@ export default class AppBlock extends React.PureComponent {
           arrows={false}
           infinite={false}
           draggable={false}
+          afterChange={this.handleSlickChange}
         >
           {apps.map((app, index) => (
             <div key={index} className={styles.card}>
@@ -48,7 +60,7 @@ export default class AppBlock extends React.PureComponent {
             </div>
           ))}
         </Slick>
-        <Slider onChange={this.handleSliderChange} />
+        <Slider className={styles.slider} onChange={this.handleSliderChange} />
       </div>
     );
   }
