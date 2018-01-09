@@ -10,3 +10,7 @@ export const changeTab = tabName => ({
 export const fetchSlider = () => ({
   type: 'FETCH_SLIDER_REQUEST'
 });
+
+export const goToSearch = () => ({
+  type: 'GO_TO_SEARCH'
+});

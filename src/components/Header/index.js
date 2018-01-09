@@ -12,12 +12,20 @@ import styles from './styles.scss';
 export default class Header extends React.Component {
   static propTypes = {
     categories: PropTypes.arrayOf(PropTypes.object).isRequired,
+    lastTimeGoToSearch: PropTypes.instanceOf(Date).isRequired,
     activeTab: PropTypes.string.isRequired,
     onSearch: PropTypes.func.isRequired,
     onTabChange: PropTypes.func.isRequired
   };
 
   state = { isMenuOpen: false };
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.lastTimeGoToSearch !== this.props.lastTimeGoToSearch) {
+      window.scrollTo(0, 0);
+      this.searchInput.focus();
+    }
+  }
 
   handleClick = event => {
     event.preventDefault();
@@ -45,6 +53,8 @@ export default class Header extends React.Component {
   handleTabChange = value => {
     this.props.onTabChange(value);
   };
+
+  searchRef = ref => (this.searchInput = ref);
 
   render() {
     const { categories, activeTab } = this.props;
@@ -95,6 +105,7 @@ export default class Header extends React.Component {
           />
           <div className={styles.searchBlock}>
             <TextField
+              ref={this.searchRef}
               className={styles.search}
               hintText="Search your content here"
               underlineShow={false}

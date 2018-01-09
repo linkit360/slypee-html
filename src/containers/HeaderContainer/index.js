@@ -8,6 +8,7 @@ import Header from '_components/Header';
 class HeaderContainer extends React.Component {
   static propTypes = {
     categories: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    lastTimeGoToSearch: PropTypes.instanceOf(Date).isRequired,
     activeTab: PropTypes.string.isRequired,
     fetchCategories: PropTypes.func.isRequired,
     changeTab: PropTypes.func.isRequired
@@ -26,7 +27,7 @@ class HeaderContainer extends React.Component {
   };
 
   render() {
-    const { activeTab, categories } = this.props;
+    const { activeTab, categories, lastTimeGoToSearch } = this.props;
 
     if (!categories) {
       return null;
@@ -35,6 +36,7 @@ class HeaderContainer extends React.Component {
     return (
       <Header
         categories={categories}
+        lastTimeGoToSearch={lastTimeGoToSearch}
         activeTab={activeTab}
         onSearch={value => console.log(value)}
         onTabChange={this.handleTabChange}
@@ -44,7 +46,8 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories.list
+  categories: state.categories.list,
+  lastTimeGoToSearch: state.header.lastTimeGoToSearch
 });
 
 const mapDispatchToProps = dispatch =>

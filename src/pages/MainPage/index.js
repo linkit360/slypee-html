@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import NotFoundPage from '_pages/NotFound';
 import HeaderContainer from '_containers/HeaderContainer';
 import HomeContainer from '_containers/HomeContainer';
+import FooterContainer from '_containers/FooterContainer';
 
 const tabs = [
   '',
@@ -41,6 +42,7 @@ class MainPage extends React.PureComponent {
       <div>
         <HeaderContainer activeTab={activeTab} />
         {getContent(activeTab)}
+        <FooterContainer />
       </div>
     );
   }
