@@ -1,0 +1,53 @@
+@import '~theme/variables';
+
+.mobileSearchBlock {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  padding-top: 28px;
+  box-sizing: border-box;
+
+  @media (min-width: $width-portrait-tablet) {
+    display: none;
+  }
+
+  &.isSearchMode {
+    background-color: $color-white;
+  }
+}
+
+.buttonSearch {
+  background-color: $color-orange !important;
+  height: 38px !important;
+  width: 38px !important;
+  min-width: 38px !important;
+  position: absolute !important;
+  right: 10px;
+  top: 25px;
+}
+
+.search {
+  border: 1px solid $color-light-gray;
+  border-radius: 1px;
+  height: 38px !important;
+  width: auto !important;
+  padding-left: 12px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  top: -3px;
+  display: block !important;
+
+  div:first-child {
+    font-size: 14px;
+    top: 10px;
+    top: 5px;
+  }
+}
+
+.buttonSearchIcon {
+  color: white;
+  position: relative;
+  top: 5px;
+  width: 24px;
+}

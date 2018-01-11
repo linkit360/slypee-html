@@ -6,6 +6,13 @@
   background-image: url('../../images/logo.png');
   background-repeat: no-repeat;
   background-position: center;
+  position: relative;
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 88px;
+    background-size: 112px;
+    background-position-x: 115px;
+  }
 }
 
 .buttonMenu {
@@ -20,6 +27,10 @@
   span {
     font-size: 20px !important;
   }
+
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
 }
 
 .buttonMenuIcon {
@@ -31,22 +42,30 @@
   width: 20px;
 }
 
-.menuPopover {
-  width: 252px;
+.buttonMenuMobile {
+  position: absolute;
+  top: 32px;
+  left: 15px;
+
+  @media (min-width: $width-portrait-tablet) {
+    display: none;
+  }
 }
 
-.menu {
-  min-width: 268px;
+.menuPopover {
+  width: 252px;
 
-  span {
-    color: $color-black !important;
-    font-size: 18px !important;
-    line-height: 50px !important;
-    margin-left: 20px !important;
+  @media (max-width: $width-portrait-tablet) {
+    left: 0 !important;
+    width: 280px;
   }
 
-  a {
-    text-decoration: none;
+  & > div {
+    overflow-x: hidden;
+
+    & > div {
+      overflow-y: hidden;
+    }
   }
 }
 
@@ -61,6 +80,10 @@
     text-transform: none !important;
     font-size: 20px !important;
   }
+
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
 }
 
 .buttonSignInIcon {
@@ -74,6 +97,10 @@
   position: absolute;
   right: 12.9%;
   top: 45px;
+
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
 }
 
 .search {
@@ -111,9 +138,24 @@
   padding-left: 4%;
   padding-right: 2.5%;
 
+  @media (max-width: $width-portrait-tablet) {
+    padding-left: 10px;
+    padding-right: 10px;
+    min-width: 590px;
+  }
+
   button {
     font-size: 20px !important;
     height: 63px;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 12px !important;
+      height: 35px;
+
+      & > div > div {
+        height: 35px !important;
+      }
+    }
   }
 
   div:nth-child(1) {
@@ -124,6 +166,24 @@
     div {
       background-color: $color-orange !important;
       height: 6px !important;
+
+      @media (max-width: $width-portrait-tablet) {
+        height: 3px !important;
+      }
     }
   }
+}
+
+.overflowScrollingWrapper {
+  background-color: $color-black !important;
+  overflow: hidden;
+  height: 67px;
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 36px;
+  }
+}
+
+.overflowScrolling {
+  overflow-x: scroll;
 }

@@ -1,0 +1,99 @@
+@import '~theme/variables';
+
+.header {
+  color: white;
+  background-color: $color-orange;
+  height: 160px;
+
+  @media (min-width: $width-portrait-tablet) {
+    display: none;
+  }
+}
+
+.mobileItems {
+  padding-bottom: 9px;
+
+  @media (min-width: $width-portrait-tablet) {
+    display: none;
+  }
+}
+
+.menu {
+  min-width: 268px;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.buttonLink {
+  color: $color-black !important;
+  font-size: 18px !important;
+  line-height: 50px !important;
+  padding-left: 20px !important;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 14px !important;
+    padding-left: 35px !important;
+    height: 40px;
+    min-height: 40px !important;
+  }
+}
+
+.buttonUser {
+  height: 53px;
+}
+
+.buttonLogout {
+  min-height: 44px !important;
+  line-height: 40px !important;
+
+  svg {
+    margin-top: 9px !important;
+  }
+}
+
+.buttonUser,
+.buttonLogout {
+  & > div > div {
+    padding-left: 49px !important;
+  }
+}
+
+.buttonUser,
+.buttonLogout,
+.buttonLink {
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 14px !important;
+  }
+}
+
+.avatar {
+  height: 58px;
+  width: 58px;
+  background-size: cover;
+  border-radius: 50%;
+  position: absolute;
+  top: 18px;
+  left: 18px;
+}
+
+.userName {
+  position: absolute;
+  top: 88px;
+  left: 17px;
+  font-size: 20px;
+}
+
+.userMail {
+  position: absolute;
+  top: 116px;
+  left: 17px;
+  font-size: 12px;
+}
+
+.buttonClose {
+  position: absolute;
+  left: 242px;
+  top: 14px;
+}

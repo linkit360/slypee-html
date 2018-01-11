@@ -24,6 +24,10 @@ const iconsSvg = {
   home: <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />,
   person: (
     <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+  ),
+  menu: <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />,
+  close: (
+    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
   )
 };
 
@@ -32,7 +36,8 @@ export default class Icon extends React.PureComponent {
     className: PropTypes.string,
     name: PropTypes.string.isRequired,
     width: PropTypes.number,
-    height: PropTypes.number
+    height: PropTypes.number,
+    onClick: PropTypes.func
   };
 
   static defaultProps = {
@@ -42,7 +47,7 @@ export default class Icon extends React.PureComponent {
   };
 
   render() {
-    const { className, name, width, height } = this.props;
+    const { className, name, width, height, onClick } = this.props;
 
     return (
       <svg
@@ -50,6 +55,7 @@ export default class Icon extends React.PureComponent {
         height={height}
         viewBox="0 0 24 24"
         className={classNames(styles.svg, className)}
+        onClick={onClick}
       >
         {iconsSvg[name]}
       </svg>

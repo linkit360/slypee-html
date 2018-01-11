@@ -2,12 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FlatButton from 'material-ui/FlatButton';
 import Popover from 'material-ui/Popover';
-import Menu from 'material-ui/Menu';
 import TextField from 'material-ui/TextField';
 import { Tabs, Tab } from 'material-ui/Tabs';
+import OverflowScrolling from 'react-overflow-scrolling';
 import Icon from '_components/interface/Icon';
-import MenuItem from './MenuItem';
+import MobileSearchBlock from './MobileSearchBlock';
+import Menu from './Menu';
 import styles from './styles.scss';
+
+const user = {
+  avatar:
+    'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
+  name: 'Jack Jackson',
+  mail: 'jack_jacson@gmal.com'
+};
 
 export default class Header extends React.Component {
   static propTypes = {
@@ -27,7 +35,7 @@ export default class Header extends React.Component {
     }
   }
 
-  handleClick = event => {
+  handleButtonMenuClick = event => {
     event.preventDefault();
 
     this.setState({
@@ -65,12 +73,17 @@ export default class Header extends React.Component {
         <div className={styles.headerTop}>
           <FlatButton
             className={styles.buttonMenu}
-            onClick={this.handleClick}
+            onClick={this.handleButtonMenuClick}
             label="CATEGORIES"
             labelPosition="before"
             icon={
               <Icon className={styles.buttonMenuIcon} name="arrow-drop-down" />
             }
+          />
+          <Icon
+            className={styles.buttonMenuMobile}
+            name="menu"
+            onClick={this.handleButtonMenuClick}
           />
           <Popover
             className={styles.menuPopover}
@@ -80,15 +93,12 @@ export default class Header extends React.Component {
             targetOrigin={{ horizontal: 'left', vertical: 'top' }}
             onRequestClose={this.handleRequestClose}
           >
-            <Menu className={styles.menu}>
-              {categories.map((item, index) => (
-                <MenuItem
-                  key={index}
-                  primaryText={item.value}
-                  route={item.route}
-                />
-              ))}
-            </Menu>
+            <Menu
+              categories={categories}
+              isAutorizedUser
+              user={user}
+              onClose={this.handleRequestClose}
+            />
           </Popover>
           <FlatButton
             className={styles.buttonSignIn}
@@ -102,6 +112,10 @@ export default class Header extends React.Component {
                 height={30}
               />
             }
+          />
+          <MobileSearchBlock
+            onSearchChange={this.handleSearchChange}
+            onSearch={this.handleSearchClick}
           />
           <div className={styles.searchBlock}>
             <TextField
@@ -125,20 +139,24 @@ export default class Header extends React.Component {
             />
           </div>
         </div>
-        <Tabs
-          className={styles.tabs}
-          value={activeTab}
-          onChange={this.handleTabChange}
-        >
-          <Tab value="" label="home" />
-          <Tab value="topcharts" label="top charts" />
-          <Tab value="games" label="games" />
-          <Tab value="educations" label="educations" />
-          <Tab value="business" label="business" />
-          <Tab value="lifestyle" label="lifestyle" />
-          <Tab value="sociallife" label="social life" />
-          <Tab value="videos" label="videos" />
-        </Tabs>
+        <div className={styles.overflowScrollingWrapper}>
+          <OverflowScrolling className={styles.overflowScrolling}>
+            <Tabs
+              className={styles.tabs}
+              value={activeTab}
+              onChange={this.handleTabChange}
+            >
+              <Tab value="" label="home" />
+              <Tab value="topcharts" label="top charts" />
+              <Tab value="games" label="games" />
+              <Tab value="educations" label="educations" />
+              <Tab value="business" label="business" />
+              <Tab value="lifestyle" label="lifestyle" />
+              <Tab value="sociallife" label="social life" />
+              <Tab value="videos" label="videos" />
+            </Tabs>
+          </OverflowScrolling>
+        </div>
       </div>
     );
   }

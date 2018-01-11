@@ -1,9 +1,16 @@
+
+@import '~theme/variables';
+
 .footer {
   height: 77px;
   background-color: #d6d5d5;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: $width-portrait-tablet) {
+    display: none;
+  }
 }
 
 .copyright {

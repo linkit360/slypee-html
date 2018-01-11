@@ -10,7 +10,7 @@ const apps = [
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
     href:
       'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
-    name: '1 Jungle Monkey Run Version Abrakadabra',
+    name: '1 Jungle Monkey',
     category: 'Arcade Games',
     rating: 3.6,
     cost: {

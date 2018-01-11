@@ -24,12 +24,6 @@ export default class AppBlock extends React.PureComponent {
     }, 200);
   };
 
-  handleSlickChange = index => {
-    if (index !== this.slickIndex) {
-      this.slickGoTo(this.slickIndex);
-    }
-  };
-
   slickGoTo(index) {
     this.slick.root.innerSlider.slickGoTo(index);
   }
