@@ -297,15 +297,15 @@ const appBlocks = [appBlock, appBlock, appBlock];
 
 export default class Home extends React.PureComponent {
   static propTypes = {
-    slider: PropTypes.arrayOf(PropTypes.object).isRequired
+    main: PropTypes.object.isRequired
   };
 
   render() {
-    const { slider } = this.props;
+    const { main } = this.props;
 
     return (
       <div>
-        <Slider slides={slider} />
+        <Slider slides={main.slider} />
         <div className={styles.content}>
           {appBlocks.map((appBlock, index) => (
             <AppBlock
