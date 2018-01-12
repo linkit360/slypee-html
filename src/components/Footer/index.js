@@ -24,9 +24,17 @@ export default class Footer extends React.PureComponent {
             onClick={onNavigationItemClick}
           />
           <NavigationItem
+            className={styles.desktop}
             label="Search"
             iconName="search"
             value="search"
+            onClick={onNavigationItemClick}
+          />
+          <NavigationItem
+            className={styles.mobile}
+            label="Search"
+            iconName="search"
+            value="mobileSearch"
             onClick={onNavigationItemClick}
           />
           <NavigationItem
@@ -36,6 +44,14 @@ export default class Footer extends React.PureComponent {
             onClick={onNavigationItemClick}
           />
           <NavigationItem
+            className={styles.desktop}
+            label="User account"
+            iconName="person"
+            value="user"
+            onClick={onNavigationItemClick}
+          />
+          <NavigationItem
+            className={styles.mobile}
             label="Account"
             iconName="person"
             value="user"

@@ -14,3 +14,7 @@ export const fetchSlider = () => ({
 export const goToSearch = () => ({
   type: 'GO_TO_SEARCH'
 });
+
+export const goToMobileSearch = () => ({
+  type: 'GO_TO_MOBILE_SEARCH'
+});

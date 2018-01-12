@@ -9,6 +9,7 @@ class HeaderContainer extends React.Component {
   static propTypes = {
     categories: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     lastTimeGoToSearch: PropTypes.instanceOf(Date).isRequired,
+    lastTimeGoToMobileSearch: PropTypes.instanceOf(Date).isRequired,
     activeTab: PropTypes.string.isRequired,
     fetchCategories: PropTypes.func.isRequired,
     changeTab: PropTypes.func.isRequired
@@ -27,7 +28,12 @@ class HeaderContainer extends React.Component {
   };
 
   render() {
-    const { activeTab, categories, lastTimeGoToSearch } = this.props;
+    const {
+      activeTab,
+      categories,
+      lastTimeGoToSearch,
+      lastTimeGoToMobileSearch
+    } = this.props;
 
     if (!categories) {
       return null;
@@ -37,6 +43,7 @@ class HeaderContainer extends React.Component {
       <Header
         categories={categories}
         lastTimeGoToSearch={lastTimeGoToSearch}
+        lastTimeGoToMobileSearch={lastTimeGoToMobileSearch}
         activeTab={activeTab}
         onSearch={value => console.log(value)}
         onTabChange={this.handleTabChange}
@@ -47,7 +54,8 @@ class HeaderContainer extends React.Component {
 
 const mapStateToProps = state => ({
   categories: state.categories.list,
-  lastTimeGoToSearch: state.header.lastTimeGoToSearch
+  lastTimeGoToSearch: state.header.lastTimeGoToSearch,
+  lastTimeGoToMobileSearch: state.header.lastTimeGoToMobileSearch
 });
 
 const mapDispatchToProps = dispatch =>

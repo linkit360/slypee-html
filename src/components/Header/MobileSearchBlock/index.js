@@ -8,6 +8,7 @@ import styles from './styles.scss';
 
 export default class MobileSearchBlock extends React.Component {
   static propTypes = {
+    lastTimeGoToMobileSearch: PropTypes.instanceOf(Date).isRequired,
     onSearchChange: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired
   };
@@ -15,6 +16,15 @@ export default class MobileSearchBlock extends React.Component {
   state = {
     isSearchMode: false
   };
+
+  componentWillReceiveProps(nextProps) {
+    if (
+      nextProps.lastTimeGoToMobileSearch !== this.props.lastTimeGoToMobileSearch
+    ) {
+      window.scrollTo(0, 0);
+      this.toogleSearchMode(true);
+    }
+  }
 
   handleSearchClick = () => {
     const { onSearch } = this.props;
@@ -30,6 +40,8 @@ export default class MobileSearchBlock extends React.Component {
   toogleSearchMode(isSearchMode) {
     this.setState({ isSearchMode });
   }
+
+  searchRef = ref => (this.searchInput = ref);
 
   render() {
     const { isSearchMode } = this.state;

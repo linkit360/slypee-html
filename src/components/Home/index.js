@@ -307,8 +307,9 @@ export default class Home extends React.PureComponent {
       <div>
         <Slider slides={slider} />
         <div className={styles.content}>
-          {appBlocks.map(appBlock => (
+          {appBlocks.map((appBlock, index) => (
             <AppBlock
+              key={index}
               name={appBlock.name}
               href={appBlock.href}
               apps={appBlock.apps}

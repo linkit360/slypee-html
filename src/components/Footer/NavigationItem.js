@@ -6,6 +6,7 @@ import styles from './styles.scss';
 
 export default class NavigationItem extends React.PureComponent {
   static propTypes = {
+    className: PropTypes.string,
     label: PropTypes.string.isRequired,
     iconName: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
@@ -19,10 +20,11 @@ export default class NavigationItem extends React.PureComponent {
   };
 
   render() {
-    const { label, iconName } = this.props;
+    const { className, label, iconName } = this.props;
 
     return (
       <BottomNavigationItem
+        className={className}
         label={label}
         icon={<Icon name={iconName} className={styles.icon} />}
         onClick={this.handleClick}

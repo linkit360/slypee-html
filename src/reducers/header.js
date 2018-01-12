@@ -1,7 +1,8 @@
 import _ from 'lodash/fp';
 
 const initialState = {
-  lastTimeGoToSearch: new Date()
+  lastTimeGoToSearch: new Date(),
+  lastTimeGoToMobileSearch: new Date()
 };
 
 export default (state = initialState, action) => {
@@ -9,6 +10,10 @@ export default (state = initialState, action) => {
     case 'GO_TO_SEARCH':
       return _.assign(state, {
         lastTimeGoToSearch: new Date()
+      });
+    case 'GO_TO_MOBILE_SEARCH':
+      return _.assign(state, {
+        lastTimeGoToMobileSearch: new Date()
       });
     default:
       return state;

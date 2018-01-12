@@ -1,6 +1,18 @@
 
 @import '~theme/variables';
 
+.desktop {
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
+.mobile {
+  @media (min-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
 .footer {
   height: 77px;
   background-color: #d6d5d5;

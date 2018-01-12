@@ -21,6 +21,7 @@ export default class Header extends React.Component {
   static propTypes = {
     categories: PropTypes.arrayOf(PropTypes.object).isRequired,
     lastTimeGoToSearch: PropTypes.instanceOf(Date).isRequired,
+    lastTimeGoToMobileSearch: PropTypes.instanceOf(Date).isRequired,
     activeTab: PropTypes.string.isRequired,
     onSearch: PropTypes.func.isRequired,
     onTabChange: PropTypes.func.isRequired
@@ -65,7 +66,7 @@ export default class Header extends React.Component {
   searchRef = ref => (this.searchInput = ref);
 
   render() {
-    const { categories, activeTab } = this.props;
+    const { categories, activeTab, lastTimeGoToMobileSearch } = this.props;
     const { isMenuOpen } = this.state;
 
     return (
@@ -114,6 +115,7 @@ export default class Header extends React.Component {
             }
           />
           <MobileSearchBlock
+            lastTimeGoToMobileSearch={lastTimeGoToMobileSearch}
             onSearchChange={this.handleSearchChange}
             onSearch={this.handleSearchClick}
           />
