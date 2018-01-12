@@ -9,3 +9,8 @@ export const fetchSlider = () =>
   Req.GET({
     url: '/slider'
   });
+
+export const fetchMain = () =>
+  Req.GET({
+    url: '/main'
+  });

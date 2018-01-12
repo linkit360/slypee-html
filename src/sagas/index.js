@@ -22,14 +22,14 @@ function* changeTab({ tabName }) {
   yield put(push(`/${tabName}`));
 }
 
-function* fetchSlider() {
-  yield fetch('SLIDER', api.fetchCategories);
+function* fetchMain() {
+  yield fetch('FETCH_MAIN_REQUEST', api.fetchMain);
 }
 
 export default function*() {
   yield all([
     takeLatest('FETCH_CATEGORIES_REQUEST', fetchCategories),
     takeLatest('CHANGE_TAB', changeTab),
-    takeLatest('FETCH_SLIDER_REQUEST', fetchSlider)
+    takeLatest('FETCH_MAIN_REQUEST', fetchMain)
   ]);
 }

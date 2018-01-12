@@ -20,7 +20,7 @@ import App from './containers/App';
 import routes from './routes';
 import { port, host } from './config';
 
-const DEV_HOST = 'https://jsonplaceholder.typicode.com';
+const DEV_HOST = 'http://slypee-direct.snpdev.ru/api/';
 
 const app = express();
 

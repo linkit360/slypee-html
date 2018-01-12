@@ -18,3 +18,7 @@ export const goToSearch = () => ({
 export const goToMobileSearch = () => ({
   type: 'GO_TO_MOBILE_SEARCH'
 });
+
+export const fetchMain = () => ({
+  type: 'FETCH_MAIN_REQUEST'
+});

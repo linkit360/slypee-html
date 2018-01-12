@@ -1,26 +1,45 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { fetchMain } from '_actions';
 import Home from '_components/Home';
 
 class HomeContainer extends React.Component {
   static propTypes = {
-    slider: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
+    main: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    fetchMain: PropTypes.func.isRequired
   };
 
-  render() {
-    const { slider } = this.props;
+  componentWillMount() {
+    const { main, fetchMain } = this.props;
 
-    if (!slider) {
+    if (!main) {
+      fetchMain();
+    }
+  }
+
+  render() {
+    const { main } = this.props;
+
+    if (!main) {
       return null;
     }
 
-    return <Home slider={slider} />;
+    return <Home main={main} />;
   }
 }
 
 const mapStateToProps = state => ({
-  slider: state.home.slider
+  main: state.home.main
 });
 
-export default connect(mapStateToProps)(HomeContainer);
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      fetchMain
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer);

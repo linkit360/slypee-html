@@ -16,10 +16,10 @@ class HeaderContainer extends React.Component {
   };
 
   componentWillMount() {
-    const { categories } = this.props;
+    const { categories, fetchCategories } = this.props;
 
     if (!categories) {
-      this.props.fetchCategories();
+      fetchCategories();
     }
   }
 

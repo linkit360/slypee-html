@@ -255,6 +255,7 @@
     "helmet": "3.9.0",
     "history": "^4.7.2",
     "hpp": "^0.2.2",
+    "http-proxy": "^1.16.2",
     "lodash": "^4.17.4",
     "material-ui": "^0.20.0",
     "morgan": "1.9.0",
