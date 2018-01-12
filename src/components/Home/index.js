@@ -287,6 +287,14 @@ const apps = [
   }
 ];
 
+const appBlock = {
+  name: 'most popular',
+  href: 'http://localhost:3000/topcharts',
+  apps
+};
+
+const appBlocks = [appBlock, appBlock, appBlock];
+
 export default class Home extends React.PureComponent {
   static propTypes = {
     slider: PropTypes.arrayOf(PropTypes.object).isRequired
@@ -299,11 +307,13 @@ export default class Home extends React.PureComponent {
       <div>
         <Slider slides={slider} />
         <div className={styles.content}>
-          <AppBlock
-            name="most popular"
-            href="http://localhost:3000/topcharts"
-            apps={apps}
-          />
+          {appBlocks.map(appBlock => (
+            <AppBlock
+              name={appBlock.name}
+              href={appBlock.href}
+              apps={appBlock.apps}
+            />
+          ))}
         </div>
       </div>
     );

@@ -1,6 +1,10 @@
 @import '~theme/variables';
 
 .slider {
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+
   :global {
     .slick-dots {
       width: 120px;

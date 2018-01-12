@@ -36,7 +36,7 @@ export default class Footer extends React.PureComponent {
             onClick={onNavigationItemClick}
           />
           <NavigationItem
-            label="User account"
+            label="Account"
             iconName="person"
             value="user"
             onClick={onNavigationItemClick}

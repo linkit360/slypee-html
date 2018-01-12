@@ -1,7 +1,14 @@
+@import '~theme/variables';
+
 .star {
   color: #ffc400;
   width: 18px;
   margin-right: 10px;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 12px;
+    margin-right: 3.7px;
+  }
 }
 
 .rating {
@@ -10,4 +17,9 @@
   font-size: 15px;
   position: relative;
   top: -7px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 10px;
+    padding-left: 2px;
+  }
 }

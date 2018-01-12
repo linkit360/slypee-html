@@ -51,7 +51,7 @@ export default class AppCard extends React.PureComponent {
           <p className={styles.category}>{category}</p>
         </div>
         <div className={styles.footer}>
-          <RatingBlock rating={rating} />
+          <RatingBlock className={styles.rating} rating={rating} />
           <CostBlock className={styles.cost} {...cost} />
         </div>
       </Paper>

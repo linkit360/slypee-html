@@ -6,6 +6,13 @@
   border-radius: 4px !important;
   padding-top: 11px;
   position: relative;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 129px;
+    height: 214px;
+    margin-right: 17px;
+    padding-top: 7px;
+  }
 }
 
 .image {
@@ -13,11 +20,20 @@
   height: 200px;
   background-size: cover;
   margin: auto;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 114px;
+    height: 114px;
+  }
 }
 
 .content {
   padding: 0 33px;
   padding-top: 21px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding: 0 8px;
+  }
 }
 
 .link {
@@ -30,6 +46,12 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 13px;
+    padding-top: 8px;
+    line-height: 15px;
+  }
 
   &:visited,
   &:active {
@@ -46,12 +68,29 @@
   color: #9e9e9e;
   font-size: 15px;
   margin-top: 4px;
+
+  @media (max-width: $width-portrait-tablet) {
+    display: none;
+  }
 }
 
 .footer {
   position: absolute;
   bottom: 29px;
   left: 29px;
+
+  @media (max-width: $width-portrait-tablet) {
+    left: 4px;
+    bottom: 15px;
+  }
+}
+
+.rating {
+  @media (max-width: $width-portrait-tablet) {
+    padding-left: 3px;
+    position: relative;
+    top: 9px;
+  }
 }
 
 .cost {

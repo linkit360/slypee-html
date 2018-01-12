@@ -1,5 +1,21 @@
 @import '~theme/variables';
 
+.mobile {
+  padding-top: 12px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e1e1e1;
+
+  @media (min-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
+.desktop {
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
 .header {
   margin-top: 53px;
   height: 66px;
@@ -10,6 +26,11 @@
   font-size: 27px;
   text-transform: uppercase;
   padding-left: 3px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding-left: 11px;
+    font-size: 15px;
+  }
 }
 
 .buttonMore {
@@ -20,9 +41,22 @@
   right: 8px;
   top: -5px;
 
+  @media (max-width: $width-portrait-tablet) {
+    position: static !important;
+    margin: auto !important;
+    display: block !important;
+    width: 126px !important;
+    margin-top: 14px !important;
+    height: 38px !important;
+  }
+
   span {
     color: white !important;
     line-height: 47px;
+
+    @media (max-width: $width-portrait-tablet) {
+      line-height: 38px;
+    }
   }
 }
 
@@ -64,4 +98,17 @@
       }
     }
   }
+}
+
+.overflowScrollingWrapper {
+  height: 232px;
+  overflow: hidden;
+}
+
+.overflowScrolling {
+  overflow-x: scroll;
+  display: flex;
+  padding-top: 16px;
+  padding-left: 5px;
+  padding-bottom: 3px;
 }

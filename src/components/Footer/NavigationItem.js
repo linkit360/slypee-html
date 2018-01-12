@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { BottomNavigationItem } from 'material-ui/BottomNavigation';
 import Icon from '_components/interface/Icon';
+import styles from './styles.scss';
 
 export default class NavigationItem extends React.PureComponent {
   static propTypes = {
@@ -23,7 +24,7 @@ export default class NavigationItem extends React.PureComponent {
     return (
       <BottomNavigationItem
         label={label}
-        icon={<Icon name={iconName} />}
+        icon={<Icon name={iconName} className={styles.icon} />}
         onClick={this.handleClick}
       />
     );
