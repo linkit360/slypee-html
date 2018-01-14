@@ -1,16 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Icon from '_components/interface/Icon';
 import styles from './styles.scss';
 
 export default class RatingBlock extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    rating: PropTypes.number.isRequired
+    rating: PropTypes.number.isRequired,
+    size: PropTypes.oneOf(['big, normal'])
+  };
+
+  defaultProps = {
+    size: 'normal'
   };
 
   render() {
-    const { className, rating } = this.props;
+    const { className, rating, size } = this.props;
 
     const stars = [];
 
@@ -28,7 +34,7 @@ export default class RatingBlock extends React.PureComponent {
     }
 
     return (
-      <div className={className}>
+      <div className={classNames(className, { [styles.big]: size === 'big' })}>
         {stars}
         <span className={styles.rating}>
           {rating.toString().replace(/\./, ',')}

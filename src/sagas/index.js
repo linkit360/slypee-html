@@ -19,7 +19,21 @@ function* fetchCategories() {
 }
 
 function* changeTab({ tabName }) {
-  yield put(push(`/${tabName}`));
+  let route;
+
+  switch (tabName) {
+    case 'home':
+      route = '';
+      break;
+    case 'topcharts':
+      route = '/topcharts';
+      break;
+    default:
+      route = `/category/${tabName}`;
+      break;
+  }
+
+  yield put(push(route));
 }
 
 function* fetchMain() {

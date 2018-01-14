@@ -1,0 +1,120 @@
+@import '~theme/variables';
+
+.content {
+  max-width: 1462px;
+  margin: auto;
+  padding-top: 40px;
+}
+
+.product {
+  width: 65.5%;
+  padding: 45px;
+}
+
+.header {
+  height: 294px;
+  display: flex;
+}
+
+.image {
+  background-size: cover;
+  width: 250px;
+  height: 250px;
+}
+
+.info {
+  width: 63%;
+  margin-left: 7.2%;
+  margin-top: -11px;
+  position: relative;
+}
+
+.name {
+  font-size: 35px;
+}
+
+.publisher {
+  font-size: 15px;
+  color: $color-font-grey;
+  padding-top: 7px;
+  padding-left: 2px;
+}
+
+.category {
+  font-size: 15px;
+  text-transform: uppercase;
+  padding-top: 10px;
+  margin-left: 3px;
+  display: inline-block;
+  border-bottom: 1px solid $color-font-grey;
+  color: black;
+}
+
+.rating {
+  position: absolute;
+  right: -1px;
+  bottom: 149px;
+}
+
+.cost {
+  padding-top: 21px;
+  margin-left: -6px;
+}
+
+.buttons {
+  padding-top: 10px;
+}
+
+.buttonSubscribe,
+.buttonUnsubscribe {
+  line-height: 50px !important;
+  height: auto !important;
+
+  span {
+    padding: 3px 26px !important;
+  }
+}
+
+.buttonSubscribe {
+  background-color: $color-orange !important;
+
+  span {
+    font-size: 20px !important;
+    color: white;
+  }
+}
+
+.buttonUnsubscribe {
+  margin-left: 8px !important;
+
+  span {
+    color: $color-font-grey !important;
+  }
+}
+
+.shareBlock {
+  position: absolute;
+  right: -6px;
+  bottom: 26px;
+}
+
+.buttonFacebook {
+  color: #3b5998;
+  margin-right: 12px;
+}
+
+.buttonTwitter {
+  color: #b2daf7;
+}
+
+.buttonFacebook,
+.buttonTwitter {
+  cursor: pointer;
+}
+
+.shareText {
+  font-size: 14px;
+  position: relative;
+  left: -16px;
+  top: -16px;
+}

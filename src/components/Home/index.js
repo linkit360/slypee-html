@@ -8,8 +8,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '1 Jungle Monkey',
     category: 'Arcade Games',
     rating: 3.6,
@@ -22,8 +21,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '2 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 5,
@@ -36,8 +34,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '3 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -50,8 +47,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '4 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -64,8 +60,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '5 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 3.6,
@@ -92,8 +87,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '7 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -106,8 +100,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '8 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -120,8 +113,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '9 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 3.6,
@@ -134,8 +126,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '10 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 5,
@@ -148,8 +139,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '11 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -162,8 +152,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '12 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -176,8 +165,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '13 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -190,8 +178,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '14 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -204,8 +191,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '15 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 3.6,
@@ -218,8 +204,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '16 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 5,
@@ -232,8 +217,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '17 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -246,8 +230,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '18 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 1.3,
@@ -260,8 +243,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '19 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 3.6,
@@ -274,8 +256,7 @@ const apps = [
   {
     img:
       'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    href:
-      'https://play.google.com/store/apps/details?id=com.zeptolab.ctr2.f2p.google&hl=ru',
+    id: 3453,
     name: '20 Jungle Monkey Run Version Abrakadabra',
     category: 'Arcade Games',
     rating: 5,

@@ -148,7 +148,7 @@ export default class Header extends React.Component {
               value={activeTab}
               onChange={this.handleTabChange}
             >
-              <Tab value="" label="home" />
+              <Tab value="home" label="home" />
               <Tab value="topcharts" label="top charts" />
               <Tab value="games" label="games" />
               <Tab value="educations" label="educations" />

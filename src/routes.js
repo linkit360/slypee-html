@@ -9,7 +9,17 @@ export default [
     component: MainPage
   },
   {
-    path: '/:tab',
+    path: '/:section',
+    exact: true,
+    component: MainPage
+  },
+  {
+    path: '/apps/:app',
+    exact: true,
+    component: MainPage
+  },
+  {
+    path: '/category/:category',
     exact: true,
     component: MainPage
   }
