@@ -27,19 +27,17 @@ export default class AppBlock extends React.PureComponent {
   };
 
   render() {
-    const { slidesToShow } = this.props;
-
     return (
       <div>
         <div className={styles.desktop}>
           <Slick
             ref={this.slickRef}
             className={styles.slick}
-            slidesToShow={slidesToShow}
             arrows={false}
             infinite={false}
             draggable={false}
             afterChange={this.handleSlickChange}
+            {...this.props}
           >
             {this.props.children}
           </Slick>

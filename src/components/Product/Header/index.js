@@ -34,7 +34,7 @@ export default class Header extends React.PureComponent {
         <div className={styles.info}>
           <div className={styles.name}>{name}</div>
           <div className={styles.publisher}>{publisher}</div>
-          <Link to={`category/${category.replace(/\s+/g, '')}`}>
+          <Link to={`/category/${category.replace(/\s+/g, '')}`}>
             <div className={styles.category}>{category}</div>
           </Link>
           <RatingBlock className={styles.rating} rating={rating} size="big" />

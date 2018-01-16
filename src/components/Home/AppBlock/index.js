@@ -31,7 +31,7 @@ export default class AppBlock extends React.PureComponent {
     const { apps } = this.props;
 
     return (
-      <SlickWithSlider slidesToShow={7}>
+      <SlickWithSlider className={styles.slick} slidesToShow={7}>
         {this.getAppCards(apps)}
       </SlickWithSlider>
     );
