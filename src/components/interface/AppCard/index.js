@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import RatingBlock from '_components/interface/RatingBlock';
@@ -8,12 +9,19 @@ import styles from './styles.scss';
 
 export default class AppCard extends React.PureComponent {
   static propTypes = {
+    className: PropTypes.string,
     img: PropTypes.string.isRequired,
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
-    cost: PropTypes.object.isRequired
+    cost: PropTypes.object.isRequired,
+    isHorisontal: PropTypes.bool
+  };
+
+  defaultProps = {
+    isHorisontal: false,
+    className: ''
   };
 
   state = { isFocus: false };
@@ -27,13 +35,24 @@ export default class AppCard extends React.PureComponent {
   };
 
   render() {
-    const { img, id, name, category, rating, cost } = this.props;
+    const {
+      className,
+      img,
+      id,
+      name,
+      category,
+      rating,
+      cost,
+      isHorisontal
+    } = this.props;
     const { isFocus } = this.state;
     const href = `apps/${id}`;
 
     return (
       <Paper
-        className={styles.card}
+        className={classNames(className, styles.card, {
+          [styles.isHorisontal]: isHorisontal
+        })}
         zDepth={isFocus ? 3 : 1}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}

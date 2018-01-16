@@ -5,6 +5,8 @@
   margin: auto;
   padding-top: 40px;
   padding-bottom: 68px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .product {
@@ -36,4 +38,18 @@
 .description {
   padding-top: 3px;
   line-height: 25px;
+}
+
+.related {
+  width: 444px;
+}
+
+.relatedText {
+  font-size: 20px;
+  padding-top: 32px;
+  padding-bottom: 28px;
+}
+
+.card {
+  padding-bottom: 22px;
 }

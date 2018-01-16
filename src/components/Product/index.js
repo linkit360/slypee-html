@@ -1,12 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
-import FlatButton from 'material-ui/FlatButton';
-import RatingBlock from '_components/interface/RatingBlock';
-import CostBlock from '_components/interface/CostBlock';
-import Icon from '_components/interface/Icon';
 import SlickWithSlider from '_components/interface/SlickWithSlider';
+import AppCard from '_components/interface/AppCard';
 import Header from './Header';
 import styles from './styles.scss';
 
@@ -38,7 +34,7 @@ export default class Product extends React.PureComponent {
 
   render() {
     const { app } = this.props;
-    const { name, slider, description } = app;
+    const { name, slider, description, related } = app;
 
     return (
       <div className={styles.content}>
@@ -59,6 +55,14 @@ export default class Product extends React.PureComponent {
             dangerouslySetInnerHTML={{ __html: description }}
           />
         </Paper>
+        <div className={styles.related}>
+          <div className={styles.relatedText}>RELATED CONTENT</div>
+          {related.map((app, index) => (
+            <div key={index} className={styles.card}>
+              <AppCard {...app} isHorisontal />
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
