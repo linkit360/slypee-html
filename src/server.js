@@ -20,7 +20,8 @@ import App from './containers/App';
 import routes from './routes';
 import { port, host } from './config';
 
-const DEV_HOST = 'http://slypee-direct.snpdev.ru';
+const DEV_API_HOST = 'https://slypee.snpdev.ru';
+const DEV_API_ROUTES = ['api'];
 
 const app = express();
 
@@ -40,6 +41,7 @@ app.use(express.static(path.join(process.cwd(), './public')));
 if (__DEV__) {
   const webpack = require('webpack');
   const webpackConfig = require('../tools/webpack/config.babel');
+  const proxy = require('express-http-proxy');
 
   const compiler = webpack(webpackConfig);
 
@@ -54,7 +56,15 @@ if (__DEV__) {
   );
 
   app.use(require('webpack-hot-middleware')(compiler));
-  app.use('/api', require('express-http-proxy')(DEV_HOST));
+
+  DEV_API_ROUTES.forEach(route => {
+    app.use(
+      '/api',
+      proxy(DEV_API_HOST, {
+        proxyReqPathResolver: req => path.join('/', route, req.url)
+      })
+    );
+  });
 }
 
 // Register server-side rendering middleware
