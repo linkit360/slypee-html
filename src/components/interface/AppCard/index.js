@@ -10,8 +10,8 @@ import styles from './styles.scss';
 export default class AppCard extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
+    id: PropTypes.number.isRequired,
     img: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
@@ -19,7 +19,7 @@ export default class AppCard extends React.PureComponent {
     isHorisontal: PropTypes.bool
   };
 
-  defaultProps = {
+  static defaultProps = {
     isHorisontal: false,
     className: ''
   };

@@ -7,6 +7,7 @@ import styles from './styles.scss';
 
 export default class AppBlock extends React.PureComponent {
   static propTypes = {
+    className: PropTypes.string,
     name: PropTypes.string.isRequired,
     href: PropTypes.string.isRequired,
     apps: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
@@ -31,17 +32,17 @@ export default class AppBlock extends React.PureComponent {
     const { apps } = this.props;
 
     return (
-      <SlickWithSlider className={styles.slick} slidesToShow={7}>
+      <SlickWithSlider className={styles.slick} slidesToShow={7} isSmooth>
         {this.getAppCards(apps)}
       </SlickWithSlider>
     );
   };
 
   render() {
-    const { name } = this.props;
+    const { className, name } = this.props;
 
     return (
-      <div>
+      <div className={className}>
         <div className={styles.desktop}>
           <div className={styles.header}>
             <span className={styles.name}>{name}</span>

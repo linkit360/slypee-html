@@ -1,7 +1,7 @@
 @import '~theme/variables';
 
 .mobile {
-  padding-top: 12px;
+  padding-top: 13px;
   padding-bottom: 15px;
   border-bottom: 1px solid #e1e1e1;
 
@@ -17,7 +17,7 @@
 }
 
 .header {
-  margin-top: 53px;
+  margin-top: 56px;
   height: 66px;
   position: relative;
 }
@@ -46,7 +46,7 @@
     margin: auto !important;
     display: block !important;
     width: 126px !important;
-    margin-top: 14px !important;
+    margin-top: 7px !important;
     height: 38px !important;
   }
 
@@ -63,10 +63,26 @@
 .card {
   position: relative;
   left: 4px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding-right: 17px;
+
+    &:first-child {
+      padding-left: 5px;
+    }
+  }
 }
 
 .slick {
   margin-right: -16px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding-top: 15px;
+  }
+
+  @media (min-width: $width-portrait-tablet) {
+    padding-right: 10px;
+  }
 
   :global {
     .slick-list {

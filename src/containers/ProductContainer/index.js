@@ -7,7 +7,7 @@ import Product from '_components/Product';
 
 class ProductContainer extends React.Component {
   static propTypes = {
-    appId: PropTypes.number.isRequired,
+    appId: PropTypes.string.isRequired,
     product: PropTypes.object.isRequired,
     fetchMain: PropTypes.func.isRequired
   };

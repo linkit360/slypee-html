@@ -7,6 +7,10 @@
 
   .big & {
     font-size: 34px;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 17px;
+    }
   }
 
   @media (max-width: $width-portrait-tablet) {
@@ -23,6 +27,11 @@
   .big & {
     font-size: 20px;
     padding-left: 8px;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 12px;
+      padding-left: 2px;
+    }
   }
 
   @media (max-width: $width-portrait-tablet) {
@@ -38,6 +47,10 @@
 
   .big & {
     font-size: 20px;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 12px;
+    }
   }
 
   @media (max-width: $width-portrait-tablet) {

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import Menu from 'material-ui/Menu';
+import UiMenu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
 import IconPerson from 'material-ui/svg-icons/social/person';
 import IconExit from 'material-ui/svg-icons/action/exit-to-app';
@@ -10,7 +10,7 @@ import Icon from '_components/interface/Icon';
 import MenuItemLink from './MenuItemLink';
 import styles from './styles.scss';
 
-export default class Header extends React.Component {
+export default class Menu extends React.Component {
   static propTypes = {
     categories: PropTypes.arrayOf(PropTypes.object).isRequired,
     isAutorizedUser: PropTypes.bool.isRequired,
@@ -37,7 +37,7 @@ export default class Header extends React.Component {
           )}
           <Icon className={styles.buttonClose} name="close" onClick={onClose} />
         </div>
-        <Menu className={styles.menu}>
+        <UiMenu className={styles.menu}>
           <div className={styles.mobileItems}>
             {isAutorizedUser ? (
               <Link to="/user">
@@ -74,7 +74,7 @@ export default class Header extends React.Component {
               route={item.route}
             />
           ))}
-        </Menu>
+        </UiMenu>
       </div>
     );
   }

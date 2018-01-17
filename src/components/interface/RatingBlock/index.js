@@ -8,10 +8,10 @@ export default class RatingBlock extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     rating: PropTypes.number.isRequired,
-    size: PropTypes.oneOf(['big, normal'])
+    size: PropTypes.oneOf(['big', 'normal'])
   };
 
-  defaultProps = {
+  static defaultProps = {
     size: 'normal'
   };
 

@@ -15,10 +15,10 @@ export default class CostBlock extends React.PureComponent {
     price: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
     currency: PropTypes.string.isRequired,
-    size: PropTypes.oneOf(['big, normal'])
+    size: PropTypes.oneOf(['big', 'normal'])
   };
 
-  defaultProps = {
+  static defaultProps = {
     size: 'normal'
   };
 

@@ -1,14 +1,36 @@
 @import '~theme/variables';
 
+.desktop {
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
+.mobile {
+  @media (min-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
 .header {
   height: 294px;
   display: flex;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding-top: 17px;
+    height: 114px;
+  }
 }
 
 .image {
   background-size: cover;
   width: 250px;
   height: 250px;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 90px;
+    height: 90px;
+  }
 }
 
 .info {
@@ -20,6 +42,10 @@
 
 .name {
   font-size: 35px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 19px;
+  }
 }
 
 .publisher {
@@ -27,6 +53,11 @@
   color: $color-font-grey;
   padding-top: 7px;
   padding-left: 2px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 10px;
+    padding-top: 3px;
+  }
 }
 
 .category {
@@ -36,22 +67,47 @@
   margin-left: 3px;
   display: inline-block;
   border-bottom: 1px solid $color-font-grey;
-  color: black;
+  color: $color-black;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 12px;
+    text-transform: capitalize;
+    padding-top: 7px;
+  }
 }
 
 .rating {
   position: absolute;
   right: -1px;
   bottom: 149px;
+
+  @media (max-width: $width-portrait-tablet) {
+    position: relative;
+    bottom: 2px;
+    left: 3px;
+  }
 }
 
 .cost {
   padding-top: 21px;
   margin-left: -6px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding-top: 0;
+    position: relative;
+    top: -8px;
+    left: 4px;
+  }
 }
 
 .buttons {
   padding-top: 10px;
+
+  @media (max-width: $width-portrait-tablet) {
+    position: relative;
+    padding-top: 0;
+    top: -4px;
+  }
 }
 
 .buttonSubscribe,
@@ -59,17 +115,36 @@
   line-height: 50px !important;
   height: auto !important;
 
+  @media (max-width: $width-portrait-tablet) {
+    line-height: 28px !important;
+    width: 104px !important;
+  }
+
   span {
     padding: 3px 26px !important;
+
+    @media (max-width: $width-portrait-tablet) {
+      padding: 0 !important;
+    }
   }
 }
 
 .buttonSubscribe {
   background-color: $color-orange !important;
 
+  @media (max-width: $width-portrait-tablet) {
+    position: relative;
+    left: 89px;
+    width: 90px !important;
+  }
+
   span {
     font-size: 20px !important;
     color: white;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 11px !important;
+    }
   }
 }
 
@@ -78,6 +153,16 @@
 
   span {
     color: $color-font-grey !important;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 10px !important;
+      border-bottom: 1px solid $color-font-grey;
+    }
+  }
+
+  @media (max-width: $width-portrait-tablet) {
+    position: absolute !important;
+    left: -23px !important;
   }
 }
 
@@ -85,6 +170,10 @@
   position: absolute;
   right: -6px;
   bottom: 26px;
+
+  @media (max-width: $width-portrait-tablet) {
+    display: none;
+  }
 }
 
 .buttonFacebook {

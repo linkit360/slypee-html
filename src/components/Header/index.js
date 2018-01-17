@@ -99,6 +99,7 @@ export default class Header extends React.Component {
               isAutorizedUser
               user={user}
               onClose={this.handleRequestClose}
+              onLogout={() => console.log('onLogout')}
             />
           </Popover>
           <FlatButton

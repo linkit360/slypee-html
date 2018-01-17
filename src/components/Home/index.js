@@ -291,6 +291,7 @@ export default class Home extends React.PureComponent {
           {appBlocks.map((appBlock, index) => (
             <AppBlock
               key={index}
+              className={styles.appBlock}
               name={appBlock.name}
               href={appBlock.href}
               apps={appBlock.apps}

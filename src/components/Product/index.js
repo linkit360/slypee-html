@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Paper from 'material-ui/Paper';
+import Divider from 'material-ui/Divider';
+import FlatButton from 'material-ui/FlatButton';
 import SlickWithSlider from '_components/interface/SlickWithSlider';
 import AppCard from '_components/interface/AppCard';
 import Header from './Header';
@@ -12,6 +15,7 @@ const getSlides = slider => {
   if (video) {
     slides.push(
       <iframe
+        key={-1}
         className={styles.iframe}
         src={video}
         frameBorder="0"
@@ -20,8 +24,10 @@ const getSlides = slider => {
       />
     );
   }
-  imgs.forEach(img => {
-    slides.push(<img className={styles.imageSlide} alt="slide" src={img} />);
+  imgs.forEach((img, index) => {
+    slides.push(
+      <img key={index} className={styles.imageSlide} alt="slide" src={img} />
+    );
   });
 
   return slides;
@@ -32,36 +38,71 @@ export default class Product extends React.PureComponent {
     app: PropTypes.object.isRequired
   };
 
-  render() {
-    const { app } = this.props;
-    const { name, slider, description, related } = app;
+  state = {
+    isButtonMoreClicked: false
+  };
+
+  getSlick = className => {
+    const { slider } = this.props.app;
 
     return (
-      <div className={styles.content}>
+      <div className={className}>
+        <SlickWithSlider className={styles.slick} variableWidth isSmooth>
+          {getSlides(slider)}
+        </SlickWithSlider>
+      </div>
+    );
+  };
+
+  handleButtonMoreClick = () => {
+    this.setState({ isButtonMoreClicked: true });
+  };
+
+  render() {
+    const { app } = this.props;
+    const { name, description, related } = app;
+    const { isButtonMoreClicked } = this.state;
+
+    return (
+      <div
+        className={classNames(styles.content, {
+          [styles.isButtonMoreClicked]: isButtonMoreClicked
+        })}
+      >
         <Paper className={styles.product} zDepth={1}>
           <Header {...app} />
-          <SlickWithSlider
-            className={styles.slick}
-            slidesToShow={2}
-            variableWidth
-            centerMode
-            infinity
-          >
-            {getSlides(slider)}
-          </SlickWithSlider>
+          <Divider className={styles.mobileDivider} />
+          {this.getSlick(styles.desktop)}
           <div className={styles.descriptionHeader}>Description of {name}</div>
           <div
             className={styles.description}
             dangerouslySetInnerHTML={{ __html: description }}
           />
+          <FlatButton
+            className={classNames(styles.buttonMore, styles.mobile)}
+            onClick={this.handleButtonMoreClick}
+            label="ShowMore"
+          />
         </Paper>
+        {this.getSlick(styles.mobile)}
         <div className={styles.related}>
           <div className={styles.relatedText}>RELATED CONTENT</div>
-          {related.map((app, index) => (
-            <div key={index} className={styles.card}>
-              <AppCard {...app} isHorisontal />
-            </div>
-          ))}
+          <div className={styles.desktop}>
+            {related.map((app, index) => (
+              <div key={index} className={styles.relatedCard}>
+                <AppCard {...app} isHorisontal />
+              </div>
+            ))}
+          </div>
+          <div className={styles.mobile}>
+            <SlickWithSlider>
+              {related.map((app, index) => (
+                <div key={index} className={styles.relatedSlide}>
+                  <AppCard {...app} />
+                </div>
+              ))}
+            </SlickWithSlider>
+          </div>
         </div>
       </div>
     );
