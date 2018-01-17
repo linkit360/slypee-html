@@ -97,19 +97,21 @@
 }
 
 .buttonMore {
-  display: block !important;
-  margin: auto !important;
-  position: relative !important;
-  top: -5px;
-  left: -9px;
+  @media (max-width: $width-portrait-tablet) {
+    display: block !important;
+    margin: auto !important;
+    position: relative !important;
+    top: -5px;
+    left: -9px;
 
-  span {
-    font-size: 11px !important;
-    color: $color-aquamarine !important;
-  }
+    span {
+      font-size: 11px !important;
+      color: $color-aquamarine !important;
+    }
 
-  .isButtonMoreClicked & {
-    display: none !important;
+    .isButtonMoreClicked & {
+      display: none !important;
+    }
   }
 }
 

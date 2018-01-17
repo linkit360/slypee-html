@@ -8,15 +8,17 @@ export default class RatingBlock extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     rating: PropTypes.number.isRequired,
-    size: PropTypes.oneOf(['big', 'normal'])
+    size: PropTypes.oneOf(['big', 'normal']),
+    isLong: PropTypes.bool
   };
 
   static defaultProps = {
-    size: 'normal'
+    size: 'normal',
+    isLong: false
   };
 
   render() {
-    const { className, rating, size } = this.props;
+    const { className, rating, size, isLong } = this.props;
 
     const stars = [];
 
@@ -34,7 +36,12 @@ export default class RatingBlock extends React.PureComponent {
     }
 
     return (
-      <div className={classNames(className, { [styles.big]: size === 'big' })}>
+      <div
+        className={classNames(className, {
+          [styles.big]: size === 'big',
+          [styles.isLong]: isLong
+        })}
+      >
         {stars}
         <span className={styles.rating}>
           {rating.toString().replace(/\./, ',')}

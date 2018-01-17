@@ -1,7 +1,11 @@
 /* @flow */
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import type { Element } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { resize } from '_actions';
 import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import _ from 'lodash/fp';
@@ -21,29 +25,62 @@ const muiTheme = getMuiTheme({
   }
 });
 
-const App = (): Element<'div'> => {
-  // wrap <Route> and use this everywhere instead, then when
-  // sub routes are added to any route it'll work
-  const RouteWithSubRoutes = (route): Element<typeof Route> => (
-    <Route
-      key={_.uniqueId()}
-      exact={route.exact || false}
-      path={route.path}
-      render={props => (
-        // Pass the sub-routes down to keep nesting
-        <route.component {...props} routes={route.routes || null} />
-      )}
-    />
+const RouteWithSubRoutes = (route): Element<typeof Route> => (
+  <Route
+    key={_.uniqueId()}
+    exact={route.exact || false}
+    path={route.path}
+    render={props => (
+      // Pass the sub-routes down to keep nesting
+      <route.component {...props} routes={route.routes || null} />
+    )}
+  />
+);
+
+class App extends React.Component {
+  static propTypes = {
+    resize: PropTypes.func.isRequired
+  };
+
+  componentWillMount() {
+    this.resizeListener();
+    if (typeof window === 'object') {
+      window.addEventListener('resize', this.resizeListener);
+    }
+  }
+
+  componentWillUnmount() {
+    if (typeof window === 'object') {
+      window.removeEventListener('resize', this.resizeListener);
+    }
+  }
+
+  resizeListener = () => {
+    if (typeof document === 'object') {
+      this.props.resize(document.body.offsetWidth, document.body.offsetHeight);
+    }
+  };
+
+  render() {
+    return (
+      <MuiThemeProvider muiTheme={muiTheme}>
+        <div className={styles.App}>
+          <Helmet {...config.app} />
+          <Switch>{routes.map(route => RouteWithSubRoutes(route))}</Switch>
+        </div>
+      </MuiThemeProvider>
+    );
+  }
+}
+
+const mapStateToProps = state => ({});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      resize
+    },
+    dispatch
   );
 
-  return (
-    <MuiThemeProvider muiTheme={muiTheme}>
-      <div className={styles.App}>
-        <Helmet {...config.app} />
-        <Switch>{routes.map(route => RouteWithSubRoutes(route))}</Switch>
-      </div>
-    </MuiThemeProvider>
-  );
-};
-
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

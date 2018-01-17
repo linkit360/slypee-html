@@ -22,3 +22,8 @@ export const goToMobileSearch = () => ({
 export const fetchMain = () => ({
   type: 'FETCH_MAIN_REQUEST'
 });
+
+export const resize = width => ({
+  type: 'RESIZE',
+  width
+});

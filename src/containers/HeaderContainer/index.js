@@ -53,7 +53,7 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.categories.list,
+  categories: state.common.categories,
   lastTimeGoToSearch: state.header.lastTimeGoToSearch,
   lastTimeGoToMobileSearch: state.header.lastTimeGoToMobileSearch
 });

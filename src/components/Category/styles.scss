@@ -1,0 +1,94 @@
+@import '~theme/variables';
+
+.mobile {
+  @media (min-width: $width-portrait-tablet) {
+    display: none;
+  }
+}
+
+.header {
+  padding: 48px 87px;
+  padding-bottom: 56px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding: 21px 17px;
+  }
+}
+
+.name {
+  font-size: 41px;
+  text-transform: uppercase;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 22px;
+  }
+}
+
+.description {
+  font-size: 16px;
+  padding-top: 29px;
+  margin-left: -2px;
+  line-height: 24px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 12px;
+    padding-top: 8px;
+    margin-left: 0;
+    line-height: 20px;
+  }
+}
+
+.content {
+  padding: 0 80px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding: 0;
+  }
+}
+
+.mostPopularText {
+  font-size: 28px;
+  padding-top: 50px;
+  padding-bottom: 31px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 14px;
+    padding-top: 26px;
+    padding-bottom: 15px;
+    padding-left: 16px;
+  }
+}
+
+.newText {
+  font-size: 28px;
+  padding-top: 44px;
+  padding-bottom: 31px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 14px;
+    padding-top: 13px;
+    padding-bottom: 15px;
+    padding-left: 17px;
+  }
+}
+
+.card {
+  position: relative;
+  left: 4px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding: 0 8px;
+  }
+}
+
+.slick {
+  :global {
+    .slick-list {
+      height: 420px;
+    }
+  }
+
+  @media (max-width: $width-portrait-tablet) {
+    padding-bottom: 18px;
+  }
+}

@@ -13,7 +13,7 @@ export default class AppCard extends React.PureComponent {
     id: PropTypes.number.isRequired,
     img: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    category: PropTypes.string.isRequired,
+    publisher: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     cost: PropTypes.object.isRequired,
     isHorisontal: PropTypes.bool
@@ -40,7 +40,7 @@ export default class AppCard extends React.PureComponent {
       img,
       id,
       name,
-      category,
+      publisher,
       rating,
       cost,
       isHorisontal
@@ -57,7 +57,7 @@ export default class AppCard extends React.PureComponent {
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
       >
-        <Link to="href">
+        <Link to={href}>
           <div
             className={styles.image}
             style={{
@@ -69,10 +69,14 @@ export default class AppCard extends React.PureComponent {
           <Link className={styles.link} to={href}>
             {name}
           </Link>
-          <p className={styles.category}>{category}</p>
+          <p className={styles.publisher}>{publisher}</p>
         </div>
         <div className={styles.footer}>
-          <RatingBlock className={styles.rating} rating={rating} />
+          <RatingBlock
+            className={styles.rating}
+            rating={rating}
+            isLong={isHorisontal}
+          />
           <CostBlock className={styles.cost} {...cost} />
         </div>
       </Paper>
