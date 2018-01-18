@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import type { Element } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { resize } from '_actions';
-import { Route, Switch } from 'react-router-dom';
 import Helmet from 'react-helmet';
 import _ from 'lodash/fp';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -73,7 +73,7 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = state => ({});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
@@ -83,4 +83,4 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
