@@ -1,7 +1,10 @@
+@import '~theme/variables';
+
 .tabHeader {
   height: 76px;
   border-top: 1px solid #e1e1e1;
   border-bottom: 1px solid #e1e1e1;
+  position: relative;
 }
 
 .orderBlock {
@@ -37,4 +40,32 @@
   position: relative;
   top: 3px;
   left: -3px;
+}
+
+.searchBlock {
+  display: inline-block;
+  position: absolute;
+  right: 50px;
+  top: 24px;
+}
+
+.iconSearch {
+  color: $color-font-grey;
+  cursor: pointer;
+}
+
+.search {
+  position: absolute !important;
+  left: -365px;
+  top: -15px;
+  width: 385px !important;
+  border-bottom: 1px solid $color-font-grey;
+
+  input {
+    width: 360px !important;
+  }
+
+  & > div:last-child {
+    display: none;
+  }
 }
