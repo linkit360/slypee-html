@@ -19,6 +19,7 @@ const user = {
 
 export default class Header extends React.Component {
   static propTypes = {
+    mainMenu: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     categories: PropTypes.arrayOf(PropTypes.object).isRequired,
     lastTimeGoToSearch: PropTypes.instanceOf(Date).isRequired,
     lastTimeGoToMobileSearch: PropTypes.instanceOf(Date).isRequired,
@@ -66,7 +67,12 @@ export default class Header extends React.Component {
   searchRef = ref => (this.searchInput = ref);
 
   render() {
-    const { categories, activeTab, lastTimeGoToMobileSearch } = this.props;
+    const {
+      mainMenu,
+      categories,
+      activeTab,
+      lastTimeGoToMobileSearch
+    } = this.props;
     const { isMenuOpen } = this.state;
 
     return (
@@ -151,12 +157,9 @@ export default class Header extends React.Component {
             >
               <Tab value="home" label="home" />
               <Tab value="topcharts" label="top charts" />
-              <Tab value="games" label="games" />
-              <Tab value="educations" label="educations" />
-              <Tab value="business" label="business" />
-              <Tab value="lifestyle" label="lifestyle" />
-              <Tab value="sociallife" label="social life" />
-              <Tab value="videos" label="videos" />
+              {mainMenu.map((category, index) => (
+                <Tab key={index} value={category.slug} label={category.name} />
+              ))}
             </Tabs>
           </OverflowScrolling>
         </div>

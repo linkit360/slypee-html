@@ -1,8 +1,13 @@
 import Req from './request';
 
+export const fetchMainMenu = () =>
+  Req.GET({
+    url: '/category/menu'
+  });
+
 export const fetchCategories = () =>
   Req.GET({
-    url: '/categories'
+    url: '/category'
   });
 
 export const fetchSlider = () =>

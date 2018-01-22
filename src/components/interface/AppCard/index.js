@@ -11,7 +11,7 @@ export default class AppCard extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     id: PropTypes.number.isRequired,
-    img: PropTypes.string.isRequired,
+    logo: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     publisher: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
@@ -37,7 +37,7 @@ export default class AppCard extends React.PureComponent {
   render() {
     const {
       className,
-      img,
+      logo,
       id,
       name,
       publisher,
@@ -61,7 +61,7 @@ export default class AppCard extends React.PureComponent {
           <div
             className={styles.image}
             style={{
-              backgroundImage: `url(${img})`
+              backgroundImage: `url(${logo})`
             }}
           />
         </Link>

@@ -7,7 +7,7 @@ import IconPerson from 'material-ui/svg-icons/social/person';
 import IconExit from 'material-ui/svg-icons/action/exit-to-app';
 import Divider from 'material-ui/Divider';
 import Icon from '_components/interface/Icon';
-import MenuItemLink from './MenuItemLink';
+import { getCategoryUrlFromSlug } from '_utils/common';
 import styles from './styles.scss';
 
 export default class Menu extends React.Component {
@@ -68,11 +68,9 @@ export default class Menu extends React.Component {
             )}
           </div>
           {categories.map((item, index) => (
-            <MenuItemLink
-              key={index}
-              primaryText={item.value}
-              route={item.route}
-            />
+            <Link key={index} to={getCategoryUrlFromSlug(item.slug)}>
+              <MenuItem className={styles.buttonLink} primaryText={item.name} />
+            </Link>
           ))}
         </UiMenu>
       </div>

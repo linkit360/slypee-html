@@ -12,6 +12,8 @@ export default class Slider extends React.PureComponent {
   render() {
     const { slides } = this.props;
 
+    console.log(slides);
+
     return (
       <Slick
         className={styles.slider}
@@ -28,14 +30,14 @@ export default class Slider extends React.PureComponent {
             key={index}
             className={styles.slide}
             style={{
-              backgroundImage: `url(${slide.img})`
+              backgroundImage: `url(${slide.image})`
             }}
           >
             <div className={styles.sliderInner} />
             <div className={styles.sliderTextBlock}>
-              <div className={styles.sliderText1}>{slide.text1}</div>
-              <div className={styles.sliderText2}>{slide.text2}</div>
-              <div className={styles.sliderText3}>{slide.text3}</div>
+              <div className={styles.sliderText1}>{slide.title}</div>
+              <div className={styles.sliderText2}>{slide.subtitle}</div>
+              <div className={styles.sliderText3}>{slide.description}</div>
               <FlatButton
                 className={styles.sliderButton}
                 label="Learn more"

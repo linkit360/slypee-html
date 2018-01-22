@@ -4,22 +4,28 @@ import { combineReducers } from 'redux';
 import { routerReducer as router } from 'react-router-redux';
 
 import home from './home';
-import common from './common';
+import categories from './categories';
 import header from './header';
 import product from './product';
-import categories from './categories';
+import categoriesContent from './categoriesContent';
 import environment from './environment';
 import user from './user';
+import mainMenu from './mainMenu';
+import slider from './slider';
+import main from './main';
 
 const reducers = {
   home,
   router,
-  common,
+  categories,
   header,
   product,
-  categories,
+  categoriesContent,
   environment,
-  user
+  user,
+  mainMenu,
+  slider,
+  main
 };
 
 export type Reducers = typeof reducers;

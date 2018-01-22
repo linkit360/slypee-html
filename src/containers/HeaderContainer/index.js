@@ -2,23 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchCategories, changeTab } from '_actions';
+import { fetchMainMenu, fetchCategories, changeTab } from '_actions';
 import Header from '_components/Header';
 
 class HeaderContainer extends React.Component {
   static propTypes = {
-    categories: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    mainMenu: PropTypes.object.isRequired,
+    categories: PropTypes.object.isRequired,
     lastTimeGoToSearch: PropTypes.instanceOf(Date).isRequired,
     lastTimeGoToMobileSearch: PropTypes.instanceOf(Date).isRequired,
     activeTab: PropTypes.string.isRequired,
+    fetchMainMenu: PropTypes.func.isRequired,
     fetchCategories: PropTypes.func.isRequired,
     changeTab: PropTypes.func.isRequired
   };
 
   componentWillMount() {
-    const { categories, fetchCategories } = this.props;
+    const { mainMenu, categories, fetchCategories, fetchMainMenu } = this.props;
 
-    if (!categories) {
+    if (!mainMenu.list.length) {
+      fetchMainMenu();
+    }
+
+    if (!categories.list.length) {
       fetchCategories();
     }
   }
@@ -30,18 +36,20 @@ class HeaderContainer extends React.Component {
   render() {
     const {
       activeTab,
+      mainMenu,
       categories,
       lastTimeGoToSearch,
       lastTimeGoToMobileSearch
     } = this.props;
 
-    if (!categories) {
+    if (!mainMenu.list.length || !categories.list.length) {
       return null;
     }
 
     return (
       <Header
-        categories={categories}
+        mainMenu={mainMenu.list}
+        categories={categories.list}
         lastTimeGoToSearch={lastTimeGoToSearch}
         lastTimeGoToMobileSearch={lastTimeGoToMobileSearch}
         activeTab={activeTab}
@@ -53,7 +61,8 @@ class HeaderContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  categories: state.common.categories,
+  mainMenu: state.mainMenu,
+  categories: state.categories,
   lastTimeGoToSearch: state.header.lastTimeGoToSearch,
   lastTimeGoToMobileSearch: state.header.lastTimeGoToMobileSearch
 });
@@ -61,6 +70,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
+      fetchMainMenu,
       fetchCategories,
       changeTab
     },

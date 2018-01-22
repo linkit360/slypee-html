@@ -7,16 +7,16 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case 'FETCH_CATEGORIES_REQUEST':
+    case 'FETCH_MAIN_REQUEST':
       return _.assign(state, {
         readyStatus: 'REQUESTING'
       });
-    case 'FETCH_CATEGORIES_FAILURE':
+    case 'FETCH_MAIN_FAILURE':
       return _.assign(state, {
         readyStatus: 'FAILURE',
         err: action.err
       });
-    case 'FETCH_CATEGORIES_SUCCESS':
+    case 'FETCH_MAIN_SUCCESS':
       return _.assign(state, {
         readyStatus: 'SUCCESS',
         list: action.data

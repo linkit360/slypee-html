@@ -53,8 +53,6 @@
 }
 
 .menuPopover {
-  width: 252px;
-
   @media (max-width: $width-portrait-tablet) {
     left: 0 !important;
     width: 280px;

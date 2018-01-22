@@ -1,4 +1,5 @@
 import { call, takeLatest, all, put } from 'redux-saga/effects';
+import { getCategoryUrlFromSlug } from '_utils/common';
 
 import * as api from '_api';
 
@@ -8,14 +9,26 @@ function* fetch(name, apiFunc) {
   try {
     const data = yield call(apiFunc);
 
-    yield put({ type: `FETCH_${name}_SUCCESS`, data });
+    yield put({ type: `FETCH_${name}_SUCCESS`, data: data.data });
   } catch (e) {
-    yield put({ type: `FETCH_${name}_FAILURE'}`, err: e.message });
+    yield put({ type: `FETCH_${name}_FAILURE`, err: e.message });
   }
+}
+
+function* fetchMainMenu() {
+  yield fetch('MAIN_MENU', api.fetchMainMenu);
 }
 
 function* fetchCategories() {
   yield fetch('CATEGORIES', api.fetchCategories);
+}
+
+function* fetchSlider() {
+  yield fetch('SLIDER', api.fetchSlider);
+}
+
+function* fetchMain() {
+  yield fetch('MAIN', api.fetchMain);
 }
 
 function* changeTab({ tabName }) {
@@ -29,15 +42,11 @@ function* changeTab({ tabName }) {
       route = '/topcharts';
       break;
     default:
-      route = `/category/${tabName}`;
+      route = getCategoryUrlFromSlug(tabName);
       break;
   }
 
   yield put(push(route));
-}
-
-function* fetchMain() {
-  yield fetch('FETCH_MAIN_REQUEST', api.fetchMain);
 }
 
 function* goto({ route }) {
@@ -46,9 +55,11 @@ function* goto({ route }) {
 
 export default function*() {
   yield all([
+    takeLatest('FETCH_MAIN_MENU_REQUEST', fetchMainMenu),
     takeLatest('FETCH_CATEGORIES_REQUEST', fetchCategories),
-    takeLatest('CHANGE_TAB', changeTab),
+    takeLatest('FETCH_SLIDER_REQUEST', fetchSlider),
     takeLatest('FETCH_MAIN_REQUEST', fetchMain),
-    takeLatest('GOTO', goto)
+    takeLatest('GOTO', goto),
+    takeLatest('CHANGE_TAB', changeTab)
   ]);
 }

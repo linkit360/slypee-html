@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = '/api/api';
+const BASE_URL = '/api';
 const STUB_DELAY = 1000;
 const METHODS = ['GET', 'DELETE', 'HEAD', 'POST', 'PUT', 'PATCH'];
 
