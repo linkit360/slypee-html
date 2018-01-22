@@ -1,0 +1,90 @@
+@import '~theme/variables';
+
+.app {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  padding-left: 46px;
+  border-bottom: 1px solid #e1e1e1;
+  position: relative;
+}
+
+.img {
+  width: 81px;
+  height: 81px;
+  background-size: cover;
+}
+
+.name {
+  font-size: 18px;
+  padding-left: 42px;
+  width: 263px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.rating {
+  padding-left: 78px;
+  padding-top: 3px;
+}
+
+.purchaseBlock {
+  padding-left: 64px;
+  width: 300px;
+
+  div:last-child {
+    padding-top: 7px;
+  }
+}
+
+.purchaseText {
+  color: $color-font-grey;
+}
+
+.costBlock {
+  display: inline;
+  padding-left: 19px;
+}
+
+.purchaseDate {
+  font-size: 18px;
+  padding-left: 28px;
+}
+
+.category {
+  color: $color-black;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid $color-font-grey;
+  margin-left: 61px;
+  padding-top: 4px;
+}
+
+.buttonDownload {
+  position: absolute !important;
+  right: 40px;
+
+  span {
+    font-size: 16px !important;
+    color: $color-orange !important;
+  }
+}
+
+.buttonDownloadIcon {
+  position: relative;
+  top: 10px;
+  color: $color-orange;
+}
+
+.buttonView {
+  position: absolute !important;
+  right: 286px;
+
+  span {
+    font-size: 16px !important;
+    color: #80cbc4 !important;
+  }
+}

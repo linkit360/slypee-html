@@ -1,0 +1,220 @@
+@import '~theme/variables';
+
+.desktop {
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
+.mobile {
+  @media (min-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
+.header {
+  height: 211px;
+  position: relative;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  padding-left: 83px;
+  padding-top: 43px;
+}
+
+.avatar {
+  width: 124px;
+  height: 124px;
+}
+
+.name {
+  font-size: 34px;
+  padding-left: 43px;
+}
+
+.mailIcon {
+  width: 20px;
+  padding-left: 53px;
+  padding-top: 9px;
+  color: #d5d6d8;
+}
+
+.mail {
+  padding-left: 16px;
+  font-size: 19px;
+  position: relative;
+  top: 4px;
+}
+
+.editIcon {
+  position: relative;
+  top: 7px;
+  left: 3px;
+}
+
+.buttonEditProfile {
+  position: absolute !important;
+  top: 84px;
+  right: 87px;
+  width: 200px;
+  background-color: $color-orange !important;
+  height: 44px !important;
+
+  span {
+    padding-left: 18px !important;
+  }
+
+  span,
+  svg {
+    color: white !important;
+  }
+}
+
+.content {
+  max-width: 1462px;
+  margin: auto;
+  padding-top: 40px;
+  padding-bottom: 68px;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $width-portrait-tablet) {
+    display: block;
+    padding-top: 0;
+    padding-bottom: 20px;
+  }
+}
+
+.product {
+  width: 65.5%;
+  padding: 45px;
+  padding-bottom: 54px;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 100%;
+    padding: 16px;
+    padding-bottom: 3px;
+  }
+}
+
+.slick {
+  padding-top: 28px;
+  padding-bottom: 15px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding: 17px;
+    padding-top: 22px;
+  }
+}
+
+.iframe {
+  height: 311px;
+  width: 442px;
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 255px;
+  }
+}
+
+.imageSlide {
+  height: 311px;
+  margin-left: 31px;
+  width: auto;
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 255px;
+    margin-left: 10px;
+  }
+}
+
+.descriptionHeader {
+  font-size: 18px;
+  padding-top: 7px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 13px;
+    padding-top: 18px;
+  }
+}
+
+.description {
+  padding-top: 3px;
+  line-height: 25px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 12px;
+    margin-top: -8px;
+    line-height: 20px;
+    height: 77px;
+    overflow: hidden;
+
+    .isButtonMoreClicked & {
+      height: auto;
+    }
+  }
+}
+
+.buttonMore {
+  @media (max-width: $width-portrait-tablet) {
+    display: block !important;
+    margin: auto !important;
+    position: relative !important;
+    top: -5px;
+    left: -9px;
+
+    span {
+      font-size: 11px !important;
+      color: $color-aquamarine !important;
+    }
+
+    .isButtonMoreClicked & {
+      display: none !important;
+    }
+  }
+}
+
+.related {
+  width: 444px;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: auto;
+  }
+}
+
+.relatedText {
+  font-size: 20px;
+  padding-top: 32px;
+  padding-bottom: 28px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 14px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 9px;
+  }
+}
+
+.mobileDivider {
+  @media (min-width: $width-portrait-tablet) {
+    display: none;
+  }
+
+  width: 200vw;
+  margin-left: -50vw !important;
+}
+
+.relatedSlide {
+  @media (max-width: $width-portrait-tablet) {
+    padding-right: 12px;
+
+    &:first-child {
+      padding-left: 10px;
+    }
+  }
+}
+
+.relatedCard {
+  padding-bottom: 22px;
+}

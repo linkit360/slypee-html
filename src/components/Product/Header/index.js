@@ -5,6 +5,7 @@ import FlatButton from 'material-ui/FlatButton';
 import RatingBlock from '_components/interface/RatingBlock';
 import CostBlock from '_components/interface/CostBlock';
 import Icon from '_components/interface/Icon';
+import { getCategoryUrl } from '_utils/common';
 import styles from './styles.scss';
 
 export default class Header extends React.PureComponent {
@@ -40,7 +41,7 @@ export default class Header extends React.PureComponent {
               <div className={styles.name}>{name}</div>
               <div className={styles.publisher}>{publisher}</div>
             </div>
-            <Link to={`/category/${category.replace(/\s+/g, '')}`}>
+            <Link to={getCategoryUrl(category)}>
               <div className={styles.category}>{category}</div>
             </Link>
             <RatingBlock className={styles.rating} rating={rating} size="big" />

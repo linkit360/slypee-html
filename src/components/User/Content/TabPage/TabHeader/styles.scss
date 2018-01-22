@@ -1,0 +1,40 @@
+.tabHeader {
+  height: 76px;
+  border-top: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.orderBlock {
+  display: flex;
+  padding-top: 20px;
+  padding-left: 46px;
+  align-items: center;
+}
+
+.buttonNameSort {
+  margin-left: 25px !important;
+
+  span {
+    text-transform: none !important;
+  }
+}
+
+.buttonDateSort {
+  margin-left: 3px !important;
+
+  span {
+    text-transform: none !important;
+  }
+}
+
+.iconDrop {
+  position: relative;
+  top: 7px;
+  left: -3px;
+}
+
+.iconSortBoth {
+  position: relative;
+  top: 3px;
+  left: -3px;
+}

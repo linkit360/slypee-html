@@ -9,6 +9,7 @@ import header from './header';
 import product from './product';
 import categories from './categories';
 import environment from './environment';
+import user from './user';
 
 const reducers = {
   home,
@@ -17,7 +18,8 @@ const reducers = {
   header,
   product,
   categories,
-  environment
+  environment,
+  user
 };
 
 export type Reducers = typeof reducers;

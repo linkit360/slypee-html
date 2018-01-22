@@ -40,10 +40,15 @@ function* fetchMain() {
   yield fetch('FETCH_MAIN_REQUEST', api.fetchMain);
 }
 
+function* goto({ route }) {
+  yield put(push(route));
+}
+
 export default function*() {
   yield all([
     takeLatest('FETCH_CATEGORIES_REQUEST', fetchCategories),
     takeLatest('CHANGE_TAB', changeTab),
-    takeLatest('FETCH_MAIN_REQUEST', fetchMain)
+    takeLatest('FETCH_MAIN_REQUEST', fetchMain),
+    takeLatest('GOTO', goto)
   ]);
 }

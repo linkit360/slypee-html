@@ -15,22 +15,29 @@ export default class CostBlock extends React.PureComponent {
     price: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
     currency: PropTypes.string.isRequired,
-    size: PropTypes.oneOf(['big', 'normal'])
+    size: PropTypes.oneOf(['big', 'normal']),
+    isSimple: PropTypes.bool
   };
 
   static defaultProps = {
-    size: 'normal'
+    size: 'normal',
+    isSimple: false
   };
 
   render() {
-    const { className, type, currency, price, size } = this.props;
+    const { className, type, currency, price, size, isSimple } = this.props;
 
     const priceStr = price
       ? price.toString().replace(/(\d)(?=(\d\d\d)+([^\d]|$))/g, '$1, ')
       : 'FREE';
 
     return (
-      <div className={classNames(className, { [styles.big]: size === 'big' })}>
+      <div
+        className={classNames(className, {
+          [styles.big]: size === 'big',
+          [styles.isSimple]: isSimple
+        })}
+      >
         <span className={styles.price}>{priceStr}</span>
         {price !== 0 && <span className={styles.currency}>{currency}</span>}
         {type !== 'single' && (

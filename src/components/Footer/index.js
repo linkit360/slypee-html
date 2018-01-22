@@ -20,7 +20,7 @@ export default class Footer extends React.PureComponent {
           <NavigationItem
             label="Home"
             iconName="home"
-            value=""
+            value="home"
             onClick={onNavigationItemClick}
           />
           <NavigationItem

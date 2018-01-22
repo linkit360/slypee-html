@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import NotFoundPage from '_pages/NotFound';
+import NotFoundPage from '_pages/NotFoundPage';
 import HeaderContainer from '_containers/HeaderContainer';
 import HomeContainer from '_containers/HomeContainer';
 import ProductContainer from '_containers/ProductContainer';
 import FooterContainer from '_containers/FooterContainer';
 import CategoryContainer from '_containers/CategoryContainer';
+import UserContainer from '_containers/UserContainer';
 import styles from './styles.scss';
 
 const getContent = (category, section, app) => {
@@ -16,10 +17,14 @@ const getContent = (category, section, app) => {
     return <ProductContainer appId={app} />;
   }
   if (section) {
-    if (section === 'topcharts') {
-      return <NotFoundPage />;
+    switch (section) {
+      case 'topcharts':
+        return <NotFoundPage />;
+      case 'user':
+        return <UserContainer />;
+      default:
+        return <NotFoundPage />;
     }
-    return <NotFoundPage />;
   }
   return <HomeContainer />;
 };

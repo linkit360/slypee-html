@@ -27,3 +27,8 @@ export const resize = width => ({
   type: 'RESIZE',
   width
 });
+
+export const goTo = route => ({
+  type: 'GOTO',
+  route
+});

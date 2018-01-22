@@ -16,6 +16,11 @@
   @media (max-width: $width-portrait-tablet) {
     font-size: 14px;
   }
+
+  .isSimple & {
+    font-size: 18px;
+    color: inherit;
+  }
 }
 
 .currency {
@@ -38,6 +43,11 @@
     font-size: 11px;
     padding-left: 2px;
   }
+
+  .isSimple & {
+    font-size: 18px;
+    color: inherit;
+  }
 }
 
 .type {
@@ -55,5 +65,10 @@
 
   @media (max-width: $width-portrait-tablet) {
     font-size: 10px;
+  }
+
+  .isSimple & {
+    font-size: 18px;
+    color: inherit;
   }
 }

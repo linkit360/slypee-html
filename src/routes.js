@@ -1,6 +1,5 @@
 import MainPage from '_pages/MainPage';
-// import HomePage from '_containers/Home';
-// import UserInfoPage from '_containers/UserInfo';
+import NotFoundPage from '_pages/NotFoundPage';
 
 export default [
   {
@@ -22,5 +21,9 @@ export default [
     path: '/category/:category',
     exact: true,
     component: MainPage
+  },
+  {
+    path: '*',
+    component: NotFoundPage
   }
 ];
