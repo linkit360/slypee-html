@@ -7,6 +7,7 @@ import ProductContainer from '_containers/ProductContainer';
 import FooterContainer from '_containers/FooterContainer';
 import CategoryContainer from '_containers/CategoryContainer';
 import UserContainer from '_containers/UserContainer';
+import TopChartsContainer from '_containers/TopChartsContainer';
 import styles from './styles.scss';
 
 const getContent = (category, section, app) => {
@@ -19,7 +20,7 @@ const getContent = (category, section, app) => {
   if (section) {
     switch (section) {
       case 'topcharts':
-        return <NotFoundPage />;
+        return <TopChartsContainer />;
       case 'user':
         return <UserContainer />;
       default:

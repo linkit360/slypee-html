@@ -10,6 +10,7 @@ import product from './product';
 import categories from './categories';
 import environment from './environment';
 import user from './user';
+import topCharts from './topCharts';
 
 const reducers = {
   home,
@@ -19,7 +20,8 @@ const reducers = {
   product,
   categories,
   environment,
-  user
+  user,
+  topCharts
 };
 
 export type Reducers = typeof reducers;
