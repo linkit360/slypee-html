@@ -1,18 +1,52 @@
 @import '~theme/variables';
 
+.desktop {
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
+.mobile {
+  @media (min-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
+.appWrapper {
+  border-bottom: 1px solid #e1e1e1;
+}
+
 .app {
   height: 150px;
   display: flex;
   align-items: center;
   padding-left: 46px;
-  border-bottom: 1px solid #e1e1e1;
   position: relative;
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 202px;
+    width: 320px;
+    margin: auto;
+    display: block;
+    padding: 0;
+    position: relative;
+    padding-left: 84px;
+    box-sizing: border-box;
+  }
 }
 
 .img {
   width: 81px;
   height: 81px;
   background-size: cover;
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 58px;
+    width: 58px;
+    position: absolute;
+    top: 23px;
+    left: 7px;
+  }
 }
 
 .name {
@@ -24,11 +58,22 @@
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 15px;
+    padding: 0;
+    padding-top: 22px;
+  }
 }
 
 .rating {
   padding-left: 78px;
   padding-top: 3px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding-left: 0;
+    padding-top: 7px;
+  }
 }
 
 .purchaseBlock {
@@ -38,20 +83,43 @@
   div:last-child {
     padding-top: 7px;
   }
+
+  @media (max-width: $width-portrait-tablet) {
+    padding: 0;
+    margin-top: -8px;
+
+    div:last-child {
+      padding-top: 0;
+      margin-top: -6px;
+    }
+  }
 }
 
 .purchaseText {
   color: $color-font-grey;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 10px;
+  }
 }
 
 .costBlock {
   display: inline;
   padding-left: 19px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding-left: 10px;
+  }
 }
 
 .purchaseDate {
   font-size: 18px;
   padding-left: 28px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 12px;
+    padding-left: 20px;
+  }
 }
 
 .category {
@@ -61,15 +129,31 @@
   border-bottom: 1px solid $color-font-grey;
   margin-left: 61px;
   padding-top: 4px;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 10px;
+    margin: 0;
+    position: relative;
+    top: 2px;
+  }
 }
 
 .buttonDownload {
   position: absolute !important;
   right: 40px;
 
+  @media (max-width: $width-portrait-tablet) {
+    right: -6px;
+    bottom: 16px;
+  }
+
   span {
     font-size: 16px !important;
     color: $color-orange !important;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 12px !important;
+    }
   }
 }
 
@@ -77,14 +161,29 @@
   position: relative;
   top: 10px;
   color: $color-orange;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 14px;
+    top: 9px;
+    left: 6px;
+  }
 }
 
 .buttonView {
   position: absolute !important;
   right: 286px;
 
+  @media (max-width: $width-portrait-tablet) {
+    right: 133px;
+    bottom: 17px;
+  }
+
   span {
     font-size: 16px !important;
     color: #80cbc4 !important;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 12px !important;
+    }
   }
 }

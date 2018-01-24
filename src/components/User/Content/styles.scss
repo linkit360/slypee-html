@@ -3,10 +3,19 @@
 .content {
   margin: 30px 80px;
   padding-bottom: 54px;
+
+  @media (max-width: $width-portrait-tablet) {
+    margin: 0;
+    margin-top: 14px;
+  }
 }
 
 .tabs {
   width: 490px;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: auto;
+  }
 
   div:nth-child(1) {
     background-color: transparent !important;
@@ -28,6 +37,11 @@
   font-size: 20px !important;
   height: 102px;
   color: $color-black !important;
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 65px;
+    font-size: 16px !important;
+  }
 }
 
 .buttonShowMore {

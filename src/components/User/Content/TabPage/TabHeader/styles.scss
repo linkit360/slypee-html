@@ -5,20 +5,52 @@
   border-top: 1px solid #e1e1e1;
   border-bottom: 1px solid #e1e1e1;
   position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 50px;
+  }
 }
 
 .orderBlock {
   display: flex;
-  padding-top: 20px;
   padding-left: 46px;
   align-items: center;
+  height: 100%;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 12px;
+    padding-left: 17px;
+
+    .isSearchOpen & {
+      display: none;
+    }
+  }
+}
+
+.buttonNameSort,
+.buttonDateSort {
+  @media (max-width: $width-portrait-tablet) {
+    height: 39px !important;
+    line-height: 39px !important;
+    min-width: 0 !important;
+  }
+
+  span {
+    text-transform: none !important;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 12px !important;
+    }
+  }
 }
 
 .buttonNameSort {
   margin-left: 25px !important;
 
-  span {
-    text-transform: none !important;
+  @media (max-width: $width-portrait-tablet) {
+    margin-left: 15px !important;
   }
 }
 
@@ -26,7 +58,9 @@
   margin-left: 3px !important;
 
   span {
-    text-transform: none !important;
+    @media (max-width: $width-portrait-tablet) {
+      padding-left: 3px !important;
+    }
   }
 }
 
@@ -43,10 +77,13 @@
 }
 
 .searchBlock {
-  display: inline-block;
-  position: absolute;
-  right: 50px;
-  top: 24px;
+  display: flex;
+  align-items: center;
+  padding-right: 50px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding-right: 13px;
+  }
 }
 
 .iconSearch {
@@ -55,17 +92,30 @@
 }
 
 .search {
-  position: absolute !important;
-  left: -365px;
-  top: -15px;
+  left: 19px;
+  top: -3px;
+  height: 40px !important;
+  position: relative !important;
   width: 385px !important;
   border-bottom: 1px solid $color-font-grey;
 
+  @media (max-width: $width-portrait-tablet) {
+    width: calc(100vw - 40px) !important;
+  }
+
   input {
     width: 360px !important;
+
+    @media (max-width: $width-portrait-tablet) {
+      width: calc(100% - 20px) !important;
+    }
   }
 
   & > div:last-child {
     display: none;
+  }
+
+  & > div:first-child {
+    bottom: 8px !important;
   }
 }

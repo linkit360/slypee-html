@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import Icon from '_components/interface/Icon';
@@ -75,7 +76,11 @@ export default class TabHeader extends React.PureComponent {
     const { isSearchOpen } = this.state;
 
     return (
-      <div className={styles.tabHeader}>
+      <div
+        className={classNames(styles.tabHeader, {
+          [styles.isSearchOpen]: isSearchOpen
+        })}
+      >
         <div className={styles.orderBlock}>
           <div>Order by:</div>
           <FlatButton
