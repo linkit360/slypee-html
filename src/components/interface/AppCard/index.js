@@ -46,7 +46,7 @@ export default class AppCard extends React.PureComponent {
       isHorisontal
     } = this.props;
     const { isFocus } = this.state;
-    const href = `apps/${id}`;
+    const href = `/apps/${id}`;
 
     return (
       <Paper

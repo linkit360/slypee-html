@@ -150,13 +150,20 @@
 
 .buttonUnsubscribe {
   margin-left: 8px !important;
+  background-color: transparent !important;
 
   span {
     color: $color-font-grey !important;
+    text-decoration: underline;
 
     @media (max-width: $width-portrait-tablet) {
       font-size: 10px !important;
-      border-bottom: 1px solid $color-font-grey;
+    }
+  }
+
+  &:hover {
+    span {
+      text-decoration: none;
     }
   }
 

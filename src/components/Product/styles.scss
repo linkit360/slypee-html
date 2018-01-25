@@ -82,6 +82,7 @@
 .description {
   padding-top: 3px;
   line-height: 25px;
+  font-family: 'Roboto-Regular', sans-serif;
 
   @media (max-width: $width-portrait-tablet) {
     font-size: 12px;
@@ -103,14 +104,11 @@
     position: relative !important;
     top: -5px;
     left: -9px;
+    background-color: transparent;
 
     span {
       font-size: 11px !important;
       color: $color-aquamarine !important;
-    }
-
-    .isButtonMoreClicked & {
-      display: none !important;
     }
   }
 }

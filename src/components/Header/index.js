@@ -56,7 +56,15 @@ export default class Header extends React.Component {
   };
 
   handleSearchClick = () => {
-    this.props.onSearch(this.search);
+    if (this.search) {
+      this.props.onSearch(this.search);
+    }
+  };
+
+  handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      this.props.onSearch(this.search);
+    }
   };
 
   handleTabChange = value => {
@@ -127,6 +135,7 @@ export default class Header extends React.Component {
               hintText="Search your content here"
               underlineShow={false}
               onChange={this.handleSearchChange}
+              onKeyDown={this.handleKeyDown}
             />
             <FlatButton
               className={styles.buttonSearch}

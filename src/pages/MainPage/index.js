@@ -10,7 +10,7 @@ import UserContainer from '_containers/UserContainer';
 import TopChartsContainer from '_containers/TopChartsContainer';
 import styles from './styles.scss';
 
-const getContent = (category, section, app) => {
+const getContent = (category, section, app, search) => {
   if (category) {
     return <CategoryContainer nameCategory={category} />;
   }
@@ -27,6 +27,9 @@ const getContent = (category, section, app) => {
         return <NotFoundPage />;
     }
   }
+  if (search) {
+    return <NotFoundPage />;
+  }
   return <HomeContainer />;
 };
 
@@ -37,13 +40,15 @@ export default class MainPage extends React.PureComponent {
 
   render() {
     const { match: { params } } = this.props;
-    const { category, section, app } = params;
+    const { category, section, app, search } = params;
 
     return (
       <div>
-        <HeaderContainer activeTab={category || section || 'home'} />
+        <HeaderContainer
+          activeTab={!!search || section || category || 'home'}
+        />
         <div className={styles.content}>
-          {getContent(category, section, app)}
+          {getContent(category, section, app, search)}
         </div>
         <FooterContainer />
       </div>

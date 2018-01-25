@@ -146,7 +146,11 @@
 
   button {
     font-size: 20px !important;
-    height: 63px;
+    height: 67px;
+
+    &:hover {
+      background-color: #37474f !important;
+    }
 
     @media (max-width: $width-portrait-tablet) {
       font-size: 12px !important;
@@ -166,9 +170,11 @@
     div {
       background-color: $color-orange !important;
       height: 6px !important;
+      margin-top: -6px !important;
 
       @media (max-width: $width-portrait-tablet) {
         height: 3px !important;
+        margin-top: -2px !important;
       }
     }
   }

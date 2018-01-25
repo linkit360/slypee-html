@@ -50,15 +50,8 @@
   display: block !important;
   width: 200px;
   height: auto !important;
-  background-color: #80cbc4 !important;
-
-  span {
-    line-height: 45px !important;
-    color: white !important;
-  }
 
   @media (max-width: $width-portrait-tablet) {
-    margin-top: 6px !important;
-    margin-bottom: 24px !important;
+    margin-top: 27px !important;
   }
 }

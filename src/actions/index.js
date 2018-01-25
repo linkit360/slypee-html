@@ -32,3 +32,8 @@ export const goTo = route => ({
   type: 'GOTO',
   route
 });
+
+export const search = search => ({
+  type: 'SEARCH',
+  search
+});

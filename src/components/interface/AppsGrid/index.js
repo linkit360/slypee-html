@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '_components/interface/Button';
 import AppCard from '_components/interface/AppCard';
 import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
@@ -82,7 +82,7 @@ class AppsGrid extends React.PureComponent {
               />
             ))}
         </div>
-        <FlatButton
+        <Button
           className={styles.buttonShowMore}
           label="SHOW MORE"
           onClick={this.handleShowMoreClick}

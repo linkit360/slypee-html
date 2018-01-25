@@ -37,6 +37,10 @@ export default class MobileSearchBlock extends React.Component {
     }
   };
 
+  handleBackButtonClick = () => {
+    this.toogleSearchMode(false);
+  };
+
   toogleSearchMode(isSearchMode) {
     this.setState({ isSearchMode });
   }
@@ -53,13 +57,20 @@ export default class MobileSearchBlock extends React.Component {
         })}
       >
         {isSearchMode && (
-          <TextField
-            ref={this.searchRef}
-            className={styles.search}
-            hintText="Search your content here"
-            underlineShow={false}
-            onChange={onSearchChange}
-          />
+          <div>
+            <Icon
+              className={styles.buttonBack}
+              name="arrow-back"
+              onClick={this.handleBackButtonClick}
+            />
+            <TextField
+              ref={this.searchRef}
+              className={styles.search}
+              hintText="Search your content here"
+              underlineShow={false}
+              onChange={onSearchChange}
+            />
+          </div>
         )}
         <FlatButton
           className={styles.buttonSearch}
