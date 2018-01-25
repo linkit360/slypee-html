@@ -55,7 +55,7 @@ export default class Product extends React.PureComponent {
   };
 
   handleButtonMoreClick = () => {
-    this.setState({ isButtonMoreClicked: true });
+    this.setState({ isButtonMoreClicked: !this.state.isButtonMoreClicked });
   };
 
   render() {
@@ -81,7 +81,7 @@ export default class Product extends React.PureComponent {
           <FlatButton
             className={classNames(styles.buttonMore, styles.mobile)}
             onClick={this.handleButtonMoreClick}
-            label="ShowMore"
+            label={isButtonMoreClicked ? 'Show less' : 'Show more'}
           />
         </Paper>
         {this.getSlick(styles.mobile)}

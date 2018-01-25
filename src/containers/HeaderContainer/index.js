@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchMainMenu, fetchCategories, changeTab } from '_actions';
+import { fetchMainMenu, fetchCategories, changeTab, search } from '_actions';
 import Header from '_components/Header';
 
 class HeaderContainer extends React.Component {
@@ -14,7 +14,8 @@ class HeaderContainer extends React.Component {
     activeTab: PropTypes.string.isRequired,
     fetchMainMenu: PropTypes.func.isRequired,
     fetchCategories: PropTypes.func.isRequired,
-    changeTab: PropTypes.func.isRequired
+    changeTab: PropTypes.func.isRequired,
+    search: PropTypes.func.isRequired
   };
 
   componentWillMount() {
@@ -39,7 +40,8 @@ class HeaderContainer extends React.Component {
       mainMenu,
       categories,
       lastTimeGoToSearch,
-      lastTimeGoToMobileSearch
+      lastTimeGoToMobileSearch,
+      search
     } = this.props;
 
     if (!mainMenu.list.length || !categories.list.length) {
@@ -53,7 +55,7 @@ class HeaderContainer extends React.Component {
         lastTimeGoToSearch={lastTimeGoToSearch}
         lastTimeGoToMobileSearch={lastTimeGoToMobileSearch}
         activeTab={activeTab}
-        onSearch={value => console.log(value)}
+        onSearch={search}
         onTabChange={this.handleTabChange}
       />
     );
@@ -72,7 +74,8 @@ const mapDispatchToProps = dispatch =>
     {
       fetchMainMenu,
       fetchCategories,
-      changeTab
+      changeTab,
+      search
     },
     dispatch
   );

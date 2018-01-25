@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '_components/interface/Button';
 import AppCard from '_components/interface/AppCard';
 import SlickWithSlider from '_components/interface/SlickWithSlider';
 import styles from './styles.scss';
@@ -23,9 +23,7 @@ export default class AppBlock extends React.PureComponent {
   getButton = () => {
     const { href } = this.props;
 
-    return (
-      <FlatButton className={styles.buttonMore} href={href} label="More" />
-    );
+    return <Button className={styles.buttonMore} href={href} label="More" />;
   };
 
   getSlick = () => {

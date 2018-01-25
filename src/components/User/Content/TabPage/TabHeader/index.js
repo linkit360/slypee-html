@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
 import Icon from '_components/interface/Icon';
@@ -16,6 +17,7 @@ export default class TabHeader extends React.PureComponent {
   };
 
   state = {
+    search: '',
     isSearchOpen: false
   };
 
@@ -28,18 +30,26 @@ export default class TabHeader extends React.PureComponent {
   };
 
   handleSearchChange = (event, value) => {
-    this.search = value;
+    this.setState({ search: value });
   };
 
   handleSearchClick = () => {
     const { tabName, onSearch } = this.props;
-    const { isSearchOpen } = this.state;
+    const { isSearchOpen, search } = this.state;
 
     if (isSearchOpen) {
-      onSearch(this.search, tabName);
+      onSearch(search, tabName);
     } else {
       this.toogleSearch(true);
     }
+  };
+
+  handleSearchFieldBlur = () => {
+    this.toogleSearch(false);
+  };
+
+  handleBackButtonClick = () => {
+    this.toogleSearch(false);
   };
 
   toogleSearch(isSearchOpen) {
@@ -72,10 +82,14 @@ export default class TabHeader extends React.PureComponent {
   };
 
   render() {
-    const { isSearchOpen } = this.state;
+    const { isSearchOpen, search } = this.state;
 
     return (
-      <div className={styles.tabHeader}>
+      <div
+        className={classNames(styles.tabHeader, {
+          [styles.isSearchOpen]: isSearchOpen
+        })}
+      >
         <div className={styles.orderBlock}>
           <div>Order by:</div>
           <FlatButton
@@ -97,11 +111,20 @@ export default class TabHeader extends React.PureComponent {
         </div>
         <div className={styles.searchBlock}>
           {isSearchOpen && (
-            <TextField
-              className={styles.search}
-              hintText="Search your content here"
-              onChange={this.handleSearchChange}
-            />
+            <div>
+              <Icon
+                className={styles.buttonBack}
+                name="arrow-back"
+                onClick={this.handleBackButtonClick}
+              />
+              <TextField
+                className={styles.search}
+                hintText="Search your content here"
+                value={search}
+                onChange={this.handleSearchChange}
+                onBlur={this.handleSearchFieldBlur}
+              />
+            </div>
           )}
           <Icon
             className={styles.iconSearch}

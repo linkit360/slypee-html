@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '_components/interface/Button';
 import AppCard from '_components/interface/AppCard';
 import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
@@ -9,11 +9,17 @@ const CARD_WIDTH = 254;
 const COUNT_ROWS_IN_BLOCK = 2;
 const MOBILE_COUNT_CARDS_IN_BLOCK = 6;
 
-class MostPopular extends React.PureComponent {
+class AppsGrid extends React.PureComponent {
   static propTypes = {
+    className: PropTypes.string,
     environment: PropTypes.object.isRequired,
     cards: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    startCountRows: PropTypes.number.isRequired,
     onFetchMore: PropTypes.func.isRequired
+  };
+
+  static defaultProps = {
+    className: ''
   };
 
   state = {
@@ -21,12 +27,13 @@ class MostPopular extends React.PureComponent {
   };
 
   componentDidMount() {
+    const { startCountRows } = this.props;
     const { isMobileWidth } = this.props.environment;
     setTimeout(() => {
       this.setState({
         countShowItems: isMobileWidth
           ? MOBILE_COUNT_CARDS_IN_BLOCK
-          : this.getCountItemsInRow() * COUNT_ROWS_IN_BLOCK
+          : this.getCountItemsInRow() * startCountRows
       });
     }, 200);
   }
@@ -57,12 +64,12 @@ class MostPopular extends React.PureComponent {
   rootRef = ref => (this.root = ref);
 
   render() {
-    const { cards, environment } = this.props;
+    const { cards, environment, className } = this.props;
     const { isMobileWidth } = environment;
     const { countShowItems } = this.state;
 
     return (
-      <div>
+      <div className={className}>
         <div ref={this.rootRef} className={styles.cards}>
           {cards
             .slice(0, countShowItems)
@@ -75,7 +82,7 @@ class MostPopular extends React.PureComponent {
               />
             ))}
         </div>
-        <FlatButton
+        <Button
           className={styles.buttonShowMore}
           label="SHOW MORE"
           onClick={this.handleShowMoreClick}
@@ -85,4 +92,4 @@ class MostPopular extends React.PureComponent {
   }
 }
 
-export default environmentHOC(MostPopular);
+export default environmentHOC(AppsGrid);

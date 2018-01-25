@@ -1,35 +1,5 @@
 @import '~theme/variables';
 
-.content {
-  margin: 30px 80px;
-  padding-bottom: 54px;
-}
-
-.tabs {
-  width: 490px;
-
-  div:nth-child(1) {
-    background-color: transparent !important;
-  }
-
-  div:nth-child(2) {
-    div {
-      background-color: #80cbc4 !important;
-      height: 6px !important;
-
-      @media (max-width: $width-portrait-tablet) {
-        height: 3px !important;
-      }
-    }
-  }
-}
-
-.tab {
-  font-size: 20px !important;
-  height: 102px;
-  color: $color-black !important;
-}
-
 .buttonShowMore {
   margin: auto !important;
   margin-top: 39px !important;

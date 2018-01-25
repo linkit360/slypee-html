@@ -20,6 +20,10 @@
   .isSimple & {
     font-size: 18px;
     color: inherit;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 12px;
+    }
   }
 }
 
@@ -47,6 +51,10 @@
   .isSimple & {
     font-size: 18px;
     color: inherit;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 12px;
+    }
   }
 }
 
@@ -70,5 +78,9 @@
   .isSimple & {
     font-size: 18px;
     color: inherit;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 12px;
+    }
   }
 }

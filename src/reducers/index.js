@@ -13,6 +13,7 @@ import user from './user';
 import mainMenu from './mainMenu';
 import slider from './slider';
 import main from './main';
+import topCharts from './topCharts';
 
 const reducers = {
   home,
@@ -25,7 +26,8 @@ const reducers = {
   user,
   mainMenu,
   slider,
-  main
+  main,
+  topCharts
 };
 
 export type Reducers = typeof reducers;

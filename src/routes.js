@@ -23,6 +23,11 @@ export default [
     component: MainPage
   },
   {
+    path: '/search/:search',
+    exact: true,
+    component: MainPage
+  },
+  {
     path: '*',
     component: NotFoundPage
   }

@@ -6,6 +6,7 @@
   border-radius: 4px !important;
   padding-top: 11px;
   position: relative;
+  text-align: left;
 
   @media (max-width: $width-portrait-tablet) {
     width: 129px;
@@ -31,6 +32,7 @@
   width: 200px;
   height: 200px;
   background-size: cover;
+  background-position: center;
   margin: auto;
 
   @media (max-width: $width-portrait-tablet) {

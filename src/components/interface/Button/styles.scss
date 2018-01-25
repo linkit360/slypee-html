@@ -1,0 +1,24 @@
+@import '~theme/variables';
+
+.button {
+  height: 47px !important;
+  background-color: #80cbc4 !important;
+  display: block;
+
+  &:hover {
+    background-color: $color-aquamarine !important;
+  }
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 38px !important;
+  }
+
+  span {
+    color: white !important;
+    line-height: 47px;
+
+    @media (max-width: $width-portrait-tablet) {
+      line-height: 38px;
+    }
+  }
+}

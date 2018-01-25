@@ -35,8 +35,6 @@
 
 .buttonMore {
   width: 91px !important;
-  height: 47px !important;
-  background-color: $color-aquamarine !important;
   position: absolute !important;
   right: 8px;
   top: -5px;
@@ -47,16 +45,6 @@
     display: block !important;
     width: 126px !important;
     margin-top: 7px !important;
-    height: 38px !important;
-  }
-
-  span {
-    color: white !important;
-    line-height: 47px;
-
-    @media (max-width: $width-portrait-tablet) {
-      line-height: 38px;
-    }
   }
 }
 

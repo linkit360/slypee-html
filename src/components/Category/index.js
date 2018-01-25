@@ -4,7 +4,7 @@ import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import SlickWithSlider from '_components/interface/SlickWithSlider';
 import AppCard from '_components/interface/AppCard';
-import MostPopular from './MostPopular';
+import AppsGrid from '_components/interface/AppsGrid';
 import styles from './styles.scss';
 
 export default class Category extends React.PureComponent {
@@ -24,8 +24,9 @@ export default class Category extends React.PureComponent {
         </Paper>
         <div className={styles.content}>
           <div className={styles.mostPopularText}>MOST POPULAR</div>
-          <MostPopular
+          <AppsGrid
             cards={mostPopular.list}
+            startCountRows={2}
             onFetchMore={() => console.log('onFetchMore')}
           />
           <Divider className={styles.mobile} />

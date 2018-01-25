@@ -53,6 +53,10 @@ function* goto({ route }) {
   yield put(push(route));
 }
 
+function* search({ search }) {
+  yield put(push(`/search/${search}`));
+}
+
 export default function*() {
   yield all([
     takeLatest('FETCH_MAIN_MENU_REQUEST', fetchMainMenu),
@@ -60,6 +64,7 @@ export default function*() {
     takeLatest('FETCH_SLIDER_REQUEST', fetchSlider),
     takeLatest('FETCH_MAIN_REQUEST', fetchMain),
     takeLatest('GOTO', goto),
-    takeLatest('CHANGE_TAB', changeTab)
+    takeLatest('CHANGE_TAB', changeTab),
+    takeLatest('SEARCH', search)
   ]);
 }
