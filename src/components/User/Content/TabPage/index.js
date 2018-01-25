@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '_components/interface/Button';
 import TabHeader from './TabHeader';
 import App from './App';
 import styles from './styles.scss';
@@ -64,7 +64,7 @@ export default class TabPage extends React.PureComponent {
         {list
           .slice(0, countShowItems)
           .map((app, index) => <App key={index} {...app} />)}
-        <FlatButton
+        <Button
           className={styles.buttonShowMore}
           label="SHOW MORE"
           onClick={this.handleShowMoreClick}

@@ -128,4 +128,8 @@
   left: 16px;
   color: $color-light-gray;
   z-index: 10;
+
+  @media (min-width: $width-portrait-tablet) {
+    display: none;
+  }
 }

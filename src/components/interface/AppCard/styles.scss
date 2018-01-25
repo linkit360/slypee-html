@@ -88,11 +88,14 @@
   }
 }
 
-.publisher {
+.producer {
   font-family: 'Roboto-Regular', sans-serif;
   color: $color-font-grey;
   font-size: 15px;
   margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   @media (max-width: $width-portrait-tablet) {
     display: none;

@@ -13,9 +13,11 @@ export default class AppCard extends React.PureComponent {
     id: PropTypes.number.isRequired,
     logo: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    publisher: PropTypes.string.isRequired,
+    producer: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
-    cost: PropTypes.object.isRequired,
+    price: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
     isHorisontal: PropTypes.bool
   };
 
@@ -40,9 +42,11 @@ export default class AppCard extends React.PureComponent {
       logo,
       id,
       name,
-      publisher,
+      producer,
       rating,
-      cost,
+      price,
+      type,
+      currency,
       isHorisontal
     } = this.props;
     const { isFocus } = this.state;
@@ -69,7 +73,7 @@ export default class AppCard extends React.PureComponent {
           <Link className={styles.link} to={href}>
             {name}
           </Link>
-          <p className={styles.publisher}>{publisher}</p>
+          <p className={styles.producer}>{producer}</p>
         </div>
         <div className={styles.footer}>
           <RatingBlock
@@ -77,7 +81,12 @@ export default class AppCard extends React.PureComponent {
             rating={rating}
             isLong={isHorisontal}
           />
-          <CostBlock className={styles.cost} {...cost} />
+          <CostBlock
+            className={styles.cost}
+            price={price}
+            type={type}
+            currency={currency}
+          />
         </div>
       </Paper>
     );

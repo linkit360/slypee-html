@@ -40,9 +40,10 @@ export default class CostBlock extends React.PureComponent {
       >
         <span className={styles.price}>{priceStr}</span>
         {price !== 0 && <span className={styles.currency}>{currency}</span>}
-        {type !== 'single' && (
-          <span className={styles.type}>/ {types[type]}</span>
-        )}
+        {price !== 0 &&
+          type !== 'single' && (
+            <span className={styles.type}>/ {types[type]}</span>
+          )}
       </div>
     );
   }

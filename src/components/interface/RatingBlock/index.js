@@ -44,7 +44,10 @@ export default class RatingBlock extends React.PureComponent {
       >
         {stars}
         <span className={styles.rating}>
-          {rating.toString().replace(/\./, ',')}
+          {rating
+            .toFixed(1)
+            .toString()
+            .replace(/\./, ',')}
         </span>
       </div>
     );

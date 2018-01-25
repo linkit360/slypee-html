@@ -12,14 +12,14 @@ export default class Header extends React.PureComponent {
   static propTypes = {
     img: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    publisher: PropTypes.string.isRequired,
+    producer: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
     cost: PropTypes.object.isRequired,
     rating: PropTypes.number.isRequired
   };
 
   render() {
-    const { img, name, publisher, category, cost, rating } = this.props;
+    const { img, name, producer, category, cost, rating } = this.props;
 
     const url = typeof window === 'object' && window.location.href;
 
@@ -27,7 +27,7 @@ export default class Header extends React.PureComponent {
       <div>
         <div className={styles.mobile}>
           <div className={styles.name}>{name}</div>
-          <div className={styles.publisher}>{publisher}</div>
+          <div className={styles.producer}>{producer}</div>
         </div>
         <div className={styles.header}>
           <div
@@ -39,7 +39,7 @@ export default class Header extends React.PureComponent {
           <div className={styles.info}>
             <div className={styles.desktop}>
               <div className={styles.name}>{name}</div>
-              <div className={styles.publisher}>{publisher}</div>
+              <div className={styles.producer}>{producer}</div>
             </div>
             <Link to={getCategoryUrl(category)}>
               <div className={styles.category}>{category}</div>
