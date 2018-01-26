@@ -8,7 +8,8 @@
 
 .header {
   padding: 48px 87px;
-  padding-bottom: 56px;
+  padding-bottom: 0;
+  position: relative;
 
   @media (max-width: $width-portrait-tablet) {
     padding: 21px 17px;
@@ -29,6 +30,7 @@
   padding-top: 29px;
   margin-left: -2px;
   line-height: 24px;
+  font-family: 'Roboto-Regular', sans-serif;
 
   @media (max-width: $width-portrait-tablet) {
     font-size: 12px;
@@ -38,24 +40,74 @@
   }
 }
 
-.content {
-  padding: 0 80px;
+.tabs {
+  width: 468px;
+  margin-top: 28px;
 
   @media (max-width: $width-portrait-tablet) {
-    padding: 0;
+    width: auto;
+  }
+
+  div:nth-child(1) {
+    background-color: transparent !important;
+  }
+
+  div:nth-child(2) {
+    div {
+      background-color: #80cbc4 !important;
+      height: 6px !important;
+
+      @media (max-width: $width-portrait-tablet) {
+        height: 3px !important;
+      }
+    }
   }
 }
 
-.mostPopularText {
-  font-size: 28px;
-  padding-top: 50px;
-  padding-bottom: 31px;
+.tab {
+  font-size: 20px !important;
+  height: 102px;
+  color: $color-black !important;
 
   @media (max-width: $width-portrait-tablet) {
-    font-size: 14px;
-    padding-top: 26px;
-    padding-bottom: 15px;
-    padding-left: 16px;
+    height: 65px;
+    font-size: 16px !important;
+  }
+}
+
+.filterBlock {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 62px;
+  bottom: 36px;
+}
+
+.filterText {
+  font-size: 20px;
+  font-family: 'Roboto-Regular', sans-serif;
+}
+
+.filter {
+  font-size: 20px !important;
+  font-family: 'Roboto-Regular', sans-serif !important;
+  margin-top: -6px;
+  width: 235px !important;
+}
+
+.filterItem {
+  font-size: 18px !important;
+  font-family: 'Roboto-Regular', sans-serif !important;
+  height: 46px !important;
+  display: flex !important;
+}
+
+.content {
+  padding: 0 80px;
+  padding-top: 78px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding: 0;
   }
 }
 

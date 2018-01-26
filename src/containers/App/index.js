@@ -21,7 +21,8 @@ import styles from './styles.scss';
 
 const muiTheme = getMuiTheme({
   palette: {
-    textColor: '#263238'
+    textColor: '#263238',
+    accent1Color: '#f4511e'
   }
 });
 
