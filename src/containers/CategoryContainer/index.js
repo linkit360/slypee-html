@@ -2,44 +2,88 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchMain } from '_actions';
+import {
+  fetchCategoryContent,
+  fetchMoreCategoryContent,
+  setCategorySlug
+} from '_actions';
+import { currentCategorySelector } from '_selectors';
 import Category from '_components/Category';
 
 class CategoryContainer extends React.Component {
   static propTypes = {
-    nameCategory: PropTypes.string.isRequired,
-    categories: PropTypes.object.isRequired,
-    fetchMain: PropTypes.func.isRequired
+    categorySlug: PropTypes.string.isRequired,
+    category: PropTypes.object.isRequired,
+    content: PropTypes.object.isRequired,
+    fetchCategoryContent: PropTypes.func.isRequired,
+    fetchMoreCategoryContent: PropTypes.func.isRequired,
+    setCategorySlug: PropTypes.func.isRequired
   };
 
   componentWillMount() {
-    const { nameCategory, categories, fetchMain } = this.props;
+    const { categorySlug, setCategorySlug } = this.props;
+    setCategorySlug(categorySlug);
 
-    if (!categories[nameCategory]) {
-      fetchMain(nameCategory);
+    this.tryFetchCategoryContent();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.category !== this.props.category) {
+      this.tryFetchCategoryContent();
     }
   }
 
-  render() {
-    const { nameCategory, categories } = this.props;
-    const category = categories[nameCategory];
+  tryFetchCategoryContent() {
+    const { category, fetchCategoryContent } = this.props;
 
-    if (!category) {
-      return null;
+    if (category) {
+      fetchCategoryContent({ id: category.id, ordering: 'top' });
+    }
+  }
+
+  handleFetchContent = data => {
+    const { category, fetchCategoryContent } = this.props;
+    fetchCategoryContent({ id: category.id, ...data });
+  };
+
+  handleFetchMoreContent = data => {
+    const { category, fetchMoreCategoryContent } = this.props;
+    fetchMoreCategoryContent({ id: category.id, ...data });
+  };
+
+  render() {
+    const { content, newApps, category } = this.props;
+
+    if (category) {
+      return (
+        <Category
+          name={category.name}
+          description={category.description}
+          countContent={category.content}
+          content={content.list}
+          newApps={newApps}
+          onFetchContent={this.handleFetchContent}
+          onFetchMoreContent={this.handleFetchMoreContent}
+        />
+      );
     }
 
-    return <Category category={category} />;
+    return null;
   }
 }
 
 const mapStateToProps = state => ({
-  categories: state.categoriesContent
+  content: state.category.content,
+  newApps: state.category.newApps,
+  category: currentCategorySelector(state)
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchMain
+      fetchCategoryContent,
+      fetchMoreCategoryContent,
+      setCategorySlug
     },
     dispatch
   );

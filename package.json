@@ -167,6 +167,7 @@
           ]
         }
       ],
+      "react/prop-types": 1,
       "react/require-default-props": 0,
       "react/no-array-index-key": 0,
       "react/no-unused-prop-types": 1,
@@ -279,6 +280,7 @@
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
+    "reselect": "^3.0.1",
     "serialize-javascript": "^1.4.0",
     "serve-favicon": "2.4.5",
     "webpack-isomorphic-tools": "^3.0.5"

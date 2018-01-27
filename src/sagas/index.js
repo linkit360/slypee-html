@@ -1,13 +1,15 @@
-import { call, takeLatest, all, put } from 'redux-saga/effects';
+import { call, takeLatest, all, put, select } from 'redux-saga/effects';
 import { getCategoryUrlFromSlug } from '_utils/common';
 
 import * as api from '_api';
 
 import { push } from 'react-router-redux';
 
-function* fetch(name, apiFunc) {
+const getCountCategoryContent = state => state.category.content.list.length;
+
+function* fetch(name, apiFunc, params) {
   try {
-    const data = yield call(apiFunc);
+    const data = yield call(apiFunc, params);
 
     yield put({ type: `FETCH_${name}_SUCCESS`, data: data.data });
   } catch (e) {
@@ -29,6 +31,22 @@ function* fetchSlider() {
 
 function* fetchMain() {
   yield fetch('MAIN', api.fetchMain);
+}
+
+function* fetchCategoryContent({ data }) {
+  yield fetch('CATEGORY_CONTENT', api.fetchCategoryContent, {
+    start: 0,
+    ...data
+  });
+}
+
+function* fetchMoreCategoryContent({ data }) {
+  const start = yield select(getCountCategoryContent);
+
+  yield fetch('MORE_CATEGORY_CONTENT', api.fetchCategoryContent, {
+    start,
+    ...data
+  });
 }
 
 function* changeTab({ tabName }) {
@@ -63,6 +81,8 @@ export default function*() {
     takeLatest('FETCH_CATEGORIES_REQUEST', fetchCategories),
     takeLatest('FETCH_SLIDER_REQUEST', fetchSlider),
     takeLatest('FETCH_MAIN_REQUEST', fetchMain),
+    takeLatest('FETCH_CATEGORY_CONTENT', fetchCategoryContent),
+    takeLatest('FETCH_MORE_CATEGORY_CONTENT', fetchMoreCategoryContent),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),
     takeLatest('SEARCH', search)

@@ -11,9 +11,9 @@ import TopChartsContainer from '_containers/TopChartsContainer';
 import { getSlug } from '_utils/common';
 import styles from './styles.scss';
 
-const getContent = (category, section, app, search) => {
-  if (category) {
-    return <CategoryContainer nameCategory={category} />;
+const getContent = (categorySlug, section, app, search) => {
+  if (categorySlug) {
+    return <CategoryContainer categorySlug={categorySlug} />;
   }
   if (app) {
     return <ProductContainer appId={app} />;
@@ -50,7 +50,7 @@ export default class MainPage extends React.PureComponent {
           activeTab={!!search || section || categorySlug || 'home'}
         />
         <div className={styles.content}>
-          {getContent(categorySlug, section, app)}
+          {getContent(categorySlug, section, app, search)}
         </div>
         <FooterContainer />
       </div>

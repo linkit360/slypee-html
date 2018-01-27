@@ -1,9 +1,6 @@
 import _ from 'lodash/fp';
 
-const initialState = {
-  readyStatus: '',
-  list: []
-};
+const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {

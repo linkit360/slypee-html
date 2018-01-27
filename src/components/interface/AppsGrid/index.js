@@ -27,38 +27,71 @@ class AppsGrid extends React.PureComponent {
   };
 
   componentDidMount() {
+    this.init();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { cards } = this.props;
+    if (!cards.length) {
+      this.init();
+    } else if (nextProps.cards !== cards) {
+      if (nextProps.cards.length !== cards.length) {
+        this.toogleFetching(false);
+      }
+      this.addItems();
+    }
+  }
+
+  init() {
     const { startCountRows } = this.props;
     const { isMobileWidth } = this.props.environment;
-    setTimeout(() => {
-      this.setState({
-        countShowItems: isMobileWidth
-          ? MOBILE_COUNT_CARDS_IN_BLOCK
-          : this.getCountItemsInRow() * startCountRows
-      });
-    }, 200);
+    this.setState({
+      countShowItems: isMobileWidth
+        ? MOBILE_COUNT_CARDS_IN_BLOCK
+        : this.getCountItemsInRow() * startCountRows
+    });
   }
+
+  getCountItemsInBlock = () => {
+    const { isMobileWidth } = this.props.environment;
+    const countItemsInRaw = this.getCountItemsInRow();
+
+    return isMobileWidth
+      ? MOBILE_COUNT_CARDS_IN_BLOCK
+      : countItemsInRaw * COUNT_ROWS_IN_BLOCK;
+  };
 
   getCountItemsInRow() {
     return Math.floor(this.root.offsetWidth / CARD_WIDTH);
   }
 
-  handleShowMoreClick = () => {
-    const { cards, onFetchMore, environment } = this.props;
-    const { isMobileWidth } = environment;
-    const { countShowItems } = this.state;
+  toogleFetching(isFetching) {
+    this.setState({ isFetching });
+  }
+
+  addItems() {
+    const { isMobileWidth } = this.props.environment;
     const countItemsInRaw = this.getCountItemsInRow();
-    const countItemsInBlock = isMobileWidth
-      ? MOBILE_COUNT_CARDS_IN_BLOCK
-      : countItemsInRaw * COUNT_ROWS_IN_BLOCK;
-    if (countShowItems + countItemsInBlock < cards.length) {
-      onFetchMore(cards.length);
-    }
+    const { countShowItems } = this.state;
+    const countItemsInBlock = this.getCountItemsInBlock();
     this.setState({
       countShowItems: isMobileWidth
         ? countShowItems + MOBILE_COUNT_CARDS_IN_BLOCK
         : Math.floor(countShowItems / countItemsInRaw) * countItemsInRaw +
           countItemsInBlock
     });
+  }
+
+  handleShowMoreClick = () => {
+    const { cards, onFetchMore } = this.props;
+    const { countShowItems } = this.state;
+    const countItemsInBlock = this.getCountItemsInBlock();
+    if (countShowItems + countItemsInBlock > cards.length) {
+      onFetchMore(cards.length);
+      this.toogleFetching(true);
+    } else {
+      this.addItems();
+    }
   };
 
   rootRef = ref => (this.root = ref);
@@ -66,7 +99,7 @@ class AppsGrid extends React.PureComponent {
   render() {
     const { cards, environment, className } = this.props;
     const { isMobileWidth } = environment;
-    const { countShowItems } = this.state;
+    const { countShowItems, isFetching } = this.state;
 
     return (
       <div className={className}>
@@ -82,11 +115,15 @@ class AppsGrid extends React.PureComponent {
               />
             ))}
         </div>
-        <Button
-          className={styles.buttonShowMore}
-          label="SHOW MORE"
-          onClick={this.handleShowMoreClick}
-        />
+        <div className={styles.footer}>
+          {!isFetching && (
+            <Button
+              className={styles.buttonShowMore}
+              label="SHOW MORE"
+              onClick={this.handleShowMoreClick}
+            />
+          )}
+        </div>
       </div>
     );
   }

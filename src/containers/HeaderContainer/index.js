@@ -21,11 +21,11 @@ class HeaderContainer extends React.Component {
   componentWillMount() {
     const { mainMenu, categories, fetchCategories, fetchMainMenu } = this.props;
 
-    if (!mainMenu.list.length) {
+    if (!mainMenu.list) {
       fetchMainMenu();
     }
 
-    if (!categories.list.length) {
+    if (!categories) {
       fetchCategories();
     }
   }
@@ -44,14 +44,14 @@ class HeaderContainer extends React.Component {
       search
     } = this.props;
 
-    if (!mainMenu.list.length || !categories.list.length) {
+    if (!mainMenu.list || !categories) {
       return null;
     }
 
     return (
       <Header
         mainMenu={mainMenu.list}
-        categories={categories.list}
+        categories={categories}
         lastTimeGoToSearch={lastTimeGoToSearch}
         lastTimeGoToMobileSearch={lastTimeGoToMobileSearch}
         activeTab={activeTab}

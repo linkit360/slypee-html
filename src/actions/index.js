@@ -14,6 +14,16 @@ export const fetchMain = () => ({
   type: 'FETCH_MAIN_REQUEST'
 });
 
+export const fetchCategoryContent = data => ({
+  type: 'FETCH_CATEGORY_CONTENT',
+  data
+});
+
+export const fetchMoreCategoryContent = data => ({
+  type: 'FETCH_MORE_CATEGORY_CONTENT',
+  data
+});
+
 export const changeTab = tabName => ({
   type: 'CHANGE_TAB',
   tabName
@@ -40,4 +50,9 @@ export const goTo = route => ({
 export const search = search => ({
   type: 'SEARCH',
   search
+});
+
+export const setCategorySlug = slug => ({
+  type: 'SET_CATEGORY_SLUG',
+  slug
 });

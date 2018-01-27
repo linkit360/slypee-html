@@ -251,6 +251,7 @@ module.exports = {
     alias: {
       _constants: path.resolve(process.cwd(), 'src/actions/constants'),
       _sagas: path.resolve(process.cwd(), 'src/sagas'),
+      _selectors: path.resolve(process.cwd(), 'src/selectors'),
       _api: path.resolve(process.cwd(), 'src/api'),
       _reducers: path.resolve(process.cwd(), 'src/reducers'),
       _actions: path.resolve(process.cwd(), 'src/actions'),

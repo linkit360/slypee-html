@@ -7,7 +7,7 @@ import home from './home';
 import categories from './categories';
 import header from './header';
 import product from './product';
-import categoriesContent from './categoriesContent';
+import category from './category';
 import environment from './environment';
 import user from './user';
 import mainMenu from './mainMenu';
@@ -21,7 +21,7 @@ const reducers = {
   categories,
   header,
   product,
-  categoriesContent,
+  category,
   environment,
   user,
   mainMenu,
