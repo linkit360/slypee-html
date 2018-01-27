@@ -37,7 +37,7 @@ class CategoryContainer extends React.Component {
     const { category, fetchCategoryContent } = this.props;
 
     if (category) {
-      fetchCategoryContent({ id: category.id, ordering: 'top' });
+      fetchCategoryContent({ id: category.id, tab: 'mostPopular' });
     }
   }
 
