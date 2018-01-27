@@ -10,3 +10,14 @@ export const currentCategorySelector = createSelector(
     return categories.find(el => el.slug === category.slug);
   }
 );
+
+export const productCategoryNameSelector = createSelector(
+  rootSelector,
+  ({ product, categories }) => {
+    if (!categories || !product) return null;
+
+    const category = categories.find(el => el.id === product.categoryId);
+
+    return category ? category.name : null;
+  }
+);

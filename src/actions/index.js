@@ -24,6 +24,11 @@ export const fetchMoreCategoryContent = data => ({
   data
 });
 
+export const fetchApp = data => ({
+  type: 'FETCH_APP',
+  data
+});
+
 export const changeTab = tabName => ({
   type: 'CHANGE_TAB',
   tabName

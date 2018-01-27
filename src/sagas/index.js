@@ -49,6 +49,10 @@ function* fetchMoreCategoryContent({ data }) {
   });
 }
 
+function* fetchApp({ data }) {
+  yield fetch('APP', api.fetchApp, data);
+}
+
 function* changeTab({ tabName }) {
   let route;
 
@@ -83,6 +87,7 @@ export default function*() {
     takeLatest('FETCH_MAIN_REQUEST', fetchMain),
     takeLatest('FETCH_CATEGORY_CONTENT', fetchCategoryContent),
     takeLatest('FETCH_MORE_CATEGORY_CONTENT', fetchMoreCategoryContent),
+    takeLatest('FETCH_APP', fetchApp),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),
     takeLatest('SEARCH', search)

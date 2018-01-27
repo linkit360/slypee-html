@@ -9,8 +9,49 @@ import AppCard from '_components/interface/AppCard';
 import Header from './Header';
 import styles from './styles.scss';
 
-const getSlides = slider => {
-  const { video, imgs } = slider;
+const related = [
+  {
+    img:
+      'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
+    id: 3453,
+    name: '1 Jungle Monkey',
+    producer: 'Arcade Games',
+    rating: 3.6,
+    cost: {
+      price: 0,
+      type: 'single',
+      currency: 'usd'
+    }
+  },
+  {
+    img:
+      'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
+    id: 3453,
+    name: '2 Jungle Monkey Run Version Abrakadabra',
+    producer: 'Arcade Games',
+    rating: 5,
+    cost: {
+      price: 5500,
+      type: 'monthly',
+      currency: 'inr'
+    }
+  },
+  {
+    img:
+      'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
+    id: 3453,
+    name: '3 Jungle Monkey Run Version Abrakadabra',
+    producer: 'Arcade Games',
+    rating: 1.3,
+    cost: {
+      price: 5500,
+      type: 'daily',
+      currency: 'usd'
+    }
+  }
+];
+
+const getSlides = (video, screenshots) => {
   const slides = [];
   if (video) {
     slides.push(
@@ -24,7 +65,7 @@ const getSlides = slider => {
       />
     );
   }
-  imgs.forEach((img, index) => {
+  screenshots.forEach((img, index) => {
     slides.push(
       <img key={index} className={styles.imageSlide} alt="slide" src={img} />
     );
@@ -43,12 +84,12 @@ export default class Product extends React.PureComponent {
   };
 
   getSlick = className => {
-    const { slider } = this.props.app;
+    const { video, screenshots } = this.props;
 
     return (
       <div className={className}>
         <SlickWithSlider className={styles.slick} variableWidth isSmooth>
-          {getSlides(slider)}
+          {getSlides(video, screenshots)}
         </SlickWithSlider>
       </div>
     );
@@ -59,8 +100,7 @@ export default class Product extends React.PureComponent {
   };
 
   render() {
-    const { app } = this.props;
-    const { name, description, related } = app;
+    const { name, description } = this.props;
     const { isButtonMoreClicked } = this.state;
 
     return (
@@ -70,7 +110,7 @@ export default class Product extends React.PureComponent {
         })}
       >
         <Paper className={styles.product} zDepth={1}>
-          <Header {...app} />
+          <Header {...this.props} />
           <Divider className={styles.mobileDivider} />
           {this.getSlick(styles.desktop)}
           <div className={styles.descriptionHeader}>Description of {name}</div>

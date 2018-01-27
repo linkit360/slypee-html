@@ -2,43 +2,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchMain } from '_actions';
+import { fetchApp } from '_actions';
 import Product from '_components/Product';
+import { productCategoryNameSelector } from '_selectors';
 
 class ProductContainer extends React.Component {
   static propTypes = {
     appId: PropTypes.string.isRequired,
     product: PropTypes.object.isRequired,
-    fetchMain: PropTypes.func.isRequired
+    productCategoryName: PropTypes.string.isRequired,
+    fetchApp: PropTypes.func.isRequired
   };
 
   componentWillMount() {
-    const { product, fetchMain } = this.props;
+    const { appId, product, fetchApp } = this.props;
 
     if (!product) {
-      fetchMain();
+      fetchApp({ id: appId });
     }
   }
 
   render() {
-    const { product, appId } = this.props;
+    const { product, productCategoryName } = this.props;
 
-    if (!product) {
+    if (!product || !productCategoryName) {
       return null;
     }
 
-    return <Product app={{ ...product, id: appId }} />;
+    return <Product {...product} category={productCategoryName} />;
   }
 }
 
 const mapStateToProps = state => ({
-  product: state.product
+  product: state.product,
+  productCategoryName: productCategoryNameSelector(state)
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchMain
+      fetchApp
     },
     dispatch
   );

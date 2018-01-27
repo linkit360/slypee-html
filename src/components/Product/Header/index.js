@@ -10,16 +10,27 @@ import styles from './styles.scss';
 
 export default class Header extends React.PureComponent {
   static propTypes = {
-    img: PropTypes.string.isRequired,
+    logo: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     producer: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired,
-    cost: PropTypes.object.isRequired,
+    price: PropTypes.number.isRequired,
+    type: PropTypes.string.isRequired,
+    currency: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired
   };
 
   render() {
-    const { img, name, producer, category, cost, rating } = this.props;
+    const {
+      logo,
+      name,
+      producer,
+      category,
+      price,
+      type,
+      currency,
+      rating
+    } = this.props;
 
     const url = typeof window === 'object' && window.location.href;
 
@@ -33,7 +44,7 @@ export default class Header extends React.PureComponent {
           <div
             className={styles.image}
             style={{
-              backgroundImage: `url(${img})`
+              backgroundImage: `url(${logo})`
             }}
           />
           <div className={styles.info}>
@@ -45,7 +56,13 @@ export default class Header extends React.PureComponent {
               <div className={styles.category}>{category}</div>
             </Link>
             <RatingBlock className={styles.rating} rating={rating} size="big" />
-            <CostBlock className={styles.cost} size="big" {...cost} />
+            <CostBlock
+              className={styles.cost}
+              size="big"
+              price={price}
+              type={type}
+              currency={currency}
+            />
             <div className={styles.buttons}>
               <FlatButton
                 className={styles.buttonSubscribe}

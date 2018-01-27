@@ -22,6 +22,11 @@ export const fetchMain = () =>
     url: '/main'
   });
 
+export const fetchApp = ({ id }) =>
+  Req.GET({
+    url: `/content/${id}`
+  });
+
 export const fetchCategoryContent = ({ id, start, filter, tab }) =>
   Req.GET(
     {
