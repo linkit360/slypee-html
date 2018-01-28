@@ -8,6 +8,7 @@ body {
 .App {
   color: $color-black;
   overflow: hidden;
+  min-height: 100vh;
 
   .header {
     overflow: auto;

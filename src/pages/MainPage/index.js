@@ -9,6 +9,7 @@ import CategoryContainer from '_containers/CategoryContainer';
 import UserContainer from '_containers/UserContainer';
 import TopChartsContainer from '_containers/TopChartsContainer';
 import SearchContainer from '_containers/SearchContainer';
+import RegistrationContainer from '_containers/RegistrationContainer';
 import { getSlug } from '_utils/common';
 import styles from './styles.scss';
 
@@ -58,6 +59,10 @@ export default class MainPage extends React.PureComponent {
     const { match: { params } } = this.props;
     const { category, section, app, search } = params;
     const categorySlug = category && getSlug(category);
+
+    if (['signin', 'signup', 'forgotPassword'].includes(section)) {
+      return <RegistrationContainer section={section} />;
+    }
 
     return (
       <div>
