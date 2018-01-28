@@ -7,6 +7,7 @@ import { push } from 'react-router-redux';
 
 const getCountCategoryContent = state => state.category.content.list.length;
 const getCountTopChartsContent = state => state.topCharts.length;
+const getCountSearch = state => state.search.length;
 
 function* fetch(name, apiFunc, params) {
   try {
@@ -68,6 +69,24 @@ function* fetchMoreTopCharts({ data }) {
   });
 }
 
+function* fetchSearch({ data }) {
+  yield fetch('SEARCH', api.fetchSearch, {
+    start: 0,
+    limit: 30,
+    ...data
+  });
+}
+
+function* fetchMoreSearch({ data }) {
+  const start = yield select(getCountSearch);
+
+  yield fetch('MORE_SEARCH', api.fetchSearch, {
+    start,
+    limit: 20,
+    ...data
+  });
+}
+
 function* fetchApp({ data }) {
   yield fetch('APP', api.fetchApp, data);
 }
@@ -109,6 +128,8 @@ export default function*() {
     takeLatest('FETCH_APP', fetchApp),
     takeLatest('FETCH_TOP_CHARTS', fetchTopCharts),
     takeLatest('FETCH_MORE_TOP_CHARTS', fetchMoreTopCharts),
+    takeLatest('FETCH_SEARCH', fetchSearch),
+    takeLatest('FETCH_MORE_SEARCH', fetchMoreSearch),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),
     takeLatest('SEARCH', search)

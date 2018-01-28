@@ -14,6 +14,7 @@ import mainMenu from './mainMenu';
 import slider from './slider';
 import main from './main';
 import topCharts from './topCharts';
+import search from './search';
 
 const reducers = {
   home,
@@ -27,7 +28,8 @@ const reducers = {
   mainMenu,
   slider,
   main,
-  topCharts
+  topCharts,
+  search
 };
 
 export type Reducers = typeof reducers;

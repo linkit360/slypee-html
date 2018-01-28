@@ -19,6 +19,7 @@ const user = {
 
 export default class Header extends React.Component {
   static propTypes = {
+    searchQuery: PropTypes.string,
     mainMenu: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     categories: PropTypes.arrayOf(PropTypes.object).isRequired,
     lastTimeGoToSearch: PropTypes.instanceOf(Date).isRequired,
@@ -76,6 +77,7 @@ export default class Header extends React.Component {
 
   render() {
     const {
+      searchQuery,
       mainMenu,
       categories,
       activeTab,
@@ -131,6 +133,7 @@ export default class Header extends React.Component {
           />
           <MobileSearchBlock
             lastTimeGoToMobileSearch={lastTimeGoToMobileSearch}
+            searchQuery={searchQuery}
             onSearchChange={this.handleSearchChange}
             onSearch={this.handleSearchClick}
           />
@@ -138,6 +141,7 @@ export default class Header extends React.Component {
             <TextField
               ref={this.searchRef}
               className={styles.search}
+              defaultValue={searchQuery}
               hintText="Search your content here"
               underlineShow={false}
               onChange={this.handleSearchChange}

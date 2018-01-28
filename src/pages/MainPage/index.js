@@ -8,6 +8,7 @@ import FooterContainer from '_containers/FooterContainer';
 import CategoryContainer from '_containers/CategoryContainer';
 import UserContainer from '_containers/UserContainer';
 import TopChartsContainer from '_containers/TopChartsContainer';
+import SearchContainer from '_containers/SearchContainer';
 import { getSlug } from '_utils/common';
 import styles from './styles.scss';
 
@@ -29,7 +30,9 @@ const getContent = (categorySlug, section, app, search) => {
     }
   }
   if (search) {
-    return <NotFoundPage />;
+    return (
+      <SearchContainer search={search} isTooShortRequest={search.length < 3} />
+    );
   }
   return <HomeContainer />;
 };
@@ -39,6 +42,18 @@ export default class MainPage extends React.PureComponent {
     match: PropTypes.any.isRequired
   };
 
+  getTab() {
+    const { match: { params: { section }, path } } = this.props;
+
+    if (path === '/') {
+      return 'home';
+    }
+    if (section === 'topcharts') {
+      return section;
+    }
+    return null;
+  }
+
   render() {
     const { match: { params } } = this.props;
     const { category, section, app, search } = params;
@@ -46,9 +61,7 @@ export default class MainPage extends React.PureComponent {
 
     return (
       <div>
-        <HeaderContainer
-          activeTab={!!search || section || categorySlug || 'home'}
-        />
+        <HeaderContainer activeTab={this.getTab()} searchQuery={search || ''} />
         <div className={styles.content}>
           {getContent(categorySlug, section, app, search)}
         </div>

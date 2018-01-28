@@ -9,6 +9,7 @@ import styles from './styles.scss';
 export default class MobileSearchBlock extends React.Component {
   static propTypes = {
     lastTimeGoToMobileSearch: PropTypes.instanceOf(Date).isRequired,
+    searchQuery: PropTypes.string,
     onSearchChange: PropTypes.func.isRequired,
     onSearch: PropTypes.func.isRequired
   };
@@ -16,6 +17,13 @@ export default class MobileSearchBlock extends React.Component {
   state = {
     isSearchMode: false
   };
+
+  componentWillMount() {
+    const { searchQuery } = this.props;
+    if (searchQuery) {
+      this.toogleSearchMode(true);
+    }
+  }
 
   componentWillReceiveProps(nextProps) {
     if (
@@ -49,7 +57,7 @@ export default class MobileSearchBlock extends React.Component {
 
   render() {
     const { isSearchMode } = this.state;
-    const { onSearchChange } = this.props;
+    const { searchQuery, onSearchChange } = this.props;
     return (
       <div
         className={classNames(styles.mobileSearchBlock, {
@@ -66,6 +74,7 @@ export default class MobileSearchBlock extends React.Component {
             <TextField
               ref={this.searchRef}
               className={styles.search}
+              defaultValue={searchQuery}
               hintText="Search your content here"
               underlineShow={false}
               onChange={onSearchChange}

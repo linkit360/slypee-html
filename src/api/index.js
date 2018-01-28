@@ -46,3 +46,13 @@ export const fetchCategoryContent = ({ id, start, filter, tab }) =>
       'slypee-content-ordering': tab === 'mostPopular' ? 'top' : 'rating'
     }
   });
+
+export const fetchSearch = ({ search, start, limit }) =>
+  Req.GET({
+    url: `content`,
+    headers: {
+      'slypee-content-pagination-start': start,
+      'slypee-content-pagination-limit': limit,
+      'slypee-content-query': search
+    }
+  });

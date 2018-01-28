@@ -7,6 +7,7 @@ import Header from '_components/Header';
 
 class HeaderContainer extends React.Component {
   static propTypes = {
+    searchQuery: PropTypes.string,
     mainMenu: PropTypes.object.isRequired,
     categories: PropTypes.object.isRequired,
     lastTimeGoToSearch: PropTypes.instanceOf(Date).isRequired,
@@ -36,6 +37,7 @@ class HeaderContainer extends React.Component {
 
   render() {
     const {
+      searchQuery,
       activeTab,
       mainMenu,
       categories,
@@ -50,6 +52,7 @@ class HeaderContainer extends React.Component {
 
     return (
       <Header
+        searchQuery={searchQuery}
         mainMenu={mainMenu.list}
         categories={categories}
         lastTimeGoToSearch={lastTimeGoToSearch}
