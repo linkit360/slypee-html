@@ -1,7 +1,5 @@
 import Req from './request';
 
-const PAGINATION_LIMIT = 20;
-
 export const fetchMainMenu = () =>
   Req.GET({
     url: '/category/menu'
@@ -27,16 +25,24 @@ export const fetchApp = ({ id }) =>
     url: `/content/${id}`
   });
 
+export const fetchTopCharts = ({ start, category, type, limit }) =>
+  Req.GET({
+    url: `content/top`,
+    headers: {
+      'slypee-content-pagination-start': start,
+      'slypee-content-pagination-limit': limit,
+      'slypee-content-type': type,
+      'slypee-content-category': category
+    }
+  });
+
 export const fetchCategoryContent = ({ id, start, filter, tab }) =>
-  Req.GET(
-    {
-      url: `content/category/${id}`,
-      headers: {
-        'slypee-content-pagination-start': start,
-        'slypee-content-pagination-limit': PAGINATION_LIMIT,
-        'slypee-content-type': filter,
-        'slypee-content-ordering': tab === 'mostPopular' ? 'top' : 'rating'
-      }
-    },
-    { 'slypee-content-paging-limit': 20 }
-  );
+  Req.GET({
+    url: `content/category/${id}`,
+    headers: {
+      'slypee-content-pagination-start': start,
+      'slypee-content-pagination-limit': 20,
+      'slypee-content-type': filter,
+      'slypee-content-ordering': tab === 'mostPopular' ? 'top' : 'rating'
+    }
+  });

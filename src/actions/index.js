@@ -29,6 +29,16 @@ export const fetchApp = data => ({
   data
 });
 
+export const fetchTopCharts = data => ({
+  type: 'FETCH_TOP_CHARTS',
+  data
+});
+
+export const fetchMoreTopCharts = data => ({
+  type: 'FETCH_MORE_TOP_CHARTS',
+  data
+});
+
 export const changeTab = tabName => ({
   type: 'CHANGE_TAB',
   tabName

@@ -2,44 +2,55 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { sort } from '_actions/user';
-import { fetchMain } from '_actions';
+import { fetchTopCharts, fetchMoreTopCharts } from '_actions';
 import TopCharts from '_components/TopCharts';
 
 class TopChartsContainer extends React.Component {
   static propTypes = {
-    topCharts: PropTypes.object.isRequired,
-    fetchMain: PropTypes.func.isRequired
+    categories: PropTypes.arrayOf(PropTypes.object.isRequired),
+    topCharts: PropTypes.arrayOf(PropTypes.object.isRequired),
+    fetchTopCharts: PropTypes.func.isRequired,
+    fetchMoreTopCharts: PropTypes.func.isRequired
   };
 
   componentWillMount() {
-    const { topCharts, fetchMain } = this.props;
-
-    if (!topCharts) {
-      fetchMain();
-    }
+    const { fetchTopCharts } = this.props;
+    fetchTopCharts();
   }
 
   render() {
-    const { topCharts } = this.props;
+    const {
+      topCharts,
+      categories,
+      fetchTopCharts,
+      fetchMoreTopCharts
+    } = this.props;
 
-    if (!topCharts) {
+    if (!categories) {
       return null;
     }
 
-    return <TopCharts apps={topCharts.list} />;
+    return (
+      <TopCharts
+        apps={topCharts}
+        categories={categories}
+        onFetchContent={fetchTopCharts}
+        onFetchMoreContent={fetchMoreTopCharts}
+      />
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  topCharts: state.topCharts
+  topCharts: state.topCharts,
+  categories: state.categories
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchMain,
-      sort
+      fetchTopCharts,
+      fetchMoreTopCharts
     },
     dispatch
   );

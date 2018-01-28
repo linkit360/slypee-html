@@ -1,13 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DropDownMenu from 'material-ui/DropDownMenu';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import MenuItem from 'material-ui/MenuItem';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import SlickWithSlider from '_components/interface/SlickWithSlider';
 import AppCard from '_components/interface/AppCard';
 import AppsGrid from '_components/interface/AppsGrid';
+import FilterTypeBlock from '_components/interface/FilterTypeBlock';
 import styles from './styles.scss';
 
 export default class Category extends React.PureComponent {
@@ -69,30 +68,11 @@ export default class Category extends React.PureComponent {
             />
             <Tab className={styles.tab} value="mostRated" label="most rated" />
           </Tabs>
-          <div className={styles.filterBlock}>
-            <span className={styles.filterText}>Content type:</span>
-            <DropDownMenu
-              className={styles.filter}
-              value={filter}
-              onChange={this.handleFilterChange}
-            >
-              <MenuItem
-                className={styles.filterItem}
-                value="all"
-                primaryText="All"
-              />
-              <MenuItem
-                className={styles.filterItem}
-                value="free"
-                primaryText="Free"
-              />
-              <MenuItem
-                className={styles.filterItem}
-                value="subscription"
-                primaryText="Subscription"
-              />
-            </DropDownMenu>
-          </div>
+          <FilterTypeBlock
+            className={styles.filterBlock}
+            filter={filter}
+            onChange={this.handleFilterChange}
+          />
         </Paper>
         <div className={styles.content}>
           <AppsGrid

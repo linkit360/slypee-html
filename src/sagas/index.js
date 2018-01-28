@@ -6,6 +6,7 @@ import * as api from '_api';
 import { push } from 'react-router-redux';
 
 const getCountCategoryContent = state => state.category.content.list.length;
+const getCountTopChartsContent = state => state.topCharts.length;
 
 function* fetch(name, apiFunc, params) {
   try {
@@ -49,6 +50,24 @@ function* fetchMoreCategoryContent({ data }) {
   });
 }
 
+function* fetchTopCharts({ data }) {
+  yield fetch('TOP_CHARTS', api.fetchTopCharts, {
+    start: 0,
+    limit: 30,
+    ...data
+  });
+}
+
+function* fetchMoreTopCharts({ data }) {
+  const start = yield select(getCountTopChartsContent);
+
+  yield fetch('MORE_TOP_CHARTS', api.fetchTopCharts, {
+    start,
+    limit: 20,
+    ...data
+  });
+}
+
 function* fetchApp({ data }) {
   yield fetch('APP', api.fetchApp, data);
 }
@@ -88,6 +107,8 @@ export default function*() {
     takeLatest('FETCH_CATEGORY_CONTENT', fetchCategoryContent),
     takeLatest('FETCH_MORE_CATEGORY_CONTENT', fetchMoreCategoryContent),
     takeLatest('FETCH_APP', fetchApp),
+    takeLatest('FETCH_TOP_CHARTS', fetchTopCharts),
+    takeLatest('FETCH_MORE_TOP_CHARTS', fetchMoreTopCharts),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),
     takeLatest('SEARCH', search)

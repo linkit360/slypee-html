@@ -17,8 +17,18 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   font-size: 41px;
   padding-left: 87px;
+}
+
+.headerRight {
+  display: flex;
+  margin-right: 82px;
+}
+
+.filterTypeBlock {
+  margin-right: 52px;
 }
 
 .content {

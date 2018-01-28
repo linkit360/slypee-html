@@ -1,0 +1,27 @@
+@import '~theme/variables';
+
+.filterBlock {
+  display: flex;
+  align-items: center;
+}
+
+.filterText {
+  font-size: 20px;
+  font-family: 'Roboto-Regular', sans-serif;
+  color: #546e7a;
+}
+
+.filter {
+  font-size: 20px !important;
+  font-family: 'Roboto-Regular', sans-serif !important;
+  margin-top: -6px;
+  width: 235px !important;
+}
+
+.filterItem {
+  font-size: 18px !important;
+  font-family: 'Roboto-Regular', sans-serif !important;
+  height: 46px !important;
+  display: flex !important;
+  align-items: center;
+}
