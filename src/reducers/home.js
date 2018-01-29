@@ -5,12 +5,12 @@ const initialState = {
     slider: [
       {
         img:
-          'https://www.gamedesigning.org/wp-content/uploads/2015/09/mobile-game-design-checklist.jpg',
+          'https://www.gamedesignIng.org/wp-content/uploads/2015/09/mobile-game-design-checklist.jpg',
         text1: 'top games',
         text2: 'under $ 1',
         text3: 'The best offers of this month',
         link:
-          'https://www.gamedesigning.org/learn/mobile-game-design-checklist/'
+          'https://www.gamedesignIng.org/learn/mobile-game-design-checklist/'
       },
       {
         img: 'http://www.theouthousers.com/images/jck/53c7e42bc9d31.jpg',
@@ -22,12 +22,12 @@ const initialState = {
       },
       {
         img:
-          'https://www.gamedesigning.org/wp-content/uploads/2015/09/mobile-game-design-checklist.jpg',
+          'https://www.gamedesignIng.org/wp-content/uploads/2015/09/mobile-game-design-checklist.jpg',
         text1: 'top games',
         text2: 'under $ 1',
         text3: 'The best offers of this month',
         link:
-          'https://www.gamedesigning.org/learn/mobile-game-design-checklist/'
+          'https://www.gamedesignIng.org/learn/mobile-game-design-checklist/'
       },
       {
         img: 'http://www.theouthousers.com/images/jck/53c7e42bc9d31.jpg',

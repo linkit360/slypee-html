@@ -120,7 +120,7 @@ export default class Header extends React.Component {
           </Popover>
           <FlatButton
             className={styles.buttonSignIn}
-            href="/signin"
+            href="/signIn"
             label="Sign in"
             icon={
               <Icon

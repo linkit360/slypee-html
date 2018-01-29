@@ -49,6 +49,21 @@ export const fetchMoreSearch = data => ({
   data
 });
 
+export const signIn = data => ({
+  type: 'SIGN_IN',
+  data
+});
+
+export const signUp = data => ({
+  type: 'SIGN_UP',
+  data
+});
+
+export const forgotPassword = data => ({
+  type: 'FORGOT_PASSWORD',
+  data
+});
+
 export const changeTab = tabName => ({
   type: 'CHANGE_TAB',
   tabName

@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { signin, signup, forgotPassword } from '_actions';
+import { signIn, signUp, forgotPassword } from '_actions';
 import FormWrapper from '_components/interface/FormWrapper';
 import SignInForm from '_components/SignInForm';
 
 class RegistrationContainer extends React.Component {
   static propTypes = {
     section: PropTypes.string.isRequired,
-    signin: PropTypes.func.isRequired,
-    signup: PropTypes.func.isRequired,
+    signIn: PropTypes.func.isRequired,
+    signUp: PropTypes.func.isRequired,
     forgotPassword: PropTypes.func.isRequired
   };
 
   getForm() {
-    const { section, signin, signup, forgotPassword } = this.props;
+    const { section, signIn, signUp, forgotPassword } = this.props;
 
     switch (section) {
-      case 'signin':
-        return <SignInForm signin={signin} />;
-      /* case 'signup':
+      case 'signIn':
+        return <SignInForm signIn={signIn} />;
+      /* case 'signUp':
         return <SignUpForm />;
       case 'forgotPassword':
         return <ForgotPasswordForm />; */
@@ -39,8 +39,8 @@ const mapStateToProps = () => ({});
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      signin,
-      signup,
+      signIn,
+      signUp,
       forgotPassword
     },
     dispatch

@@ -9,7 +9,7 @@ import styles from './styles.scss';
 
 export default class SignInForm extends React.PureComponent {
   static propTypes = {
-    signin: PropTypes.func.isRequired
+    signIn: PropTypes.func.isRequired
   };
 
   handleEmailChange = value => {
@@ -22,7 +22,7 @@ export default class SignInForm extends React.PureComponent {
 
   handleSignInClick = () => {
     if (this.emailError + this.passwordError === '') {
-      this.props.signin({ email: this.email, password: this.password });
+      this.props.signIn({ email: this.email, password: this.password });
     }
   };
 
@@ -59,7 +59,7 @@ export default class SignInForm extends React.PureComponent {
           </Link>
           <FlatButton
             className={styles.buttonCreateAccount}
-            href="/signup"
+            href="/signUp"
             label="CREATE ACCOUNT"
             icon={<Icon className={styles.buttonMenuIcon} name="person" />}
           />

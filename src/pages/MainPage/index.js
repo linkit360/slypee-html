@@ -60,7 +60,7 @@ export default class MainPage extends React.PureComponent {
     const { category, section, app, search } = params;
     const categorySlug = category && getSlug(category);
 
-    if (['signin', 'signup', 'forgotPassword'].includes(section)) {
+    if (['signIn', 'signUp', 'forgotPassword'].includes(section)) {
       return <RegistrationContainer section={section} />;
     }
 
