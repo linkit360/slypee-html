@@ -5,19 +5,12 @@ import FlatButton from 'material-ui/FlatButton';
 import TextField from '_components/interface/TextField';
 import Button from '_components/interface/Button';
 import Icon from '_components/interface/Icon';
+import { validate } from '_utils/common';
 import styles from './styles.scss';
 
 export default class SignInForm extends React.PureComponent {
   static propTypes = {
     signIn: PropTypes.func.isRequired
-  };
-
-  handleEmailChange = value => {
-    this.email = value;
-  };
-
-  handlePasswordChange = value => {
-    this.password = value;
   };
 
   handleSignInClick = () => {
@@ -26,15 +19,16 @@ export default class SignInForm extends React.PureComponent {
     }
   };
 
-  textFieldEmailBlur = (e, error) => {
-    this.email = e.target.value;
-    this.emailError = error;
+  handleSignInClick = () => {
+    const data = validate(this.textFields);
+    if (data) {
+      this.props.signIn(data);
+    }
   };
 
-  textFieldPasswordBlur = (e, error) => {
-    this.password = e.target.value;
-    this.passwordError = error;
-  };
+  textFields = [];
+
+  textFieldsRef = ref => this.textFields.push(ref);
 
   render() {
     return (
@@ -42,12 +36,14 @@ export default class SignInForm extends React.PureComponent {
         <div className={styles.logo} />
         <div className={styles.content}>
           <TextField
+            ref={this.textFieldsRef}
             className={styles.textFieldEmail}
             floatingLabelText="EMAIL"
             isRequired
             onBlur={this.textFieldEmailBlur}
           />
           <TextField
+            ref={this.textFieldsRef}
             className={styles.textFieldPassword}
             type="password"
             floatingLabelText="PASSWORD"

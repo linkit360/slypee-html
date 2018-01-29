@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { signIn, signUp, forgotPassword } from '_actions';
 import FormWrapper from '_components/interface/FormWrapper';
 import SignInForm from '_components/SignInForm';
+import SignUpForm from '_components/SignUpForm';
 
 class RegistrationContainer extends React.Component {
   static propTypes = {
@@ -20,9 +21,9 @@ class RegistrationContainer extends React.Component {
     switch (section) {
       case 'signIn':
         return <SignInForm signIn={signIn} />;
-      /* case 'signUp':
-        return <SignUpForm />;
-      case 'forgotPassword':
+      case 'signUp':
+        return <SignUpForm signUp={signUp} />;
+      /* case 'forgotPassword':
         return <ForgotPasswordForm />; */
       default:
         return null;
