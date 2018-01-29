@@ -3,4 +3,8 @@
 .textField {
   border-bottom: 2px solid #ccd2d5 !important;
   height: 64px !important;
+
+  & div {
+    margin-top: 6px;
+  }
 }

@@ -12,9 +12,6 @@ export default class SignInForm extends React.PureComponent {
     signin: PropTypes.func.isRequired
   };
 
-  email = '';
-  password = '';
-
   handleEmailChange = value => {
     this.email = value;
   };
@@ -24,7 +21,19 @@ export default class SignInForm extends React.PureComponent {
   };
 
   handleSignInClick = () => {
-    this.props.signin({ email: this.email, password: this.password });
+    if (this.emailError + this.passwordError === '') {
+      this.props.signin({ email: this.email, password: this.password });
+    }
+  };
+
+  textFieldEmailBlur = (e, error) => {
+    this.email = e.target.value;
+    this.emailError = error;
+  };
+
+  textFieldPasswordBlur = (e, error) => {
+    this.password = e.target.value;
+    this.passwordError = error;
   };
 
   render() {
@@ -35,13 +44,15 @@ export default class SignInForm extends React.PureComponent {
           <TextField
             className={styles.textFieldEmail}
             floatingLabelText="EMAIL"
-            onChange={this.handleEmailChange}
+            isRequired
+            onBlur={this.textFieldEmailBlur}
           />
           <TextField
             className={styles.textFieldPassword}
             type="password"
             floatingLabelText="PASSWORD"
-            onChange={this.handleEmailChange}
+            isRequired
+            onBlur={this.textFieldPasswordBlur}
           />
           <Link className={styles.forgotPasswordLink} to="/forgotPassword">
             Forgot password?
