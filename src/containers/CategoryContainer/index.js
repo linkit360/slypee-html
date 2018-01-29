@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import {
   fetchCategoryContent,
   fetchMoreCategoryContent,
+  fetchCategoryNew,
   setCategorySlug
 } from '_actions';
 import { currentCategorySelector } from '_selectors';
@@ -15,8 +16,10 @@ class CategoryContainer extends React.Component {
     categorySlug: PropTypes.string.isRequired,
     category: PropTypes.object.isRequired,
     content: PropTypes.object.isRequired,
+    newApps: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     fetchCategoryContent: PropTypes.func.isRequired,
     fetchMoreCategoryContent: PropTypes.func.isRequired,
+    fetchCategoryNew: PropTypes.func.isRequired,
     setCategorySlug: PropTypes.func.isRequired
   };
 
@@ -34,10 +37,11 @@ class CategoryContainer extends React.Component {
   }
 
   tryFetchCategoryContent() {
-    const { category, fetchCategoryContent } = this.props;
+    const { category, fetchCategoryContent, fetchCategoryNew } = this.props;
 
     if (category) {
       fetchCategoryContent({ id: category.id, tab: 'mostPopular' });
+      fetchCategoryNew({ id: category.id });
     }
   }
 
@@ -83,6 +87,7 @@ const mapDispatchToProps = dispatch =>
     {
       fetchCategoryContent,
       fetchMoreCategoryContent,
+      fetchCategoryNew,
       setCategorySlug
     },
     dispatch

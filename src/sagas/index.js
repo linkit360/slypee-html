@@ -51,6 +51,10 @@ function* fetchMoreCategoryContent({ data }) {
   });
 }
 
+function* fetchCategoryNew({ data }) {
+  yield fetch('CATEGORY_NEW', api.fetchCategoryNew, data);
+}
+
 function* fetchTopCharts({ data }) {
   yield fetch('TOP_CHARTS', api.fetchTopCharts, {
     start: 0,
@@ -130,6 +134,7 @@ export default function*() {
     takeLatest('FETCH_MORE_TOP_CHARTS', fetchMoreTopCharts),
     takeLatest('FETCH_SEARCH', fetchSearch),
     takeLatest('FETCH_MORE_SEARCH', fetchMoreSearch),
+    takeLatest('FETCH_CATEGORY_NEW', fetchCategoryNew),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),
     takeLatest('SEARCH', search)

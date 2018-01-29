@@ -82,13 +82,15 @@ export default class Category extends React.PureComponent {
           />
           <Divider className={styles.mobile} />
           <div className={styles.newText}>NEW</div>
-          <SlickWithSlider className={styles.slick} slidesToShow={7} isSmooth>
-            {newApps.map((app, index) => (
-              <div key={index} className={styles.card}>
-                <AppCard {...app} />
-              </div>
-            ))}
-          </SlickWithSlider>
+          {newApps.length > 0 && (
+            <SlickWithSlider className={styles.slick} slidesToShow={7} isSmooth>
+              {newApps.map((app, index) => (
+                <div key={index} className={styles.card}>
+                  <AppCard {...app} />
+                </div>
+              ))}
+            </SlickWithSlider>
+          )}
         </div>
       </div>
     );

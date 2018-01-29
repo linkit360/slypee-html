@@ -24,6 +24,11 @@ export const fetchMoreCategoryContent = data => ({
   data
 });
 
+export const fetchCategoryNew = data => ({
+  type: 'FETCH_CATEGORY_NEW',
+  data
+});
+
 export const fetchApp = data => ({
   type: 'FETCH_APP',
   data

@@ -25,16 +25,20 @@ export const fetchApp = ({ id }) =>
     url: `/content/${id}`
   });
 
-export const fetchTopCharts = ({ start, category, type, limit }) =>
-  Req.GET({
+export const fetchTopCharts = ({ start, category, type, limit }) => {
+  const headers = {
+    'slypee-content-pagination-start': start,
+    'slypee-content-pagination-limit': limit,
+    'slypee-content-type': type
+  };
+  if (category >= 0) {
+    headers['slypee-content-category'] = category;
+  }
+  return Req.GET({
     url: `content/top`,
-    headers: {
-      'slypee-content-pagination-start': start,
-      'slypee-content-pagination-limit': limit,
-      'slypee-content-type': type,
-      'slypee-content-category': category
-    }
+    headers
   });
+};
 
 export const fetchCategoryContent = ({ id, start, filter, tab }) =>
   Req.GET({
@@ -54,5 +58,15 @@ export const fetchSearch = ({ search, start, limit }) =>
       'slypee-content-pagination-start': start,
       'slypee-content-pagination-limit': limit,
       'slypee-content-query': search
+    }
+  });
+
+export const fetchCategoryNew = ({ id }) =>
+  Req.GET({
+    url: `content/category/${id}`,
+    headers: {
+      'slypee-content-pagination-start': 0,
+      'slypee-content-pagination-limit': 20,
+      'slypee-content-ordering': 'date'
     }
   });

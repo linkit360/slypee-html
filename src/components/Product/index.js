@@ -67,7 +67,12 @@ const getSlides = (video, screenshots) => {
   }
   screenshots.forEach((img, index) => {
     slides.push(
-      <img key={index} className={styles.imageSlide} alt="slide" src={img} />
+      <img
+        key={index}
+        className={styles.imageSlide}
+        alt="slide"
+        src={img.thumbnail}
+      />
     );
   });
 
