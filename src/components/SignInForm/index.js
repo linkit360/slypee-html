@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import FlatButton from 'material-ui/FlatButton';
-import TextField from '_components/interface/TextField';
-import Button from '_components/interface/Button';
-import Icon from '_components/interface/Icon';
+import TextField from '_components/Interface/TextField';
+import Button from '_components/Interface/Button';
+import Icon from '_components/Interface/Icon';
 import { validate } from '_utils/common';
 import styles from './styles.scss';
 

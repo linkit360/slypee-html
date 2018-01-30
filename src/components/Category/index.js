@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
-import SlickWithSlider from '_components/interface/SlickWithSlider';
-import AppCard from '_components/interface/AppCard';
-import AppsGrid from '_components/interface/AppsGrid';
-import FilterTypeBlock from '_components/interface/FilterTypeBlock';
+import SlickWithSlider from '_components/Interface/SlickWithSlider';
+import AppCard from '_components/Interface/AppCard';
+import AppsGrid from '_components/Interface/AppsGrid';
+import FilterTypeBlock from '_components/Interface/FilterTypeBlock';
 import styles from './styles.scss';
 
 export default class Category extends React.PureComponent {

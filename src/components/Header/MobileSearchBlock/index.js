@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import Icon from '_components/interface/Icon';
+import Icon from '_components/Interface/Icon';
 import styles from './styles.scss';
 
 export default class MobileSearchBlock extends React.Component {

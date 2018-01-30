@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import TextField from '_components/interface/TextField';
-import Button from '_components/interface/Button';
+import TextField from '_components/Interface/TextField';
+import Button from '_components/Interface/Button';
 import { validate } from '_utils/common';
 import styles from './styles.scss';
 

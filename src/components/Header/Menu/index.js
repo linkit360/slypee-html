@@ -6,7 +6,7 @@ import MenuItem from 'material-ui/MenuItem';
 import IconPerson from 'material-ui/svg-icons/social/person';
 import IconExit from 'material-ui/svg-icons/action/exit-to-app';
 import Divider from 'material-ui/Divider';
-import Icon from '_components/interface/Icon';
+import Icon from '_components/Interface/Icon';
 import { getCategoryUrlFromSlug } from '_utils/common';
 import styles from './styles.scss';
 

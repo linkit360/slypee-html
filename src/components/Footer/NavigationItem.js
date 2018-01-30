@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BottomNavigationItem } from 'material-ui/BottomNavigation';
-import Icon from '_components/interface/Icon';
+import Icon from '_components/Interface/Icon';
 import styles from './styles.scss';
 
 export default class NavigationItem extends React.PureComponent {

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
-import AppsGrid from '_components/interface/AppsGrid';
-import FilterTypeBlock from '_components/interface/FilterTypeBlock';
-import FilterCategoryBlock from '_components/interface/FilterCategoryBlock';
+import AppsGrid from '_components/Interface/AppsGrid';
+import FilterTypeBlock from '_components/Interface/FilterTypeBlock';
+import FilterCategoryBlock from '_components/Interface/FilterCategoryBlock';
 import styles from './styles.scss';
 
 export default class TopCharts extends React.PureComponent {

@@ -4,8 +4,8 @@ import classNames from 'classnames';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
 import FlatButton from 'material-ui/FlatButton';
-import SlickWithSlider from '_components/interface/SlickWithSlider';
-import AppCard from '_components/interface/AppCard';
+import SlickWithSlider from '_components/Interface/SlickWithSlider';
+import AppCard from '_components/Interface/AppCard';
 import Header from './Header';
 import styles from './styles.scss';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
-import AppsGrid from '_components/interface/AppsGrid';
+import AppsGrid from '_components/Interface/AppsGrid';
 import styles from './styles.scss';
 
 export default class Search extends React.PureComponent {

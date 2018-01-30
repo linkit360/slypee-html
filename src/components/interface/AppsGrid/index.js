@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '_components/interface/Button';
-import AppCard from '_components/interface/AppCard';
+import Button from '_components/Interface/Button';
+import AppCard from '_components/Interface/AppCard';
 import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
 

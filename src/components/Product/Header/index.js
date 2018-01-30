@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import FlatButton from 'material-ui/FlatButton';
-import RatingBlock from '_components/interface/RatingBlock';
-import CostBlock from '_components/interface/CostBlock';
-import Icon from '_components/interface/Icon';
+import RatingBlock from '_components/Interface/RatingBlock';
+import CostBlock from '_components/Interface/CostBlock';
+import Icon from '_components/Interface/Icon';
 import { getCategoryUrl } from '_utils/common';
 import styles from './styles.scss';
 

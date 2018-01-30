@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FlatButton from 'material-ui/FlatButton';
 import TextField from 'material-ui/TextField';
-import Icon from '_components/interface/Icon';
-import IconSort from '_components/interface/IconSort';
+import Icon from '_components/Interface/Icon';
+import IconSort from '_components/Interface/IconSort';
 import styles from './styles.scss';
 
 export default class TabHeader extends React.PureComponent {

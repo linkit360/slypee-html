@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import classNames from 'classnames';
-import Icon from '_components/interface/Icon';
+import Icon from '_components/Interface/Icon';
 import Paper from 'material-ui/Paper';
 import styles from './styles.scss';
 

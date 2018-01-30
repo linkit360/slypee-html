@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Slider from 'material-ui/Slider';
 import OverflowScrolling from 'react-overflow-scrolling';
-import Slick from '_components/interface/Slick';
+import Slick from '_components/Interface/Slick';
 import styles from './styles.scss';
 
 export default class AppBlock extends React.PureComponent {

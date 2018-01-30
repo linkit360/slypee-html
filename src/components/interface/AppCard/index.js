@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
-import RatingBlock from '_components/interface/RatingBlock';
-import CostBlock from '_components/interface/CostBlock';
+import RatingBlock from '_components/Interface/RatingBlock';
+import CostBlock from '_components/Interface/CostBlock';
 import styles from './styles.scss';
 
 export default class AppCard extends React.PureComponent {

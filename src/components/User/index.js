@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
-import Avatar from '_components/interface/Avatar';
-import Icon from '_components/interface/Icon';
+import Avatar from '_components/Interface/Avatar';
+import Icon from '_components/Interface/Icon';
 import Content from './Content';
 import styles from './styles.scss';
 

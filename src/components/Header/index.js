@@ -5,7 +5,7 @@ import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import OverflowScrolling from 'react-overflow-scrolling';
-import Icon from '_components/interface/Icon';
+import Icon from '_components/Interface/Icon';
 import MobileSearchBlock from './MobileSearchBlock';
 import Menu from './Menu';
 import styles from './styles.scss';

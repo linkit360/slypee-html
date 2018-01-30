@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from '_components/interface/Button';
+import Button from '_components/Interface/Button';
 import TabHeader from './TabHeader';
 import App from './App';
 import styles from './styles.scss';
