@@ -1,0 +1,50 @@
+@import '~theme/variables';
+
+.desktop {
+  @media (max-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
+.mobile {
+  @media (min-width: $width-portrait-tablet) {
+    display: none !important;
+  }
+}
+
+.form {
+  height: 550px;
+  padding: 0 80px;
+  padding-top: 66px;
+  box-sizing: border-box;
+}
+
+.logo {
+  height: 50px;
+  background-image: url('../../images/logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  background-size: 124px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text {
+  font-size: 25px;
+  margin-top: 48px;
+}
+
+.textField {
+  width: 100% !important;
+  margin-top: 39px;
+}
+
+.button {
+  width: 100% !important;
+  margin-top: 100px !important;
+}

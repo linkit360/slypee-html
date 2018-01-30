@@ -43,8 +43,8 @@ export default class MainPage extends React.PureComponent {
     match: PropTypes.any.isRequired
   };
 
-  getTab() {
-    const { match: { params: { section }, path } } = this.props;
+  getTab(categorySlug) {
+    const { match: { params: { category, section }, path } } = this.props;
 
     if (path === '/') {
       return 'home';
@@ -52,7 +52,7 @@ export default class MainPage extends React.PureComponent {
     if (section === 'topcharts') {
       return section;
     }
-    return null;
+    return categorySlug;
   }
 
   render() {
@@ -66,7 +66,10 @@ export default class MainPage extends React.PureComponent {
 
     return (
       <div>
-        <HeaderContainer activeTab={this.getTab()} searchQuery={search || ''} />
+        <HeaderContainer
+          activeTab={this.getTab(categorySlug)}
+          searchQuery={search || ''}
+        />
         <div className={styles.content}>
           {getContent(categorySlug, section, app, search)}
         </div>
