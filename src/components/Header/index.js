@@ -24,9 +24,13 @@ export default class Header extends React.Component {
     categories: PropTypes.arrayOf(PropTypes.object).isRequired,
     lastTimeGoToSearch: PropTypes.instanceOf(Date).isRequired,
     lastTimeGoToMobileSearch: PropTypes.instanceOf(Date).isRequired,
-    activeTab: PropTypes.string.isRequired,
+    activeTab: PropTypes.string,
     onSearch: PropTypes.func.isRequired,
     onTabChange: PropTypes.func.isRequired
+  };
+
+  static defaultProps = {
+    activeTab: ''
   };
 
   state = { isMenuOpen: false };
