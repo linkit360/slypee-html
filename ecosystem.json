@@ -1,0 +1,22 @@
+{
+  "deploy" : {
+    "production" : {
+      "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no", "ForwardAgent=yes"],
+      "user" : "slypee",
+      "host" : "slypee-direct.snpdev.ru",
+      "repo" : "git@git.snpdev.ru:saltpepper/slypee-site-front.git",
+      "ref"  : "origin/develop",
+      "path" : "/var/www/slypee/cs/releases/1517305062",
+      "post-setup": "cd /var/www/slypee/cs/releases/1517305062/source && git checkout develop && git fetch --all && git pull origin develop && source ~/.profile && yarn install && yarn build && pm2 delete /^slypee/ || true && NODE_PATH=./src NODE_ENV=production PORT=3000 pm2 start /var/www/slypee/cs/releases/1517305062/source/index.js -n slypee1517305062 && ln -sfn /var/www/slypee/cs/releases/1517305062/source /var/www/slypee/cs/current && cd /var/www/slypee/cs/releases && ls -t | tail -n +4 | xargs rm -rf"
+    },
+    "debug" : {
+      "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no", "ForwardAgent=yes"],
+      "user" : "slypee",
+      "host" : "slypee-direct.snpdev.ru",
+      "repo" : "git@git.snpdev.ru:saltpepper/slypee-site-front.git",
+      "ref"  : "origin/develop",
+      "path" : "/var/www/slypee/cs/releases/1517305062",
+      "post-setup": "cd /var/www/slypee/cs/releases/1517305062/source && git checkout develop && git fetch --all && git pull origin develop && source ~/.profile && yarn install && yarn build:debug && pm2 delete /^slypee/ || true && NODE_PATH=./src NODE_ENV=debug PORT=3000 pm2 start /var/www/slypee/cs/releases/1517305062/source/index.js -n slypee1517305062 && ln -sfn /var/www/slypee/cs/releases/1517305062/source /var/www/slypee/cs/current && cd /var/www/slypee/cs/releases && ls -t | tail -n +4 | xargs rm -rf"
+    }
+  }
+}
