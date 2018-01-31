@@ -67,10 +67,10 @@ export default class MainPage extends React.PureComponent {
 
     return (
       <div>
-        <HeaderContainer
+        {/* <HeaderContainer
           activeTab={this.getTab(categorySlug)}
           searchQuery={search || ''}
-        />
+        /> */}
         <div className={styles.content}>
           {getContent(url, categorySlug, section, app, search)}
         </div>

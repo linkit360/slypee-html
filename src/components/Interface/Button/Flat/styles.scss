@@ -2,11 +2,20 @@
 
 .button {
   height: 47px !important;
-  background-color: #80cbc4 !important;
   display: block;
+  color: #80cbc4 !important;
+
+  &.orange {
+    color: $color-orange !important;
+  }
+
+  &.grey {
+    color: #92989b !important;
+  }
 
   span {
-    color: white !important;
+    color: inherit !important;
+    font-size: 18px !important;
     line-height: 47px;
 
     @media (max-width: $width-portrait-tablet) {
@@ -14,28 +23,16 @@
     }
   }
 
-  &.big {
-    height: 64px !important;
-
-    span {
-      line-height: 64px;
-      font-size: 20px !important;
-    }
-  }
-
-  &:hover {
-    background-color: $color-aquamarine !important;
-  }
-
-  &.orange {
-    background-color: $color-orange !important;
-
-    &:hover {
-      background-color: $color-orange !important;
-    }
+  &.small span {
+    font-size: 16px !important;
   }
 
   @media (max-width: $width-portrait-tablet) {
     height: 38px !important;
+  }
+
+  svg {
+    position: relative;
+    top: 5px;
   }
 }

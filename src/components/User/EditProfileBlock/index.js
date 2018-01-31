@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from 'material-ui/Paper';
-import FlatButton from 'material-ui/FlatButton';
+import Button from '_components/Interface/Button';
 import Icon from '_components/Interface/Icon';
 import Avatar from '_components/Interface/Avatar';
 import TextField from '_components/Interface/TextField';
@@ -30,23 +30,23 @@ export default class EditProfileBlock extends React.PureComponent {
         <div className={styles.content}>
           <Paper className={styles.avatarBlock} zDepth={1}>
             <Avatar className={styles.avatar} img={avatar} />
-            <FlatButton
-              className={styles.buttonChangeImage}
+            <Button
               label="CHANGE IMAGE"
-              style={styles.buttonEditProfile}
+              className={styles.buttonChangeImage}
               icon={<Icon name="add-a-foto" />}
+              type="flat"
+              color="grey"
               onClick={this.handleEditProfileButtonClick}
             />
           </Paper>
           <Paper className={styles.infoBlock} zDepth={1}>
-            <div>
+            <div className={styles.topBlock}>
               <div className={styles.textfields}>
                 <TextField
                   ref={this.textFieldsRef}
                   className={styles.textField}
                   floatingLabelText="USER NAME"
                   isRequired
-                  onBlur={this.textFieldEmailBlur}
                 />
                 <TextField
                   ref={this.textFieldsRef}
@@ -54,11 +54,32 @@ export default class EditProfileBlock extends React.PureComponent {
                   floatingLabelText="EMAIL"
                   isRequired
                   isEmail
-                  onBlur={this.textFieldPasswordBlur}
                 />
               </div>
+              <Button
+                className={styles.buttonChangePassword}
+                label="CHANGE PASSWORD"
+                icon={<Icon className={styles.editIcon} name="edit" />}
+                type="flat"
+                color="orange"
+                size="small"
+                onClick={this.handleButtonChangePasswordClick}
+              />
             </div>
-            EDIT PROFILE
+            <div className={styles.footer}>
+              <Button
+                label="CANCEL"
+                className={styles.buttonChangeImage}
+                type="flat"
+                onClick={this.handleEditProfileButtonClick}
+              />
+              <Button
+                label="SAVE CHANGES"
+                className={styles.buttonChangeImage}
+                color="orange"
+                onClick={this.handleEditProfileButtonClick}
+              />
+            </div>
           </Paper>
         </div>
       </div>

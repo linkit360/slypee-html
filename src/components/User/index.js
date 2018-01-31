@@ -58,7 +58,6 @@ export default class User extends React.PureComponent {
           <FlatButton
             className={styles.buttonEditProfile}
             label="EDIT PROFILE"
-            style={styles.buttonEditProfile}
             icon={<Icon className={styles.editIcon} name="edit" />}
             onClick={this.handleEditProfileButtonClick}
           />

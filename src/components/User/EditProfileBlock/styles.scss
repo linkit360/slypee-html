@@ -37,35 +37,16 @@
   flex-grow: 1;
   padding-left: 74px;
   padding-top: 46px;
+  padding-right: 37px;
 }
 
 .buttonChangeImage {
-  height: 44px !important;
   margin-left: 35px !important;
+}
 
-  @media (max-width: $width-portrait-tablet) {
-    width: auto;
-    top: 2px;
-    right: -4px;
-  }
-
-  span {
-    font-size: 18px !important;
-
-    @media (max-width: $width-portrait-tablet) {
-      font-size: 10px !important;
-    }
-  }
-
-  span,
-  svg {
-    color: #92989b;
-  }
-
-  svg {
-    position: relative !important;
-    top: 5px;
-  }
+.topBlock {
+  display: flex;
+  justify-content: space-between;
 }
 
 .textfields {
@@ -79,4 +60,8 @@
 
 .textFieldEmail {
   margin-left: 52px !important;
+}
+
+.buttonChangePassword {
+  margin-top: 26px !important;
 }
