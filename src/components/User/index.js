@@ -5,17 +5,46 @@ import FlatButton from 'material-ui/FlatButton';
 import Avatar from '_components/Interface/Avatar';
 import Icon from '_components/Interface/Icon';
 import Content from './Content';
+import EditProfileBlock from './EditProfileBlock';
 import styles from './styles.scss';
 
 export default class User extends React.PureComponent {
   static propTypes = {
     user: PropTypes.object.isRequired,
-    onSort: PropTypes.func.isRequired
+    onSort: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired
+  };
+
+  state = {
+    isEditMode: false
+  };
+
+  toogleEditMode(isEditMode) {
+    this.setState({ isEditMode });
+  }
+
+  handleEditModeExit = () => {
+    this.toogleEditMode(false);
+  };
+
+  handleEditProfileButtonClick = () => {
+    this.toogleEditMode(true);
   };
 
   render() {
-    const { user, onSort } = this.props;
+    const { user, onSort, onEdit } = this.props;
     const { avatar, name, mail, purchased, subscription } = user;
+    const { isEditMode } = this.state;
+
+    if (isEditMode) {
+      return (
+        <EditProfileBlock
+          user={user}
+          onEdit={onEdit}
+          onExit={this.handleEditModeExit}
+        />
+      );
+    }
 
     return (
       <div>
@@ -31,6 +60,7 @@ export default class User extends React.PureComponent {
             label="EDIT PROFILE"
             style={styles.buttonEditProfile}
             icon={<Icon className={styles.editIcon} name="edit" />}
+            onClick={this.handleEditProfileButtonClick}
           />
         </Paper>
         <Content

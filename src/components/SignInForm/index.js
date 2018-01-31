@@ -40,7 +40,6 @@ export default class SignInForm extends React.PureComponent {
             className={styles.textFieldEmail}
             floatingLabelText="EMAIL"
             isRequired
-            onBlur={this.textFieldEmailBlur}
           />
           <TextField
             ref={this.textFieldsRef}
@@ -48,7 +47,6 @@ export default class SignInForm extends React.PureComponent {
             type="password"
             floatingLabelText="PASSWORD"
             isRequired
-            onBlur={this.textFieldPasswordBlur}
           />
           <Link className={styles.forgotPasswordLink} to="/forgotPassword">
             Forgot password?
@@ -62,7 +60,7 @@ export default class SignInForm extends React.PureComponent {
           <Button
             className={styles.buttonSignIn}
             label="SIGN IN"
-            type="orange"
+            color="orange"
             size="big"
             onClick={this.handleSignInClick}
           />

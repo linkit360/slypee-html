@@ -13,7 +13,7 @@ import RegistrationContainer from '_containers/RegistrationContainer';
 import { getSlug } from '_utils/common';
 import styles from './styles.scss';
 
-const getContent = (categorySlug, section, app, search) => {
+const getContent = (url, categorySlug, section, app, search) => {
   if (categorySlug) {
     return <CategoryContainer categorySlug={categorySlug} />;
   }
@@ -56,8 +56,9 @@ export default class MainPage extends React.PureComponent {
   }
 
   render() {
-    const { match: { params } } = this.props;
-    const { category, section, app, search } = params;
+    const {
+      match: { params: { category, section, app, search }, url }
+    } = this.props;
     const categorySlug = category && getSlug(category);
 
     if (['signIn', 'signUp', 'forgotPassword'].includes(section)) {
@@ -71,7 +72,7 @@ export default class MainPage extends React.PureComponent {
           searchQuery={search || ''}
         />
         <div className={styles.content}>
-          {getContent(categorySlug, section, app, search)}
+          {getContent(url, categorySlug, section, app, search)}
         </div>
         <FooterContainer />
       </div>

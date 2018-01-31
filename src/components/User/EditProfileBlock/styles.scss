@@ -1,0 +1,82 @@
+@import '~theme/variables';
+
+.header {
+  height: 153px;
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  padding-left: 80px;
+}
+
+.content {
+  padding: 27px 82px;
+  display: flex;
+}
+
+.avatarBlock {
+  width: 505px;
+  height: 271px;
+  margin-right: 28px;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+}
+
+.avatar {
+  width: 186px;
+  height: 186px;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 85px;
+    height: 85px;
+    margin-top: 16px;
+  }
+}
+
+.infoBlock {
+  flex-grow: 1;
+  padding-left: 74px;
+  padding-top: 46px;
+}
+
+.buttonChangeImage {
+  height: 44px !important;
+  margin-left: 35px !important;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: auto;
+    top: 2px;
+    right: -4px;
+  }
+
+  span {
+    font-size: 18px !important;
+
+    @media (max-width: $width-portrait-tablet) {
+      font-size: 10px !important;
+    }
+  }
+
+  span,
+  svg {
+    color: #92989b;
+  }
+
+  svg {
+    position: relative !important;
+    top: 5px;
+  }
+}
+
+.textfields {
+  display: flex;
+}
+
+.textField,
+.textFieldEmail {
+  width: 316px !important;
+}
+
+.textFieldEmail {
+  margin-left: 52px !important;
+}

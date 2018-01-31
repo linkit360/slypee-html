@@ -37,7 +37,7 @@ export default class PasswordForgottenForm extends React.PureComponent {
           <Button
             className={styles.button}
             label="CONFIRM"
-            type="orange"
+            color="orange"
             size="big"
             onClick={this.handleButtonClick}
           />

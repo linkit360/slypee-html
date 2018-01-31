@@ -74,7 +74,7 @@ export default class SignUpForm extends React.PureComponent {
           <Button
             className={styles.buttonSignIn}
             label="SIGN UP"
-            type="orange"
+            color="orange"
             size="big"
             onClick={this.handleSignInClick}
           />
