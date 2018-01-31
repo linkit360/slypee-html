@@ -116,13 +116,14 @@ class AppsGrid extends React.PureComponent {
             ))}
         </div>
         <div className={styles.footer}>
-          {!isFetching && (
-            <Button
-              className={styles.buttonShowMore}
-              label="SHOW MORE"
-              onClick={this.handleShowMoreClick}
-            />
-          )}
+          {!isFetching &&
+            cards.length > 0 && (
+              <Button
+                className={styles.buttonShowMore}
+                label="SHOW MORE"
+                onClick={this.handleShowMoreClick}
+              />
+            )}
         </div>
       </div>
     );

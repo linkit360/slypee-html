@@ -118,15 +118,21 @@ export default class Product extends React.PureComponent {
           <Header {...this.props} />
           <Divider className={styles.mobileDivider} />
           {this.getSlick(styles.desktop)}
-          <div className={styles.descriptionHeader}>Description of {name}</div>
-          <div
-            className={styles.description}
-            dangerouslySetInnerHTML={{ __html: description }}
-          />
+          {description && (
+            <div>
+              <div className={styles.descriptionHeader}>
+                Description of {name}
+              </div>
+              <div
+                className={styles.description}
+                dangerouslySetInnerHTML={{ __html: description }}
+              />
+            </div>
+          )}
           <FlatButton
             className={classNames(styles.buttonMore, styles.mobile)}
-            onClick={this.handleButtonMoreClick}
             label={isButtonMoreClicked ? 'Show less' : 'Show more'}
+            onClick={this.handleButtonMoreClick}
           />
         </Paper>
         {this.getSlick(styles.mobile)}

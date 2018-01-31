@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { number } from 'prop-types';
 import Slider from 'material-ui/Slider';
 import OverflowScrolling from 'react-overflow-scrolling';
 import Slick from '_components/Interface/Slick';
 import styles from './styles.scss';
 
-export default class AppBlock extends React.PureComponent {
+export default class SlickWithSlider extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.arrayOf(PropTypes.node),
@@ -17,11 +17,24 @@ export default class AppBlock extends React.PureComponent {
     isSmooth: false
   };
 
+  state = {
+    showSlider: true
+  };
+
   componentDidMount() {
     setTimeout(() => {
       const el = this.overflowScrollingWrapper;
       el.style.height = `${el.offsetHeight - 10}px`;
     }, 200);
+    setTimeout(() => {
+      const { innerSlider } = this.slick.root;
+      const { listWidth } = innerSlider.state;
+      const lastSlideNode = innerSlider.list.lastChild.lastChild;
+      this.setState({
+        showSlider:
+          lastSlideNode.offsetLeft + lastSlideNode.offsetWidth > listWidth
+      });
+    }, 1000);
   }
 
   slickGoTo(index) {
@@ -57,7 +70,12 @@ export default class AppBlock extends React.PureComponent {
   overflowScrollingWrapperRef = ref => (this.overflowScrollingWrapper = ref);
 
   render() {
-    const { className } = this.props;
+    const { className, children } = this.props;
+    const { showSlider } = this.state;
+
+    if (children.length === 0) {
+      return null;
+    }
 
     return (
       <div className={className}>
@@ -73,10 +91,12 @@ export default class AppBlock extends React.PureComponent {
           >
             {this.props.children}
           </Slick>
-          <Slider
-            className={styles.slider}
-            onChange={this.handleSliderChange}
-          />
+          {showSlider && (
+            <Slider
+              className={styles.slider}
+              onChange={this.handleSliderChange}
+            />
+          )}
         </div>
         <div className={styles.mobile}>
           <div

@@ -110,7 +110,6 @@ function* fetchApp({ data }) {
 function* fetchUser() {
   const token = localStorage.getItem('token');
   if (token !== 'undefined') {
-    console.log(token);
     yield fetch('USER', api.fetchUser, token);
   }
 }
