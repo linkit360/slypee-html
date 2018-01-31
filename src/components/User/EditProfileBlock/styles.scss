@@ -22,15 +22,11 @@
   padding-left: 50px;
 }
 
-.avatar {
+.avatarWrapper {
   width: 186px;
   height: 186px;
-
-  @media (max-width: $width-portrait-tablet) {
-    width: 85px;
-    height: 85px;
-    margin-top: 16px;
-  }
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .infoBlock {
@@ -53,15 +49,53 @@
   display: flex;
 }
 
-.textField,
-.textFieldEmail {
+.textField {
   width: 316px !important;
 }
 
-.textFieldEmail {
+.textFieldEmail,
+.textFieldPassword {
   margin-left: 52px !important;
+}
+
+.textFieldPasswordConfirm {
+  margin-left: 80px;
 }
 
 .buttonChangePassword {
   margin-top: 26px !important;
+}
+
+.passwordBlock {
+  display: flex;
+  margin-top: 4px;
+  margin-bottom: -10px;
+}
+
+.footer {
+  margin-top: 63px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 11px;
+  margin-bottom: 35px;
+}
+
+.buttonSave {
+  width: 204px !important;
+  height: 40px !important;
+
+  span {
+    font-size: 16px !important;
+    line-height: 40px !important;
+  }
+}
+
+.buttonCancel {
+  margin-right: 28px !important;
+  height: 40px !important;
+
+  span {
+    font-size: 16px !important;
+    line-height: 40px !important;
+  }
 }

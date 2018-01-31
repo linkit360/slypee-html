@@ -15,11 +15,9 @@ class ProductContainer extends React.Component {
   };
 
   componentWillMount() {
-    const { appId, product, fetchApp } = this.props;
+    const { appId, fetchApp } = this.props;
 
-    if (!product) {
-      fetchApp({ id: appId });
-    }
+    fetchApp({ id: appId });
   }
 
   render() {
