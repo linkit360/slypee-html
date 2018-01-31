@@ -1,6 +1,6 @@
 import _ from 'lodash/fp';
 
-const initialState = null;
+const initialState = {};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -39,7 +39,7 @@ export default (state = initialState, action) => {
         isFetching: false
       });
     case 'LOGOUT':
-      return null;
+      return {};
     default:
       return state;
   }
