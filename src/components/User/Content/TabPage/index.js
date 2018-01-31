@@ -73,11 +73,11 @@ export default class TabPage extends React.PureComponent {
   render() {
     const { countShowItems } = this.state;
     const { section, tabName, onSort } = this.props;
-    const { list, sort } = section;
+    // const { sort } = section;
 
     return (
       <div>
-        <TabHeader onSort={onSort} tabName={tabName} {...sort} />
+        <TabHeader onSort={onSort} tabName={tabName} />
         {arrayOfApp
           .slice(0, countShowItems)
           .map((app, index) => <App key={index} {...app} />)}
