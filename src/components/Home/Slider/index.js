@@ -12,8 +12,6 @@ export default class Slider extends React.PureComponent {
   render() {
     const { slides } = this.props;
 
-    console.log(slides);
-
     return (
       <Slick
         className={styles.slider}

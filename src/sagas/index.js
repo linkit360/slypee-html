@@ -9,14 +9,26 @@ const getCountCategoryContent = state => state.category.content.list.length;
 const getCountTopChartsContent = state => state.topCharts.length;
 const getCountSearch = state => state.search.length;
 
-function* fetch(name, apiFunc, params) {
+function* request(name, type, apiFunc, params, expectedParameter) {
   try {
     const data = yield call(apiFunc, params);
 
-    yield put({ type: `FETCH_${name}_SUCCESS`, data: data.data });
+    if (!expectedParameter || data.data[expectedParameter]) {
+      yield put({ type: `${type}_${name}_SUCCESS`, data: data.data });
+    } else {
+      yield put({ type: `${type}_${name}_ERROR`, data });
+    }
   } catch (e) {
-    yield put({ type: `FETCH_${name}_FAILURE`, err: e.message });
+    yield put({ type: `${type}_${name}_FAILURE`, err: e.message });
   }
+}
+
+function* fetch(name, apiFunc, params, expectedParameter) {
+  yield request(name, 'FETCH', apiFunc, params, expectedParameter);
+}
+
+function* post(name, apiFunc, params, expectedParameter) {
+  yield request(name, 'POST', apiFunc, params, expectedParameter);
 }
 
 function* fetchMainMenu() {
@@ -95,6 +107,22 @@ function* fetchApp({ data }) {
   yield fetch('APP', api.fetchApp, data);
 }
 
+function* fetchUser() {
+  const token = localStorage.getItem('token');
+  if (token !== 'undefined') {
+    console.log(token);
+    yield fetch('USER', api.fetchUser, token);
+  }
+}
+
+function* signUp({ data }) {
+  yield post('SIGN_UP', api.signUp, data, 'token');
+}
+
+function* signIn({ data }) {
+  yield post('SIGN_IN', api.signIn, data, 'token');
+}
+
 function* changeTab({ tabName }) {
   let route;
 
@@ -117,6 +145,15 @@ function* goto({ route }) {
   yield put(push(route));
 }
 
+function* completeUserLogin({ data }) {
+  localStorage.setItem('token', data.token);
+  yield put(push('/'));
+}
+
+function logout() {
+  localStorage.removeItem('token');
+}
+
 function* search({ search }) {
   yield put(push(`/search/${search}`));
 }
@@ -135,6 +172,12 @@ export default function*() {
     takeLatest('FETCH_SEARCH', fetchSearch),
     takeLatest('FETCH_MORE_SEARCH', fetchMoreSearch),
     takeLatest('FETCH_CATEGORY_NEW', fetchCategoryNew),
+    takeLatest('FETCH_USER', fetchUser),
+    takeLatest('LOGOUT', logout),
+    takeLatest('SIGN_UP', signUp),
+    takeLatest('POST_SIGN_UP_SUCCESS', completeUserLogin),
+    takeLatest('SIGN_IN', signIn),
+    takeLatest('POST_SIGN_IN_SUCCESS', completeUserLogin),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),
     takeLatest('SEARCH', search)

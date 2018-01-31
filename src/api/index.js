@@ -70,3 +70,31 @@ export const fetchCategoryNew = ({ id }) =>
       'slypee-content-ordering': 'date'
     }
   });
+
+export const signUp = ({ userName, email, password, confirmPassword }) =>
+  Req.POST({
+    url: `/customer`,
+    data: {
+      username: userName,
+      email,
+      password,
+      password_confirm: confirmPassword
+    }
+  });
+
+export const signIn = ({ email, password }) =>
+  Req.POST({
+    url: `/customer/signin`,
+    data: {
+      email,
+      password
+    }
+  });
+
+export const fetchUser = token =>
+  Req.GET({
+    url: `/customer`,
+    headers: {
+      'x-slypee-auth-token': token
+    }
+  });

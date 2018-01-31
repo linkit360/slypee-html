@@ -1,5 +1,3 @@
-import _ from 'lodash/fp';
-
 const initialState = {
   main: {
     slider: [

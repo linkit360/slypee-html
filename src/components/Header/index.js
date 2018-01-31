@@ -6,19 +6,14 @@ import TextField from 'material-ui/TextField';
 import { Tabs, Tab } from 'material-ui/Tabs';
 import OverflowScrolling from 'react-overflow-scrolling';
 import Icon from '_components/Interface/Icon';
+import AvatarBlock from './AvatarBlock';
 import MobileSearchBlock from './MobileSearchBlock';
 import Menu from './Menu';
 import styles from './styles.scss';
 
-const user = {
-  avatar:
-    'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-  name: 'Jack Jackson',
-  mail: 'jack_jacson@gmal.com'
-};
-
 export default class Header extends React.Component {
   static propTypes = {
+    user: PropTypes.object,
     searchQuery: PropTypes.string,
     mainMenu: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     categories: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -26,7 +21,8 @@ export default class Header extends React.Component {
     lastTimeGoToMobileSearch: PropTypes.instanceOf(Date).isRequired,
     activeTab: PropTypes.string,
     onSearch: PropTypes.func.isRequired,
-    onTabChange: PropTypes.func.isRequired
+    onTabChange: PropTypes.func.isRequired,
+    onLogout: PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -81,13 +77,17 @@ export default class Header extends React.Component {
 
   render() {
     const {
+      user,
       searchQuery,
       mainMenu,
       categories,
       activeTab,
-      lastTimeGoToMobileSearch
+      lastTimeGoToMobileSearch,
+      onLogout
     } = this.props;
     const { isMenuOpen } = this.state;
+
+    const isLogin = user.token;
 
     return (
       <div>
@@ -119,22 +119,31 @@ export default class Header extends React.Component {
               isAutorizedUser
               user={user}
               onClose={this.handleRequestClose}
-              onLogout={() => console.log('onLogout')}
+              onLogout={onLogout}
             />
           </Popover>
-          <FlatButton
-            className={styles.buttonSignIn}
-            href="/signIn"
-            label="Sign in"
-            icon={
-              <Icon
-                className={styles.buttonSignInIcon}
-                name="account-circle"
-                width={30}
-                height={30}
-              />
-            }
-          />
+          {!isLogin && (
+            <FlatButton
+              className={styles.buttonSignIn}
+              href="/signIn"
+              label="Sign in"
+              icon={
+                <Icon
+                  className={styles.buttonSignInIcon}
+                  name="account-circle"
+                  width={30}
+                  height={30}
+                />
+              }
+            />
+          )}
+          {isLogin && (
+            <AvatarBlock
+              className={styles.avatarBlock}
+              user={user}
+              onLogout={onLogout}
+            />
+          )}
           <MobileSearchBlock
             lastTimeGoToMobileSearch={lastTimeGoToMobileSearch}
             searchQuery={searchQuery}

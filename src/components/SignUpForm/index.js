@@ -8,6 +8,7 @@ import styles from './styles.scss';
 
 export default class SignUpForm extends React.PureComponent {
   static propTypes = {
+    registrationStatus: PropTypes.string,
     signUp: PropTypes.func.isRequired
   };
 
@@ -31,6 +32,7 @@ export default class SignUpForm extends React.PureComponent {
   textFieldsRef = ref => this.textFields.push(ref);
 
   render() {
+    const { registrationStatus } = this.props;
     const { password } = this.state;
     return (
       <div className={styles.form}>
@@ -51,6 +53,9 @@ export default class SignUpForm extends React.PureComponent {
             floatingLabelText="EMAIL"
             isRequired
             isEmail
+            errorText={
+              registrationStatus === 'ERROR' ? 'Email alredy taken' : null
+            }
           />
           <TextField
             ref={this.textFieldsRef}

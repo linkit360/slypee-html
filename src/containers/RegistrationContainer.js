@@ -11,19 +11,30 @@ import PasswordForgottenForm from '_components/PasswordForgottenForm';
 class RegistrationContainer extends React.Component {
   static propTypes = {
     section: PropTypes.string.isRequired,
+    registrationStatus: PropTypes.string.isRequired,
+    signInStatus: PropTypes.string.isRequired,
     signIn: PropTypes.func.isRequired,
     signUp: PropTypes.func.isRequired,
     forgotPassword: PropTypes.func.isRequired
   };
 
   getForm() {
-    const { section, signIn, signUp, forgotPassword } = this.props;
+    const {
+      registrationStatus,
+      signInStatus,
+      section,
+      signIn,
+      signUp,
+      forgotPassword
+    } = this.props;
 
     switch (section) {
       case 'signIn':
-        return <SignInForm signIn={signIn} />;
+        return <SignInForm signIn={signIn} signInStatus={signInStatus} />;
       case 'signUp':
-        return <SignUpForm signUp={signUp} />;
+        return (
+          <SignUpForm signUp={signUp} registrationStatus={registrationStatus} />
+        );
       case 'forgotPassword':
         return <PasswordForgottenForm forgotPassword={forgotPassword} />;
       default:
@@ -36,7 +47,10 @@ class RegistrationContainer extends React.Component {
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+  registrationStatus: state.user.registrationStatus,
+  signInStatus: state.user.signInStatus
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(

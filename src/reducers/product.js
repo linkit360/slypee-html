@@ -1,5 +1,3 @@
-import _ from 'lodash/fp';
-
 const initialState = null;
 
 export default (state = initialState, action) => {

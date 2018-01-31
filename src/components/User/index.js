@@ -33,7 +33,7 @@ export default class User extends React.PureComponent {
 
   render() {
     const { user, onSort, onEdit } = this.props;
-    const { avatar, name, mail, purchased, subscription } = user;
+    const { avatar, name, email, purchased, subscription } = user;
     const { isEditMode } = this.state;
 
     if (isEditMode) {
@@ -53,7 +53,7 @@ export default class User extends React.PureComponent {
             <Avatar className={styles.avatar} img={avatar} />
             <div className={styles.name}>{name}</div>
             <Icon className={styles.mailIcon} name="mail" />
-            <div className={styles.mail}>{mail}</div>
+            <div className={styles.mail}>{email}</div>
           </div>
           <FlatButton
             className={styles.buttonEditProfile}

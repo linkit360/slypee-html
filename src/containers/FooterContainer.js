@@ -7,6 +7,7 @@ import Footer from '_components/Footer';
 
 class FooterContainer extends React.Component {
   static propTypes = {
+    isLogin: PropTypes.object,
     changeTab: PropTypes.func.isRequired,
     goToSearch: PropTypes.func.isRequired,
     goToMobileSearch: PropTypes.func.isRequired,
@@ -14,7 +15,13 @@ class FooterContainer extends React.Component {
   };
 
   handleNavigationItemClick = value => {
-    const { changeTab, goToSearch, goToMobileSearch, goTo } = this.props;
+    const {
+      isLogin,
+      changeTab,
+      goToSearch,
+      goToMobileSearch,
+      goTo
+    } = this.props;
     switch (value) {
       case 'search':
         goToSearch();
@@ -23,7 +30,7 @@ class FooterContainer extends React.Component {
         goToMobileSearch();
         break;
       case 'user':
-        goTo('/user');
+        goTo(isLogin ? '/user' : '/signIn');
         break;
       default:
         changeTab(value);
@@ -31,11 +38,19 @@ class FooterContainer extends React.Component {
   };
 
   render() {
-    return <Footer onNavigationItemClick={this.handleNavigationItemClick} />;
+    const { isLogin } = this.props;
+    return (
+      <Footer
+        isLogin={isLogin}
+        onNavigationItemClick={this.handleNavigationItemClick}
+      />
+    );
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+  isLogin: state.user && !!state.user.token
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(

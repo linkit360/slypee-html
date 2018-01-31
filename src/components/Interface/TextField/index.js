@@ -12,6 +12,7 @@ export default class TextField extends React.PureComponent {
     minLength: PropTypes.number,
     match: PropTypes.string,
     defaultValue: PropTypes.string,
+    errorText: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func
   };
@@ -69,7 +70,7 @@ export default class TextField extends React.PureComponent {
   };
 
   render() {
-    const { className } = this.props;
+    const { className, errorText } = this.props;
     const { error } = this.state;
     const { isRequired, isEmail, minLength, match, ...props } = this.props;
 
@@ -79,7 +80,7 @@ export default class TextField extends React.PureComponent {
         className={classNames(className, styles.textField)}
         underlineShow={false}
         floatingLabelShrinkStyle={{ color: '#4f4f51' }}
-        errorText={error}
+        errorText={errorText || error}
         onChange={this.handleChange}
         onBlur={this.handleBlur}
       />

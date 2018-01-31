@@ -6,11 +6,12 @@ import styles from './styles.scss';
 
 export default class Footer extends React.PureComponent {
   static propTypes = {
+    isLogin: PropTypes.bool.isRequired,
     onNavigationItemClick: PropTypes.func.isRequired
   };
 
   render() {
-    const { onNavigationItemClick } = this.props;
+    const { isLogin, onNavigationItemClick } = this.props;
     return (
       <div className={styles.footer}>
         <span className={styles.copyright}>
@@ -45,7 +46,7 @@ export default class Footer extends React.PureComponent {
           />
           <NavigationItem
             className={styles.desktop}
-            label="User account"
+            label={isLogin ? 'User account' : 'Sign in'}
             iconName="person"
             value="user"
             onClick={onNavigationItemClick}

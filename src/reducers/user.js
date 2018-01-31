@@ -1,42 +1,6 @@
 import _ from 'lodash/fp';
 
-const app = {
-  img:
-    'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-  id: 3453,
-  name: 'AliExpress Shopping App- $100 Coupons For New User',
-  rating: 3.6,
-  cost: {
-    price: 5500,
-    type: 'weekly',
-    currency: 'inr'
-  },
-  purchaseDate: '15/01/2018',
-  category: 'games'
-};
-
-const arrayOfApp = [app, app, app, app, app, app, app, app];
-
-const initialState = {
-  avatar:
-    'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-  name: 'Jack Jacson',
-  mail: 'jack_jacson@gmail.com',
-  purchased: {
-    list: arrayOfApp,
-    sort: {
-      sortBy: 'Name',
-      isSortReverse: false
-    }
-  },
-  subscription: {
-    list: arrayOfApp,
-    sort: {
-      sortBy: 'Name',
-      isSortReverse: false
-    }
-  }
-};
+const initialState = null;
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -47,6 +11,35 @@ export default (state = initialState, action) => {
           sort: action.data
         }
       });
+    case 'POST_SIGN_UP_ERROR':
+      return _.assign(state, {
+        registrationStatus: 'ERROR'
+      });
+    case 'POST_SIGN_UP_SUCCESS':
+      return _.assign(state, {
+        ...action.data,
+        registrationStatus: 'SUCCESS'
+      });
+    case 'POST_SIGN_IN_ERROR':
+      return _.assign(state, {
+        signInStatus: 'ERROR'
+      });
+    case 'POST_SIGN_IN_SUCCESS':
+      return _.assign(state, {
+        ...action.data,
+        signInStatus: 'SUCCESS'
+      });
+    case 'FETCH_USER':
+      return _.assign(state, {
+        isFetching: true
+      });
+    case 'FETCH_USER_SUCCESS':
+      return _.assign(state, {
+        ...action.data,
+        isFetching: false
+      });
+    case 'LOGOUT':
+      return null;
     default:
       return state;
   }

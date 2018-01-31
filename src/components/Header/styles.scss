@@ -3,10 +3,11 @@
 .headerTop {
   height: 126px;
   background-color: $color-white;
-  background-image: url('../../images/logo.png');
+  background-image: url('../../images/logo.svg');
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
+  background-size: 222px;
 
   @media (max-width: $width-portrait-tablet) {
     height: 88px;
@@ -190,4 +191,10 @@
 
 .overflowScrolling {
   overflow-x: scroll;
+}
+
+.avatarBlock {
+  position: absolute;
+  right: 77px;
+  top: 30px;
 }

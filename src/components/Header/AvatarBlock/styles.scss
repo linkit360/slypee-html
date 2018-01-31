@@ -1,0 +1,45 @@
+@import '~theme/variables';
+
+.avatar {
+  width: 75px;
+  height: 75px;
+  cursor: pointer;
+}
+
+.menuPopover {
+  width: 260px;
+  border-radius: 10px !important;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.infoBlock {
+  padding: 20px;
+  padding-left: 28px;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.name {
+  font-size: 20px;
+}
+
+.email {
+  margin-top: 4px;
+}
+
+.accountButton {
+  height: 69px;
+  display: flex !important;
+  align-items: center;
+  padding-left: 10px !important;
+}
+
+.logoutButton {
+  height: 57px;
+  display: flex !important;
+  align-items: center;
+  padding-left: 10px !important;
+  background-color: #cfd8dd !important;
+}

@@ -54,6 +54,10 @@ export const fetchMoreSearch = data => ({
   data
 });
 
+export const fetchUser = () => ({
+  type: 'FETCH_USER'
+});
+
 export const signIn = data => ({
   type: 'SIGN_IN',
   data
@@ -62,6 +66,10 @@ export const signIn = data => ({
 export const signUp = data => ({
   type: 'SIGN_UP',
   data
+});
+
+export const logout = () => ({
+  type: 'LOGOUT'
 });
 
 export const forgotPassword = data => ({

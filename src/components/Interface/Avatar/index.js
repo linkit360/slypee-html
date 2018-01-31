@@ -7,7 +7,8 @@ import styles from './styles.scss';
 export default class Avatar extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    img: PropTypes.string.isRequired
+    img: PropTypes.string.isRequired,
+    onClick: PropTypes.func
   };
 
   static defaultProps = {
@@ -15,12 +16,13 @@ export default class Avatar extends React.PureComponent {
   };
 
   render() {
-    const { className, img } = this.props;
+    const { className, img, onClick } = this.props;
 
     return (
       <div
         className={classNames(className, styles.avatar)}
         style={{ backgroundImage: `url(${img})` }}
+        onClick={onClick}
       >
         {!img && <Icon className={styles.icon} name="user" />}
       </div>

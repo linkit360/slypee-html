@@ -44,7 +44,7 @@ export default class MainPage extends React.PureComponent {
   };
 
   getTab(categorySlug) {
-    const { match: { params: { category, section }, path } } = this.props;
+    const { match: { params: { section }, path } } = this.props;
 
     if (path === '/') {
       return 'home';

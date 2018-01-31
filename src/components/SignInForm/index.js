@@ -10,13 +10,8 @@ import styles from './styles.scss';
 
 export default class SignInForm extends React.PureComponent {
   static propTypes = {
+    signInStatus: PropTypes.func,
     signIn: PropTypes.func.isRequired
-  };
-
-  handleSignInClick = () => {
-    if (this.emailError + this.passwordError === '') {
-      this.props.signIn({ email: this.email, password: this.password });
-    }
   };
 
   handleSignInClick = () => {
@@ -31,6 +26,7 @@ export default class SignInForm extends React.PureComponent {
   textFieldsRef = ref => this.textFields.push(ref);
 
   render() {
+    const { signInStatus } = this.props;
     return (
       <div className={styles.form}>
         <div className={styles.logo} />
@@ -38,15 +34,20 @@ export default class SignInForm extends React.PureComponent {
           <TextField
             ref={this.textFieldsRef}
             className={styles.textFieldEmail}
+            name="email"
             floatingLabelText="EMAIL"
             isRequired
           />
           <TextField
             ref={this.textFieldsRef}
             className={styles.textFieldPassword}
+            name="password"
             type="password"
             floatingLabelText="PASSWORD"
             isRequired
+            errorText={
+              signInStatus === 'ERROR' ? 'email or password is incorrect' : null
+            }
           />
           <Link className={styles.forgotPasswordLink} to="/forgotPassword">
             Forgot password?
