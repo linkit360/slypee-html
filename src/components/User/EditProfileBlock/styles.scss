@@ -1,0 +1,101 @@
+@import '~theme/variables';
+
+.header {
+  height: 153px;
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  padding-left: 80px;
+}
+
+.content {
+  padding: 27px 82px;
+  display: flex;
+}
+
+.avatarBlock {
+  width: 505px;
+  height: 271px;
+  margin-right: 28px;
+  display: flex;
+  align-items: center;
+  padding-left: 50px;
+}
+
+.avatarWrapper {
+  width: 186px;
+  height: 186px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.infoBlock {
+  flex-grow: 1;
+  padding-left: 74px;
+  padding-top: 46px;
+  padding-right: 37px;
+}
+
+.buttonChangeImage {
+  margin-left: 35px !important;
+}
+
+.topBlock {
+  display: flex;
+  justify-content: space-between;
+}
+
+.textfields {
+  display: flex;
+}
+
+.textField {
+  width: 316px !important;
+}
+
+.textFieldEmail,
+.textFieldPassword {
+  margin-left: 52px !important;
+}
+
+.textFieldPasswordConfirm {
+  margin-left: 80px;
+}
+
+.buttonChangePassword {
+  margin-top: 26px !important;
+}
+
+.passwordBlock {
+  display: flex;
+  margin-top: 4px;
+  margin-bottom: -10px;
+}
+
+.footer {
+  margin-top: 63px;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 11px;
+  margin-bottom: 35px;
+}
+
+.buttonSave {
+  width: 204px !important;
+  height: 40px !important;
+
+  span {
+    font-size: 16px !important;
+    line-height: 40px !important;
+  }
+}
+
+.buttonCancel {
+  margin-right: 28px !important;
+  height: 40px !important;
+
+  span {
+    font-size: 16px !important;
+    line-height: 40px !important;
+  }
+}

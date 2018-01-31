@@ -69,6 +69,11 @@ export const forgotPassword = data => ({
   data
 });
 
+export const editProfile = data => ({
+  type: 'EDIT PROFILE',
+  data
+});
+
 export const changeTab = tabName => ({
   type: 'CHANGE_TAB',
   tabName

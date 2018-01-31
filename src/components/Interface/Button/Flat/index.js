@@ -2,10 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FlatButton from 'material-ui/FlatButton';
-import Flat from './Flat';
 import styles from './styles.scss';
 
-export default class Button extends React.PureComponent {
+export default class Flat extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
     color: PropTypes.string,
@@ -14,18 +13,16 @@ export default class Button extends React.PureComponent {
   };
 
   render() {
-    const { className, color, size, type } = this.props;
-
-    if (type === 'flat') {
-      return <Flat {...this.props} />;
-    }
+    const { className, color, type, size } = this.props;
 
     return (
       <FlatButton
         {...this.props}
         className={classNames(className, styles.button, {
           [styles.orange]: color === 'orange',
-          [styles.big]: size === 'big'
+          [styles.grey]: color === 'grey',
+          [styles.flat]: type === 'flat',
+          [styles.small]: size === 'small'
         })}
       />
     );

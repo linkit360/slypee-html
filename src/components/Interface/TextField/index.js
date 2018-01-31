@@ -11,6 +11,7 @@ export default class TextField extends React.PureComponent {
     isEmail: PropTypes.bool,
     minLength: PropTypes.number,
     match: PropTypes.string,
+    defaultValue: PropTypes.string,
     onBlur: PropTypes.func,
     onChange: PropTypes.func
   };
@@ -20,7 +21,7 @@ export default class TextField extends React.PureComponent {
     onChange: () => {}
   };
 
-  value = '';
+  value = this.props.defaultValue || '';
   error = '';
 
   state = {

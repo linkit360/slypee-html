@@ -15,7 +15,7 @@ export default class SignUpForm extends React.PureComponent {
     password: ''
   };
 
-  handleTextFieldEmailBlur = e => {
+  handleTextFieldPasswordBlur = e => {
     this.setState({ password: e.target.value });
   };
 
@@ -60,7 +60,7 @@ export default class SignUpForm extends React.PureComponent {
             floatingLabelText="PASSWORD"
             isRequired
             minLength={8}
-            onBlur={this.handleTextFieldEmailBlur}
+            onBlur={this.handleTextFieldPasswordBlur}
           />
           <TextField
             ref={this.textFieldsRef}
@@ -74,7 +74,7 @@ export default class SignUpForm extends React.PureComponent {
           <Button
             className={styles.buttonSignIn}
             label="SIGN UP"
-            type="orange"
+            color="orange"
             size="big"
             onClick={this.handleSignInClick}
           />
