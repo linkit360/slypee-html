@@ -1,0 +1,146 @@
+@import '~theme/variables';
+
+.card {
+  width: 224px;
+  height: 395px;
+  border-radius: 4px !important;
+  padding-top: 11px;
+  position: relative;
+  text-align: left;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 129px;
+    height: 214px;
+    padding-top: 7px;
+  }
+
+  &.isHorisontal {
+    height: 225px;
+    width: 442px;
+    display: flex;
+    padding-left: 14px;
+
+    @media (max-width: $width-portrait-tablet) {
+      width: 305px;
+      height: 128px;
+      padding-left: 6px;
+    }
+  }
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  margin: auto;
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 114px;
+    height: 114px;
+  }
+}
+
+.content {
+  padding: 0 33px;
+  padding-top: 21px;
+
+  @media (max-width: $width-portrait-tablet) {
+    padding: 0 8px;
+  }
+
+  .isHorisontal & {
+    padding-top: 20px;
+    padding-left: 25px;
+    padding-right: 9px;
+
+    @media (max-width: $width-portrait-tablet) {
+      padding-top: 0;
+      padding-left: 20px;
+    }
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: $color-black;
+  font-size: 20px;
+  line-height: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 13px;
+    padding-top: 8px;
+    line-height: 15px;
+  }
+
+  &:visited,
+  &:active {
+    text-decoration: none;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.producer {
+  font-family: 'Roboto-Regular', sans-serif;
+  color: $color-font-grey;
+  font-size: 15px;
+  margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @media (max-width: $width-portrait-tablet) {
+    display: none;
+
+    .isHorisontal & {
+      font-size: 11px;
+      display: block;
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 29px;
+  left: 29px;
+
+  @media (max-width: $width-portrait-tablet) {
+    left: 4px;
+    bottom: 15px;
+  }
+
+  .isHorisontal & {
+    left: 238px;
+    bottom: 40px;
+
+    @media (max-width: $width-portrait-tablet) {
+      left: 137px;
+      bottom: 15px;
+    }
+  }
+}
+
+.rating {
+  @media (max-width: $width-portrait-tablet) {
+    padding-left: 3px;
+    position: relative;
+    top: 9px;
+
+    .isHorisontal & {
+      top: 7px;
+    }
+  }
+}
+
+.cost {
+  position: relative;
+  top: 2px;
+}
