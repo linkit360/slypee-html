@@ -135,8 +135,8 @@ module.exports = {
   context: path.join(process.cwd()),
   entry: getEntry(),
   output: {
-    path: path.join(process.cwd(), './public/assets'),
-    publicPath: '/assets/',
+    path: path.join(process.cwd(), './public/frassets'),
+    publicPath: '/frassets/',
     // Don't use chunkhash in development it will increase compilation time
     filename: isDev ? '[name].js' : '[name].[chunkhash:8].js',
     chunkFilename: isDev ? '[name].chunk.js' : '[name].[chunkhash:8].chunk.js',
