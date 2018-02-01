@@ -6,6 +6,7 @@ import Divider from 'material-ui/Divider';
 import FlatButton from 'material-ui/FlatButton';
 import SlickWithSlider from '_components/Interface/SlickWithSlider';
 import AppCard from '_components/Interface/AppCard';
+import environmentHOC from '_utils/environmentHOC';
 import Header from './Header';
 import styles from './styles.scss';
 
@@ -37,8 +38,9 @@ const getSlides = (video, screenshots) => {
   return slides;
 };
 
-export default class Product extends React.PureComponent {
+class Product extends React.PureComponent {
   static propTypes = {
+    environment: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
     description: PropTypes.string,
     related: PropTypes.arrayOf(PropTypes.object).isRequired,
@@ -67,7 +69,7 @@ export default class Product extends React.PureComponent {
   };
 
   render() {
-    const { name, description, related } = this.props;
+    const { environment: { width }, name, description, related } = this.props;
     const { isButtonMoreClicked } = this.state;
 
     return (
@@ -104,7 +106,7 @@ export default class Product extends React.PureComponent {
             <div className={styles.desktop}>
               {related.map((app, index) => (
                 <div key={index} className={styles.relatedCard}>
-                  <AppCard {...app} isHorisontal />
+                  <AppCard {...app} isHorisontal={width > 1360} />
                 </div>
               ))}
             </div>
@@ -123,3 +125,5 @@ export default class Product extends React.PureComponent {
     );
   }
 }
+
+export default environmentHOC(Product);

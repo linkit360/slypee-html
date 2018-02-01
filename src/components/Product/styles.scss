@@ -15,10 +15,11 @@
 .content {
   max-width: 1462px;
   margin: auto;
+  padding: 0 10px;
   padding-top: 40px;
   padding-bottom: 68px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 
   @media (max-width: $width-portrait-tablet) {
     display: block;
@@ -32,7 +33,6 @@
   padding: 45px;
   padding-bottom: 54px;
   align-self: baseline;
-  margin: auto;
 
   @media (max-width: $width-portrait-tablet) {
     width: 100%;
@@ -116,7 +116,7 @@
 }
 
 .related {
-  width: 444px;
+  margin-left: 20px;
 
   @media (max-width: $width-portrait-tablet) {
     width: auto;
