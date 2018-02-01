@@ -20,8 +20,20 @@ class EditProfileBlock extends React.PureComponent {
   };
 
   state = {
-    isChangePasswordMode: false
+    isChangePasswordMode: false,
+    error: false
   };
+
+  componentWillReceiveProps(nextProps) {
+    const { updateUserStatus } = nextProps.user;
+    if (this.props.user.updateUserStatus !== updateUserStatus) {
+      if (updateUserStatus === 'ERROR') {
+        this.setState({ error: true });
+      } else {
+        this.props.onExit();
+      }
+    }
+  }
 
   handleButtonChangePasswordClick = () => {
     this.setState({ isChangePasswordMode: true });
@@ -39,11 +51,11 @@ class EditProfileBlock extends React.PureComponent {
     const { image } = this.state;
 
     const data = validate(this.textFields);
+    if (image) {
+      data.avatar = this.editor.getImage().toDataURL();
+    }
     if (data) {
-      this.props.onEdit({
-        ...data,
-        avatar: image ? this.editor.getImage().toDataURL() : null
-      });
+      this.props.onEdit(data);
     }
   };
 
@@ -82,7 +94,7 @@ class EditProfileBlock extends React.PureComponent {
   render() {
     const { user } = this.props;
     const { name, email, avatar } = user;
-    const { isChangePasswordMode, password, image } = this.state;
+    const { isChangePasswordMode, password, image, error } = this.state;
 
     return (
       <div>
@@ -129,6 +141,7 @@ class EditProfileBlock extends React.PureComponent {
                   floatingLabelText="EMAIL"
                   isRequired
                   isEmail
+                  errorText={error ? 'Email alredy taken' : null}
                 />
               </div>
               {!isChangePasswordMode && (

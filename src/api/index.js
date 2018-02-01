@@ -103,7 +103,7 @@ export const fetchUser = token =>
   });
 
 export const subscribe = ({ id, token }) =>
-  Req.POST({
+  Req.GET({
     url: `/content/subscribe/${id}`,
     headers: {
       'x-slypee-auth-token': token
@@ -111,14 +111,14 @@ export const subscribe = ({ id, token }) =>
   });
 
 export const unsubscribe = ({ id, token }) =>
-  Req.POST({
+  Req.GET({
     url: `/content/unsubscribe/${id}`,
     headers: {
       'x-slypee-auth-token': token
     }
   });
 
-export const uodateProfile = ({
+export const updateProfile = ({
   avatar,
   name,
   email,

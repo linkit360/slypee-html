@@ -10,30 +10,22 @@ const getCountTopChartsContent = state => state.topCharts.length;
 const getCountSearch = state => state.search.length;
 const getToken = state => state.user.token;
 
-function* request(name, type, apiFunc, params, expectedParameter) {
+function* request(name, apiFunc, params, expectedParameter) {
   try {
     const data = yield call(apiFunc, params);
 
     if (!expectedParameter || data.data[expectedParameter]) {
-      yield put({ type: `${type}_${name}_SUCCESS`, data: data.data });
+      yield put({ type: `${name}_SUCCESS`, data: data.data });
     } else {
-      yield put({ type: `${type}_${name}_ERROR`, data });
+      yield put({ type: `${name}_ERROR`, data });
     }
   } catch (e) {
-    yield put({ type: `${type}_${name}_FAILURE`, err: e.message });
+    yield put({ type: `${name}_FAILURE`, err: e.message });
   }
 }
 
 function* fetch(name, apiFunc, params, expectedParameter) {
-  yield request(name, 'FETCH', apiFunc, params, expectedParameter);
-}
-
-function* post(name, apiFunc, params, expectedParameter) {
-  yield request(name, 'POST', apiFunc, params, expectedParameter);
-}
-
-function* apiput(name, apiFunc, params, expectedParameter) {
-  yield request(name, 'PUT', apiFunc, params, expectedParameter);
+  yield request(`FETCH_${name}`, apiFunc, params, expectedParameter);
 }
 
 function* fetchMainMenu() {
@@ -121,26 +113,31 @@ function* fetchUser() {
 }
 
 function* signUp({ data }) {
-  yield post('SIGN_UP', api.signUp, data, 'token');
+  yield request('SIGN_UP', api.signUp, data, 'token');
 }
 
 function* signIn({ data }) {
-  yield post('SIGN_IN', api.signIn, data, 'token');
+  yield request('SIGN_IN', api.signIn, data, 'token');
 }
 
 function* subscribe({ data }) {
   const token = yield select(getToken);
-  yield post('SUBSCRIBE', api.subscribe, { ...data, token });
+  yield request('SUBSCRIBE', api.subscribe, { ...data, token });
 }
 
 function* unsubscribe({ data }) {
   const token = yield select(getToken);
-  yield post('UNSIBSCRIBE', api.unsubscribe, { ...data, token });
+  yield request('UNSIBSCRIBE', api.unsubscribe, { ...data, token });
 }
 
 function* updateProfile({ data }) {
   const token = yield select(getToken);
-  yield apiput('PROFILE', api.uodateProfile, { ...data, token });
+  yield request(
+    'UPDATE_PROFILE',
+    api.updateProfile,
+    { ...data, token },
+    'token'
+  );
 }
 
 function* changeTab({ tabName }) {
@@ -195,9 +192,9 @@ export default function*() {
     takeLatest('FETCH_USER', fetchUser),
     takeLatest('LOGOUT', logout),
     takeLatest('SIGN_UP', signUp),
-    takeLatest('POST_SIGN_UP_SUCCESS', completeUserLogin),
+    takeLatest('SIGN_UP_SUCCESS', completeUserLogin),
     takeLatest('SIGN_IN', signIn),
-    takeLatest('POST_SIGN_IN_SUCCESS', completeUserLogin),
+    takeLatest('SIGN_IN_SUCCESS', completeUserLogin),
     takeLatest('SUBSCRIBE', subscribe),
     takeLatest('UNSUBSCRIBE', unsubscribe),
     takeLatest('UPDATE_PROFILE', updateProfile),

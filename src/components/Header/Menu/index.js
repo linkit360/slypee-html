@@ -32,7 +32,7 @@ export default class Menu extends React.Component {
                 style={{ backgroundImage: `url(${user.avatar})` }}
               />
               <span className={styles.userName}>{user.name}</span>
-              <span className={styles.userMail}>{user.mail}</span>
+              <span className={styles.userMail}>{user.email}</span>
             </div>
           )}
           <Icon className={styles.buttonClose} name="close" onClick={onClose} />

@@ -11,20 +11,20 @@ export default (state = initialState, action) => {
           sort: action.data
         }
       });
-    case 'POST_SIGN_UP_ERROR':
+    case 'SIGN_UP_ERROR':
       return _.assign(state, {
         registrationStatus: 'ERROR'
       });
-    case 'POST_SIGN_UP_SUCCESS':
+    case 'SIGN_UP_SUCCESS':
       return _.assign(state, {
         ...action.data,
         registrationStatus: 'SUCCESS'
       });
-    case 'POST_SIGN_IN_ERROR':
+    case 'SIGN_IN_ERROR':
       return _.assign(state, {
         signInStatus: 'ERROR'
       });
-    case 'POST_SIGN_IN_SUCCESS':
+    case 'SIGN_IN_SUCCESS':
       return _.assign(state, {
         ...action.data,
         signInStatus: 'SUCCESS'
@@ -37,6 +37,19 @@ export default (state = initialState, action) => {
       return _.assign(state, {
         ...action.data,
         isFetching: false
+      });
+    case 'UPDATE_PROFILE':
+      return _.assign(state, {
+        updateUserStatus: 'REQUEST'
+      });
+    case 'UPDATE_PROFILE_SUCCESS':
+      return _.assign(state, {
+        ...action.data,
+        updateUserStatus: 'SUCCESS'
+      });
+    case 'UPDATE_PROFILE_ERROR':
+      return _.assign(state, {
+        updateUserStatus: 'ERROR'
       });
     case 'LOGOUT':
       return {};
