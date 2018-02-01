@@ -128,7 +128,7 @@ function* subscribe({ data }) {
 
 function* unsubscribe({ data }) {
   const token = yield select(getToken);
-  yield request('UNSIBSCRIBE', api.unsubscribe, { ...data, token });
+  yield request('UNSUBSCRIBE', api.unsubscribe, { ...data, token });
 }
 
 function* updateProfile({ data }) {
