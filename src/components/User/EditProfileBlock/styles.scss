@@ -94,6 +94,10 @@
 .textFieldPasswordConfirm {
   margin-left: 80px;
   min-width: 200px;
+
+  @media (max-width: 1700px) {
+    margin-left: 52px;
+  }
 }
 
 .buttonChangePassword {
