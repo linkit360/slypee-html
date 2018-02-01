@@ -44,7 +44,10 @@ export default class App extends React.PureComponent {
           />
           <div className={styles.name}>{name}</div>
           {this.getCategoryLink(styles.mobile)}
-          <RatingBlock className={styles.rating} rating={rating} isLong />
+          <div className={styles.ratingWrapper}>
+            <RatingBlock className={styles.rating} rating={rating} isLong />
+            {this.getCategoryLink(styles.desktop)}
+          </div>
           <div className={styles.purchaseBlock}>
             <div>
               <span className={styles.purchaseText}>purchase price:</span>
@@ -55,7 +58,6 @@ export default class App extends React.PureComponent {
               <span className={styles.purchaseDate}>{purchaseDate}</span>
             </div>
           </div>
-          {this.getCategoryLink(styles.desktop)}
           <FlatButton
             className={styles.buttonDownload}
             label="DOWNLOAD AGAIN"

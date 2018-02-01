@@ -29,6 +29,10 @@
   padding-left: 83px;
   padding-top: 43px;
 
+  @media (max-width: 1600px) {
+    padding-left: 32px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     flex-direction: column;
     padding: 0;
@@ -99,6 +103,10 @@
   width: 200px;
   background-color: $color-orange !important;
   height: 44px !important;
+
+  @media (max-width: 1600px) {
+    right: 32px;
+  }
 
   @media (max-width: $width-portrait-tablet) {
     width: auto;

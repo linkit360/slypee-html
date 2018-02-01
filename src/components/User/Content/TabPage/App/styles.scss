@@ -23,6 +23,10 @@
   padding-left: 46px;
   position: relative;
 
+  @media (max-width: 1500px) {
+    padding-left: 28px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     height: 202px;
     width: 320px;
@@ -67,7 +71,7 @@
   }
 }
 
-.rating {
+.ratingWrapper {
   padding-left: 78px;
   padding-top: 3px;
 
@@ -128,7 +132,6 @@
   text-transform: uppercase;
   text-decoration: none;
   border-bottom: 1px solid $color-font-grey;
-  margin-left: 61px;
   padding-top: 4px;
 
   @media (max-width: $width-portrait-tablet) {
@@ -143,6 +146,11 @@
   position: absolute !important;
   right: 40px;
 
+  @media (max-width: 1500px) {
+    right: 7px;
+    bottom: 45px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     right: -6px;
     bottom: 16px;
@@ -151,6 +159,10 @@
   span {
     font-size: 16px !important;
     color: $color-orange !important;
+
+    @media (max-width: 1500px) {
+      font-size: 14px !important;
+    }
 
     @media (max-width: $width-portrait-tablet) {
       font-size: 12px !important;
@@ -174,6 +186,11 @@
   position: absolute !important;
   right: 286px;
 
+  @media (max-width: 1500px) {
+    right: 8px;
+    top: 39px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     right: 133px;
     bottom: 17px;
@@ -182,6 +199,10 @@
   span {
     font-size: 16px !important;
     color: #80cbc4 !important;
+
+    @media (max-width: 1500px) {
+      font-size: 14px !important;
+    }
 
     @media (max-width: $width-portrait-tablet) {
       font-size: 12px !important;
