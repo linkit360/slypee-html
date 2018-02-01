@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import NotFoundPage from '_pages/NotFoundPage';
+import StatusPage from '_pages/StatusPage';
 import HeaderContainer from '_containers/HeaderContainer';
 import HomeContainer from '_containers/HomeContainer';
 import ProductContainer from '_containers/ProductContainer';
@@ -13,34 +14,55 @@ import RegistrationContainer from '_containers/RegistrationContainer';
 import { getSlug } from '_utils/common';
 import styles from './styles.scss';
 
-const getContent = (url, categorySlug, section, app, search) => {
-  if (categorySlug) {
-    return <CategoryContainer categorySlug={categorySlug} />;
-  }
-  if (app) {
-    return <ProductContainer appId={app} />;
-  }
-  if (section) {
-    switch (section) {
-      case 'topcharts':
-        return <TopChartsContainer />;
-      case 'user':
-        return <UserContainer />;
-      default:
-        return <NotFoundPage />;
-    }
-  }
-  if (search) {
-    return (
-      <SearchContainer search={search} isTooShortRequest={search.length < 3} />
-    );
-  }
-  return <HomeContainer />;
-};
-
 export default class MainPage extends React.PureComponent {
   static propTypes = {
     match: PropTypes.any.isRequired
+  };
+
+  getContent = categorySlug => {
+    const {
+      match: {
+        params: { section, app, search, subscribeStatus, unsubscribeStatus }
+      }
+    } = this.props;
+    if (
+      subscribeStatus === 'success' ||
+      subscribeStatus === 'error' ||
+      unsubscribeStatus === 'success' ||
+      unsubscribeStatus === 'error'
+    ) {
+      return (
+        <StatusPage
+          subscribeStatus={subscribeStatus}
+          unsubscribeStatus={unsubscribeStatus}
+        />
+      );
+    }
+    if (categorySlug) {
+      return <CategoryContainer categorySlug={categorySlug} />;
+    }
+    if (app) {
+      return <ProductContainer appId={app} />;
+    }
+    if (section) {
+      switch (section) {
+        case 'topcharts':
+          return <TopChartsContainer />;
+        case 'user':
+          return <UserContainer />;
+        default:
+          return <NotFoundPage />;
+      }
+    }
+    if (search) {
+      return (
+        <SearchContainer
+          search={search}
+          isTooShortRequest={search.length < 3}
+        />
+      );
+    }
+    return <HomeContainer />;
   };
 
   getTab(categorySlug) {
@@ -71,9 +93,7 @@ export default class MainPage extends React.PureComponent {
           activeTab={this.getTab(categorySlug)}
           searchQuery={search || ''}
         />
-        <div className={styles.content}>
-          {getContent(url, categorySlug, section, app, search)}
-        </div>
+        <div className={styles.content}>{this.getContent(categorySlug)}</div>
         <FooterContainer />
       </div>
     );

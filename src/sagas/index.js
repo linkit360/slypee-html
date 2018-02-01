@@ -9,6 +9,7 @@ const getCountCategoryContent = state => state.category.content.list.length;
 const getCountTopChartsContent = state => state.topCharts.length;
 const getCountSearch = state => state.search.length;
 const getToken = state => state.user.token;
+const getPathname = state => state.router.location.pathname;
 
 function* request(name, apiFunc, params, expectedParameter) {
   try {
@@ -175,6 +176,12 @@ function* search({ search }) {
   yield put(push(`/search/${search}`));
 }
 
+function* redirect({ data: { redirectUrl } }) {
+  const pathname = yield select(getPathname);
+  localStorage.setItem('pathnameBeforeRedirect', pathname);
+  window.open(redirectUrl, '_self');
+}
+
 export default function*() {
   yield all([
     takeLatest('FETCH_MAIN_MENU_REQUEST', fetchMainMenu),
@@ -196,6 +203,8 @@ export default function*() {
     takeLatest('SIGN_IN', signIn),
     takeLatest('SIGN_IN_SUCCESS', completeUserLogin),
     takeLatest('SUBSCRIBE', subscribe),
+    takeLatest('SUBSCRIBE_SUCCESS', redirect),
+    takeLatest('UNSUBSCRIBE_SUCCESS', redirect),
     takeLatest('UNSUBSCRIBE', unsubscribe),
     takeLatest('UPDATE_PROFILE', updateProfile),
     takeLatest('GOTO', goto),

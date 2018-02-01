@@ -8,6 +8,16 @@ export default [
     component: MainPage
   },
   {
+    path: '/subscribe/:subscribeStatus',
+    exact: true,
+    component: MainPage
+  },
+  {
+    path: '/unsubscribe/:unsubscribeStatus',
+    exact: true,
+    component: MainPage
+  },
+  {
     path: '/:section',
     exact: true,
     component: MainPage
