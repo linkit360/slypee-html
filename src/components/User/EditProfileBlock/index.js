@@ -40,7 +40,7 @@ export default class EditProfileBlock extends React.PureComponent {
     if (data) {
       this.props.onEdit({
         ...data,
-        image: image ? this.editor.getImage().toDataURL() : null
+        avatar: image ? this.editor.getImage().toDataURL() : null
       });
     }
   };

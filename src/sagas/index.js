@@ -32,6 +32,10 @@ function* post(name, apiFunc, params, expectedParameter) {
   yield request(name, 'POST', apiFunc, params, expectedParameter);
 }
 
+function* apiput(name, apiFunc, params, expectedParameter) {
+  yield request(name, 'PUT', apiFunc, params, expectedParameter);
+}
+
 function* fetchMainMenu() {
   yield fetch('MAIN_MENU', api.fetchMainMenu);
 }
@@ -134,6 +138,11 @@ function* unsubscribe({ data }) {
   yield post('UNSIBSCRIBE', api.unsubscribe, { ...data, token });
 }
 
+function* updateProfile({ data }) {
+  const token = yield select(getToken);
+  yield apiput('PROFILE', api.uodateProfile, { ...data, token });
+}
+
 function* changeTab({ tabName }) {
   let route;
 
@@ -191,6 +200,7 @@ export default function*() {
     takeLatest('POST_SIGN_IN_SUCCESS', completeUserLogin),
     takeLatest('SUBSCRIBE', subscribe),
     takeLatest('UNSUBSCRIBE', unsubscribe),
+    takeLatest('UPDATE_PROFILE', updateProfile),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),
     takeLatest('SEARCH', search)

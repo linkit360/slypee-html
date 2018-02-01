@@ -117,3 +117,27 @@ export const unsubscribe = ({ id, token }) =>
       'x-slypee-auth-token': token
     }
   });
+
+export const uodateProfile = ({
+  avatar,
+  name,
+  email,
+  oldPassword,
+  password,
+  newPassword2,
+  token
+}) =>
+  Req.PUT({
+    url: `/customer`,
+    data: {
+      avatar,
+      username: name,
+      email,
+      old_password: oldPassword,
+      password,
+      password_confirm: newPassword2
+    },
+    headers: {
+      'x-slypee-auth-token': token
+    }
+  });

@@ -78,7 +78,7 @@ export const forgotPassword = data => ({
 });
 
 export const editProfile = data => ({
-  type: 'EDIT PROFILE',
+  type: 'UPDATE_PROFILE',
   data
 });
 

@@ -53,6 +53,12 @@ export default class MobileSearchBlock extends React.Component {
     this.setState({ isSearchMode });
   }
 
+  handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      this.props.onSearch();
+    }
+  };
+
   searchRef = ref => (this.searchInput = ref);
 
   render() {
@@ -78,6 +84,7 @@ export default class MobileSearchBlock extends React.Component {
               hintText="Search your content here"
               underlineShow={false}
               onChange={onSearchChange}
+              onKeyDown={this.handleKeyDown}
             />
           </div>
         )}
