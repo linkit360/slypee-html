@@ -6,6 +6,7 @@ import Button from '_components/Interface/Button';
 import Icon from '_components/Interface/Icon';
 import AvatarEditor from 'react-avatar-editor';
 import TextField from '_components/Interface/TextField';
+import Avatar from '_components/Interface/Avatar';
 import { validate } from '_utils/common';
 import styles from './styles.scss';
 
@@ -48,14 +49,35 @@ export default class EditProfileBlock extends React.PureComponent {
     this.setState({ image: e.target.files[0] });
   };
 
+  getAvatarBlock = () => {
+    const { user: { avatar } } = this.props;
+    const { image } = this.state;
+
+    if (!image && !avatar) {
+      return <Avatar className={styles.avatar} />;
+    }
+
+    return (
+      <AvatarEditor
+        ref={this.editorRef}
+        image={image || avatar}
+        width={186}
+        height={186}
+        color={[255, 255, 255, 0.6]}
+        rotate={0}
+        border={0}
+      />
+    );
+  };
+
   textFields = [];
 
   textFieldsRef = ref => this.textFields.push(ref);
   editorRef = editor => (this.editor = editor);
 
   render() {
-    const { user, onEdit, onExit } = this.props;
-    const { avatar, name, mail } = user;
+    const { user } = this.props;
+    const { name, email } = user;
     const { isChangePasswordMode, password } = this.state;
 
     return (
@@ -65,17 +87,7 @@ export default class EditProfileBlock extends React.PureComponent {
         </Paper>
         <div className={styles.content}>
           <Paper className={styles.avatarBlock} zDepth={1}>
-            <div className={styles.avatarWrapper}>
-              <AvatarEditor
-                ref={this.editorRef}
-                image={this.state.image || avatar}
-                width={186}
-                height={186}
-                color={[255, 255, 255, 0.6]} // RGBA
-                rotate={0}
-                border={0}
-              />
-            </div>
+            <div className={styles.avatarWrapper}>{this.getAvatarBlock()}</div>
             <Button
               containerElement="label"
               label="CHANGE IMAGE"
@@ -109,7 +121,7 @@ export default class EditProfileBlock extends React.PureComponent {
                     styles.textFieldEmail
                   )}
                   name="email"
-                  defaultValue={mail}
+                  defaultValue={email}
                   floatingLabelText="EMAIL"
                   isRequired
                   isEmail
