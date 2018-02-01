@@ -20,6 +20,20 @@ export default class Header extends React.PureComponent {
     rating: PropTypes.number.isRequired
   };
 
+  getButtonsLabels = () => {
+    const { price, type } = this.props;
+
+    if (price === 0) {
+      return ['Download', null];
+    }
+
+    if (type === 'single') {
+      return ['Buy', null];
+    }
+
+    return ['Subscribe', 'Unsubscribe'];
+  };
+
   render() {
     const {
       logo,
@@ -33,6 +47,7 @@ export default class Header extends React.PureComponent {
     } = this.props;
 
     const url = typeof window === 'object' && window.location.href;
+    const buttonLabels = this.getButtonsLabels();
 
     return (
       <div>
@@ -66,12 +81,14 @@ export default class Header extends React.PureComponent {
             <div className={styles.buttons}>
               <FlatButton
                 className={styles.buttonSubscribe}
-                label="Subscribe"
+                label={buttonLabels[0]}
               />
-              <FlatButton
-                className={styles.buttonUnsubscribe}
-                label="Unsubscribe"
-              />
+              {buttonLabels[1] && (
+                <FlatButton
+                  className={styles.buttonUnsubscribe}
+                  label={buttonLabels[1]}
+                />
+              )}
             </div>
             <div className={styles.shareBlock}>
               <span className={styles.shareText}>SHARE</span>

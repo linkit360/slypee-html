@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PropTypes, { string } from 'prop-types';
 import classNames from 'classnames';
 import Paper from 'material-ui/Paper';
 import Divider from 'material-ui/Divider';
@@ -8,48 +8,6 @@ import SlickWithSlider from '_components/Interface/SlickWithSlider';
 import AppCard from '_components/Interface/AppCard';
 import Header from './Header';
 import styles from './styles.scss';
-
-const related = [
-  {
-    img:
-      'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    id: 3453,
-    name: '1 Jungle Monkey',
-    producer: 'Arcade Games',
-    rating: 3.6,
-    cost: {
-      price: 0,
-      type: 'single',
-      currency: 'usd'
-    }
-  },
-  {
-    img:
-      'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    id: 3453,
-    name: '2 Jungle Monkey Run Version Abrakadabra',
-    producer: 'Arcade Games',
-    rating: 5,
-    cost: {
-      price: 5500,
-      type: 'monthly',
-      currency: 'inr'
-    }
-  },
-  {
-    img:
-      'https://i.pinimg.com/736x/f8/89/8e/f8898e79f66ec9545847915a2b306594--icon-design-game-design.jpg',
-    id: 3453,
-    name: '3 Jungle Monkey Run Version Abrakadabra',
-    producer: 'Arcade Games',
-    rating: 1.3,
-    cost: {
-      price: 5500,
-      type: 'daily',
-      currency: 'usd'
-    }
-  }
-];
 
 const getSlides = (video, screenshots) => {
   const slides = [];
@@ -81,7 +39,11 @@ const getSlides = (video, screenshots) => {
 
 export default class Product extends React.PureComponent {
   static propTypes = {
-    app: PropTypes.object.isRequired
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    related: PropTypes.arrayOf(PropTypes.object).isRequired,
+    video: PropTypes.string,
+    screenshots: PropTypes.arrayOf(PropTypes.object).isRequired
   };
 
   state = {
@@ -105,7 +67,7 @@ export default class Product extends React.PureComponent {
   };
 
   render() {
-    const { name, description } = this.props;
+    const { name, description, related } = this.props;
     const { isButtonMoreClicked } = this.state;
 
     return (
@@ -136,25 +98,27 @@ export default class Product extends React.PureComponent {
           />
         </Paper>
         {this.getSlick(styles.mobile)}
-        <div className={styles.related}>
-          <div className={styles.relatedText}>RELATED CONTENT</div>
-          <div className={styles.desktop}>
-            {related.map((app, index) => (
-              <div key={index} className={styles.relatedCard}>
-                <AppCard {...app} isHorisontal />
-              </div>
-            ))}
-          </div>
-          <div className={styles.mobile}>
-            <SlickWithSlider>
+        {related.length > 0 && (
+          <div className={styles.related}>
+            <div className={styles.relatedText}>RELATED CONTENT</div>
+            <div className={styles.desktop}>
               {related.map((app, index) => (
-                <div key={index} className={styles.relatedSlide}>
-                  <AppCard {...app} />
+                <div key={index} className={styles.relatedCard}>
+                  <AppCard {...app} isHorisontal />
                 </div>
               ))}
-            </SlickWithSlider>
+            </div>
+            <div className={styles.mobile}>
+              <SlickWithSlider>
+                {related.map((app, index) => (
+                  <div key={index} className={styles.relatedSlide}>
+                    <AppCard {...app} />
+                  </div>
+                ))}
+              </SlickWithSlider>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
