@@ -10,6 +10,7 @@ import styles from './styles.scss';
 
 export default class Header extends React.PureComponent {
   static propTypes = {
+    id: PropTypes.number.isRequired,
     logo: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     producer: PropTypes.string.isRequired,
@@ -17,7 +18,9 @@ export default class Header extends React.PureComponent {
     price: PropTypes.number.isRequired,
     type: PropTypes.string.isRequired,
     currency: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired
+    rating: PropTypes.number.isRequired,
+    onSubscribe: PropTypes.func.isRequired,
+    onUnsubscribe: PropTypes.func.isRequired
   };
 
   getButtonsLabels = () => {
@@ -32,6 +35,16 @@ export default class Header extends React.PureComponent {
     }
 
     return ['Subscribe', 'Unsubscribe'];
+  };
+
+  handleSubscribeClick = () => {
+    const { id, onSubscribe } = this.props;
+    onSubscribe({ id });
+  };
+
+  handleUnsubscribeClick = () => {
+    const { id, onUnsubscribe } = this.props;
+    onUnsubscribe({ id });
   };
 
   render() {
@@ -82,11 +95,13 @@ export default class Header extends React.PureComponent {
               <FlatButton
                 className={styles.buttonSubscribe}
                 label={buttonLabels[0]}
+                onClick={this.handleSubscribeClick}
               />
               {buttonLabels[1] && (
                 <FlatButton
                   className={styles.buttonUnsubscribe}
                   label={buttonLabels[1]}
+                  onClick={this.handleUnsubscribeClick}
                 />
               )}
             </div>

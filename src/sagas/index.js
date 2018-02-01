@@ -8,6 +8,7 @@ import { push } from 'react-router-redux';
 const getCountCategoryContent = state => state.category.content.list.length;
 const getCountTopChartsContent = state => state.topCharts.length;
 const getCountSearch = state => state.search.length;
+const getToken = state => state.user.token;
 
 function* request(name, type, apiFunc, params, expectedParameter) {
   try {
@@ -104,7 +105,8 @@ function* fetchMoreSearch({ data }) {
 }
 
 function* fetchApp({ data }) {
-  yield fetch('APP', api.fetchApp, data);
+  const token = yield select(getToken);
+  yield fetch('APP', api.fetchApp, { ...data, token });
 }
 
 function* fetchUser() {
@@ -120,6 +122,16 @@ function* signUp({ data }) {
 
 function* signIn({ data }) {
   yield post('SIGN_IN', api.signIn, data, 'token');
+}
+
+function* subscribe({ data }) {
+  const token = yield select(getToken);
+  yield post('SUBSCRIBE', api.subscribe, { ...data, token });
+}
+
+function* unsubscribe({ data }) {
+  const token = yield select(getToken);
+  yield post('UNSIBSCRIBE', api.unsubscribe, { ...data, token });
 }
 
 function* changeTab({ tabName }) {
@@ -177,6 +189,8 @@ export default function*() {
     takeLatest('POST_SIGN_UP_SUCCESS', completeUserLogin),
     takeLatest('SIGN_IN', signIn),
     takeLatest('POST_SIGN_IN_SUCCESS', completeUserLogin),
+    takeLatest('SUBSCRIBE', subscribe),
+    takeLatest('UNSUBSCRIBE', unsubscribe),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),
     takeLatest('SEARCH', search)

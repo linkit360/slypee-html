@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { fetchApp } from '_actions';
+import { fetchApp, subscribe, unsubscribe } from '_actions';
 import Product from '_components/Product';
 import { productCategoryNameSelector } from '_selectors';
 
@@ -11,7 +11,9 @@ class ProductContainer extends React.Component {
     appId: PropTypes.string.isRequired,
     product: PropTypes.object.isRequired,
     productCategoryName: PropTypes.string.isRequired,
-    fetchApp: PropTypes.func.isRequired
+    fetchApp: PropTypes.func.isRequired,
+    subscribe: PropTypes.func.isRequired,
+    unsubscribe: PropTypes.func.isRequired
   };
 
   componentWillMount() {
@@ -21,13 +23,20 @@ class ProductContainer extends React.Component {
   }
 
   render() {
-    const { product, productCategoryName } = this.props;
+    const { product, productCategoryName, subscribe, unsubscribe } = this.props;
 
     if (!product || !productCategoryName) {
       return null;
     }
 
-    return <Product {...product} category={productCategoryName} />;
+    return (
+      <Product
+        {...product}
+        category={productCategoryName}
+        onSubscribe={subscribe}
+        onUnsubscribe={unsubscribe}
+      />
+    );
   }
 }
 
@@ -39,7 +48,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      fetchApp
+      fetchApp,
+      subscribe,
+      unsubscribe
     },
     dispatch
   );

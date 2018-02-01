@@ -82,6 +82,16 @@ export const editProfile = data => ({
   data
 });
 
+export const subscribe = data => ({
+  type: 'SUBSCRIBE',
+  data
+});
+
+export const unsubscribe = data => ({
+  type: 'UNSUBSCRIBE',
+  data
+});
+
 export const changeTab = tabName => ({
   type: 'CHANGE_TAB',
   tabName

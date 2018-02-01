@@ -20,9 +20,12 @@ export const fetchMain = () =>
     url: '/main'
   });
 
-export const fetchApp = ({ id }) =>
+export const fetchApp = ({ id, token }) =>
   Req.GET({
-    url: `/content/${id}`
+    url: `/content/${id}`,
+    headers: {
+      'x-slypee-auth-token': token
+    }
   });
 
 export const fetchTopCharts = ({ start, category, type, limit }) => {
@@ -94,6 +97,22 @@ export const signIn = ({ email, password }) =>
 export const fetchUser = token =>
   Req.GET({
     url: `/customer`,
+    headers: {
+      'x-slypee-auth-token': token
+    }
+  });
+
+export const subscribe = ({ id, token }) =>
+  Req.POST({
+    url: `/content/subscribe/${id}`,
+    headers: {
+      'x-slypee-auth-token': token
+    }
+  });
+
+export const unsubscribe = ({ id, token }) =>
+  Req.POST({
+    url: `/content/unsubscribe/${id}`,
     headers: {
       'x-slypee-auth-token': token
     }
