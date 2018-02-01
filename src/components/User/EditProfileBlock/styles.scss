@@ -6,11 +6,19 @@
   align-items: center;
   font-size: 40px;
   padding-left: 80px;
+
+  @media (max-width: 1800px) {
+    padding-left: 35px;
+  }
 }
 
 .content {
   padding: 27px 82px;
   display: flex;
+
+  @media (max-width: 1800px) {
+    padding: 27px 33px;
+  }
 }
 
 .avatarBlock {
@@ -20,16 +28,27 @@
   display: flex;
   align-items: center;
   padding-left: 50px;
+
+  @media (max-width: 1800px) {
+    padding-left: 35px;
+    height: 216px;
+    width: 410px;
+    min-width: 410px;
+  }
 }
 
-.avatar {
-  width: 186px;
-  height: 186px;
-}
-
+.avatar,
 .avatarWrapper {
   width: 186px;
   height: 186px;
+
+  @media (max-width: 1800px) {
+    width: 128px;
+    height: 128px;
+  }
+}
+
+.avatarWrapper {
   border-radius: 50%;
   overflow: hidden;
 }
@@ -39,6 +58,11 @@
   padding-left: 74px;
   padding-top: 46px;
   padding-right: 37px;
+
+  @media (max-width: 1700px) {
+    padding-left: 48px;
+    padding-top: 33px;
+  }
 }
 
 .buttonChangeImage {
@@ -48,6 +72,10 @@
 .topBlock {
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1500px) {
+    display: block;
+  }
 }
 
 .textfields {
@@ -65,6 +93,7 @@
 
 .textFieldPasswordConfirm {
   margin-left: 80px;
+  min-width: 200px;
 }
 
 .buttonChangePassword {
@@ -75,6 +104,10 @@
   display: flex;
   margin-top: 4px;
   margin-bottom: -10px;
+
+  @media (max-width: 1700px) {
+    width: 50vw;
+  }
 }
 
 .footer {

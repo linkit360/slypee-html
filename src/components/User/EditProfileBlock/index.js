@@ -8,10 +8,12 @@ import AvatarEditor from 'react-avatar-editor';
 import TextField from '_components/Interface/TextField';
 import Avatar from '_components/Interface/Avatar';
 import { validate } from '_utils/common';
+import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
 
-export default class EditProfileBlock extends React.PureComponent {
+class EditProfileBlock extends React.PureComponent {
   static propTypes = {
+    environment: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired,
     onEdit: PropTypes.func.isRequired,
     onExit: PropTypes.func.isRequired
@@ -50,19 +52,21 @@ export default class EditProfileBlock extends React.PureComponent {
   };
 
   getAvatarBlock = () => {
-    const { user: { avatar } } = this.props;
+    const { environment: { width }, user: { avatar } } = this.props;
     const { image } = this.state;
 
     if (!image && !avatar) {
       return <Avatar className={styles.avatar} />;
     }
 
+    const size = width > 1600 ? 186 : 128;
+
     return (
       <AvatarEditor
         ref={this.editorRef}
         image={image || avatar}
-        width={186}
-        height={186}
+        width={size}
+        height={size}
         color={[255, 255, 255, 0.6]}
         rotate={0}
         border={0}
@@ -77,8 +81,8 @@ export default class EditProfileBlock extends React.PureComponent {
 
   render() {
     const { user } = this.props;
-    const { name, email } = user;
-    const { isChangePasswordMode, password } = this.state;
+    const { name, email, avatar } = user;
+    const { isChangePasswordMode, password, image } = this.state;
 
     return (
       <div>
@@ -90,7 +94,7 @@ export default class EditProfileBlock extends React.PureComponent {
             <div className={styles.avatarWrapper}>{this.getAvatarBlock()}</div>
             <Button
               containerElement="label"
-              label="CHANGE IMAGE"
+              label={avatar || image ? 'CHANGE IMAGE' : 'ADD IMAGE'}
               className={styles.buttonChangeImage}
               icon={<Icon name="add-a-foto" />}
               type="flat"
@@ -197,3 +201,5 @@ export default class EditProfileBlock extends React.PureComponent {
     );
   }
 }
+
+export default environmentHOC(EditProfileBlock);
