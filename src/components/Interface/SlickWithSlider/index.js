@@ -42,7 +42,7 @@ class SlickWithSlider extends React.PureComponent {
   getSlidesToShow = () => {
     const { environment, isAppCards } = this.props;
     if (!environment) return null;
-    if (!isAppCards) return null;
+    if (!isAppCards) return undefined;
     const { width } = environment;
     if (width >= 1910) {
       return 7;
