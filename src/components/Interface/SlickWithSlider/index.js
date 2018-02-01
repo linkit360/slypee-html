@@ -3,13 +3,15 @@ import PropTypes, { number } from 'prop-types';
 import Slider from 'material-ui/Slider';
 import OverflowScrolling from 'react-overflow-scrolling';
 import Slick from '_components/Interface/Slick';
+import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
 
-export default class SlickWithSlider extends React.PureComponent {
+class SlickWithSlider extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
+    environment: PropTypes.object.isRequired,
     children: PropTypes.arrayOf(PropTypes.node),
-    slidesToShow: PropTypes.number,
+    isAppCards: PropTypes.bool,
     isSmooth: PropTypes.bool
   };
 
@@ -37,12 +39,30 @@ export default class SlickWithSlider extends React.PureComponent {
     }, 1000);
   }
 
+  getSlidesToShow = () => {
+    const { environment, isAppCards } = this.props;
+    if (!environment) return null;
+    if (!isAppCards) return null;
+    const { width } = environment;
+    if (width >= 1910) {
+      return 7;
+    }
+    if (width >= 1670) {
+      return 6;
+    }
+    if (width >= 1420) {
+      return 5;
+    }
+    return 4;
+  };
+
   slickGoTo(index) {
     this.slick.root.innerSlider.slickGoTo(index);
   }
 
   handleSliderChange = (e, value) => {
-    const { children, slidesToShow, isSmooth } = this.props;
+    const { children, isSmooth } = this.props;
+    const slidesToShow = this.getSlidesToShow();
 
     if (isSmooth) {
       const { innerSlider } = this.slick.root;
@@ -70,8 +90,9 @@ export default class SlickWithSlider extends React.PureComponent {
   overflowScrollingWrapperRef = ref => (this.overflowScrollingWrapper = ref);
 
   render() {
-    const { className, children } = this.props;
+    const { className, children, environment } = this.props;
     const { showSlider } = this.state;
+    const slidesToShow = this.getSlidesToShow();
 
     if (children.length === 0) {
       return null;
@@ -87,6 +108,7 @@ export default class SlickWithSlider extends React.PureComponent {
             infinite={false}
             draggable={false}
             afterChange={this.handleSlickChange}
+            slidesToShow={slidesToShow}
             {...this.props}
           >
             {this.props.children}
@@ -112,3 +134,5 @@ export default class SlickWithSlider extends React.PureComponent {
     );
   }
 }
+
+export default environmentHOC(SlickWithSlider);

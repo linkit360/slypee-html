@@ -20,6 +20,10 @@
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: $width-small-desktop) {
+    padding-right: 15px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     height: 69px;
     padding-bottom: 24px;
@@ -30,6 +34,7 @@
 
 .copyright {
   padding-left: 84px;
+  font-family: 'Roboto-Regular', sans-serif;
 
   @media (max-width: $width-portrait-tablet) {
     font-size: 10px;
@@ -41,6 +46,11 @@
     height: 23px;
     text-align: center;
     line-height: 23px;
+  }
+
+  @media (max-width: $width-small-desktop) {
+    padding-left: 37px;
+    font-size: 14px;
   }
 }
 
@@ -72,6 +82,7 @@
         font-size: 18px !important;
         padding-left: 16px;
         color: inherit !important;
+        font-family: 'Roboto-Regular', sans-serif;
 
         @media (max-width: $width-portrait-tablet) {
           font-size: 11px !important;
@@ -87,4 +98,8 @@
   @media (max-width: $width-portrait-tablet) {
     width: 16px;
   }
+}
+
+.userAccountButton {
+  width: 180px !important;
 }

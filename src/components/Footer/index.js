@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { BottomNavigation } from 'material-ui/BottomNavigation';
 import NavigationItem from './NavigationItem';
 import styles from './styles.scss';
@@ -45,7 +46,7 @@ export default class Footer extends React.PureComponent {
             onClick={onNavigationItemClick}
           />
           <NavigationItem
-            className={styles.desktop}
+            className={classNames(styles.desktop, styles.userAccountButton)}
             label={isLogin ? 'User account' : 'Sign in'}
             iconName="person"
             value="user"

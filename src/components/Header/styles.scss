@@ -9,6 +9,10 @@
   position: relative;
   background-size: 222px;
 
+  @media (max-width: $width-small-desktop) {
+    background-size: 180px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     height: 88px;
     background-size: 112px;
@@ -83,6 +87,10 @@
   @media (max-width: $width-portrait-tablet) {
     display: none !important;
   }
+
+  @media (max-width: $width-small-desktop) {
+    right: 1.8%;
+  }
 }
 
 .buttonSignInIcon {
@@ -112,9 +120,23 @@
   box-sizing: border-box;
   top: -3px;
 
+  @media (max-width: 1400px) {
+    width: 230px !important;
+  }
+
+  @media (max-width: $width-small-desktop) {
+    height: 37px !important;
+    top: -4px;
+  }
+
   div:first-child {
     font-size: 17.3px;
     top: 10px;
+
+    @media (max-width: $width-small-desktop) {
+      font-size: 14px;
+      top: 7px;
+    }
   }
 }
 
@@ -124,6 +146,12 @@
   width: 75px !important;
   min-width: 75px !important;
   position: relative !important;
+
+  @media (max-width: $width-small-desktop) {
+    height: 38px !important;
+    width: 50px !important;
+    min-width: 50px !important;
+  }
 }
 
 .buttonSearchIcon {
@@ -146,6 +174,10 @@
   button {
     font-size: 20px !important;
     height: 67px;
+
+    @media (max-width: $width-small-desktop) {
+      font-size: 16px !important;
+    }
 
     &:hover {
       background-color: #37474f !important;
@@ -195,6 +227,6 @@
 
 .avatarBlock {
   position: absolute;
-  right: 77px;
+  right: 4%;
   top: 30px;
 }

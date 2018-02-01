@@ -1,5 +1,7 @@
 @import '~theme/variables';
 
+$width-small-desktop: 1500px;
+
 .slider {
   @media (max-width: $width-portrait-tablet) {
     display: none !important;
@@ -52,24 +54,41 @@
   position: absolute;
   top: 18.9%;
   left: 11.5%;
+
+  @media (max-width: $width-small-desktop) {
+    top: 18.3%;
+    left: 7.2%;
+  }
 }
 
 .sliderText1 {
   font-family: 'Roboto-Black', sans-serif;
   font-size: 75px;
   text-transform: uppercase;
+
+  @media (max-width: $width-small-desktop) {
+    font-size: 50px;
+  }
 }
 
 .sliderText2 {
   font-size: 50px;
   margin-left: 10px;
   margin-top: -6px;
+
+  @media (max-width: $width-small-desktop) {
+    font-size: 40px;
+  }
 }
 
 .sliderText3 {
   font-size: 30px;
   padding-top: 33px;
   padding-left: 9px;
+
+  @media (max-width: $width-small-desktop) {
+    font-size: 20px;
+  }
 }
 
 .sliderButton {
@@ -84,5 +103,15 @@
     font-size: 25px !important;
     color: white !important;
     line-height: 68px;
+  }
+
+  @media (max-width: $width-small-desktop) {
+    width: 162px !important;
+    height: 50px !important;
+
+    span {
+      line-height: 50px;
+      font-size: 18px !important;
+    }
   }
 }
