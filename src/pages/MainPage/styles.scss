@@ -1,3 +1,9 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .content {
-  min-height: calc(100vh - 270px);
+  flex-grow: 1;
 }

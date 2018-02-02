@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import FlatButton from 'material-ui/FlatButton';
-import TextField from 'material-ui/TextField';
+// import TextField from 'material-ui/TextField';
 import Icon from '_components/Interface/Icon';
 import IconSort from '_components/Interface/IconSort';
 import styles from './styles.scss';
@@ -11,13 +11,13 @@ export default class TabHeader extends React.PureComponent {
   static propTypes = {
     sortBy: PropTypes.string.isRequired,
     isSortReverse: PropTypes.bool.isRequired,
-    tabName: PropTypes.string.isRequired,
-    onSort: PropTypes.func.isRequired,
-    onSearch: PropTypes.func.isRequired
+    // tabName: PropTypes.string.isRequired,
+    onSort: PropTypes.func.isRequired
+    // onSearch: PropTypes.func.isRequired
   };
 
   state = {
-    search: '',
+    // search: '',
     isSearchOpen: false
   };
 
@@ -29,11 +29,11 @@ export default class TabHeader extends React.PureComponent {
     this.sort('date');
   };
 
-  handleSearchChange = (event, value) => {
+  /* handleSearchChange = (event, value) => {
     this.setState({ search: value });
-  };
+  }; */
 
-  handleSearchClick = () => {
+  /* handleSearchClick = () => {
     const { tabName, onSearch } = this.props;
     const { isSearchOpen, search } = this.state;
 
@@ -42,19 +42,19 @@ export default class TabHeader extends React.PureComponent {
     } else {
       this.toogleSearch(true);
     }
-  };
+  }; */
 
-  handleSearchFieldBlur = () => {
+  /* handleSearchFieldBlur = () => {
     this.toogleSearch(false);
-  };
+  }; */
 
   handleBackButtonClick = () => {
     this.toogleSearch(false);
   };
 
-  toogleSearch(isSearchOpen) {
+  /* toogleSearch(isSearchOpen) {
     this.setState({ isSearchOpen });
-  }
+  } */
 
   sort(colName) {
     const { sortBy, isSortReverse, onSort } = this.props;
@@ -82,7 +82,7 @@ export default class TabHeader extends React.PureComponent {
   };
 
   render() {
-    const { isSearchOpen, search } = this.state;
+    const { isSearchOpen /* , search */ } = this.state;
 
     return (
       <div
@@ -109,7 +109,7 @@ export default class TabHeader extends React.PureComponent {
             onClick={this.handleDateClick}
           />
         </div>
-        <div className={styles.searchBlock}>
+        {/* <div className={styles.searchBlock}>
           {isSearchOpen && (
             <div>
               <Icon
@@ -131,7 +131,7 @@ export default class TabHeader extends React.PureComponent {
             name="search"
             onClick={this.handleSearchClick}
           />
-        </div>
+        </div> */}
       </div>
     );
   }

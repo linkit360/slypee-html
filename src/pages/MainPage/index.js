@@ -22,9 +22,13 @@ export default class MainPage extends React.PureComponent {
   getContent = categorySlug => {
     const {
       match: {
-        params: { section, app, search, subscribeStatus, unsubscribeStatus }
+        params: { section, app, search, subscribeStatus, unsubscribeStatus },
+        url
       }
     } = this.props;
+    if (url === '/') {
+      return <HomeContainer />;
+    }
     if (
       subscribeStatus === 'success' ||
       subscribeStatus === 'error' ||
@@ -62,7 +66,7 @@ export default class MainPage extends React.PureComponent {
         />
       );
     }
-    return <HomeContainer />;
+    return <NotFoundPage />;
   };
 
   getTab(categorySlug) {
@@ -86,7 +90,7 @@ export default class MainPage extends React.PureComponent {
     }
 
     return (
-      <div>
+      <div className={styles.page}>
         <HeaderContainer
           activeTab={this.getTab(categorySlug)}
           searchQuery={search || ''}

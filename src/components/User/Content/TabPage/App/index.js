@@ -20,6 +20,7 @@ export default class App extends React.PureComponent {
     currency: PropTypes.string.isRequired,
     categoryName: PropTypes.string.isRequired,
     date: PropTypes.string.isRequired
+    // onSubscribe: PropTypes.func.isRequired
   };
 
   getCategoryLink(className) {
@@ -34,6 +35,11 @@ export default class App extends React.PureComponent {
       </a>
     );
   }
+
+  handleDownloadAgainClick = () => {
+    /* const { contentId, onSubscribe } = this.props;
+    onSubscribe({ id: contentId }); */
+  };
 
   render() {
     const {
@@ -87,12 +93,12 @@ export default class App extends React.PureComponent {
                 name="file-download"
               />
             }
-            onClick={this.handleShowMoreClick}
+            onClick={this.handleDownloadAgainClick}
           />
           <FlatButton
             className={styles.buttonView}
             label="VIEW APP PAGE"
-            href={`/app/${contentId}`}
+            href={`/apps/${contentId}`}
           />
         </div>
       </div>

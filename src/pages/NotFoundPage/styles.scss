@@ -1,3 +1,21 @@
-.NotFound {
-  padding: 0 15px;
+.papper {
+  width: 731px;
+  height: 542px;
+  margin: 90px auto;
+  padding-top: 127px;
+}
+
+.img {
+  height: 230px;
+  width: 411px;
+  margin: auto;
+  background-image: url('../../images/404.svg');
+  background-repeat: no-repeat;
+}
+
+.text {
+  text-align: center;
+  font-size: 20px;
+  margin-top: 29px;
+  color: #92989b;
 }
