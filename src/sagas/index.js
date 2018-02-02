@@ -10,13 +10,28 @@ const getCountTopChartsContent = state => state.topCharts.length;
 const getCountSearch = state => state.search.length;
 const getToken = state => state.user.token;
 const getPathname = state => state.router.location.pathname;
+const getCountUserContent = state => state.userContent.list.length;
+const getParamsUserContent = state => {
+  const { sort, contentType } = state.userContent;
+  return { sort, contentType };
+};
 
 function* request(name, apiFunc, params, expectedParameter) {
   try {
-    const data = yield call(apiFunc, params);
+    const newParams = params;
+    const token = yield select(getToken);
+    if (token) {
+      newParams.token = token;
+    }
+    const data = yield call(apiFunc, newParams);
 
     if (!expectedParameter || data.data[expectedParameter]) {
-      yield put({ type: `${name}_SUCCESS`, data: data.data });
+      const limit = data.config.headers['slypee-content-pagination-limit'];
+      yield put({
+        type: `${name}_SUCCESS`,
+        data: data.data,
+        isFetchedAll: limit && data.data.length < limit
+      });
     } else {
       yield put({ type: `${name}_ERROR`, data });
     }
@@ -83,6 +98,26 @@ function* fetchMoreTopCharts({ data }) {
   });
 }
 
+function* fetchUserContent() {
+  const params = yield select(getParamsUserContent);
+  yield fetch('USER_CONTENT', api.fetchUserContent, {
+    start: 0,
+    limit: 6,
+    ...params
+  });
+}
+
+function* fetchMoreUserContent() {
+  const start = yield select(getCountUserContent);
+  const params = yield select(getParamsUserContent);
+
+  yield fetch('MORE_USER_CONTENT', api.fetchUserContent, {
+    start,
+    limit: 6,
+    ...params
+  });
+}
+
 function* fetchSearch({ data }) {
   yield fetch('SEARCH', api.fetchSearch, {
     start: 0,
@@ -102,8 +137,7 @@ function* fetchMoreSearch({ data }) {
 }
 
 function* fetchApp({ data }) {
-  const token = yield select(getToken);
-  yield fetch('APP', api.fetchApp, { ...data, token });
+  yield fetch('APP', api.fetchApp, data);
 }
 
 function* fetchUser() {
@@ -122,23 +156,15 @@ function* signIn({ data }) {
 }
 
 function* subscribe({ data }) {
-  const token = yield select(getToken);
-  yield request('SUBSCRIBE', api.subscribe, { ...data, token });
+  yield request('SUBSCRIBE', api.subscribe, data);
 }
 
 function* unsubscribe({ data }) {
-  const token = yield select(getToken);
-  yield request('UNSUBSCRIBE', api.unsubscribe, { ...data, token });
+  yield request('UNSUBSCRIBE', api.unsubscribe, data);
 }
 
 function* updateProfile({ data }) {
-  const token = yield select(getToken);
-  yield request(
-    'UPDATE_PROFILE',
-    api.updateProfile,
-    { ...data, token },
-    'token'
-  );
+  yield request('UPDATE_PROFILE', api.updateProfile, data, 'token');
 }
 
 function* changeTab({ tabName }) {
@@ -197,6 +223,10 @@ export default function*() {
     takeLatest('FETCH_MORE_SEARCH', fetchMoreSearch),
     takeLatest('FETCH_CATEGORY_NEW', fetchCategoryNew),
     takeLatest('FETCH_USER', fetchUser),
+    takeLatest('FETCH_USER_CONTENT', fetchUserContent),
+    takeLatest('FETCH_MORE_USER_CONTENT', fetchMoreUserContent),
+    takeLatest('CHANGE_TYPE_USER_CONTENT', fetchUserContent),
+    takeLatest('CHANGE_SORT_USER_CONTENT', fetchUserContent),
     takeLatest('LOGOUT', logout),
     takeLatest('SIGN_UP', signUp),
     takeLatest('SIGN_UP_SUCCESS', completeUserLogin),
@@ -204,8 +234,8 @@ export default function*() {
     takeLatest('SIGN_IN_SUCCESS', completeUserLogin),
     takeLatest('SUBSCRIBE', subscribe),
     takeLatest('SUBSCRIBE_SUCCESS', redirect),
-    takeLatest('UNSUBSCRIBE_SUCCESS', redirect),
     takeLatest('UNSUBSCRIBE', unsubscribe),
+    takeLatest('UNSUBSCRIBE_SUCCESS', redirect),
     takeLatest('UPDATE_PROFILE', updateProfile),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),

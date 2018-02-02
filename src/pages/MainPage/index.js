@@ -78,9 +78,7 @@ export default class MainPage extends React.PureComponent {
   }
 
   render() {
-    const {
-      match: { params: { category, section, app, search }, url }
-    } = this.props;
+    const { match: { params: { category, section, search } } } = this.props;
     const categorySlug = category && getSlug(category);
 
     if (['signIn', 'signUp', 'forgotPassword'].includes(section)) {

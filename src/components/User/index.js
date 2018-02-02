@@ -10,9 +10,13 @@ import styles from './styles.scss';
 
 export default class User extends React.PureComponent {
   static propTypes = {
+    content: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired,
-    onSort: PropTypes.func.isRequired,
-    onEdit: PropTypes.func.isRequired
+    onFetchContent: PropTypes.func.isRequired,
+    onFetchContentMore: PropTypes.func.isRequired,
+    onEdit: PropTypes.func.isRequired,
+    onChangeSortUserContent: PropTypes.func.isRequired,
+    onChangeTypeUserContent: PropTypes.func.isRequired
   };
 
   state = {
@@ -32,8 +36,15 @@ export default class User extends React.PureComponent {
   };
 
   render() {
-    const { user, onSort, onEdit } = this.props;
-    const { avatar, name, email, purchased, subscription } = user;
+    const {
+      content,
+      user,
+      onEdit,
+      onFetchContentMore,
+      onChangeSortUserContent,
+      onChangeTypeUserContent
+    } = this.props;
+    const { avatar, name, email } = user;
     const { isEditMode } = this.state;
 
     if (isEditMode) {
@@ -63,9 +74,10 @@ export default class User extends React.PureComponent {
           />
         </Paper>
         <Content
-          purchased={purchased}
-          subscription={subscription}
-          onSort={onSort}
+          {...content}
+          onFetchMore={onFetchContentMore}
+          onChangeSort={onChangeSortUserContent}
+          onChangeType={onChangeTypeUserContent}
         />
       </div>
     );

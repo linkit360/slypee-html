@@ -54,6 +54,24 @@ export const fetchCategoryContent = ({ id, start, filter, tab }) =>
     }
   });
 
+export const fetchUserContent = ({ token, start, contentType, sort }) => {
+  const { sortBy, isSortReverse } = sort;
+  let ordering = sortBy;
+  if (isSortReverse) {
+    ordering = `-${ordering}`;
+  }
+  return Req.GET({
+    url: `content/customer`,
+    headers: {
+      'x-slypee-auth-token': token,
+      'slypee-content-pagination-start': start,
+      'slypee-content-pagination-limit': 6,
+      'slypee-content-type': contentType,
+      'slypee-content-ordering': ordering
+    }
+  });
+};
+
 export const fetchSearch = ({ search, start, limit }) =>
   Req.GET({
     url: `content`,

@@ -22,11 +22,11 @@ export default class TabHeader extends React.PureComponent {
   };
 
   handleNameClick = () => {
-    this.sort('Name');
+    this.sort('name');
   };
 
   handleDateClick = () => {
-    this.sort('Date');
+    this.sort('date');
   };
 
   handleSearchChange = (event, value) => {
@@ -57,7 +57,7 @@ export default class TabHeader extends React.PureComponent {
   }
 
   sort(colName) {
-    const { tabName, sortBy, isSortReverse, onSort } = this.props;
+    const { sortBy, isSortReverse, onSort } = this.props;
     const data = { sortBy: colName };
     if (sortBy === colName) {
       data.isSortReverse = !isSortReverse;
@@ -66,7 +66,7 @@ export default class TabHeader extends React.PureComponent {
     } else {
       data.isSortReverse = true;
     }
-    onSort(tabName, data);
+    onSort(data);
   }
 
   getSortIcon = name => {
@@ -97,7 +97,7 @@ export default class TabHeader extends React.PureComponent {
             label="Name"
             labelPosition="before"
             style={styles.buttonEditProfile}
-            icon={this.getSortIcon('Name')}
+            icon={this.getSortIcon('name')}
             onClick={this.handleNameClick}
           />
           <FlatButton
@@ -105,7 +105,7 @@ export default class TabHeader extends React.PureComponent {
             label="Date"
             labelPosition="before"
             style={styles.buttonEditProfile}
-            icon={this.getSortIcon('Date')}
+            icon={this.getSortIcon('date')}
             onClick={this.handleDateClick}
           />
         </div>

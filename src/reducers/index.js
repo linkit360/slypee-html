@@ -10,6 +10,7 @@ import product from './product';
 import category from './category';
 import environment from './environment';
 import user from './user';
+import userContent from './userContent';
 import mainMenu from './mainMenu';
 import slider from './slider';
 import main from './main';
@@ -29,7 +30,8 @@ const reducers = {
   slider,
   main,
   topCharts,
-  search
+  search,
+  userContent
 };
 
 export type Reducers = typeof reducers;

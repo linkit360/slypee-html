@@ -2,46 +2,81 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { sort } from '_actions/user';
-import { editProfile } from '_actions';
+import {
+  editProfile,
+  changeSortUserContent,
+  changeTypeUserContent,
+  fetchUserContent,
+  fetchMoreUserContent
+} from '_actions';
 import User from '_components/User';
 
 class UserContainer extends React.Component {
   static propTypes = {
+    content: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired,
-    fetchMain: PropTypes.func.isRequired,
-    sort: PropTypes.func.isRequired,
-    editProfile: PropTypes.func.isRequired
+    fetchUserContent: PropTypes.func.isRequired,
+    fetchMoreUserContent: PropTypes.func.isRequired,
+    editProfile: PropTypes.func.isRequired,
+    changeSortUserContent: PropTypes.func.isRequired,
+    changeTypeUserContent: PropTypes.func.isRequired
   };
 
   componentWillMount() {
-    const { user, fetchMain } = this.props;
+    if (this.props.user.token) {
+      this.props.fetchUserContent();
+    }
+  }
 
-    if (!user) {
-      fetchMain();
+  componentWillReceiveProps(nextProps) {
+    const { token } = nextProps.user;
+    if (token !== this.props.user.token && token) {
+      this.props.fetchUserContent();
     }
   }
 
   render() {
-    const { user, sort, editProfile } = this.props;
+    const {
+      user,
+      content,
+      editProfile,
+      fetchUserContent,
+      fetchMoreUserContent,
+      changeSortUserContent,
+      changeTypeUserContent
+    } = this.props;
 
     if (!user) {
       return null;
     }
 
-    return <User user={user} onSort={sort} onEdit={editProfile} />;
+    return (
+      <User
+        user={user}
+        content={content}
+        onChangeSortUserContent={changeSortUserContent}
+        onChangeTypeUserContent={changeTypeUserContent}
+        onFetchContent={fetchUserContent}
+        onFetchContentMore={fetchMoreUserContent}
+        onEdit={editProfile}
+      />
+    );
   }
 }
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  content: state.userContent
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      sort,
-      editProfile
+      fetchUserContent,
+      fetchMoreUserContent,
+      editProfile,
+      changeSortUserContent,
+      changeTypeUserContent
     },
     dispatch
   );

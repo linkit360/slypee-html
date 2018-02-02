@@ -28,7 +28,7 @@ class HomeContainer extends React.Component {
   render() {
     const { slider, main } = this.props;
 
-    if (!slider.list.length || !main.list.length) {
+    if (!slider.readyStatus === 'SUCCESS' || !main.readyStatus === 'SUCCESS') {
       return null;
     }
 

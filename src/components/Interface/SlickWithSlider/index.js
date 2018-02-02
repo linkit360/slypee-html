@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes, { number } from 'prop-types';
+import PropTypes from 'prop-types';
 import Slider from 'material-ui/Slider';
 import OverflowScrolling from 'react-overflow-scrolling';
 import Slick from '_components/Interface/Slick';
@@ -90,7 +90,7 @@ class SlickWithSlider extends React.PureComponent {
   overflowScrollingWrapperRef = ref => (this.overflowScrollingWrapper = ref);
 
   render() {
-    const { className, children, environment } = this.props;
+    const { className, children } = this.props;
     const { showSlider } = this.state;
     const slidesToShow = this.getSlidesToShow();
 

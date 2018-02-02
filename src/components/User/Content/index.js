@@ -7,47 +7,38 @@ import styles from './styles.scss';
 
 export default class Content extends React.PureComponent {
   static propTypes = {
-    purchased: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-    subscription: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-    onSort: PropTypes.func.isRequired,
+    contentType: PropTypes.string.isRequired,
+    sort: PropTypes.object.isRequired,
+    list: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+    isFetchedAll: PropTypes.bool.isRequired,
+    onChangeSort: PropTypes.func.isRequired,
+    onChangeType: PropTypes.func.isRequired,
     onFetchMore: PropTypes.func.isRequired
   };
 
-  state = {
-    activeTab: 'purchased',
-    sortBy: 'name',
-    isSortReverse: false
-  };
-
-  getSortIconName = name => {
-    const { sortBy, isSortReverse } = this.state;
-
-    if (name !== sortBy) {
-      return 'sort-both';
-    }
-    if (isSortReverse) {
-      return 'arrow-drop-up';
-    }
-    return 'arrow-drop-down';
-  };
-
-  handleTabChange = label => {
-    this.setState({ activeTab: label });
+  handleTabChange = value => {
+    this.props.onChangeType({ contentType: value });
   };
 
   render() {
-    const { activeTab } = this.state;
-    const { purchased, subscription, onSort, onFetchMore } = this.props;
-    const section = activeTab === 'purchased' ? purchased : subscription;
+    const {
+      isFetchedAll,
+      list,
+      contentType,
+      sort,
+      onChangeSort,
+      onFetchMore,
+      onChangeType
+    } = this.props;
 
     return (
       <Paper className={styles.content} zDepth={1}>
         <Tabs
           className={styles.tabs}
-          value={activeTab}
+          value={contentType}
           onChange={this.handleTabChange}
         >
-          <Tab className={styles.tab} value="purchased" label="purchased" />
+          <Tab className={styles.tab} value="single" label="purchased" />
           <Tab
             className={styles.tab}
             value="subscription"
@@ -55,10 +46,13 @@ export default class Content extends React.PureComponent {
           />
         </Tabs>
         <TabPage
-          section={section}
-          onSort={onSort}
+          list={list}
+          isFetchedAll={isFetchedAll}
+          sort={sort}
+          tabName={contentType}
+          onChangeType={onChangeType}
+          onChangeSort={onChangeSort}
           onFetchMore={onFetchMore}
-          tabName={activeTab}
         />
       </Paper>
     );

@@ -16,7 +16,7 @@ export default class Home extends React.PureComponent {
 
     return (
       <div>
-        <Slider slides={slider} />
+        {slider.length > 0 && <Slider slides={slider} />}
         <div className={styles.content}>
           {main.map((item, index) => (
             <AppBlock

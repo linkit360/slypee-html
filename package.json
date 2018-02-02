@@ -149,7 +149,15 @@
     "rules": {
       "global-require": 0,
       "no-underscore-dangle": 0,
-      "no-console": 1,
+      "no-console": [
+        1,
+        {
+          "allow": [
+            "warn",
+            "error"
+          ]
+        }
+      ],
       "no-missing-end-of-source-newline": 0,
       "no-return-assign": 0,
       "no-plusplus": 0,
@@ -263,6 +271,7 @@
     "http-proxy": "^1.16.2",
     "lodash": "^4.17.4",
     "material-ui": "^0.20.0",
+    "moment": "^2.20.1",
     "morgan": "1.9.0",
     "opn": "^5.1.0",
     "prop-types": "^15.6.0",

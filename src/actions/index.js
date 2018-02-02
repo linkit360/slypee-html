@@ -54,8 +54,19 @@ export const fetchMoreSearch = data => ({
   data
 });
 
-export const fetchUser = () => ({
-  type: 'FETCH_USER'
+export const fetchUser = data => ({
+  type: 'FETCH_USER',
+  data
+});
+
+export const fetchUserContent = data => ({
+  type: 'FETCH_USER_CONTENT',
+  data
+});
+
+export const fetchMoreUserContent = data => ({
+  type: 'FETCH_MORE_USER_CONTENT',
+  data
 });
 
 export const signIn = data => ({
@@ -123,4 +134,14 @@ export const search = search => ({
 export const setCategorySlug = slug => ({
   type: 'SET_CATEGORY_SLUG',
   slug
+});
+
+export const changeSortUserContent = data => ({
+  type: 'CHANGE_SORT_USER_CONTENT',
+  data
+});
+
+export const changeTypeUserContent = data => ({
+  type: 'CHANGE_TYPE_USER_CONTENT',
+  data
 });

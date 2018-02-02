@@ -9,13 +9,11 @@ import styles from './styles.scss';
 export default class FormWrapper extends React.Component {
   static propTypes = {
     className: PropTypes.string,
-    children: PropTypes.any,
-    buttonLabel: PropTypes.string.isRequired,
-    onButtonClick: PropTypes.func.isRequired
+    children: PropTypes.any
   };
 
   render() {
-    const { className, buttonLabel, children, onButtonClick } = this.props;
+    const { className, children } = this.props;
 
     return (
       <div className={classNames(styles.center, className)}>
