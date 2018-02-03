@@ -25,10 +25,6 @@ class SlickWithSlider extends React.PureComponent {
 
   componentDidMount() {
     setTimeout(() => {
-      const el = this.overflowScrollingWrapper;
-      el.style.height = `${el.offsetHeight - 10}px`;
-    }, 200);
-    setTimeout(() => {
       const { innerSlider } = this.slick.root;
       const { listWidth } = innerSlider.state;
       const lastSlideNode = innerSlider.list.lastChild.lastChild;
@@ -87,7 +83,6 @@ class SlickWithSlider extends React.PureComponent {
   };
 
   slickRef = ref => (this.slick = ref);
-  overflowScrollingWrapperRef = ref => (this.overflowScrollingWrapper = ref);
 
   render() {
     const { className, children } = this.props;
@@ -121,10 +116,7 @@ class SlickWithSlider extends React.PureComponent {
           )}
         </div>
         <div className={styles.mobile}>
-          <div
-            ref={this.overflowScrollingWrapperRef}
-            className={styles.overflowScrollingWrapper}
-          >
+          <div className={styles.overflowScrollingWrapper}>
             <OverflowScrolling className={styles.overflowScrolling}>
               {this.props.children}
             </OverflowScrolling>

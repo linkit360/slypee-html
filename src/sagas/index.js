@@ -16,7 +16,7 @@ const getParamsUserContent = state => {
   return { sort, contentType };
 };
 
-function* request(name, apiFunc, params, expectedParameter) {
+function* request(name, apiFunc, params = {}, expectedParameter) {
   try {
     const newParams = params;
     const token = yield select(getToken);
