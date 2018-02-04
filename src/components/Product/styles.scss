@@ -54,6 +54,7 @@
 .iframe {
   height: 311px;
   width: 442px;
+  min-width: 442px;
 
   @media (max-width: $width-portrait-tablet) {
     height: 255px;

@@ -12,30 +12,8 @@
   }
 }
 
-.slider {
-  & > div > div {
-    & > div {
-      background-color: #e1e1e1 !important;
-      width: 100%;
-    }
-
-    & > div:first-child {
-      background-color: $color-aquamarine !important;
-    }
-
-    & > div:last-child {
-      background-color: $color-aquamarine !important;
-      border: none !important;
-
-      & > div {
-        display: none;
-      }
-    }
-  }
-}
-
-.overflowScrollingWrapper {
-  overflow: hidden;
+.scrollWrapper {
+  overflow-x: hidden;
 }
 
 .overflowScrolling {

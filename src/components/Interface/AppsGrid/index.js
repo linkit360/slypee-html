@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Button from '_components/Interface/Button';
 import AppCard from '_components/Interface/AppCard';
 import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
 
-const CARD_WIDTH = 254;
+const CARD_WIDTH = 244;
 const COUNT_ROWS_IN_BLOCK = 2;
 const MOBILE_COUNT_CARDS_IN_BLOCK = 6;
+const MAX_COUNT_CARDS_IN_ROW = 7;
 
 class AppsGrid extends React.PureComponent {
   static propTypes = {
@@ -101,6 +103,13 @@ class AppsGrid extends React.PureComponent {
     const { isMobileWidth } = environment;
     const { countShowItems, isFetching } = this.state;
 
+    const stubs = [];
+    for (let i = 0; i < MAX_COUNT_CARDS_IN_ROW; i++) {
+      stubs.push(
+        <AppCard key={i} className={classNames(styles.stub, styles.card)} />
+      );
+    }
+
     return (
       <div className={className}>
         <div ref={this.rootRef} className={styles.cards}>
@@ -114,6 +123,7 @@ class AppsGrid extends React.PureComponent {
                 {...app}
               />
             ))}
+          {stubs}
         </div>
         <div className={styles.footer}>
           {!isFetching &&
