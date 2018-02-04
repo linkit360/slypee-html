@@ -16,7 +16,7 @@ class ScrollHidden extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.environment.width !== this.props.environmentHOC) {
+    if (nextProps.environment.width !== this.props.environment.width) {
       this.update();
     }
   }

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Shiitake from 'shiitake';
 import moment from 'moment';
 import FlatButton from 'material-ui/FlatButton';
 import Icon from '_components/Interface/Icon';
 import RatingBlock from '_components/Interface/RatingBlock';
 import CostBlock from '_components/Interface/CostBlock';
 import { getCategoryUrl } from '_utils/common';
+import Dotdotdot from 'react-dotdotdot';
 import styles from './styles.scss';
 
 export default class App extends React.PureComponent {
@@ -62,7 +62,7 @@ export default class App extends React.PureComponent {
             style={{ backgroundImage: `url(${logo})` }}
           />
           <div className={styles.name}>
-            <Shiitake lines={2}>{name}</Shiitake>
+            <Dotdotdot clamp={2}>{name}</Dotdotdot>
           </div>
           {this.getCategoryLink(styles.mobile)}
           <div className={styles.ratingWrapper}>

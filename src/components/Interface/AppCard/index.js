@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import Shiitake from 'shiitake';
 import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import RatingBlock from '_components/Interface/RatingBlock';
 import CostBlock from '_components/Interface/CostBlock';
+import Dotdotdot from 'react-dotdotdot';
 import styles from './styles.scss';
 
 export default class AppCard extends React.PureComponent {
@@ -72,7 +72,7 @@ export default class AppCard extends React.PureComponent {
         </Link>
         <div className={styles.content}>
           <Link className={styles.link} to={href}>
-            <Shiitake lines={2}>{name}</Shiitake>
+            <Dotdotdot clamp={2}>{name}</Dotdotdot>
           </Link>
           <p className={styles.producer}>{producer}</p>
         </div>
