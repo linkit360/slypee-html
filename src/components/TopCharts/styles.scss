@@ -23,6 +23,17 @@
 
   @media (max-width: $width-small-desktop) {
     padding-left: 24px;
+    font-size: 30px;
+  }
+
+  @media (max-width: $width-portrait-tablet) {
+    font-size: 25px;
+  }
+}
+
+.headerText {
+  @media (max-width: $width-portrait-tablet) {
+    margin-top: -55px;
   }
 }
 
@@ -48,11 +59,14 @@
     margin-right: 0;
     margin-top: 10px;
   }
+
+  @media (max-width: $width-landscape-tablet) {
+    margin-right: -15px !important;
+  }
 }
 
 .content {
   margin: auto;
-  margin-bottom: 66px;
   padding: 0 83px;
 
   @media (max-width: $width-small-desktop) {
@@ -68,6 +82,14 @@
   font-size: 28px;
   text-transform: uppercase;
   padding-top: 54px;
+
+  @media (max-width: $width-small-desktop) {
+    font-size: 20px;
+  }
+
+  @media (max-width: $width-portrait-tablet) {
+    text-align: center;
+  }
 }
 
 .grid {

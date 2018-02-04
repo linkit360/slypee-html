@@ -13,6 +13,10 @@
   @media (max-width: $width-small-desktop) {
     font-size: 16px !important;
   }
+
+  @media (max-width: $width-landscape-tablet) {
+    font-size: 12px !important;
+  }
 }
 
 .filter {
@@ -25,6 +29,11 @@
     font-size: 16px !important;
     width: 220px !important;
   }
+
+  @media (max-width: $width-landscape-tablet) {
+    font-size: 12px !important;
+    width: 176px !important;
+  }
 }
 
 .filterItem {
@@ -36,5 +45,9 @@
 
   @media (max-width: $width-small-desktop) {
     font-size: 14px !important;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    font-size: 10px !important;
   }
 }

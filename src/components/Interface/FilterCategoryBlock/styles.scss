@@ -12,10 +12,19 @@
     font-size: 16px !important;
   }
 
+  @media (max-width: $width-landscape-tablet) {
+    font-size: 12px !important;
+    width: 160px !important;
+  }
+
   & div {
     border: none !important;
     line-height: 48px !important;
     color: white !important;
+
+    @media (max-width: $width-landscape-tablet) {
+      padding-right: 0 !important;
+    }
   }
 
   & svg {
@@ -24,6 +33,10 @@
 
   & button {
     margin-top: -4px !important;
+
+    @media (max-width: $width-landscape-tablet) {
+      right: 0 !important;
+    }
   }
 }
 

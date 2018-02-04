@@ -50,7 +50,7 @@ export default class TopCharts extends React.PureComponent {
     return (
       <div>
         <Paper className={styles.header}>
-          <span>TOP CHARTS</span>
+          <span className={styles.headerText}>TOP CHARTS</span>
           <div className={styles.headerRight}>
             <FilterTypeBlock
               className={styles.filterTypeBlock}
