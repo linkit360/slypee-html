@@ -293,6 +293,7 @@
     "reselect": "^3.0.1",
     "serialize-javascript": "^1.4.0",
     "serve-favicon": "2.4.5",
+    "shiitake": "^2.2.4",
     "webpack-isomorphic-tools": "^3.0.5"
   },
   "devDependencies": {

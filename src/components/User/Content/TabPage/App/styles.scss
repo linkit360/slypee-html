@@ -58,11 +58,6 @@
   font-size: 18px;
   padding-left: 42px;
   width: 263px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 
   @media (max-width: $width-portrait-tablet) {
     font-size: 15px;

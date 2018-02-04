@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Shiitake from 'shiitake';
 import moment from 'moment';
 import FlatButton from 'material-ui/FlatButton';
 import Icon from '_components/Interface/Icon';
@@ -60,7 +61,9 @@ export default class App extends React.PureComponent {
             className={styles.img}
             style={{ backgroundImage: `url(${logo})` }}
           />
-          <div className={styles.name}>{name}</div>
+          <div className={styles.name}>
+            <Shiitake lines={2}>{name}</Shiitake>
+          </div>
           {this.getCategoryLink(styles.mobile)}
           <div className={styles.ratingWrapper}>
             <RatingBlock className={styles.rating} rating={rating} isLong />

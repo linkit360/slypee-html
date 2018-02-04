@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
+import Shiitake from 'shiitake';
 import { Link } from 'react-router-dom';
 import Paper from 'material-ui/Paper';
 import RatingBlock from '_components/Interface/RatingBlock';
@@ -71,7 +72,7 @@ export default class AppCard extends React.PureComponent {
         </Link>
         <div className={styles.content}>
           <Link className={styles.link} to={href}>
-            {name}
+            <Shiitake lines={2}>{name}</Shiitake>
           </Link>
           <p className={styles.producer}>{producer}</p>
         </div>
