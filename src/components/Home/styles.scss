@@ -7,6 +7,10 @@
     padding: 0 28px;
   }
 
+  @media (max-width: $width-landscape-tablet) {
+    margin-top: 52px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     padding: 0;
     padding-top: 7px;

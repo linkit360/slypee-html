@@ -58,7 +58,7 @@ class App extends React.Component {
 
   resizeListener = () => {
     if (typeof document === 'object') {
-      this.props.resize(document.body.offsetWidth, document.body.offsetHeight);
+      this.props.resize(window.innerWidth, window.innerHeight);
     }
   };
 

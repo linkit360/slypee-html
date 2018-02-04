@@ -11,9 +11,19 @@ export default class PasswordForgottenForm extends React.PureComponent {
   };
 
   handleButtonClick = () => {
+    this.submit();
+  };
+
+  submit() {
     const data = validate(this.textFields);
     if (data) {
       this.props.forgotPassword(data);
+    }
+  }
+
+  handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      this.submit();
     }
   };
 
@@ -33,6 +43,7 @@ export default class PasswordForgottenForm extends React.PureComponent {
             name="email"
             floatingLabelText="EMAIL"
             isRequired
+            onKeyDown={this.handleKeyDown}
           />
           <Button
             className={styles.button}

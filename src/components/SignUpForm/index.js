@@ -20,10 +20,20 @@ export default class SignUpForm extends React.PureComponent {
     this.setState({ password: e.target.value });
   };
 
-  handleSignInClick = () => {
+  handleSignUpClick = () => {
+    this.submit();
+  };
+
+  submit() {
     const data = validate(this.textFields);
     if (data) {
       this.props.signUp(data);
+    }
+  }
+
+  handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      this.submit();
     }
   };
 
@@ -75,13 +85,14 @@ export default class SignUpForm extends React.PureComponent {
             floatingLabelText="CONFIRM PASSWORD"
             isRequired
             match={password}
+            onKeyDown={this.handleKeyDown}
           />
           <Button
             className={styles.buttonSignIn}
             label="SIGN UP"
             color="orange"
             size="big"
-            onClick={this.handleSignInClick}
+            onClick={this.handleSignUpClick}
           />
         </div>
       </div>

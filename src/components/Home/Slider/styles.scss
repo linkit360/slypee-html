@@ -1,7 +1,5 @@
 @import '~theme/variables';
 
-$width-small-desktop: 1500px;
-
 .slider {
   @media (max-width: $width-portrait-tablet) {
     display: none !important;
@@ -55,9 +53,14 @@ $width-small-desktop: 1500px;
   top: 18.9%;
   left: 11.5%;
 
-  @media (max-width: $width-small-desktop) {
+  @media (max-width: 1500px) {
     top: 18.3%;
     left: 7.2%;
+  }
+
+  @media (max-width: 1200px) {
+    top: 13.3%;
+    left: 3.2%;
   }
 }
 
@@ -66,8 +69,12 @@ $width-small-desktop: 1500px;
   font-size: 75px;
   text-transform: uppercase;
 
-  @media (max-width: $width-small-desktop) {
+  @media (max-width: 1500px) {
     font-size: 50px;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 45px;
   }
 }
 
@@ -76,8 +83,12 @@ $width-small-desktop: 1500px;
   margin-left: 10px;
   margin-top: -6px;
 
-  @media (max-width: $width-small-desktop) {
+  @media (max-width: 1500px) {
     font-size: 40px;
+  }
+
+  @media (max-width: 1200px) {
+    font-size: 30px;
   }
 }
 
@@ -86,8 +97,13 @@ $width-small-desktop: 1500px;
   padding-top: 33px;
   padding-left: 9px;
 
-  @media (max-width: $width-small-desktop) {
+  @media (max-width: 1500px) {
     font-size: 20px;
+  }
+
+  @media (max-width: 1200px) {
+    padding-top: 21px;
+    padding-left: 5px;
   }
 }
 
@@ -105,7 +121,7 @@ $width-small-desktop: 1500px;
     line-height: 68px;
   }
 
-  @media (max-width: $width-small-desktop) {
+  @media (max-width: 1500px) {
     width: 162px !important;
     height: 50px !important;
 
@@ -113,5 +129,21 @@ $width-small-desktop: 1500px;
       line-height: 50px;
       font-size: 18px !important;
     }
+  }
+
+  @media (max-width: 1200px) {
+    margin-top: 29px !important;
+    margin-left: 5px !important;
+    width: 143px !important;
+    height: 41px !important;
+
+    span {
+      line-height: 41px;
+      font-size: 18px !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    margin-top: 15px !important;
   }
 }

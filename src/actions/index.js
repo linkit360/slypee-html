@@ -112,6 +112,10 @@ export const goToSearch = () => ({
   type: 'GO_TO_SEARCH'
 });
 
+export const goToHome = () => ({
+  type: 'GO_TO_HOME'
+});
+
 export const goToMobileSearch = () => ({
   type: 'GO_TO_MOBILE_SEARCH'
 });

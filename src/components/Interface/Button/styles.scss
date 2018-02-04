@@ -38,4 +38,16 @@
   @media (max-width: $width-portrait-tablet) {
     height: 38px !important;
   }
+
+  @media (max-width: $width-small-desktop) {
+    height: 32px !important;
+    min-width: 0 !important;
+
+    span {
+      line-height: 40px;
+      top: -3px;
+      padding-left: 10px !important;
+      padding-right: 10px !important;
+    }
+  }
 }

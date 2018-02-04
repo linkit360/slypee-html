@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import { Link } from 'react-router-dom';
 import UiMenu from 'material-ui/Menu';
 import MenuItem from 'material-ui/MenuItem';
@@ -13,19 +14,23 @@ import styles from './styles.scss';
 export default class Menu extends React.Component {
   static propTypes = {
     categories: PropTypes.arrayOf(PropTypes.object).isRequired,
-    isAutorizedUser: PropTypes.bool.isRequired,
     user: PropTypes.object.isRequired,
     onLogout: PropTypes.func.isRequired,
     onClose: PropTypes.func.isRequired
   };
 
   render() {
-    const { categories, isAutorizedUser, user, onLogout, onClose } = this.props;
+    const { categories, user, onLogout, onClose } = this.props;
+    const isAutorizedUser = !!user.token;
 
     return (
       <div>
-        <div className={styles.header}>
-          {user && (
+        <div
+          className={classNames(styles.header, {
+            [styles.isAutorizedUser]: isAutorizedUser
+          })}
+        >
+          {isAutorizedUser && (
             <div>
               <div
                 className={styles.avatar}
@@ -48,11 +53,13 @@ export default class Menu extends React.Component {
                 />
               </Link>
             ) : (
-              <MenuItem
-                className={styles.buttonUser}
-                primaryText="Sign in"
-                leftIcon={<IconPerson />}
-              />
+              <Link to="/signIn">
+                <MenuItem
+                  className={styles.buttonUser}
+                  primaryText="Sign in"
+                  leftIcon={<IconPerson />}
+                />
+              </Link>
             )}
             <Divider />
             {isAutorizedUser && (

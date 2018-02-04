@@ -105,6 +105,7 @@
 
 .card {
   position: relative;
+  margin-right: 16px;
 
   @media (max-width: $width-portrait-tablet) {
     padding: 0 8px;

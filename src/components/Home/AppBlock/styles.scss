@@ -20,6 +20,10 @@
   margin-top: 56px;
   height: 66px;
   position: relative;
+
+  @media (max-width: $width-landscape-tablet) {
+    margin-top: 0;
+  }
 }
 
 .name {
@@ -30,6 +34,10 @@
   @media (max-width: $width-portrait-tablet) {
     padding-left: 11px;
     font-size: 15px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    font-size: 18px;
   }
 }
 
@@ -46,13 +54,13 @@
     width: 126px !important;
     margin-top: 7px !important;
   }
+
+  @media (max-width: $width-small-desktop) {
+    width: 66px !important;
+  }
 }
 
 .card {
-  position: relative;
-  width: auto;
-  margin-right: 14px;
-
   @media (max-width: $width-portrait-tablet) {
     padding-right: 17px;
 

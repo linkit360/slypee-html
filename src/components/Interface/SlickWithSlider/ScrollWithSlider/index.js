@@ -5,6 +5,8 @@ import Slider from 'material-ui/Slider';
 import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
 
+const CARD_MARGIN = 14;
+
 class ScrollWithSlider extends React.PureComponent {
   static propTypes = {
     environment: PropTypes.object.isRequired,
@@ -13,19 +15,12 @@ class ScrollWithSlider extends React.PureComponent {
   };
 
   state = {
-    showSlider: true
+    showSlider: false
   };
 
   componentDidMount() {
-    setTimeout(() => {
-      const wrapperWidth = this.wrapper.offsetWidth;
-      const lastCardNode = this.cards.lastChild;
-      this.setState({
-        showSlider:
-          lastCardNode.offsetLeft + lastCardNode.offsetWidth > wrapperWidth
-      });
-    }, 1000);
     this.update();
+    this.watcher = window.requestAnimationFrame(this.watch);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -34,34 +29,55 @@ class ScrollWithSlider extends React.PureComponent {
     }
   }
 
+  componentWillUnmount() {
+    cancelAnimationFrame(this.watcher);
+  }
+
+  watch = () => {
+    if (this.lastScrollWidth !== this.scroll.scrollWidth) {
+      const { scrollWidth } = this.scroll;
+      if (scrollWidth > this.scroll.clientWidth) {
+        this.toogleSlider(true);
+        cancelAnimationFrame(this.watcher);
+      }
+      this.lastScrollWidth = scrollWidth;
+    }
+    this.watcher = requestAnimationFrame(this.watch);
+  };
+
   update() {
     const { children, isAppCards } = this.props;
     if (!isAppCards) {
       return;
     }
     const countCards = children.length;
-    const wrapperWidth = this.wrapper.offsetWidth;
+    const rootWidth = this.root.clientWidth;
     const cardNode = this.cards.firstChild;
     const cardWidth = cardNode.offsetWidth;
-    const margin = parseInt(window.getComputedStyle(cardNode).marginRight, 10);
     const cardsToShow = Math.floor(
-      (wrapperWidth + margin) / (cardWidth + margin)
+      (rootWidth + CARD_MARGIN) / (cardWidth + CARD_MARGIN)
     );
-    const space = (wrapperWidth - cardWidth * cardsToShow) / (cardsToShow - 1);
+    const space = (rootWidth - cardWidth * cardsToShow) / (cardsToShow - 1);
     const cardsWidth = countCards * cardWidth + space * (countCards - 1);
     this.cards.style.width = `${cardsWidth}px`;
   }
 
+  toogleSlider(showSlider) {
+    this.setState({ showSlider });
+  }
+
   handleSliderChange = (e, value) => {
+    this.sliderValue = value;
     const lastCardNode = this.cards.lastChild;
-    const wrapperWidth = this.wrapper.offsetWidth;
+    const wrapperWidth = this.root.offsetWidth;
     const sliderOffset =
       lastCardNode.offsetLeft - wrapperWidth + lastCardNode.offsetWidth;
     this.cards.style.transform = `translate3d(-${sliderOffset *
       value}px, 0px, 0px)`;
   };
 
-  wrapperRef = ref => (this.wrapper = ref);
+  rootRef = ref => (this.root = ref);
+  scrollRef = ref => (this.scroll = ref);
   cardsRef = ref => (this.cards = ref);
 
   render() {
@@ -69,15 +85,17 @@ class ScrollWithSlider extends React.PureComponent {
     const { showSlider } = this.state;
 
     return (
-      <div className={styles.scrollWithSlider}>
-        <div ref={this.wrapperRef} className={styles.scrollWrapper}>
-          <div
-            ref={this.cardsRef}
-            className={classNames(styles.cards, {
-              [styles.isAppCards]: isAppCards
-            })}
-          >
-            {children}
+      <div ref={this.rootRef} className={styles.scrollWithSlider}>
+        <div className={styles.scrollWrapper}>
+          <div ref={this.scrollRef} className={styles.scrollBlock}>
+            <div
+              ref={this.cardsRef}
+              className={classNames(styles.cards, {
+                [styles.isAppCards]: isAppCards
+              })}
+            >
+              {children}
+            </div>
           </div>
         </div>
         {showSlider && (

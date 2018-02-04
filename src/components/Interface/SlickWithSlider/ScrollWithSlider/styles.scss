@@ -30,13 +30,14 @@
   }
 }
 
-.scrollWithSlider {
-  overflow-x: hidden;
-  margin: 0 -10px;
+.scrollBlock {
+  overflow-x: scroll;
   padding: 0 10px;
+  padding-bottom: 24px;
+  margin-bottom: -9px;
 }
 
 .scrollWrapper {
-  padding-bottom: 24px;
-  margin-bottom: -30px;
+  overflow-y: hidden;
+  margin: 0 -10px;
 }

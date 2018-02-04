@@ -189,6 +189,10 @@ function* goto({ route }) {
   yield put(push(route));
 }
 
+function* gotoHome() {
+  yield put(push('/'));
+}
+
 function* completeUserLogin({ data }) {
   localStorage.setItem('token', data.token);
   yield put(push('/'));
@@ -237,6 +241,7 @@ export default function*() {
     takeLatest('UNSUBSCRIBE', unsubscribe),
     takeLatest('UNSUBSCRIBE_SUCCESS', redirect),
     takeLatest('UPDATE_PROFILE', updateProfile),
+    takeLatest('GO_TO_HOME', gotoHome),
     takeLatest('GOTO', goto),
     takeLatest('CHANGE_TAB', changeTab),
     takeLatest('SEARCH', search)

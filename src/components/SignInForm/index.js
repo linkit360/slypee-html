@@ -15,9 +15,19 @@ export default class SignInForm extends React.PureComponent {
   };
 
   handleSignInClick = () => {
+    this.submit();
+  };
+
+  submit() {
     const data = validate(this.textFields);
     if (data) {
       this.props.signIn(data);
+    }
+  }
+
+  handleKeyDown = e => {
+    if (e.key === 'Enter') {
+      this.submit();
     }
   };
 
@@ -48,6 +58,7 @@ export default class SignInForm extends React.PureComponent {
             errorText={
               signInStatus === 'ERROR' ? 'email or password is incorrect' : null
             }
+            onKeyDown={this.handleKeyDown}
           />
           <Link className={styles.forgotPasswordLink} to="/forgotPassword">
             Forgot password?

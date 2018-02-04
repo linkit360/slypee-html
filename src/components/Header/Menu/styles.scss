@@ -3,7 +3,11 @@
 .header {
   color: white;
   background-color: $color-orange;
-  height: 160px;
+  height: 50px;
+
+  &.isAutorizedUser {
+    height: 160px;
+  }
 
   @media (min-width: $width-portrait-tablet) {
     display: none;
@@ -37,6 +41,7 @@
     padding-left: 35px !important;
     height: 40px;
     min-height: 40px !important;
+    line-height: 40px !important;
   }
 }
 

@@ -17,6 +17,7 @@
 }
 
 .overflowScrolling {
+  position: relative;
   overflow-x: scroll;
   display: flex;
   padding-bottom: 10px;

@@ -7,7 +7,8 @@ import {
   changeSortUserContent,
   changeTypeUserContent,
   fetchUserContent,
-  fetchMoreUserContent
+  fetchMoreUserContent,
+  goToHome
 } from '_actions';
 import User from '_components/User';
 
@@ -19,7 +20,8 @@ class UserContainer extends React.Component {
     fetchMoreUserContent: PropTypes.func.isRequired,
     editProfile: PropTypes.func.isRequired,
     changeSortUserContent: PropTypes.func.isRequired,
-    changeTypeUserContent: PropTypes.func.isRequired
+    changeTypeUserContent: PropTypes.func.isRequired,
+    goToHome: PropTypes.func.isRequired
   };
 
   componentWillMount() {
@@ -30,8 +32,12 @@ class UserContainer extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const { token } = nextProps.user;
-    if (token !== this.props.user.token && token) {
-      this.props.fetchUserContent();
+    if (token !== this.props.user.token) {
+      if (token) {
+        this.props.fetchUserContent();
+      } else {
+        this.props.goToHome();
+      }
     }
   }
 
@@ -46,7 +52,7 @@ class UserContainer extends React.Component {
       changeTypeUserContent
     } = this.props;
 
-    if (!user) {
+    if (!user.token) {
       return null;
     }
 
@@ -76,7 +82,8 @@ const mapDispatchToProps = dispatch =>
       fetchMoreUserContent,
       editProfile,
       changeSortUserContent,
-      changeTypeUserContent
+      changeTypeUserContent,
+      goToHome
     },
     dispatch
   );

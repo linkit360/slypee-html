@@ -4,6 +4,11 @@
   width: 75px;
   height: 75px;
   cursor: pointer;
+
+  @media (max-width: $width-landscape-tablet) {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .menuPopover {
