@@ -45,19 +45,19 @@ class AppsGrid extends React.PureComponent {
 
   init() {
     const { startCountRows } = this.props;
-    const { isMobileWidth } = this.props.environment;
+    const { isPortraitPhone } = this.props.environment;
     this.setState({
-      countShowItems: isMobileWidth
+      countShowItems: isPortraitPhone
         ? MOBILE_COUNT_CARDS_IN_BLOCK
         : this.getCountItemsInRow() * startCountRows
     });
   }
 
   getCountItemsInBlock = () => {
-    const { isMobileWidth } = this.props.environment;
+    const { isPortraitPhone } = this.props.environment;
     const countItemsInRaw = this.getCountItemsInRow();
 
-    return isMobileWidth
+    return isPortraitPhone
       ? MOBILE_COUNT_CARDS_IN_BLOCK
       : countItemsInRaw * COUNT_ROWS_IN_BLOCK;
   };
@@ -77,12 +77,12 @@ class AppsGrid extends React.PureComponent {
   }
 
   addItems() {
-    const { isMobileWidth } = this.props.environment;
+    const { isPortraitPhone } = this.props.environment;
     const countItemsInRaw = this.getCountItemsInRow();
     const { countShowItems } = this.state;
     const countItemsInBlock = this.getCountItemsInBlock();
     this.setState({
-      countShowItems: isMobileWidth
+      countShowItems: isPortraitPhone
         ? countShowItems + MOBILE_COUNT_CARDS_IN_BLOCK
         : Math.floor(countShowItems / countItemsInRaw) * countItemsInRaw +
           countItemsInBlock
@@ -105,7 +105,7 @@ class AppsGrid extends React.PureComponent {
 
   render() {
     const { cards, environment, className } = this.props;
-    const { isMobileWidth } = environment;
+    const { isPortraitPhone } = environment;
     const { countShowItems, isFetching } = this.state;
 
     const stubs = [];
@@ -124,7 +124,7 @@ class AppsGrid extends React.PureComponent {
               <AppCard
                 key={index}
                 className={styles.card}
-                isHorisontal={isMobileWidth}
+                isHorisontal={isPortraitPhone}
                 {...app}
               />
             ))}

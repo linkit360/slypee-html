@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 Добавляет объект environment в props компонента.
  */
 
-const maxMobileWidth = 768;
+const portraitPhoneWidth = 320;
 
 export default function environmentHOC(Component) {
   class EnvironmentComponent extends React.Component {
@@ -17,12 +17,12 @@ export default function environmentHOC(Component) {
 
     render() {
       const { environment } = this.props;
-      const isMobileWidth = environment.width <= maxMobileWidth;
+      const isPortraitPhone = environment.width <= portraitPhoneWidth;
 
       return (
         <Component
           {...this.props}
-          environment={{ ...environment, isMobileWidth }}
+          environment={{ ...environment, isPortraitPhone }}
         />
       );
     }

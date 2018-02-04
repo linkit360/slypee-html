@@ -78,6 +78,7 @@
 
   @media (max-width: $width-portrait-tablet) {
     width: 100% !important;
+    min-width: 0;
   }
 
   button {

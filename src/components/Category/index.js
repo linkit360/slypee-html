@@ -82,7 +82,7 @@ export default class Category extends React.PureComponent {
           />
           <Divider className={styles.mobile} />
           <div className={styles.newText}>NEW</div>
-          {newApps.length > 0 && (
+          {
             <SlickWithSlider className={styles.slick} isAppCards isSmooth>
               {newApps.map((app, index) => (
                 <div key={index} className={styles.card}>
@@ -90,7 +90,7 @@ export default class Category extends React.PureComponent {
                 </div>
               ))}
             </SlickWithSlider>
-          )}
+          }
         </div>
       </div>
     );

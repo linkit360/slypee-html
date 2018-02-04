@@ -9,7 +9,11 @@ $card-margin-right: 14px;
   justify-content: space-between;
   margin-right: -$card-margin-right;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-phone) {
+    justify-content: space-around;
+  }
+
+  @media (max-width: $width-portrait-phone) {
     flex-direction: column;
     align-items: center;
     margin-right: 0;
@@ -20,7 +24,7 @@ $card-margin-right: 14px;
   margin-right: $card-margin-right;
   margin-bottom: 28px;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-portrait-phone) {
     margin-right: 0;
     margin-bottom: 16px;
   }

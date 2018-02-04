@@ -11,6 +11,10 @@
   padding-bottom: 0;
   position: relative;
 
+  @media (max-width: $width-small-desktop) {
+    padding: 30px 30px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     padding: 21px 17px;
   }
@@ -26,6 +30,7 @@
 }
 
 .description {
+  text-align: justify;
   font-size: 16px;
   padding-top: 29px;
   margin-left: -2px;
@@ -45,7 +50,12 @@
   margin-top: 28px;
 
   @media (max-width: $width-portrait-tablet) {
-    width: auto;
+    width: 320px;
+  }
+
+  @media (max-width: 600px) {
+    margin-top: 60px;
+    margin-left: -16px;
   }
 
   div:nth-child(1) {
@@ -69,7 +79,7 @@
   height: 102px;
   color: $color-black !important;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-small-desktop) {
     height: 65px;
     font-size: 16px !important;
   }
@@ -79,14 +89,37 @@
   position: absolute;
   right: 62px;
   bottom: 36px;
+
+  @media (max-width: $width-small-desktop) {
+    right: 13px;
+  }
+
+  @media (max-width: $width-portrait-tablet) {
+    right: -10px;
+  }
+
+  @media (max-width: 600px) {
+    bottom: 70px;
+  }
 }
 
 .content {
   padding: 0 80px;
   padding-top: 78px;
 
+  @media (max-width: $width-small-desktop) {
+    padding: 0 30px;
+    padding-top: 30px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
+    padding: 0 10px;
+    padding-top: 30px;
+  }
+
+  @media (max-width: $width-portrait-phone) {
     padding: 0;
+    padding-top: 30px;
   }
 }
 
@@ -109,6 +142,7 @@
 
   @media (max-width: $width-portrait-tablet) {
     padding: 0 8px;
+    margin-right: 0;
   }
 }
 
