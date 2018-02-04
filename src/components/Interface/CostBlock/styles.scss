@@ -13,6 +13,14 @@
     }
   }
 
+  @media (max-width: $width-small-desktop) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    font-size: 13px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     font-size: 14px;
   }
@@ -43,6 +51,10 @@
     }
   }
 
+  @media (max-width: $width-small-desktop) {
+    font-size: 11px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     font-size: 11px;
     padding-left: 2px;
@@ -69,6 +81,10 @@
     @media (max-width: $width-portrait-tablet) {
       font-size: 12px;
     }
+  }
+
+  @media (max-width: $width-small-desktop) {
+    font-size: 11px;
   }
 
   @media (max-width: $width-portrait-tablet) {

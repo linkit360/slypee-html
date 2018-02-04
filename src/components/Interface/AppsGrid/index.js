@@ -6,7 +6,6 @@ import AppCard from '_components/Interface/AppCard';
 import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
 
-const CARD_WIDTH = 244;
 const COUNT_ROWS_IN_BLOCK = 2;
 const MOBILE_COUNT_CARDS_IN_BLOCK = 6;
 const MAX_COUNT_CARDS_IN_ROW = 7;
@@ -64,7 +63,13 @@ class AppsGrid extends React.PureComponent {
   };
 
   getCountItemsInRow() {
-    return Math.floor(this.root.offsetWidth / CARD_WIDTH);
+    const margin = parseInt(
+      window.getComputedStyle(this.root.firstChild).marginRight,
+      10
+    );
+    return Math.floor(
+      this.root.offsetWidth / (this.root.firstChild.offsetWidth + margin)
+    );
   }
 
   toogleFetching(isFetching) {
@@ -106,7 +111,7 @@ class AppsGrid extends React.PureComponent {
     const stubs = [];
     for (let i = 0; i < MAX_COUNT_CARDS_IN_ROW; i++) {
       stubs.push(
-        <AppCard key={i} className={classNames(styles.stub, styles.card)} />
+        <AppCard key={i} className={classNames(styles.card, styles.stub)} />
       );
     }
 

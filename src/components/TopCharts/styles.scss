@@ -36,6 +36,10 @@
   margin-bottom: 66px;
   padding: 0 83px;
 
+  @media (max-width: $width-small-desktop) {
+    padding: 0 24px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     padding: 0 16px;
   }

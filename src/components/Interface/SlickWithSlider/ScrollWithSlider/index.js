@@ -5,8 +5,6 @@ import Slider from 'material-ui/Slider';
 import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
 
-const CARD_MARGIN = 20;
-
 class ScrollWithSlider extends React.PureComponent {
   static propTypes = {
     environment: PropTypes.object.isRequired,
@@ -43,12 +41,14 @@ class ScrollWithSlider extends React.PureComponent {
     }
     const countCards = children.length;
     const wrapperWidth = this.wrapper.offsetWidth;
-    const cardWidth = this.cards.childNodes[0].offsetWidth;
+    const cardNode = this.cards.firstChild;
+    const cardWidth = cardNode.offsetWidth;
+    const margin = parseInt(window.getComputedStyle(cardNode).marginRight, 10);
     const cardsToShow = Math.floor(
-      (wrapperWidth + CARD_MARGIN) / (cardWidth + CARD_MARGIN)
+      (wrapperWidth + margin) / (cardWidth + margin)
     );
-    const margin = (wrapperWidth - cardWidth * cardsToShow) / (cardsToShow - 1);
-    const cardsWidth = countCards * cardWidth + margin * (countCards - 1);
+    const space = (wrapperWidth - cardWidth * cardsToShow) / (cardsToShow - 1);
+    const cardsWidth = countCards * cardWidth + space * (countCards - 1);
     this.cards.style.width = `${cardsWidth}px`;
   }
 
@@ -83,6 +83,7 @@ class ScrollWithSlider extends React.PureComponent {
         {showSlider && (
           <Slider
             className={styles.slider}
+            step={0.0001}
             onChange={this.handleSliderChange}
           />
         )}

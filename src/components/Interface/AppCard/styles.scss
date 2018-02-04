@@ -8,6 +8,16 @@
   position: relative;
   text-align: left;
 
+  @media (max-width: $width-small-desktop) {
+    width: 182px;
+    height: 319px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    width: 148px;
+    height: 260px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     width: 129px;
     height: 214px;
@@ -35,6 +45,16 @@
   background-position: center;
   margin: auto;
 
+  @media (max-width: $width-small-desktop) {
+    width: 162px;
+    height: 162px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    width: 132px;
+    height: 132px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     width: 114px;
     height: 114px;
@@ -44,6 +64,16 @@
 .content {
   padding: 0 33px;
   padding-top: 21px;
+
+  @media (max-width: $width-small-desktop) {
+    padding: 0 26px;
+    padding-top: 14px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    padding: 0 22px;
+    padding-top: 7px;
+  }
 
   @media (max-width: $width-portrait-tablet) {
     padding: 0 8px;
@@ -72,6 +102,16 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 
+  @media (max-width: $width-small-desktop) {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     font-size: 13px;
     padding-top: 8px;
@@ -97,6 +137,14 @@
   overflow: hidden;
   text-overflow: ellipsis;
 
+  @media (max-width: $width-small-desktop) {
+    font-size: 11px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    font-size: 11px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     display: none;
 
@@ -111,6 +159,15 @@
   position: absolute;
   bottom: 29px;
   left: 29px;
+
+  @media (max-width: $width-small-desktop) {
+    bottom: 19px;
+    left: 25px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    left: 20px;
+  }
 
   @media (max-width: $width-portrait-tablet) {
     left: 4px;
@@ -129,6 +186,10 @@
 }
 
 .rating {
+  @media (max-width: $width-landscape-tablet) {
+    margin-bottom: -8px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     padding-left: 3px;
     position: relative;

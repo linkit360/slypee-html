@@ -36,7 +36,7 @@
 .buttonMore {
   width: 91px !important;
   position: absolute !important;
-  right: 8px;
+  right: 0;
   top: -5px;
 
   @media (max-width: $width-portrait-tablet) {
@@ -51,6 +51,7 @@
 .card {
   position: relative;
   width: auto;
+  margin-right: 14px;
 
   @media (max-width: $width-portrait-tablet) {
     padding-right: 17px;
