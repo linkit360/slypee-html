@@ -207,7 +207,28 @@
   @media (max-width: $width-portrait-tablet) {
     padding-left: 10px;
     padding-right: 10px;
-    min-width: 590px;
+
+    &.countTabs {
+      &4 {
+        min-width: 360px;
+      }
+
+      &5 {
+        min-width: 450px;
+      }
+
+      &6 {
+        min-width: 540px;
+      }
+
+      &7 {
+        min-width: 630px;
+      }
+
+      &8 {
+        min-width: 720px;
+      }
+    }
   }
 
   button {
@@ -252,16 +273,6 @@
       }
     }
   }
-}
-
-.overflowScrollingWrapper {
-  background-color: $color-black !important;
-  overflow: hidden;
-  margin-bottom: -9px;
-}
-
-.overflowScrolling {
-  overflow-x: scroll;
 }
 
 .avatarBlock {

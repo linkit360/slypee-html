@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import FlatButton from 'material-ui/FlatButton';
 import Popover from 'material-ui/Popover';
 import TextField from 'material-ui/TextField';
 import { Tabs, Tab } from 'material-ui/Tabs';
-import OverflowScrolling from 'react-overflow-scrolling';
+import ScrollHidden from '_components/Interface/ScrollHidden';
 import Icon from '_components/Interface/Icon';
 import AvatarBlock from './AvatarBlock';
 import MobileSearchBlock from './MobileSearchBlock';
@@ -174,21 +175,22 @@ export default class Header extends React.Component {
             />
           </div>
         </div>
-        <div className={styles.overflowScrollingWrapper}>
-          <OverflowScrolling className={styles.overflowScrolling}>
-            <Tabs
-              className={styles.tabs}
-              value={activeTab}
-              onChange={this.handleTabChange}
-            >
-              <Tab value="home" label="home" />
-              <Tab value="topcharts" label="top charts" />
-              {mainMenu.map((category, index) => (
-                <Tab key={index} value={category.slug} label={category.name} />
-              ))}
-            </Tabs>
-          </OverflowScrolling>
-        </div>
+        <ScrollHidden className={styles.overflowScrolling}>
+          <Tabs
+            className={classNames(
+              styles.tabs,
+              styles[`countTabs${2 + mainMenu.length}`]
+            )}
+            value={activeTab}
+            onChange={this.handleTabChange}
+          >
+            <Tab value="home" label="home" />
+            <Tab value="topcharts" label="top charts" />
+            {mainMenu.map((category, index) => (
+              <Tab key={index} value={category.slug} label={category.name} />
+            ))}
+          </Tabs>
+        </ScrollHidden>
       </div>
     );
   }

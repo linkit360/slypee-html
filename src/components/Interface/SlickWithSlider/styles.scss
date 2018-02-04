@@ -12,14 +12,7 @@
   }
 }
 
-.scrollWrapper {
-  overflow-x: hidden;
-}
-
 .overflowScrolling {
-  position: relative;
-  overflow-x: scroll;
   display: flex;
   padding-bottom: 10px;
-  margin-bottom: -10px;
 }

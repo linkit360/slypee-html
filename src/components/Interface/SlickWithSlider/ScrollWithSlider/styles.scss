@@ -31,13 +31,10 @@
 }
 
 .scrollBlock {
-  overflow-x: scroll;
   padding: 0 10px;
   padding-bottom: 24px;
-  margin-bottom: -9px;
 }
 
-.scrollWrapper {
-  overflow-y: hidden;
+.scrollHidden {
   margin: 0 -10px;
 }

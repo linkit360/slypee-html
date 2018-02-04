@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Slider from 'material-ui/Slider';
+import ScrollHidden from '_components/Interface/ScrollHidden';
 import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
 
@@ -86,7 +87,7 @@ class ScrollWithSlider extends React.PureComponent {
 
     return (
       <div ref={this.rootRef} className={styles.scrollWithSlider}>
-        <div className={styles.scrollWrapper}>
+        <ScrollHidden className={styles.scrollHidden}>
           <div ref={this.scrollRef} className={styles.scrollBlock}>
             <div
               ref={this.cardsRef}
@@ -97,7 +98,7 @@ class ScrollWithSlider extends React.PureComponent {
               {children}
             </div>
           </div>
-        </div>
+        </ScrollHidden>
         {showSlider && (
           <Slider
             className={styles.slider}

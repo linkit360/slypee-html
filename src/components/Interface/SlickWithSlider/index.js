@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import OverflowScrolling from 'react-overflow-scrolling';
+import ScrollHidden from '_components/Interface/ScrollHidden';
 import ScrollWithSlider from './ScrollWithSlider';
 import styles from './styles.scss';
 
@@ -25,9 +25,11 @@ class SlickWithSlider extends React.PureComponent {
         </div>
         <div className={styles.mobile}>
           <div className={styles.scrollWrapper}>
-            <OverflowScrolling className={styles.overflowScrolling}>
-              {this.props.children}
-            </OverflowScrolling>
+            <ScrollHidden>
+              <div className={styles.overflowScrolling}>
+                {this.props.children}
+              </div>
+            </ScrollHidden>
           </div>
         </div>
       </div>

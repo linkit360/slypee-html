@@ -9,6 +9,10 @@
   font-size: 20px;
   font-family: 'Roboto-Regular', sans-serif;
   color: #546e7a;
+
+  @media (max-width: $width-small-desktop) {
+    font-size: 16px !important;
+  }
 }
 
 .filter {
@@ -16,6 +20,11 @@
   font-family: 'Roboto-Regular', sans-serif !important;
   margin-top: -6px;
   width: 235px !important;
+
+  @media (max-width: $width-small-desktop) {
+    font-size: 16px !important;
+    width: 220px !important;
+  }
 }
 
 .filterItem {
@@ -24,4 +33,8 @@
   height: 46px !important;
   display: flex !important;
   align-items: center;
+
+  @media (max-width: $width-small-desktop) {
+    font-size: 14px !important;
+  }
 }

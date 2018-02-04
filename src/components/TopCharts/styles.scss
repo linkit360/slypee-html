@@ -20,15 +20,34 @@
   justify-content: space-between;
   font-size: 41px;
   padding-left: 87px;
+
+  @media (max-width: $width-small-desktop) {
+    padding-left: 24px;
+  }
 }
 
 .headerRight {
   display: flex;
   margin-right: 82px;
+
+  @media (max-width: $width-small-desktop) {
+    margin-right: 24px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    margin-right: 24px;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+  }
 }
 
 .filterTypeBlock {
   margin-right: 52px;
+
+  @media (max-width: $width-landscape-tablet) {
+    margin-right: 0;
+    margin-top: 10px;
+  }
 }
 
 .content {
