@@ -1,14 +1,16 @@
 @import '~theme/variables';
 
-.desktop {
-  @media (max-width: 470px) {
-    display: none !important;
-  }
+.mobile {
+  display: none;
 }
 
-.mobile {
-  @media (min-width: 470px) {
-    display: none !important;
+@media (max-width: 470px) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
   }
 }
 

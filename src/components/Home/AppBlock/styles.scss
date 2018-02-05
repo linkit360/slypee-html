@@ -1,18 +1,16 @@
 @import '~theme/variables';
 
 .mobile {
-  padding-top: 13px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #e1e1e1;
-
-  @media (min-width: $width-portrait-tablet) {
-    display: none !important;
-  }
+  display: none;
 }
 
-.desktop {
-  @media (max-width: $width-portrait-tablet) {
-    display: none !important;
+@media (max-width: $width-portrait-tablet) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
   }
 }
 

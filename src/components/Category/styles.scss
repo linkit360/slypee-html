@@ -1,8 +1,10 @@
 @import '~theme/variables';
 
 .mobile {
-  @media (min-width: $width-portrait-tablet) {
-    display: none;
+  display: none;
+
+  @media (max-width: $width-portrait-tablet) {
+    display: block;
   }
 }
 

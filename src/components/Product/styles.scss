@@ -1,14 +1,16 @@
 @import '~theme/variables';
 
-.desktop {
-  @media (max-width: $width-portrait-tablet) {
-    display: none !important;
-  }
+.mobile {
+  display: none;
 }
 
-.mobile {
-  @media (min-width: $width-portrait-tablet) {
-    display: none !important;
+@media (max-width: $width-portrait-tablet) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
   }
 }
 
@@ -21,7 +23,7 @@
   display: flex;
   justify-content: center;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-tablet) {
     display: block;
     padding-top: 0;
     padding-bottom: 20px;
@@ -33,9 +35,14 @@
   padding: 45px;
   padding-bottom: 54px;
   align-self: baseline;
+  flex-grow: 1;
+
+  @media (max-width: $width-landscape-tablet) {
+    width: auto;
+    margin: 16px;
+  }
 
   @media (max-width: $width-portrait-tablet) {
-    width: 100%;
     padding: 16px;
     padding-bottom: 3px;
   }
@@ -138,8 +145,10 @@
 }
 
 .mobileDivider {
-  @media (min-width: $width-portrait-tablet) {
-    display: none;
+  display: none;
+
+  @media (max-width: $width-portrait-tablet) {
+    display: block;
   }
 
   width: 200vw;

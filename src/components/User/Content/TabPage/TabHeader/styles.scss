@@ -123,13 +123,14 @@
 }
 
 .buttonBack {
-  position: absolute;
-  top: 12px;
-  left: 16px;
-  color: $color-light-gray;
-  z-index: 10;
+  display: none;
 
-  @media (min-width: $width-portrait-tablet) {
-    display: none;
+  @media (max-width: $width-portrait-tablet) {
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    color: $color-light-gray;
+    z-index: 10;
   }
 }

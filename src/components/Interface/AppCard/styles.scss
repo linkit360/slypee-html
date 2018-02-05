@@ -189,11 +189,6 @@
   @media (max-width: $width-portrait-tablet) {
     padding-left: 3px;
     position: relative;
-    top: 9px;
-
-    .isHorisontal & {
-      top: 7px;
-    }
   }
 }
 

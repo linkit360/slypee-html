@@ -5,28 +5,38 @@
   width: 18px;
   margin-right: 10px;
 
-  .big & {
-    width: 24px;
-    margin-right: 14px;
-
-    @media (max-width: $width-portrait-tablet) {
-      width: 12px;
-      margin-right: 7px;
-    }
-  }
-
   @media (max-width: $width-small-desktop) {
     width: 16px;
     margin-right: 6.2px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    width: 12px;
+    margin-right: 3.7px;
   }
 
   @media (max-width: $width-portrait-phone) {
     width: 12px;
   }
 
-  @media (max-width: $width-portrait-tablet) {
-    width: 12px;
-    margin-right: 3.7px;
+  .big & {
+    width: 24px;
+    margin-right: 14px;
+
+    @media (max-width: 900px) {
+      width: 21px;
+      margin-right: 7px;
+    }
+
+    @media (max-width: $width-small-desktop) {
+      width: 16px;
+      margin-right: 6.2px;
+    }
+
+    @media (max-width: $width-portrait-tablet) {
+      width: 12px;
+      margin-right: 7px;
+    }
   }
 
   .isLong & {

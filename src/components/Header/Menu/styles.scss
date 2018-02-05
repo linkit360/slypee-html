@@ -1,24 +1,26 @@
 @import '~theme/variables';
 
 .header {
-  color: white;
-  background-color: $color-orange;
-  height: 50px;
+  display: none;
 
-  &.isAutorizedUser {
-    height: 160px;
-  }
+  @media (max-width: $width-portrait-tablet) {
+    display: block;
+    color: white;
+    background-color: $color-orange;
+    height: 50px;
 
-  @media (min-width: $width-portrait-tablet) {
-    display: none;
+    &.isAutorizedUser {
+      height: 160px;
+    }
   }
 }
 
 .mobileItems {
-  padding-bottom: 9px;
+  display: none;
 
-  @media (min-width: $width-portrait-tablet) {
-    display: none;
+  @media (max-width: $width-portrait-tablet) {
+    padding-bottom: 9px;
+    display: block;
   }
 }
 

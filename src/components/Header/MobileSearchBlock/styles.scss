@@ -1,17 +1,18 @@
 @import '~theme/variables';
 
 .mobileSearchBlock {
-  position: absolute;
-  height: 100%;
-  padding: 10px;
-  padding-top: 28px;
-  box-sizing: border-box;
-  top: 0;
-  right: 0;
-  width: 50px;
+  display: none;
 
-  @media (min-width: $width-portrait-tablet) {
-    display: none;
+  @media (max-width: $width-portrait-tablet) {
+    position: absolute;
+    height: 100%;
+    padding: 10px;
+    padding-top: 28px;
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    width: 50px;
+    display: block;
   }
 
   &.isSearchMode {

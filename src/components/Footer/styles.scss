@@ -1,14 +1,16 @@
 
 @import '~theme/variables';
 
-.desktop {
-  @media (max-width: $width-portrait-tablet) {
-    display: none !important;
-  }
+.mobile {
+  display: none !important;
 }
 
-.mobile {
-  @media (min-width: $width-portrait-tablet) {
+@media (max-width: $width-portrait-tablet) {
+  .mobile {
+    display: block !important;
+  }
+
+  .desktop {
     display: none !important;
   }
 }

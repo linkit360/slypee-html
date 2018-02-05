@@ -1,14 +1,16 @@
 @import '~theme/variables';
 
-.desktop {
-  @media (max-width: $width-portrait-tablet) {
-    display: none !important;
-  }
+.mobile {
+  display: none;
 }
 
-.mobile {
-  @media (min-width: $width-portrait-tablet) {
-    display: none !important;
+@media (max-width: $width-portrait-tablet) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
   }
 }
 
@@ -28,6 +30,11 @@
   width: 250px;
   height: 250px;
 
+  @media (max-width: 1100px) {
+    width: 194px;
+    height: 194px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     width: 90px;
     height: 90px;
@@ -44,6 +51,10 @@
 .name {
   font-size: 35px;
 
+  @media (max-width: 900px) {
+    font-size: 25px;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     font-size: 19px;
   }
@@ -54,6 +65,10 @@
   color: $color-font-grey;
   padding-top: 7px;
   padding-left: 2px;
+
+  @media (max-width: 900px) {
+    font-size: 12px;
+  }
 
   @media (max-width: $width-portrait-tablet) {
     font-size: 10px;
@@ -69,6 +84,10 @@
   display: inline-block;
   border-bottom: 1px solid $color-font-grey;
   color: $color-black;
+
+  @media (max-width: 900px) {
+    font-size: 12px;
+  }
 
   @media (max-width: $width-portrait-tablet) {
     font-size: 12px;
@@ -116,6 +135,10 @@
   line-height: 50px !important;
   height: auto !important;
 
+  @media (max-width: 900px) {
+    line-height: 40px !important;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     line-height: 28px !important;
     width: 104px !important;
@@ -142,6 +165,10 @@
   span {
     font-size: 20px !important;
     color: white;
+
+    @media (max-width: 900px) {
+      font-size: 14px !important;
+    }
 
     @media (max-width: $width-portrait-tablet) {
       font-size: 11px !important;
@@ -182,6 +209,12 @@
   @media (max-width: $width-portrait-tablet) {
     display: none;
   }
+
+  @media (max-width: 900px) {
+    bottom: 107px;
+  }
+
+  bottom: 107px;
 }
 
 .buttonFacebook {
@@ -196,6 +229,10 @@
 .buttonFacebook,
 .buttonTwitter {
   cursor: pointer;
+
+  @media (max-width: 900px) {
+    width: 30px;
+  }
 }
 
 .shareText {
@@ -203,4 +240,8 @@
   position: relative;
   left: -16px;
   top: -16px;
+
+  @media (max-width: 900px) {
+    font-size: 10px;
+  }
 }
