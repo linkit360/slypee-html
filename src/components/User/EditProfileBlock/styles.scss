@@ -10,6 +10,11 @@
   @media (max-width: 1800px) {
     padding-left: 35px;
   }
+
+  @media (max-width: $width-landscape-phone) {
+    height: 83px;
+    font-size: 21px;
+  }
 }
 
 .content {
@@ -18,6 +23,18 @@
 
   @media (max-width: 1800px) {
     padding: 27px 33px;
+  }
+
+  @media (max-width: 750px) {
+    flex-direction: column;
+    align-items: center;
+    width: 448px;
+    margin: auto;
+    padding: 27px 0;
+  }
+
+  @media (max-width: 470px) {
+    width: 305px;
   }
 }
 
@@ -28,12 +45,32 @@
   display: flex;
   align-items: center;
   padding-left: 50px;
+  min-width: 481px;
 
   @media (max-width: 1800px) {
     padding-left: 35px;
     height: 216px;
     width: 410px;
     min-width: 410px;
+  }
+
+  @media (max-width: 1270px) {
+    padding-left: 0;
+    flex-direction: column;
+    width: 200px;
+    height: 280px;
+    padding-top: 40px;
+    min-width: 200px;
+  }
+
+  @media (max-width: 750px) {
+    flex-direction: row;
+    height: 166px;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    margin-bottom: 28px;
+    width: 100%;
   }
 }
 
@@ -63,10 +100,29 @@
     padding-left: 48px;
     padding-top: 33px;
   }
+
+  @media (max-width: 1080px) {
+    padding: 17px;
+    padding-bottom: 0;
+  }
+
+  @media (max-width: 750px) {
+    width: 100%;
+  }
 }
 
 .buttonChangeImage {
   margin-left: 35px !important;
+  padding-left: 12px !important;
+
+  @media (max-width: 1270px) {
+    margin-left: 0 !important;
+    margin-top: 15px !important;
+  }
+
+  @media (max-width: 750px) {
+    margin: 0 !important;
+  }
 }
 
 .topBlock {
@@ -80,15 +136,36 @@
 
 .textfields {
   display: flex;
+
+  @media (max-width: 1270px) {
+    justify-content: space-between;
+  }
+
+  @media (max-width: 470px) {
+    flex-wrap: wrap;
+  }
 }
 
 .textField {
   width: 316px !important;
+
+  @media (max-width: 1270px) {
+    width: 45% !important;
+    font-size: 14px !important;
+  }
+
+  @media (max-width: 470px) {
+    width: 100% !important;
+  }
 }
 
 .textFieldEmail,
 .textFieldPassword {
   margin-left: 52px !important;
+
+  @media (max-width: 1270px) {
+    margin-left: 0 !important;
+  }
 }
 
 .textFieldPasswordConfirm {
@@ -97,6 +174,11 @@
 
   @media (max-width: 1700px) {
     margin-left: 52px;
+  }
+
+  @media (max-width: 1270px) {
+    margin: 0;
+    min-width: 0;
   }
 }
 
@@ -113,32 +195,26 @@
     width: 50vw;
     min-width: 684px;
   }
+
+  @media (max-width: 1270px) {
+    justify-content: space-between;
+    width: auto;
+    flex-wrap: wrap;
+    min-width: 0;
+  }
 }
 
 .footer {
   margin-top: 63px;
   display: flex;
   justify-content: flex-end;
-  padding-right: 11px;
   margin-bottom: 35px;
 }
 
 .buttonSave {
   width: 204px !important;
-  height: 40px !important;
-
-  span {
-    font-size: 16px !important;
-    line-height: 40px !important;
-  }
 }
 
 .buttonCancel {
   margin-right: 28px !important;
-  height: 40px !important;
-
-  span {
-    font-size: 16px !important;
-    line-height: 40px !important;
-  }
 }

@@ -6,11 +6,13 @@
   display: block;
 
   span {
+    font-size: 18px !important;
     color: white !important;
     line-height: 47px;
 
     @media (max-width: $width-portrait-tablet) {
       line-height: 38px;
+      font-size: 14px !important;
     }
   }
 
