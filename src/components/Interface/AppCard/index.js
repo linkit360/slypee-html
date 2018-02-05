@@ -72,7 +72,9 @@ export default class AppCard extends React.PureComponent {
         </Link>
         <div className={styles.content}>
           <Link className={styles.link} to={href}>
-            <Dotdotdot clamp={2}>{name}</Dotdotdot>
+            <Dotdotdot className={styles.dotdotdot} clamp={2}>
+              {name}
+            </Dotdotdot>
           </Link>
           <p className={styles.producer}>{producer}</p>
         </div>

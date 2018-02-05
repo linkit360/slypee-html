@@ -62,7 +62,9 @@ export default class App extends React.PureComponent {
             style={{ backgroundImage: `url(${logo})` }}
           />
           <div className={styles.name}>
-            <Dotdotdot clamp={2}>{name}</Dotdotdot>
+            <Dotdotdot className={styles.dotdotdot} clamp={2}>
+              {name}
+            </Dotdotdot>
           </div>
           {this.getCategoryLink(styles.mobile)}
           <div className={styles.ratingWrapper}>

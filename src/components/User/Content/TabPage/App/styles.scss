@@ -1,13 +1,13 @@
 @import '~theme/variables';
 
 .desktop {
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 470px) {
     display: none !important;
   }
 }
 
 .mobile {
-  @media (min-width: $width-portrait-tablet) {
+  @media (min-width: 470px) {
     display: none !important;
   }
 }
@@ -27,11 +27,14 @@
     padding-left: 28px;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 700px) {
+    height: 200px;
+  }
+
+  @media (max-width: 470px) {
     height: 202px;
     width: 320px;
     margin: auto;
-    display: block;
     padding: 0;
     position: relative;
     padding-left: 84px;
@@ -45,12 +48,17 @@
   background-size: cover;
   background-position: center;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 700px) {
+    margin-top: -56px;
+  }
+
+  @media (max-width: 470px) {
     height: 58px;
     width: 58px;
     position: absolute;
     top: 23px;
     left: 7px;
+    margin-top: 0;
   }
 }
 
@@ -59,10 +67,20 @@
   padding-left: 42px;
   width: 263px;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 1200px) {
+    margin-top: -54px;
+    width: 240px;
+  }
+
+  @media (max-width: 700px) {
+    margin-top: -100px;
+    padding-left: 22px;
     font-size: 15px;
+  }
+
+  @media (max-width: 470px) {
     padding: 0;
-    padding-top: 22px;
+    margin-top: -125px;
   }
 }
 
@@ -70,9 +88,22 @@
   padding-left: 78px;
   padding-top: 3px;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 1200px) {
+    position: absolute;
+    left: 70px;
+    bottom: 30px;
+  }
+
+  @media (max-width: 700px) {
+    left: 52px;
+    bottom: 76px;
+  }
+
+  @media (max-width: 470px) {
     padding-left: 0;
     padding-top: 7px;
+    left: 81px;
+    top: 50px;
   }
 }
 
@@ -84,13 +115,27 @@
     padding-top: 7px;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 970px) {
+    position: absolute;
+    right: 0;
+    top: 23px;
+  }
+
+  @media (max-width: 700px) {
+    top: 133px;
+    right: auto;
+    left: 66px;
+    font-size: 12px;
+  }
+
+  @media (max-width: 470px) {
     padding: 0;
     margin-top: -8px;
+    left: auto;
+    top: 117px;
 
     div:last-child {
       padding-top: 0;
-      margin-top: -6px;
     }
   }
 }
@@ -98,7 +143,7 @@
 .purchaseText {
   color: $color-font-grey;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 470px) {
     font-size: 10px;
   }
 }
@@ -107,7 +152,7 @@
   display: inline;
   padding-left: 19px;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 470px) {
     padding-left: 10px;
   }
 }
@@ -116,7 +161,11 @@
   font-size: 18px;
   padding-left: 28px;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 700px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 470px) {
     font-size: 12px;
     padding-left: 20px;
   }
@@ -129,11 +178,15 @@
   border-bottom: 1px solid $color-font-grey;
   padding-top: 4px;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 700px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 470px) {
     font-size: 10px;
     margin: 0;
-    position: relative;
-    top: 2px;
+    position: absolute;
+    top: 78px;
   }
 }
 
@@ -146,7 +199,15 @@
     bottom: 45px;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 970px) {
+    bottom: 23px;
+  }
+
+  @media (max-width: 700px) {
+    bottom: 21px;
+  }
+
+  @media (max-width: 470px) {
     right: -6px;
     bottom: 16px;
   }
@@ -159,7 +220,7 @@
       font-size: 14px !important;
     }
 
-    @media (max-width: $width-portrait-tablet) {
+    @media (max-width: 700px) {
       font-size: 12px !important;
     }
   }
@@ -170,7 +231,7 @@
   top: 10px;
   color: $color-orange;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 470px) {
     width: 14px;
     top: 9px;
     left: 6px;
@@ -186,7 +247,18 @@
     top: 39px;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 970px) {
+    top: auto;
+    bottom: 23px;
+    right: 182px;
+  }
+
+  @media (max-width: 700px) {
+    bottom: 45px;
+    right: 7px;
+  }
+
+  @media (max-width: 470px) {
     right: 133px;
     bottom: 17px;
     top: auto;
@@ -200,8 +272,12 @@
       font-size: 14px !important;
     }
 
-    @media (max-width: $width-portrait-tablet) {
+    @media (max-width: 700px) {
       font-size: 12px !important;
     }
   }
+}
+
+.dotdotdot {
+  word-break: break-word !important;
 }
