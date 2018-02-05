@@ -16,9 +16,15 @@
 
 .form {
   height: 725px;
-  padding: 0 80px;
   padding-top: 76px;
   box-sizing: border-box;
+
+  @media (max-width: 500px) {
+    padding-top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .logo {
@@ -27,13 +33,24 @@
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  background-size: 254px;
+  background-size: 154px;
+
+  @media (max-width: 500px) {
+    background-size: 154px;
+    flex-grow: 1;
+    position: relative;
+    top: 28px;
+  }
 }
 
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 500px) {
+    padding-bottom: 20px;
+  }
 }
 
 .textFieldEmail,
@@ -43,6 +60,10 @@
 
 .textFieldEmail {
   margin-top: 62px;
+
+  @media (max-width: 500px) {
+    margin: 0;
+  }
 }
 
 .textFieldPassword {

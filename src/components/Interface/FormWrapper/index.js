@@ -18,8 +18,8 @@ export default class FormWrapper extends React.Component {
     return (
       <div className={classNames(styles.center, className)}>
         <Paper className={styles.form}>
-          <Link to="/">
-            <Icon className={styles.backButton} name="arrow-back" />
+          <Link className={styles.backButton} to="/">
+            <Icon name="arrow-back" />
           </Link>
           {children}
         </Paper>

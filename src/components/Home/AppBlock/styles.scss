@@ -45,16 +45,17 @@
   right: 0;
   top: -5px;
 
+  @media (max-width: $width-small-desktop) {
+    width: 66px !important;
+  }
+
   @media (max-width: $width-portrait-tablet) {
     position: static !important;
     margin: auto !important;
     display: block !important;
     width: 126px !important;
     margin-top: 7px !important;
-  }
-
-  @media (max-width: $width-small-desktop) {
-    width: 66px !important;
+    margin-bottom: 20px !important;
   }
 }
 

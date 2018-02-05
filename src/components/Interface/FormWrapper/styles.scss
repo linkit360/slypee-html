@@ -1,3 +1,5 @@
+@import '~theme/variables';
+
 .center {
   display: flex;
   min-height: 100vh;
@@ -9,6 +11,14 @@
 .form {
   width: 478px;
   position: relative;
+  padding: 0 80px;
+
+  @media (max-width: 500px) {
+    width: 320px;
+    padding: 0 16px;
+    height: 100vh;
+    min-height: 568px;
+  }
 }
 
 .backButton {
@@ -16,4 +26,5 @@
   top: 28px;
   left: 29px;
   color: #a2a7a9;
+  z-index: 10;
 }

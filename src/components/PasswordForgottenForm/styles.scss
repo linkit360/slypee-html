@@ -16,9 +16,15 @@
 
 .form {
   height: 550px;
-  padding: 0 80px;
   padding-top: 66px;
   box-sizing: border-box;
+
+  @media (max-width: 500px) {
+    padding-top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .logo {
@@ -28,17 +34,32 @@
   background-position: center;
   position: relative;
   background-size: 124px;
+
+  @media (max-width: 500px) {
+    background-size: 154px;
+    flex-grow: 1;
+    position: relative;
+    top: 28px;
+  }
 }
 
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (max-width: 500px) {
+    padding-bottom: 20px;
+  }
 }
 
 .text {
   font-size: 25px;
   margin-top: 48px;
+
+  @media (max-width: 500px) {
+    font-size: 20px;
+  }
 }
 
 .textField {

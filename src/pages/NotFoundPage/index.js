@@ -7,10 +7,12 @@ import Paper from 'material-ui/Paper';
 import styles from './styles.scss';
 
 const NotFound = (): Element<'div'> => (
-  <Paper className={styles.papper}>
-    <div className={styles.img} />
-    <div className={styles.text}>PAGE NOT FOUND</div>
-  </Paper>
+  <div className={styles.center}>
+    <Paper className={styles.papper}>
+      <div className={styles.img} />
+      <div className={styles.text}>PAGE NOT FOUND</div>
+    </Paper>
+  </div>
 );
 
 export default NotFound;
