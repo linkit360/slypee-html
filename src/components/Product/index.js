@@ -80,7 +80,6 @@ class Product extends React.PureComponent {
       >
         <Paper className={styles.product} zDepth={1}>
           <Header {...this.props} />
-          <Divider className={styles.mobileDivider} />
           {this.getSlick(styles.desktop)}
           {description && (
             <div>
@@ -98,27 +97,25 @@ class Product extends React.PureComponent {
             label={isButtonMoreClicked ? 'Show less' : 'Show more'}
             onClick={this.handleButtonMoreClick}
           />
+          {this.getSlick(styles.mobile)}
         </Paper>
-        {this.getSlick(styles.mobile)}
         {related.length > 0 && (
           <div className={styles.related}>
             <div className={styles.relatedText}>RELATED CONTENT</div>
-            <div className={styles.desktop}>
+            <div className={styles.relatedList}>
               {related.map((app, index) => (
                 <div key={index} className={styles.relatedCard}>
                   <AppCard {...app} isHorisontal={width > 1360} />
                 </div>
               ))}
             </div>
-            <div className={styles.mobile}>
-              <SlickWithSlider>
-                {related.map((app, index) => (
-                  <div key={index} className={styles.relatedSlide}>
-                    <AppCard {...app} />
-                  </div>
-                ))}
-              </SlickWithSlider>
-            </div>
+            <SlickWithSlider className={styles.slickRelated}>
+              {related.map((app, index) => (
+                <div key={index} className={styles.relatedSlide}>
+                  <AppCard {...app} />
+                </div>
+              ))}
+            </SlickWithSlider>
           </div>
         )}
       </div>

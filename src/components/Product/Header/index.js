@@ -76,53 +76,61 @@ export default class Header extends React.PureComponent {
             }}
           />
           <div className={styles.info}>
-            <div className={styles.desktop}>
-              <div className={styles.name}>{name}</div>
-              <div className={styles.producer}>{producer}</div>
-            </div>
-            <Link to={getCategoryUrl(category)}>
-              <div className={styles.category}>{category}</div>
-            </Link>
-            <RatingBlock className={styles.rating} rating={rating} size="big" />
-            <CostBlock
-              className={styles.cost}
-              size="big"
-              price={price}
-              type={type}
-              currency={currency}
-            />
-            <div className={styles.buttons}>
-              <FlatButton
-                className={styles.buttonSubscribe}
-                label={buttonLabels[0]}
-                onClick={this.handleSubscribeClick}
+            <div className={styles.infoBlock}>
+              <div className={styles.desktop}>
+                <div className={styles.name}>{name}</div>
+                <div className={styles.producer}>{producer}</div>
+              </div>
+              <div className={styles.line}>
+                <Link to={getCategoryUrl(category)}>
+                  <div className={styles.category}>{category}</div>
+                </Link>
+                <RatingBlock
+                  className={styles.rating}
+                  rating={rating}
+                  size="big"
+                />
+              </div>
+              <CostBlock
+                className={styles.cost}
+                size="big"
+                price={price}
+                type={type}
+                currency={currency}
               />
-              {buttonLabels[1] && (
+              <div className={styles.buttons}>
                 <FlatButton
-                  className={styles.buttonUnsubscribe}
-                  label={buttonLabels[1]}
-                  onClick={this.handleUnsubscribeClick}
+                  className={styles.buttonSubscribe}
+                  label={buttonLabels[0]}
+                  onClick={this.handleSubscribeClick}
                 />
-              )}
-            </div>
-            <div className={styles.shareBlock}>
-              <span className={styles.shareText}>SHARE</span>
-              <a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}>
-                <Icon
-                  className={styles.buttonFacebook}
-                  name="facebook"
-                  width={42}
-                  height={42}
-                />
-              </a>
-              <a href={`http://twitter.com/share?url=${url}`}>
-                <Icon
-                  className={styles.buttonTwitter}
-                  name="twitter"
-                  width={42}
-                  height={42}
-                />
-              </a>
+                {buttonLabels[1] && (
+                  <FlatButton
+                    className={styles.buttonUnsubscribe}
+                    label={buttonLabels[1]}
+                    onClick={this.handleUnsubscribeClick}
+                  />
+                )}
+              </div>
+              <div className={styles.shareBlock}>
+                <span className={styles.shareText}>SHARE</span>
+                <a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}>
+                  <Icon
+                    className={styles.buttonFacebook}
+                    name="facebook"
+                    width={42}
+                    height={42}
+                  />
+                </a>
+                <a href={`http://twitter.com/share?url=${url}`}>
+                  <Icon
+                    className={styles.buttonTwitter}
+                    name="twitter"
+                    width={42}
+                    height={42}
+                  />
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@
   display: none;
 }
 
-@media (max-width: $width-portrait-tablet) {
+@media (max-width: $width-landscape-phone) {
   .mobile {
     display: block;
   }
@@ -15,12 +15,11 @@
 }
 
 .header {
-  height: 294px;
+  margin-bottom: 35px;
   display: flex;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-phone) {
     padding-top: 17px;
-    height: 114px;
   }
 }
 
@@ -35,17 +34,31 @@
     height: 194px;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 600px) {
+    width: 20vw;
+    height: 20vw;
+  }
+
+  @media (max-width: $width-landscape-phone) {
     width: 90px;
     height: 90px;
   }
 }
 
 .info {
-  width: 63%;
+  flex-grow: 1;
   margin-left: 7.2%;
   margin-top: -11px;
   position: relative;
+
+  @media (max-width: $width-portrait-tablet) {
+    margin-top: 0;
+  }
+
+  @media (max-width: $width-landscape-phone) {
+    margin-left: 25px;
+    margin-top: -11px;
+  }
 }
 
 .name {
@@ -55,7 +68,7 @@
     font-size: 25px;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-phone) {
     font-size: 19px;
   }
 }
@@ -70,7 +83,7 @@
     font-size: 12px;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-phone) {
     font-size: 10px;
     padding-top: 3px;
   }
@@ -89,7 +102,7 @@
     font-size: 12px;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-phone) {
     font-size: 12px;
     text-transform: capitalize;
     padding-top: 7px;
@@ -97,12 +110,11 @@
 }
 
 .rating {
-  position: absolute;
-  right: -1px;
-  bottom: 149px;
+  position: relative;
+  top: 8px;
 
-  @media (max-width: $width-portrait-tablet) {
-    position: relative;
+  @media (max-width: $width-landscape-phone) {
+    top: auto;
     bottom: 2px;
     left: 3px;
   }
@@ -112,7 +124,7 @@
   padding-top: 21px;
   margin-left: -6px;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-phone) {
     padding-top: 0;
     position: relative;
     top: -8px;
@@ -123,10 +135,12 @@
 .buttons {
   padding-top: 10px;
 
-  @media (max-width: $width-portrait-tablet) {
-    position: relative;
+  @media (max-width: $width-landscape-phone) {
     padding-top: 0;
-    top: -4px;
+    display: flex;
+    flex-direction: row-reverse;
+    position: absolute;
+    right: 0;
   }
 }
 
@@ -139,7 +153,7 @@
     line-height: 40px !important;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-phone) {
     line-height: 28px !important;
     width: 104px !important;
   }
@@ -147,7 +161,7 @@
   span {
     padding: 3px 26px !important;
 
-    @media (max-width: $width-portrait-tablet) {
+    @media (max-width: $width-landscape-phone) {
       padding: 0 !important;
     }
   }
@@ -156,9 +170,7 @@
 .buttonSubscribe {
   background-color: $color-orange !important;
 
-  @media (max-width: $width-portrait-tablet) {
-    position: relative;
-    left: 89px;
+  @media (max-width: $width-landscape-phone) {
     width: 90px !important;
   }
 
@@ -170,7 +182,7 @@
       font-size: 14px !important;
     }
 
-    @media (max-width: $width-portrait-tablet) {
+    @media (max-width: $width-landscape-phone) {
       font-size: 11px !important;
     }
   }
@@ -184,7 +196,7 @@
     color: $color-font-grey !important;
     text-decoration: underline;
 
-    @media (max-width: $width-portrait-tablet) {
+    @media (max-width: $width-landscape-phone) {
       font-size: 10px !important;
     }
   }
@@ -194,27 +206,16 @@
       text-decoration: none;
     }
   }
-
-  @media (max-width: $width-portrait-tablet) {
-    position: absolute !important;
-    left: -23px !important;
-  }
 }
 
 .shareBlock {
   position: absolute;
   right: -6px;
-  bottom: 26px;
+  bottom: 0;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: 720px) {
     display: none;
   }
-
-  @media (max-width: 900px) {
-    bottom: 107px;
-  }
-
-  bottom: 107px;
 }
 
 .buttonFacebook {
@@ -243,5 +244,20 @@
 
   @media (max-width: 900px) {
     font-size: 10px;
+  }
+}
+
+.infoBlock {
+  position: relative;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: $width-landscape-phone) {
+    flex-direction: column;
+    align-items: baseline;
   }
 }

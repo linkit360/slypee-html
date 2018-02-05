@@ -28,12 +28,7 @@
       margin-right: 7px;
     }
 
-    @media (max-width: $width-small-desktop) {
-      width: 16px;
-      margin-right: 6.2px;
-    }
-
-    @media (max-width: $width-portrait-tablet) {
+    @media (max-width: $width-landscape-phone) {
       width: 12px;
       margin-right: 7px;
     }
@@ -54,7 +49,7 @@
   .big & {
     font-size: 18px;
 
-    @media (max-width: $width-portrait-tablet) {
+    @media (max-width: $width-landscape-phone) {
       font-size: 11px;
       padding-left: 2px;
     }
