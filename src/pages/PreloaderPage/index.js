@@ -2,7 +2,6 @@
 
 import React from 'react';
 import type { Element } from 'react';
-import Paper from 'material-ui/Paper';
 import CircularProgress from 'material-ui/CircularProgress';
 
 import styles from './styles.scss';

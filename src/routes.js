@@ -23,6 +23,11 @@ export default [
     component: MainPage
   },
   {
+    path: '/:section/:recoveryPasswordToken',
+    exact: true,
+    component: MainPage
+  },
+  {
     path: '/apps/:app',
     exact: true,
     component: MainPage

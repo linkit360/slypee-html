@@ -160,7 +160,7 @@ export const updateProfile = ({
     }
   });
 
-export const recoveryPassword = ({ email }) =>
+export const recoveryPasswordByEmail = ({ email }) =>
   Req.POST({
     url: '/customer/recovery',
     data: {

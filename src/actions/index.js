@@ -83,8 +83,13 @@ export const logout = () => ({
   type: 'LOGOUT'
 });
 
-export const recoveryPassword = data => ({
-  type: 'RECOVERY_PASSWORD',
+export const recoveryPasswordByEmail = data => ({
+  type: 'RECOVERY_PASSWORD_BY_EMAIL',
+  data
+});
+
+export const recoveryPasswordByToken = data => ({
+  type: 'RECOVERY_PASSWORD_BY_TOKEN',
   data
 });
 

@@ -1,0 +1,100 @@
+@import '~theme/variables';
+
+.mobile {
+  display: none;
+}
+
+@media (max-width: $width-portrait-tablet) {
+  .mobile {
+    display: block;
+  }
+
+  .desktop {
+    display: none;
+  }
+}
+
+.form {
+  padding-top: 58px;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+
+  @media (max-width: 500px) {
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+}
+
+.logo {
+  height: 50px;
+  background-image: url('../../images/logo.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  background-size: 124px;
+
+  @media (max-width: 500px) {
+    background-size: 154px;
+    flex-grow: 1;
+    position: relative;
+    top: 28px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 500px) {
+    padding-bottom: 20px;
+  }
+}
+
+.text {
+  font-size: 25px;
+  margin-top: 48px;
+}
+
+.textField {
+  width: 100% !important;
+  margin-top: 5px;
+}
+
+.textFieldUserName {
+  margin-top: 50px !important;
+
+  @media (max-width: 500px) {
+    margin-top: 0 !important;
+  }
+}
+
+.forgotPasswordLink {
+  text-decoration: none;
+  color: #92989b;
+  font-size: 14px;
+  font-family: 'Roboto-Regular', sans-serif;
+  margin-top: 15px;
+}
+
+.buttonCreateAccount {
+  color: #999ea1 !important;
+  margin-top: 64px !important;
+
+  & span {
+    color: #999ea1 !important;
+    font-size: 16px !important;
+  }
+
+  & svg {
+    position: relative;
+    top: 8px;
+  }
+}
+
+.buttonSignIn {
+  width: 100% !important;
+  margin-top: 72px !important;
+}

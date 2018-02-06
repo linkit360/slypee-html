@@ -1,28 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Dialog from 'material-ui/Dialog';
 import TextField from '_components/Interface/TextField';
+import Dialog from 'material-ui/Dialog';
 import Button from '_components/Interface/Button';
 import { validate } from '_utils/common';
 import styles from './styles.scss';
 
-export default class PasswordForgottenForm extends React.PureComponent {
+export default class RecoveryPasswordForm extends React.PureComponent {
   static propTypes = {
-    recoveryPasswordByEmail: PropTypes.func.isRequired
+    token: PropTypes.string.isRequired,
+    recoveryPasswordByToken: PropTypes.func.isRequired
   };
 
   state = {
+    password: '',
     openModal: false
   };
 
-  handleButtonClick = () => {
+  handleTextFieldPasswordBlur = e => {
+    this.setState({ password: e.target.value });
+  };
+
+  handleConfirmClick = () => {
     this.submit();
   };
 
   submit() {
+    const { token, recoveryPasswordByToken } = this.props;
     const data = validate(this.textFields);
     if (data) {
-      this.props.recoveryPasswordByEmail(data);
+      recoveryPasswordByToken({ ...data, token });
       this.setState({ openModal: true });
     }
   }
@@ -38,26 +45,38 @@ export default class PasswordForgottenForm extends React.PureComponent {
   textFieldsRef = ref => this.textFields.push(ref);
 
   render() {
-    const { openModal } = this.state;
+    const { password, openModal } = this.state;
     return (
       <div className={styles.form}>
         <div className={styles.logo} />
         <div className={styles.content}>
-          <div className={styles.text}>PASSWORD FORGOTTEN</div>
+          <div className={styles.text}>PASSWORD RECOVERY</div>
           <TextField
             ref={this.textFieldsRef}
             className={styles.textField}
-            name="email"
-            floatingLabelText="EMAIL"
+            name="password"
+            type="password"
+            floatingLabelText="NEW PASSWORD"
             isRequired
+            minLength={8}
+            onBlur={this.handleTextFieldPasswordBlur}
+          />
+          <TextField
+            ref={this.textFieldsRef}
+            className={styles.textField}
+            name="confirmPassword"
+            type="password"
+            floatingLabelText="CONFIRM PASSWORD"
+            isRequired
+            match={password}
             onKeyDown={this.handleKeyDown}
           />
           <Button
-            className={styles.button}
+            className={styles.buttonSignIn}
             label="CONFIRM"
             color="orange"
             size="big"
-            onClick={this.handleButtonClick}
+            onClick={this.handleConfirmClick}
           />
         </div>
         <Dialog
@@ -68,7 +87,7 @@ export default class PasswordForgottenForm extends React.PureComponent {
           modal
           open={openModal}
         >
-          Check your email
+          Your password has been changed
         </Dialog>
       </div>
     );

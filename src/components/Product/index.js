@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 import FlatButton from 'material-ui/FlatButton';
 import SlickWithSlider from '_components/Interface/SlickWithSlider';
 import AppCard from '_components/Interface/AppCard';

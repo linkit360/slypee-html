@@ -53,6 +53,7 @@ export default class TextField extends React.PureComponent {
   validate() {
     const error = this.getError();
     this.setState({ error });
+    this.error = error;
   }
 
   handleBlur = e => {
