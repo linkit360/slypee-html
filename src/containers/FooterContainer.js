@@ -7,7 +7,7 @@ import Footer from '_components/Footer';
 
 class FooterContainer extends React.Component {
   static propTypes = {
-    isLogin: PropTypes.object,
+    isLogin: PropTypes.bool,
     changeTab: PropTypes.func.isRequired,
     goToSearch: PropTypes.func.isRequired,
     goToMobileSearch: PropTypes.func.isRequired,

@@ -54,7 +54,9 @@ export default class Category extends React.PureComponent {
           <div className={styles.name}>{name}</div>
           <div
             className={styles.description}
+            /* eslint-disable react/no-danger */
             dangerouslySetInnerHTML={{ __html: description }}
+            /* eslint-enable react/no-danger */
           />
           <Tabs
             className={styles.tabs}

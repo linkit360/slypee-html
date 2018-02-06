@@ -87,7 +87,9 @@ class Product extends React.PureComponent {
               </div>
               <div
                 className={styles.description}
+                /* eslint-disable react/no-danger */
                 dangerouslySetInnerHTML={{ __html: description }}
+                /* eslint-enable react/no-danger */
               />
             </div>
           )}

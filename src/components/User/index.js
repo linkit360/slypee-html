@@ -12,7 +12,6 @@ export default class User extends React.PureComponent {
   static propTypes = {
     content: PropTypes.object.isRequired,
     user: PropTypes.object.isRequired,
-    onFetchContent: PropTypes.func.isRequired,
     onFetchContentMore: PropTypes.func.isRequired,
     onEdit: PropTypes.func.isRequired,
     onChangeSortUserContent: PropTypes.func.isRequired,

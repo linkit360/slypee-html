@@ -9,7 +9,7 @@ import PreloaderPage from '_pages/PreloaderPage';
 class TopChartsContainer extends React.Component {
   static propTypes = {
     categories: PropTypes.arrayOf(PropTypes.object.isRequired),
-    topCharts: PropTypes.arrayOf(PropTypes.object.isRequired),
+    topCharts: PropTypes.object,
     fetchTopCharts: PropTypes.func.isRequired,
     fetchMoreTopCharts: PropTypes.func.isRequired
   };

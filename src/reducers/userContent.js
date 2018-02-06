@@ -1,5 +1,5 @@
 const initialState = {
-  list: null,
+  list: [],
   isFetchedAll: false,
   contentType: 'single',
   isFetching: false,
@@ -12,7 +12,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_USER_CONTENT':
-      return { ...state, list: null, isFetchedAll: false, isFetching: true };
+      return { ...state, list: [], isFetchedAll: false, isFetching: true };
     case 'FETCH_USER_CONTENT_SUCCESS':
       return {
         ...state,

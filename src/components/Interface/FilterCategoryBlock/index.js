@@ -27,8 +27,9 @@ export default class FilterCategoryBlock extends React.PureComponent {
           value="all"
           primaryText="All categories"
         />
-        {categories.map(category => (
+        {categories.map((category, index) => (
           <MenuItem
+            key={index}
             className={styles.filterItem}
             value={category.id}
             primaryText={category.name}

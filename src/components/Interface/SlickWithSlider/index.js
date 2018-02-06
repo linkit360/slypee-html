@@ -4,10 +4,9 @@ import ScrollHidden from '_components/Interface/ScrollHidden';
 import ScrollWithSlider from './ScrollWithSlider';
 import styles from './styles.scss';
 
-class SlickWithSlider extends React.PureComponent {
+export default class SlickWithSlider extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    environment: PropTypes.object.isRequired,
     children: PropTypes.arrayOf(PropTypes.node)
   };
 
@@ -36,5 +35,3 @@ class SlickWithSlider extends React.PureComponent {
     );
   }
 }
-
-export default SlickWithSlider;
