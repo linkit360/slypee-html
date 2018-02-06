@@ -7,7 +7,7 @@ import styles from './styles.scss';
 export default class RatingBlock extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    rating: PropTypes.number.isRequired,
+    rating: PropTypes.number,
     size: PropTypes.oneOf(['big', 'normal']),
     isLong: PropTypes.bool
   };

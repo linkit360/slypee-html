@@ -12,9 +12,9 @@ const types = {
 export default class CostBlock extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    price: PropTypes.number.isRequired,
-    type: PropTypes.string.isRequired,
-    currency: PropTypes.string.isRequired,
+    price: PropTypes.number,
+    type: PropTypes.string,
+    currency: PropTypes.string,
     size: PropTypes.oneOf(['big', 'normal']),
     isSimple: PropTypes.bool
   };

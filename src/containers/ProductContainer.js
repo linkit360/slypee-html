@@ -12,7 +12,7 @@ class ProductContainer extends React.Component {
   static propTypes = {
     appId: PropTypes.string.isRequired,
     product: PropTypes.object.isRequired,
-    productCategoryName: PropTypes.string.isRequired,
+    productCategoryName: PropTypes.string,
     fetchApp: PropTypes.func.isRequired,
     subscribe: PropTypes.func.isRequired,
     unsubscribe: PropTypes.func.isRequired

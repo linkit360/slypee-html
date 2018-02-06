@@ -15,7 +15,7 @@ import PreloaderPage from '_pages/PreloaderPage';
 class CategoryContainer extends React.Component {
   static propTypes = {
     categorySlug: PropTypes.string.isRequired,
-    category: PropTypes.object.isRequired,
+    category: PropTypes.object,
     content: PropTypes.object.isRequired,
     newApps: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     fetchCategoryContent: PropTypes.func.isRequired,

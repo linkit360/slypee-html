@@ -13,7 +13,7 @@ export default class TabPage extends React.PureComponent {
     isFetchedAll: PropTypes.bool.isRequired,
     isFetching: PropTypes.bool.isRequired,
     sort: PropTypes.object.isRequired,
-    tabName: PropTypes.string.isRequired,
+    tabName: PropTypes.string,
     list: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     onChangeSort: PropTypes.func.isRequired,
     onFetchMore: PropTypes.func.isRequired

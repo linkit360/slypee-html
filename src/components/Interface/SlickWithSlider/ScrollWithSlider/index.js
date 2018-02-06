@@ -41,15 +41,7 @@ class ScrollWithSlider extends React.PureComponent {
       this.scroll.offsetWidth
     ) {
       this.toogleSlider(true);
-    }
-
-    if (this.lastScrollWidth !== this.scroll.scrollWidth) {
-      const { scrollWidth } = this.scroll;
-      if (scrollWidth > this.scroll.clientWidth) {
-        this.toogleSlider(true);
-        cancelAnimationFrame(this.watcher);
-      }
-      this.lastScrollWidth = scrollWidth;
+      cancelAnimationFrame(this.watcher);
     }
     this.watcher = requestAnimationFrame(this.watch);
   };

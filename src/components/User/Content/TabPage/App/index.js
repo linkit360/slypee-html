@@ -20,7 +20,7 @@ export default class App extends React.PureComponent {
     type: PropTypes.string.isRequired,
     currency: PropTypes.string.isRequired,
     categoryName: PropTypes.string.isRequired,
-    date: PropTypes.string.isRequired
+    date: PropTypes.number.isRequired
     // onSubscribe: PropTypes.func.isRequired
   };
 

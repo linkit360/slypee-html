@@ -11,14 +11,14 @@ import styles from './styles.scss';
 export default class AppCard extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    id: PropTypes.number.isRequired,
-    logo: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    producer: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    type: PropTypes.string.isRequired,
-    currency: PropTypes.string.isRequired,
+    id: PropTypes.number,
+    logo: PropTypes.string,
+    name: PropTypes.string,
+    producer: PropTypes.string,
+    rating: PropTypes.number,
+    price: PropTypes.number,
+    type: PropTypes.string,
+    currency: PropTypes.string,
     isHorisontal: PropTypes.bool
   };
 

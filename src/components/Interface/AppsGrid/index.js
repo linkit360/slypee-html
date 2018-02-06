@@ -14,7 +14,7 @@ const MAX_COUNT_CARDS_IN_ROW = 7;
 class AppsGrid extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    isFetchedAll: PropTypes.bool.isRequired,
+    isFetchedAll: PropTypes.bool,
     environment: PropTypes.object.isRequired,
     cards: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     startCountRows: PropTypes.number.isRequired,
