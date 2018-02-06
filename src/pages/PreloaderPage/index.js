@@ -6,7 +6,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 
 import styles from './styles.scss';
 
-const NotFound = (): Element<'div'> => (
+const PreloaderPage = (): Element<'div'> => (
   <CircularProgress
     color="#8d9396"
     className={styles.preloader}
@@ -14,4 +14,4 @@ const NotFound = (): Element<'div'> => (
   />
 );
 
-export default NotFound;
+export default PreloaderPage;

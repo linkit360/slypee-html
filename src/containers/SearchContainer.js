@@ -8,7 +8,7 @@ import PreloaderPage from '_pages/PreloaderPage';
 
 class SearchContainer extends React.Component {
   static propTypes = {
-    apps: PropTypes.arrayOf(PropTypes.object.isRequired),
+    apps: PropTypes.arrayOf(PropTypes.object),
     search: PropTypes.string.isRequired,
     isTooShortRequest: PropTypes.bool.isRequired,
     fetchSearch: PropTypes.func.isRequired,

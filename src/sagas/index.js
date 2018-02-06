@@ -125,7 +125,7 @@ function* fetchSearch({ data }) {
   yield fetch('SEARCH', api.fetchSearch, {
     start: 0,
     limit: 30,
-    ...data
+    search: encodeURIComponent(data.search)
   });
 }
 
@@ -222,7 +222,9 @@ function logout() {
 }
 
 function* search({ search }) {
-  yield put(push(`/search/${search}`));
+  if (search) {
+    yield put(push(`/search/${search}`));
+  }
 }
 
 function* redirect({ data: { redirectUrl } }) {

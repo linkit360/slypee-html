@@ -6,7 +6,7 @@ import styles from './styles.scss';
 
 export default class Search extends React.PureComponent {
   static propTypes = {
-    apps: PropTypes.object,
+    apps: PropTypes.arrayOf(PropTypes.object),
     isTooShortRequest: PropTypes.bool.isRequired,
     onFetchMoreContent: PropTypes.func.isRequired
   };

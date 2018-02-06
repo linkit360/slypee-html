@@ -6,7 +6,7 @@ import Paper from 'material-ui/Paper';
 
 import styles from './styles.scss';
 
-const NotFound = (): Element<'div'> => (
+const ConnectionProblemPage = (): Element<'div'> => (
   <div className={styles.center}>
     <Paper className={styles.papper}>
       <div className={styles.img} />
@@ -16,4 +16,4 @@ const NotFound = (): Element<'div'> => (
   </div>
 );
 
-export default NotFound;
+export default ConnectionProblemPage;
