@@ -35,6 +35,15 @@ class ScrollWithSlider extends React.PureComponent {
   }
 
   watch = () => {
+    const { lastChild } = this.cards;
+
+    if (
+      lastChild.offsetLeft + lastChild.offsetWidth >
+      this.scroll.offsetWidth
+    ) {
+      this.toogleSlider(true);
+    }
+
     if (this.lastScrollWidth !== this.scroll.scrollWidth) {
       const { scrollWidth } = this.scroll;
       if (scrollWidth > this.scroll.clientWidth) {
@@ -87,18 +96,16 @@ class ScrollWithSlider extends React.PureComponent {
 
     return (
       <div ref={this.rootRef} className={styles.scrollWithSlider}>
-        <ScrollHidden className={styles.scrollHidden}>
-          <div ref={this.scrollRef} className={styles.scrollBlock}>
-            <div
-              ref={this.cardsRef}
-              className={classNames(styles.cards, {
-                [styles.isAppCards]: isAppCards
-              })}
-            >
-              {children}
-            </div>
+        <div ref={this.scrollRef} className={styles.scrollBlock}>
+          <div
+            ref={this.cardsRef}
+            className={classNames(styles.cards, {
+              [styles.isAppCards]: isAppCards
+            })}
+          >
+            {children}
           </div>
-        </ScrollHidden>
+        </div>
         {showSlider && (
           <Slider
             className={styles.slider}

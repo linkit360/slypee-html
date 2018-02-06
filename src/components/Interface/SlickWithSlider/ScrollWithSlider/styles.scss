@@ -31,8 +31,10 @@
 }
 
 .scrollBlock {
+  margin: 0 -10px;
   padding: 0 10px;
   padding-bottom: 24px;
+  overflow: hidden;
 }
 
 .scrollHidden {
