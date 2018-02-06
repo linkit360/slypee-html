@@ -1,5 +1,6 @@
 import MainPage from '_pages/MainPage';
 import NotFoundPage from '_pages/NotFoundPage';
+import RecoveryPasswordPage from '_pages/RecoveryPasswordPage';
 
 export default [
   {
@@ -23,9 +24,9 @@ export default [
     component: MainPage
   },
   {
-    path: '/:section/:recoveryPasswordToken',
+    path: '/recovery-password/:token',
     exact: true,
-    component: MainPage
+    component: RecoveryPasswordPage
   },
   {
     path: '/apps/:app',

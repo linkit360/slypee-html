@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchTopCharts, fetchMoreTopCharts } from '_actions';
 import TopCharts from '_components/TopCharts';
+import PreloaderPage from '_pages/PreloaderPage';
 
 class TopChartsContainer extends React.Component {
   static propTypes = {
@@ -26,8 +27,8 @@ class TopChartsContainer extends React.Component {
       fetchMoreTopCharts
     } = this.props;
 
-    if (!categories) {
-      return null;
+    if (!categories || !topCharts) {
+      return <PreloaderPage />;
     }
 
     return (

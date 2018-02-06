@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchSearch, fetchMoreSearch } from '_actions';
 import Search from '_components/Search';
+import PreloaderPage from '_pages/PreloaderPage';
 
 class SearchContainer extends React.Component {
   static propTypes = {
@@ -30,6 +31,10 @@ class SearchContainer extends React.Component {
 
   render() {
     const { apps, isTooShortRequest } = this.props;
+
+    if (!apps) {
+      return <PreloaderPage />;
+    }
 
     return (
       <Search

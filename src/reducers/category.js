@@ -17,17 +17,22 @@ export default (state = initialState, action) => {
       });
     case 'FETCH_CATEGORY_CONTENT':
       return _.assign(state, {
-        content: { readyStatus: 'REQUESTING', list: [] }
+        content: { readyStatus: 'REQUESTING', list: [], isFetchedAll: false }
       });
     case 'FETCH_CATEGORY_CONTENT_SUCCESS':
       return _.assign(state, {
-        content: { readyStatus: 'SUCCESS', list: action.data }
+        content: {
+          readyStatus: 'SUCCESS',
+          list: action.data,
+          isFetchedAll: action.isFetchedAll
+        }
       });
     case 'FETCH_MORE_CATEGORY_CONTENT_SUCCESS':
       return _.assign(state, {
         content: {
           ...state.content,
-          list: [...state.content.list, ...action.data]
+          list: [...state.content.list, ...action.data],
+          isFetchedAll: action.isFetchedAll
         }
       });
     case 'FETCH_CATEGORY_NEW':

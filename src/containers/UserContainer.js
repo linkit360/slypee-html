@@ -11,6 +11,7 @@ import {
   goToHome
 } from '_actions';
 import User from '_components/User';
+import PreloaderPage from '_pages/PreloaderPage';
 
 class UserContainer extends React.Component {
   static propTypes = {
@@ -51,6 +52,10 @@ class UserContainer extends React.Component {
       changeSortUserContent,
       changeTypeUserContent
     } = this.props;
+
+    if (user.isFetching) {
+      return <PreloaderPage />;
+    }
 
     if (!user.token) {
       return null;

@@ -69,7 +69,8 @@ export default class TopCharts extends React.PureComponent {
           <div className={styles.categoryName}>{categoryName}</div>
           <AppsGrid
             className={styles.grid}
-            cards={apps}
+            cards={apps.list}
+            isFetchedAll={apps.isFetchedAll}
             startCountRows={3}
             onFetchMore={this.handleFetchMoreContent}
           />

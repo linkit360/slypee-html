@@ -6,7 +6,7 @@ import * as api from '_api';
 import { push } from 'react-router-redux';
 
 const getCountCategoryContent = state => state.category.content.list.length;
-const getCountTopChartsContent = state => state.topCharts.length;
+const getCountTopChartsContent = state => state.topCharts.list.length;
 const getCountSearch = state => state.search.length;
 const getToken = state => state.user.token;
 const getPathname = state => state.router.location.pathname;

@@ -28,6 +28,7 @@ export default class Search extends React.PureComponent {
         className={styles.grid}
         cards={apps}
         startCountRows={3}
+        isFetchedAll
         onFetchMore={onFetchMoreContent}
       />
     );

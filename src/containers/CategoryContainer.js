@@ -10,6 +10,7 @@ import {
 } from '_actions';
 import { currentCategorySelector } from '_selectors';
 import Category from '_components/Category';
+import PreloaderPage from '_pages/PreloaderPage';
 
 class CategoryContainer extends React.Component {
   static propTypes = {
@@ -58,13 +59,17 @@ class CategoryContainer extends React.Component {
   render() {
     const { content, newApps, category } = this.props;
 
+    if (!category) {
+      return <PreloaderPage />;
+    }
+
     if (category) {
       return (
         <Category
           name={category.name}
           description={category.description}
           countContent={category.content}
-          content={content.list}
+          content={content}
           newApps={newApps}
           onFetchContent={this.handleFetchContent}
           onFetchMoreContent={this.handleFetchMoreContent}

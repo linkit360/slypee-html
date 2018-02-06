@@ -13,7 +13,7 @@ export default class Category extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    content: PropTypes.arrayOf(PropTypes.object.isRequired),
+    content: PropTypes.object.isRequired,
     newApps: PropTypes.arrayOf(PropTypes.object.isRequired),
     onFetchContent: PropTypes.func.isRequired,
     onFetchMoreContent: PropTypes.func.isRequired
@@ -76,7 +76,8 @@ export default class Category extends React.PureComponent {
         </Paper>
         <div className={styles.content}>
           <AppsGrid
-            cards={content}
+            cards={content.list}
+            isFetchedAll={content.isFetchedAll}
             startCountRows={2}
             onFetchMore={this.handleFetchMoreContent}
           />

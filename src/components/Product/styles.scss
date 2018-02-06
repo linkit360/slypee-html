@@ -108,7 +108,7 @@
   line-height: 25px;
   font-family: 'Roboto-Regular', sans-serif;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-phone) {
     font-size: 12px;
     line-height: 20px;
     height: 77px;

@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import Button from '_components/Interface/Button';
 import AppCard from '_components/Interface/AppCard';
 import environmentHOC from '_utils/environmentHOC';
+import CircularProgress from 'material-ui/CircularProgress';
 import styles from './styles.scss';
 
 const COUNT_ROWS_IN_BLOCK = 2;
@@ -13,6 +14,7 @@ const MAX_COUNT_CARDS_IN_ROW = 7;
 class AppsGrid extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
+    isFetchedAll: PropTypes.bool.isRequired,
     environment: PropTypes.object.isRequired,
     cards: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     startCountRows: PropTypes.number.isRequired,
@@ -104,7 +106,7 @@ class AppsGrid extends React.PureComponent {
   rootRef = ref => (this.root = ref);
 
   render() {
-    const { cards, environment, className } = this.props;
+    const { isFetchedAll, cards, environment, className } = this.props;
     const { isPortraitPhone } = environment;
     const { countShowItems, isFetching } = this.state;
 
@@ -132,11 +134,20 @@ class AppsGrid extends React.PureComponent {
         </div>
         <div className={styles.footer}>
           {!isFetching &&
+            !isFetchedAll &&
             cards.length > 0 && (
               <Button
                 className={styles.buttonShowMore}
                 label="SHOW MORE"
                 onClick={this.handleShowMoreClick}
+              />
+            )}
+          {isFetching &&
+            !isFetchedAll && (
+              <CircularProgress
+                color="#8d9396"
+                className={styles.preloader}
+                thickness={5}
               />
             )}
         </div>

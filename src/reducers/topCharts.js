@@ -1,13 +1,16 @@
-const initialState = [];
+const initialState = null;
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_TOP_CHARTS':
-      return [];
+      return null;
     case 'FETCH_TOP_CHARTS_SUCCESS':
-      return action.data;
+      return { list: action.data, isFetchedAll: action.isFetchedAll };
     case 'FETCH_MORE_TOP_CHARTS_SUCCESS':
-      return [...state, ...action.data];
+      return {
+        list: [...state.list, ...action.data],
+        isFetchedAll: action.isFetchedAll
+      };
     default:
       return state;
   }
