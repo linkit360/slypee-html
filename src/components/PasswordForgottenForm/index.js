@@ -7,7 +7,7 @@ import styles from './styles.scss';
 
 export default class PasswordForgottenForm extends React.PureComponent {
   static propTypes = {
-    forgotPassword: PropTypes.func.isRequired
+    recoveryPassword: PropTypes.func.isRequired
   };
 
   handleButtonClick = () => {
@@ -17,7 +17,7 @@ export default class PasswordForgottenForm extends React.PureComponent {
   submit() {
     const data = validate(this.textFields);
     if (data) {
-      this.props.forgotPassword(data);
+      this.props.recoveryPassword(data);
     }
   }
 

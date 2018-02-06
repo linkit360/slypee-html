@@ -16,6 +16,7 @@ import slider from './slider';
 import main from './main';
 import topCharts from './topCharts';
 import search from './search';
+import common from './common';
 
 const reducers = {
   home,
@@ -31,7 +32,8 @@ const reducers = {
   main,
   topCharts,
   search,
-  userContent
+  userContent,
+  common
 };
 
 export type Reducers = typeof reducers;

@@ -36,6 +36,9 @@ function* request(name, apiFunc, params = {}, expectedParameter) {
       yield put({ type: `${name}_ERROR`, data });
     }
   } catch (e) {
+    if (e.message === 'Request failed with status code 500') {
+      yield put({ type: `CONNECTION_PROBLEM`, err: e.message });
+    }
     yield put({ type: `${name}_FAILURE`, err: e.message });
   }
 }
@@ -155,6 +158,10 @@ function* signIn({ data }) {
   yield request('SIGN_IN', api.signIn, data, 'token');
 }
 
+function* recoveryPassword({ data }) {
+  yield request('RECOVERY_PASSWORD', api.recoveryPassword, data);
+}
+
 function* subscribe({ data }) {
   yield request('SUBSCRIBE', api.subscribe, data);
 }
@@ -236,6 +243,7 @@ export default function*() {
     takeLatest('SIGN_UP_SUCCESS', completeUserLogin),
     takeLatest('SIGN_IN', signIn),
     takeLatest('SIGN_IN_SUCCESS', completeUserLogin),
+    takeLatest('RECOVERY_PASSWORD', recoveryPassword),
     takeLatest('SUBSCRIBE', subscribe),
     takeLatest('SUBSCRIBE_SUCCESS', redirect),
     takeLatest('UNSUBSCRIBE', unsubscribe),

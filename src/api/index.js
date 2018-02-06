@@ -159,3 +159,11 @@ export const updateProfile = ({
       'x-slypee-auth-token': token
     }
   });
+
+export const recoveryPassword = ({ email }) =>
+  Req.POST({
+    url: '/customer/recovery',
+    data: {
+      email
+    }
+  });

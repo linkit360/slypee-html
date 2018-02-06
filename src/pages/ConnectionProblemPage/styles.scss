@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .papper {
@@ -23,16 +24,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
     padding: 10px;
   }
 }
 
 .img {
-  height: 230px;
+  height: 144px;
   max-width: 411px;
   margin: auto;
-  background-image: url('../../images/404.svg');
+  background-image: url('../../images/logo.svg');
   background-repeat: no-repeat;
 
   @media (max-width: $width-portrait-tablet) {
@@ -46,5 +46,12 @@
   text-align: center;
   font-size: 20px;
   margin-top: 29px;
-  color: #92989b;
+  color: #4f4f51;
+}
+
+.text2 {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 100px;
+  color: #727272;
 }

@@ -11,6 +11,7 @@ import Helmet from 'react-helmet';
 import _ from 'lodash/fp';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import ConnectionProblemPage from '_pages/ConnectionProblemPage';
 
 import config from '../../config';
 import routes from '../../routes';
@@ -40,6 +41,7 @@ const RouteWithSubRoutes = (route): Element<typeof Route> => (
 
 class App extends React.Component {
   static propTypes = {
+    isConnectionProblem: PropTypes.bool.isRequired,
     resize: PropTypes.func.isRequired
   };
 
@@ -63,18 +65,25 @@ class App extends React.Component {
   };
 
   render() {
+    const { isConnectionProblem } = this.props;
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className={styles.App}>
           <Helmet {...config.app} />
-          <Switch>{routes.map(route => RouteWithSubRoutes(route))}</Switch>
+          {isConnectionProblem ? (
+            <ConnectionProblemPage />
+          ) : (
+            <Switch>{routes.map(route => RouteWithSubRoutes(route))}</Switch>
+          )}
         </div>
       </MuiThemeProvider>
     );
   }
 }
 
-const mapStateToProps = () => ({});
+const mapStateToProps = state => ({
+  isConnectionProblem: state.common.isConnectionProblem
+});
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(

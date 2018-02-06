@@ -14,9 +14,9 @@ export const currentCategorySelector = createSelector(
 export const productCategoryNameSelector = createSelector(
   rootSelector,
   ({ product, categories }) => {
-    if (!categories || !product) return null;
+    if (!categories || !product.app) return null;
 
-    const category = categories.find(el => el.id === product.categoryId);
+    const category = categories.find(el => el.id === product.app.categoryId);
 
     return category ? category.name : null;
   }

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { signIn, signUp, forgotPassword } from '_actions';
+import { signIn, signUp, recoveryPassword } from '_actions';
 import FormWrapper from '_components/Interface/FormWrapper';
 import SignInForm from '_components/SignInForm';
 import SignUpForm from '_components/SignUpForm';
@@ -15,7 +15,7 @@ class RegistrationContainer extends React.Component {
     signInStatus: PropTypes.string.isRequired,
     signIn: PropTypes.func.isRequired,
     signUp: PropTypes.func.isRequired,
-    forgotPassword: PropTypes.func.isRequired
+    recoveryPassword: PropTypes.func.isRequired
   };
 
   getForm() {
@@ -25,7 +25,7 @@ class RegistrationContainer extends React.Component {
       section,
       signIn,
       signUp,
-      forgotPassword
+      recoveryPassword
     } = this.props;
 
     switch (section) {
@@ -36,7 +36,7 @@ class RegistrationContainer extends React.Component {
           <SignUpForm signUp={signUp} registrationStatus={registrationStatus} />
         );
       case 'forgotPassword':
-        return <PasswordForgottenForm forgotPassword={forgotPassword} />;
+        return <PasswordForgottenForm recoveryPassword={recoveryPassword} />;
       default:
         return null;
     }
@@ -57,7 +57,7 @@ const mapDispatchToProps = dispatch =>
     {
       signIn,
       signUp,
-      forgotPassword
+      recoveryPassword
     },
     dispatch
   );

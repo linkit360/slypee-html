@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 import { fetchApp, subscribe, unsubscribe } from '_actions';
 import Product from '_components/Product';
 import { productCategoryNameSelector } from '_selectors';
+import NotFoundPage from '_pages/NotFoundPage';
+import PreloaderPage from '_pages/PreloaderPage';
 
 class ProductContainer extends React.Component {
   static propTypes = {
@@ -25,13 +27,16 @@ class ProductContainer extends React.Component {
   render() {
     const { product, productCategoryName, subscribe, unsubscribe } = this.props;
 
-    if (!product || !productCategoryName) {
-      return null;
+    if (product.readyStatus === 'FAILURE') {
+      return <NotFoundPage />;
+    }
+    if (!product.app || !productCategoryName) {
+      return <PreloaderPage />;
     }
 
     return (
       <Product
-        {...product}
+        {...product.app}
         category={productCategoryName}
         onSubscribe={subscribe}
         onUnsubscribe={unsubscribe}
