@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Slider from 'material-ui/Slider';
-import ScrollHidden from '_components/Interface/ScrollHidden';
 import environmentHOC from '_utils/environmentHOC';
 import styles from './styles.scss';
 

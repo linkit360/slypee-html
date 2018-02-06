@@ -167,3 +167,17 @@ export const recoveryPasswordByEmail = ({ email }) =>
       email
     }
   });
+
+export const recoveryPasswordByToken = ({
+  recoveryToken,
+  password,
+  confirmPassword
+}) =>
+  Req.POST({
+    url: '/customer/recovery-confirm',
+    data: {
+      token: recoveryToken,
+      password,
+      password_confirm: confirmPassword
+    }
+  });

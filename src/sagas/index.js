@@ -166,6 +166,14 @@ function* recoveryPasswordByEmail({ data }) {
   );
 }
 
+function* recoveryPasswordByToken({ data }) {
+  yield request(
+    'RECOVERY_PASSWORD_BY_TOKEN',
+    api.recoveryPasswordByToken,
+    data
+  );
+}
+
 function* subscribe({ data }) {
   yield request('SUBSCRIBE', api.subscribe, data);
 }
@@ -248,6 +256,7 @@ export default function*() {
     takeLatest('SIGN_IN', signIn),
     takeLatest('SIGN_IN_SUCCESS', completeUserLogin),
     takeLatest('RECOVERY_PASSWORD_BY_EMAIL', recoveryPasswordByEmail),
+    takeLatest('RECOVERY_PASSWORD_BY_TOKEN', recoveryPasswordByToken),
     takeLatest('SUBSCRIBE', subscribe),
     takeLatest('SUBSCRIBE_SUCCESS', redirect),
     takeLatest('UNSUBSCRIBE', unsubscribe),

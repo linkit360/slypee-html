@@ -29,7 +29,7 @@ export default class RecoveryPasswordForm extends React.PureComponent {
     const { token, recoveryPasswordByToken } = this.props;
     const data = validate(this.textFields);
     if (data) {
-      recoveryPasswordByToken({ ...data, token });
+      recoveryPasswordByToken({ ...data, recoveryToken: token });
       this.setState({ openModal: true });
     }
   }
