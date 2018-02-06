@@ -9,6 +9,7 @@ import IconExit from 'material-ui/svg-icons/action/exit-to-app';
 import Divider from 'material-ui/Divider';
 import Icon from '_components/Interface/Icon';
 import { getCategoryUrlFromSlug } from '_utils/common';
+import Avatar from '_components/Interface/Avatar';
 import styles from './styles.scss';
 
 export default class Menu extends React.Component {
@@ -32,10 +33,7 @@ export default class Menu extends React.Component {
         >
           {isAutorizedUser && (
             <div>
-              <div
-                className={styles.avatar}
-                style={{ backgroundImage: `url(${user.avatar})` }}
-              />
+              <Avatar className={styles.avatar} img={user.avatar} />
               <span className={styles.userName}>{user.name}</span>
               <span className={styles.userMail}>{user.email}</span>
             </div>

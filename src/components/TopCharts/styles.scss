@@ -70,13 +70,16 @@
 .content {
   margin: auto;
   padding: 0 83px;
+  margin-bottom: 50px;
 
   @media (max-width: $width-small-desktop) {
     padding: 0 24px;
+    margin-bottom: 30px;
   }
 
   @media (max-width: $width-portrait-tablet) {
     padding: 0 16px;
+    margin-bottom: 20px;
   }
 }
 
