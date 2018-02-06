@@ -7,10 +7,7 @@ import styles from './styles.scss';
 
 export default class Content extends React.PureComponent {
   static propTypes = {
-    contentType: PropTypes.string.isRequired,
-    sort: PropTypes.object.isRequired,
-    list: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
-    isFetchedAll: PropTypes.bool.isRequired,
+    content: PropTypes.object.isRequired,
     onChangeSort: PropTypes.func.isRequired,
     onChangeType: PropTypes.func.isRequired,
     onFetchMore: PropTypes.func.isRequired
@@ -21,21 +18,13 @@ export default class Content extends React.PureComponent {
   };
 
   render() {
-    const {
-      isFetchedAll,
-      list,
-      contentType,
-      sort,
-      onChangeSort,
-      onFetchMore,
-      onChangeType
-    } = this.props;
+    const { content, onChangeSort, onFetchMore, onChangeType } = this.props;
 
     return (
       <Paper className={styles.content} zDepth={1}>
         <Tabs
           className={styles.tabs}
-          value={contentType}
+          value={content.ontentType}
           onChange={this.handleTabChange}
         >
           <Tab className={styles.tab} value="single" label="purchased" />
@@ -46,10 +35,7 @@ export default class Content extends React.PureComponent {
           />
         </Tabs>
         <TabPage
-          list={list}
-          isFetchedAll={isFetchedAll}
-          sort={sort}
-          tabName={contentType}
+          {...content}
           onChangeType={onChangeType}
           onChangeSort={onChangeSort}
           onFetchMore={onFetchMore}

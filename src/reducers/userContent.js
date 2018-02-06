@@ -1,7 +1,8 @@
 const initialState = {
-  list: [],
+  list: null,
   isFetchedAll: false,
   contentType: 'single',
+  isFetching: false,
   sort: {
     sortBy: 'name',
     isSortReverse: false
@@ -11,12 +12,13 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case 'FETCH_USER_CONTENT':
-      return { ...state, list: [], isFetchedAll: false };
+      return { ...state, list: null, isFetchedAll: false, isFetching: true };
     case 'FETCH_USER_CONTENT_SUCCESS':
       return {
         ...state,
         list: action.data,
-        isFetchedAll: action.isFetchedAll
+        isFetchedAll: action.isFetchedAll,
+        isFetching: false
       };
     case 'FETCH_MORE_USER_CONTENT_SUCCESS':
       return {
@@ -27,12 +29,14 @@ export default (state = initialState, action) => {
     case 'CHANGE_SORT_USER_CONTENT':
       return {
         ...state,
-        sort: action.data.sort
+        sort: action.data.sort,
+        isFetching: true
       };
     case 'CHANGE_TYPE_USER_CONTENT':
       return {
         ...state,
-        contentType: action.data.contentType
+        contentType: action.data.contentType,
+        isFetching: true
       };
     default:
       return state;

@@ -11,6 +11,7 @@ const COUNT_CARDS_IN_BLOCK = 6;
 export default class TabPage extends React.PureComponent {
   static propTypes = {
     isFetchedAll: PropTypes.bool.isRequired,
+    isFetching: PropTypes.bool.isRequired,
     sort: PropTypes.object.isRequired,
     tabName: PropTypes.string.isRequired,
     list: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
@@ -20,7 +21,7 @@ export default class TabPage extends React.PureComponent {
 
   state = {
     countShowItems: COUNT_CARDS_IN_BLOCK,
-    isFetching: false
+    isFetchingMore: false
   };
 
   componentWillReceiveProps(nextProps) {
@@ -30,9 +31,9 @@ export default class TabPage extends React.PureComponent {
         countShowItems: COUNT_CARDS_IN_BLOCK
       });
     }
-    if (nextProps.list !== list) {
-      if (nextProps.list.length !== list.length) {
-        this.setState({ isFetching: false });
+    if (nextProps.list && nextProps.list !== list) {
+      if (!list || nextProps.list.length !== list.length) {
+        this.setState({ isFetchingMore: false });
       }
     }
   }
@@ -47,19 +48,39 @@ export default class TabPage extends React.PureComponent {
     onFetchMore();
     this.setState({
       countShowItems: countShowItems + COUNT_CARDS_IN_BLOCK,
-      isFetching: true
+      isFetchingMore: true
     });
   };
 
-  render() {
-    const { countShowItems, isFetching } = this.state;
-    const { list, sort, isFetchedAll } = this.props;
+  getContent() {
+    const { list, isFetching, isFetchedAll, tabName } = this.props;
+    const { countShowItems, isFetchingMore } = this.state;
+
+    if (isFetching) {
+      return (
+        <CircularProgress
+          color="#8d9396"
+          className={styles.preloader}
+          thickness={5}
+        />
+      );
+    }
+
+    if (list.length === 0) {
+      return (
+        <div className={styles.notFoundMessage}>
+          {`You don't have ${
+            tabName === 'single' ? 'purchased apps' : 'subscriptions'
+          }`}
+        </div>
+      );
+    }
+
     const isHideShowMoreButton =
-      isFetching || (list.length <= countShowItems && isFetchedAll);
+      isFetchingMore || (list.length <= countShowItems && isFetchedAll);
 
     return (
       <div>
-        <TabHeader {...sort} onSort={this.handleSort} />
         {list &&
           list
             .slice(0, countShowItems)
@@ -71,14 +92,24 @@ export default class TabPage extends React.PureComponent {
             onClick={this.handleShowMoreClick}
           />
         )}
-        {isFetching &&
-          !isFetchedAll && (
-            <CircularProgress
-              color="#8d9396"
-              className={styles.preloader}
-              thickness={5}
-            />
-          )}
+        {isFetchingMore && (
+          <CircularProgress
+            color="#8d9396"
+            className={styles.preloader}
+            thickness={5}
+          />
+        )}
+      </div>
+    );
+  }
+
+  render() {
+    const { sort } = this.props;
+
+    return (
+      <div>
+        <TabHeader {...sort} onSort={this.handleSort} />
+        {this.getContent()}
       </div>
     );
   }

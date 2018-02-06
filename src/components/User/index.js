@@ -74,7 +74,7 @@ export default class User extends React.PureComponent {
           />
         </Paper>
         <Content
-          {...content}
+          content={content}
           onFetchMore={onFetchContentMore}
           onChangeSort={onChangeSortUserContent}
           onChangeType={onChangeTypeUserContent}
