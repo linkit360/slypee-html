@@ -25,13 +25,18 @@ class EditProfileBlock extends React.PureComponent {
   };
 
   componentWillReceiveProps(nextProps) {
-    const { updateUserStatus } = nextProps.user;
-    if (this.props.user.updateUserStatus !== updateUserStatus) {
-      if (updateUserStatus === 'ERROR') {
-        this.setState({ error: true });
-      } else {
-        this.props.onExit();
-      }
+    const { updateUserStatus, error } = nextProps.user;
+    if (updateUserStatus === 'REQUEST') {
+      this.setState({ error: '' });
+    } else if (updateUserStatus === 'SUCCESS') {
+      this.props.onExit();
+    } else if (updateUserStatus === 'ERROR') {
+      this.setState({ error: 'email' });
+    } else if (
+      updateUserStatus === 'FAILURE' &&
+      error === 'Request failed with status code 413'
+    ) {
+      this.setState({ error: 'avatar' });
     }
   }
 
@@ -104,20 +109,25 @@ class EditProfileBlock extends React.PureComponent {
         <div className={styles.content}>
           <Paper className={styles.avatarBlock} zDepth={1}>
             <div className={styles.avatarWrapper}>{this.getAvatarBlock()}</div>
-            <Button
-              containerElement="label"
-              label={avatar || image ? 'CHANGE IMAGE' : 'ADD IMAGE'}
-              className={styles.buttonChangeImage}
-              icon={<Icon name="add-a-foto" />}
-              type="flat"
-              color="grey"
-            >
-              <input
-                onChange={this.handleChangeAvatarClick}
-                style={{ display: 'none' }}
-                type="file"
-              />
-            </Button>
+            <div className={styles.buttonChangeImageBlock}>
+              <Button
+                containerElement="label"
+                label={avatar || image ? 'CHANGE IMAGE' : 'ADD IMAGE'}
+                className={styles.buttonChangeImage}
+                icon={<Icon name="add-a-foto" />}
+                type="flat"
+                color="grey"
+              >
+                <input
+                  onChange={this.handleChangeAvatarClick}
+                  style={{ display: 'none' }}
+                  type="file"
+                />
+              </Button>
+              {error === 'avatar' && (
+                <div className={styles.imageError}>Image is too large</div>
+              )}
+            </div>
           </Paper>
           <Paper className={styles.infoBlock} zDepth={1}>
             <div className={styles.topBlock}>
@@ -141,7 +151,7 @@ class EditProfileBlock extends React.PureComponent {
                   floatingLabelText="EMAIL"
                   isRequired
                   isEmail
-                  errorText={error ? 'Email alredy taken' : null}
+                  errorText={error === 'email' ? 'Email alredy taken' : null}
                 />
               </div>
               {!isChangePasswordMode && (

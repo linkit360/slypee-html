@@ -111,9 +111,8 @@
   }
 }
 
-.buttonChangeImage {
+.buttonChangeImageBlock {
   margin-left: 35px !important;
-  padding-left: 12px !important;
 
   @media (max-width: 1270px) {
     margin-left: 0 !important;
@@ -122,6 +121,23 @@
 
   @media (max-width: 750px) {
     margin: 0 !important;
+  }
+}
+
+.buttonChangeImage {
+  padding-left: 12px !important;
+}
+
+.imageError {
+  color: rgb(244, 67, 54);
+  text-align: center;
+
+  @media (max-width: 1270px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 750px) {
+    font-size: 12px;
   }
 }
 

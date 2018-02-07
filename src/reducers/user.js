@@ -47,6 +47,11 @@ export default (state = initialState, action) => {
         ...action.data,
         updateUserStatus: 'SUCCESS'
       });
+    case 'UPDATE_PROFILE_FAILURE':
+      return _.assign(state, {
+        updateUserStatus: 'FAILURE',
+        error: action.err
+      });
     case 'UPDATE_PROFILE_ERROR':
       return _.assign(state, {
         updateUserStatus: 'ERROR'
