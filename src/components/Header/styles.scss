@@ -3,24 +3,40 @@
 .headerTop {
   height: 126px;
   background-color: $color-white;
-  background-image: url('../../images/logo.svg');
-  background-repeat: no-repeat;
-  background-position: center;
   position: relative;
-  background-size: 222px;
-
-  @media (max-width: $width-small-desktop) {
-    background-size: 180px;
-  }
 
   @media (max-width: $width-landscape-tablet) {
     height: 66px;
-    background-size: 100px;
   }
 
   @media (max-width: $width-portrait-tablet) {
     height: 88px;
-    background-size: 112px;
+  }
+}
+
+.logoWrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  width: 222px;
+  cursor: pointer;
+
+  @media (max-width: $width-small-desktop) {
+    width: 180px;
+  }
+
+  @media (max-width: $width-landscape-tablet) {
+    width: 100px;
+  }
+
+  @media (max-width: $width-portrait-tablet) {
+    width: 112px;
   }
 }
 
@@ -191,6 +207,10 @@
     height: 38px !important;
     width: 50px !important;
     min-width: 50px !important;
+  }
+
+  &:hover {
+    background-color: $color-orange-hover !important;
   }
 }
 

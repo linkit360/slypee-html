@@ -170,6 +170,10 @@
 .buttonSubscribe {
   background-color: $color-orange !important;
 
+  &:hover {
+    background-color: $color-orange-hover !important;
+  }
+
   @media (max-width: $width-landscape-phone) {
     width: 90px !important;
   }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import Paper from 'material-ui/Paper';
 import FlatButton from 'material-ui/FlatButton';
+import CircularProgress from 'material-ui/CircularProgress';
 import SlickWithSlider from '_components/Interface/SlickWithSlider';
 import AppCard from '_components/Interface/AppCard';
 import environmentHOC from '_utils/environmentHOC';
@@ -15,14 +16,19 @@ const getSlides = (video, screenshots, onImageClick) => {
   const slides = [];
   if (video) {
     slides.push(
-      <iframe
-        key={-1}
-        className={styles.iframe}
-        src={video}
-        frameBorder="0"
-        allowFullScreen
-        title="video"
-      />
+      <div className={styles.videoWrapper}>
+        <div className={styles.preloaderWrapper}>
+          <CircularProgress color="#8d9396" thickness={5} />
+        </div>
+        <iframe
+          key={-1}
+          className={styles.iframe}
+          src={video}
+          frameBorder="0"
+          allowFullScreen
+          title="video"
+        />
+      </div>
     );
   }
   screenshots.forEach((img, index) => {

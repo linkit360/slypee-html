@@ -114,6 +114,10 @@
   height: 68px !important;
   background-color: $color-orange !important;
 
+  &:hover {
+    background-color: $color-orange-hover !important;
+  }
+
   span {
     text-transform: none !important;
     font-size: 25px !important;

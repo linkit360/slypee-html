@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import FlatButton from 'material-ui/FlatButton';
 import Popover from 'material-ui/Popover';
@@ -10,6 +11,7 @@ import Icon from '_components/Interface/Icon';
 import AvatarBlock from './AvatarBlock';
 import MobileSearchBlock from './MobileSearchBlock';
 import Menu from './Menu';
+import logo from '../../images/logo.svg';
 import styles from './styles.scss';
 
 export default class Header extends React.Component {
@@ -93,6 +95,11 @@ export default class Header extends React.Component {
     return (
       <div>
         <div className={styles.headerTop}>
+          <div className={styles.logoWrapper}>
+            <Link to="/">
+              <img className={styles.logo} alt="logo" src={logo} />
+            </Link>
+          </div>
           <FlatButton
             className={styles.buttonMenu}
             onClick={this.handleButtonMenuClick}

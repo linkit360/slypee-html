@@ -29,6 +29,10 @@
   position: absolute !important;
   right: 10px;
   top: 25px;
+
+  &:hover {
+    background-color: $color-orange-hover !important;
+  }
 }
 
 .search {

@@ -27,12 +27,13 @@ class TopChartsContainer extends React.Component {
       fetchMoreTopCharts
     } = this.props;
 
-    if (!categories || !topCharts) {
+    if (!categories) {
       return <PreloaderPage />;
     }
 
     return (
       <TopCharts
+        isFetching={!topCharts}
         apps={topCharts}
         categories={categories}
         onFetchContent={fetchTopCharts}

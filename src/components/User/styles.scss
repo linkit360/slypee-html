@@ -106,6 +106,10 @@
   background-color: $color-orange !important;
   height: 44px !important;
 
+  &:hover {
+    background-color: $color-orange-hover !important;
+  }
+
   @media (max-width: 1600px) {
     right: 32px;
   }

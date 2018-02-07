@@ -72,9 +72,27 @@
   }
 }
 
+.videoWrapper {
+  position: relative;
+}
+
+.preloaderWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .iframe {
+  position: relative;
   height: 311px;
   min-width: 442px;
+  border: 1px solid $color-grey;
+  box-sizing: border-box;
 
   @media (max-width: $width-portrait-tablet) {
     height: 255px;
