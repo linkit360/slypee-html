@@ -12,6 +12,7 @@ import _ from 'lodash/fp';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import ConnectionProblemPage from '_pages/ConnectionProblemPage';
+import CompatibleProblemPage from '_pages/CompatibleProblemPage';
 
 import config from '../../config';
 import routes from '../../routes';
@@ -64,17 +65,26 @@ class App extends React.Component {
     }
   };
 
-  render() {
+  getComponent = () => {
     const { isConnectionProblem } = this.props;
+
+    const isCompatible = __SERVER__ || window.Modernizr.flexbox;
+
+    if (!isCompatible) {
+      return <CompatibleProblemPage />;
+    }
+    if (isConnectionProblem) {
+      return <ConnectionProblemPage />;
+    }
+    return <Switch>{routes.map(route => RouteWithSubRoutes(route))}</Switch>;
+  };
+
+  render() {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <div className={styles.App}>
           <Helmet {...config.app} />
-          {isConnectionProblem ? (
-            <ConnectionProblemPage />
-          ) : (
-            <Switch>{routes.map(route => RouteWithSubRoutes(route))}</Switch>
-          )}
+          {this.getComponent()}
         </div>
       </MuiThemeProvider>
     );

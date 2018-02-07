@@ -59,6 +59,7 @@ const Html = ({ store, htmlContent }: Props): Element<'html'> => {
           />
         ) : null
         */}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js" />
       </head>
       <body>
         <div
