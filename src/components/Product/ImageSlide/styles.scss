@@ -1,0 +1,17 @@
+@import '~theme/variables';
+
+.imageSlide {
+  height: 311px;
+  margin-left: 31px;
+  width: auto;
+  cursor: pointer;
+
+  @media (max-width: $width-portrait-tablet) {
+    height: 255px;
+    margin-left: 10px;
+  }
+
+  @media (max-width: 535px) {
+    height: 180px;
+  }
+}

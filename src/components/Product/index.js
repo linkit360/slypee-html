@@ -7,9 +7,11 @@ import SlickWithSlider from '_components/Interface/SlickWithSlider';
 import AppCard from '_components/Interface/AppCard';
 import environmentHOC from '_utils/environmentHOC';
 import Header from './Header';
+import LightBox from './LightBox';
+import ImageSlide from './ImageSlide';
 import styles from './styles.scss';
 
-const getSlides = (video, screenshots) => {
+const getSlides = (video, screenshots, onImageClick) => {
   const slides = [];
   if (video) {
     slides.push(
@@ -25,17 +27,14 @@ const getSlides = (video, screenshots) => {
   }
   screenshots.forEach((img, index) => {
     slides.push(
-      <img
-        key={index}
-        className={styles.imageSlide}
-        alt="slide"
-        src={img.thumbnail}
-      />
+      <ImageSlide img={img} key={index} index={index} onClick={onImageClick} />
     );
   });
 
   return slides;
 };
+
+const getImages = screenshots => screenshots.map(img => img.src);
 
 class Product extends React.PureComponent {
   static propTypes = {
@@ -57,19 +56,38 @@ class Product extends React.PureComponent {
     return (
       <div className={className}>
         <SlickWithSlider className={styles.slick} variableWidth isSmooth>
-          {getSlides(video, screenshots)}
+          {getSlides(video, screenshots, this.handleImageClick)}
         </SlickWithSlider>
       </div>
     );
+  };
+
+  toogleLightBox(isLightBoxOpen) {
+    this.setState({ isLightBoxOpen });
+  }
+
+  handleImageClick = index => {
+    this.lightBoxIndex = index;
+    this.toogleLightBox(true);
   };
 
   handleButtonMoreClick = () => {
     this.setState({ isButtonMoreClicked: !this.state.isButtonMoreClicked });
   };
 
+  handleLightBoxClose = () => {
+    this.toogleLightBox(false);
+  };
+
   render() {
-    const { environment: { width }, name, description, related } = this.props;
-    const { isButtonMoreClicked } = this.state;
+    const {
+      environment: { width },
+      name,
+      description,
+      related,
+      screenshots
+    } = this.props;
+    const { isButtonMoreClicked, isLightBoxOpen } = this.state;
 
     return (
       <div
@@ -119,6 +137,12 @@ class Product extends React.PureComponent {
             </SlickWithSlider>
           </div>
         )}
+        <LightBox
+          images={getImages(screenshots)}
+          isOpen={isLightBoxOpen}
+          index={this.lightBoxIndex}
+          onClose={this.handleLightBoxClose}
+        />
       </div>
     );
   }
