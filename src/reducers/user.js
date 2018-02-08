@@ -1,6 +1,8 @@
 import _ from 'lodash/fp';
 
-const initialState = {};
+const initialState = {
+  updateUserError: {}
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -40,21 +42,27 @@ export default (state = initialState, action) => {
       });
     case 'UPDATE_PROFILE':
       return _.assign(state, {
-        updateUserStatus: 'REQUEST'
+        updateUserStatus: 'REQUEST',
+        updateUserError: {}
       });
     case 'UPDATE_PROFILE_SUCCESS':
       return _.assign(state, {
         ...action.data,
-        updateUserStatus: 'SUCCESS'
+        updateUserStatus: 'SUCCESS',
+        updateUserError: {}
       });
     case 'UPDATE_PROFILE_FAILURE':
-      return _.assign(state, {
-        updateUserStatus: 'FAILURE',
-        error: action.err
-      });
+      if (action.err === 'Request failed with status code 413') {
+        return _.assign(state, {
+          updateUserError: {
+            image: 'Image is too large'
+          }
+        });
+      }
+      return state;
     case 'UPDATE_PROFILE_ERROR':
       return _.assign(state, {
-        updateUserStatus: 'ERROR'
+        updateUserError: action.data.data
       });
     case 'LOGOUT':
       return {};

@@ -141,7 +141,7 @@ export const updateProfile = ({
   name,
   email,
   oldPassword,
-  password,
+  newPassword,
   newPassword2,
   token
 }) =>
@@ -152,7 +152,7 @@ export const updateProfile = ({
       username: name,
       email,
       old_password: oldPassword,
-      password,
+      password: newPassword,
       password_confirm: newPassword2
     },
     headers: {

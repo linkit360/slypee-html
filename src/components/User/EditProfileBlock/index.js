@@ -20,23 +20,13 @@ class EditProfileBlock extends React.PureComponent {
   };
 
   state = {
-    isChangePasswordMode: false,
-    error: false
+    isChangePasswordMode: false
   };
 
   componentWillReceiveProps(nextProps) {
-    const { updateUserStatus, error } = nextProps.user;
-    if (updateUserStatus === 'REQUEST') {
-      this.setState({ error: '' });
-    } else if (updateUserStatus === 'SUCCESS') {
+    const { updateUserStatus } = nextProps.user;
+    if (updateUserStatus === 'SUCCESS') {
       this.props.onExit();
-    } else if (updateUserStatus === 'ERROR') {
-      this.setState({ error: 'email' });
-    } else if (
-      updateUserStatus === 'FAILURE' &&
-      error === 'Request failed with status code 413'
-    ) {
-      this.setState({ error: 'avatar' });
     }
   }
 
@@ -96,10 +86,16 @@ class EditProfileBlock extends React.PureComponent {
   textFieldsRef = ref => this.textFields.push(ref);
   editorRef = editor => (this.editor = editor);
 
+  getError(nameField) {
+    const { updateUserError } = this.props.user;
+    return updateUserError[nameField] && updateUserError[nameField][0];
+  }
+
   render() {
     const { user } = this.props;
-    const { name, email, avatar } = user;
-    const { isChangePasswordMode, password, image, error } = this.state;
+    const { name, email, avatar, updateUserError } = user;
+    const { isChangePasswordMode, password, image } = this.state;
+    const imageError = updateUserError.image;
 
     return (
       <div>
@@ -124,8 +120,8 @@ class EditProfileBlock extends React.PureComponent {
                   type="file"
                 />
               </Button>
-              {error === 'avatar' && (
-                <div className={styles.imageError}>Image is too large</div>
+              {imageError && (
+                <div className={styles.imageError}>{imageError}</div>
               )}
             </div>
           </Paper>
@@ -139,6 +135,7 @@ class EditProfileBlock extends React.PureComponent {
                   defaultValue={name}
                   floatingLabelText="USER NAME"
                   isRequired
+                  errorText={this.getError('name')}
                 />
                 <TextField
                   ref={this.textFieldsRef}
@@ -151,7 +148,7 @@ class EditProfileBlock extends React.PureComponent {
                   floatingLabelText="EMAIL"
                   isRequired
                   isEmail
-                  errorText={error === 'email' ? 'Email alredy taken' : null}
+                  errorText={this.getError('email')}
                 />
               </div>
               {!isChangePasswordMode && (
@@ -176,6 +173,7 @@ class EditProfileBlock extends React.PureComponent {
                   isRequired
                   minLength={8}
                   type="password"
+                  errorText={this.getError('old_password')}
                 />
                 <TextField
                   ref={this.textFieldsRef}
@@ -188,6 +186,7 @@ class EditProfileBlock extends React.PureComponent {
                   isRequired
                   minLength={8}
                   type="password"
+                  errorText={this.getError('password')}
                 />
                 <TextField
                   ref={this.textFieldsRef}
@@ -201,6 +200,7 @@ class EditProfileBlock extends React.PureComponent {
                   minLength={8}
                   type="password"
                   match={password}
+                  errorText={this.getError('new_password')}
                 />
               </div>
             )}
