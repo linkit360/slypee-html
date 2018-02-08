@@ -109,26 +109,29 @@
   font-size: 18px;
   padding-top: 7px;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-phone) {
     font-size: 13px;
     padding-top: 18px;
   }
 }
 
-.description {
+.descriptionWrapper {
   padding-top: 3px;
+  height: 77px;
+  overflow: hidden;
+
+  .isButtonMoreClicked & {
+    height: auto;
+  }
+}
+
+.description {
   line-height: 25px;
   font-family: 'Roboto-Regular', sans-serif;
 
   @media (max-width: $width-landscape-phone) {
     font-size: 12px;
     line-height: 20px;
-    height: 77px;
-    overflow: hidden;
-
-    .isButtonMoreClicked & {
-      height: auto;
-    }
   }
 }
 

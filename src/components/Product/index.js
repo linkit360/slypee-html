@@ -12,6 +12,8 @@ import LightBox from './LightBox';
 import ImageSlide from './ImageSlide';
 import styles from './styles.scss';
 
+const MIN_HEIGHT_DESCRIPTION = 60;
+
 const getSlides = (video, screenshots, onImageClick) => {
   const slides = [];
   if (video) {
@@ -53,8 +55,19 @@ class Product extends React.PureComponent {
   };
 
   state = {
-    isButtonMoreClicked: false
+    isButtonMoreClicked: false,
+    isShowButtonMore: false
   };
+
+  componentDidMount() {
+    this.updateShowButtonMore();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.environment.width !== prevProps.environment.width) {
+      this.updateShowButtonMore();
+    }
+  }
 
   getSlick = className => {
     const { video, screenshots } = this.props;
@@ -67,6 +80,12 @@ class Product extends React.PureComponent {
       </div>
     );
   };
+
+  updateShowButtonMore() {
+    this.setState({
+      isShowButtonMore: this.description.offsetHeight > MIN_HEIGHT_DESCRIPTION
+    });
+  }
 
   toogleLightBox(isLightBoxOpen) {
     this.setState({ isLightBoxOpen });
@@ -85,6 +104,8 @@ class Product extends React.PureComponent {
     this.toogleLightBox(false);
   };
 
+  descriptionRef = ref => (this.description = ref);
+
   render() {
     const {
       environment: { width },
@@ -93,7 +114,11 @@ class Product extends React.PureComponent {
       related,
       screenshots
     } = this.props;
-    const { isButtonMoreClicked, isLightBoxOpen } = this.state;
+    const {
+      isButtonMoreClicked,
+      isLightBoxOpen,
+      isShowButtonMore
+    } = this.state;
 
     return (
       <div
@@ -109,19 +134,24 @@ class Product extends React.PureComponent {
               <div className={styles.descriptionHeader}>
                 Description of {name}
               </div>
-              <div
-                className={styles.description}
-                /* eslint-disable react/no-danger */
-                dangerouslySetInnerHTML={{ __html: description }}
-                /* eslint-enable react/no-danger */
-              />
+              <div className={styles.descriptionWrapper}>
+                <div
+                  ref={this.descriptionRef}
+                  className={styles.description}
+                  /* eslint-disable react/no-danger */
+                  dangerouslySetInnerHTML={{ __html: description }}
+                  /* eslint-enable react/no-danger */
+                />
+              </div>
             </div>
           )}
-          <FlatButton
-            className={classNames(styles.buttonMore, styles.mobile)}
-            label={isButtonMoreClicked ? 'Show less' : 'Show more'}
-            onClick={this.handleButtonMoreClick}
-          />
+          {isShowButtonMore && (
+            <FlatButton
+              className={classNames(styles.buttonMore, styles.mobile)}
+              label={isButtonMoreClicked ? 'Show less' : 'Show more'}
+              onClick={this.handleButtonMoreClick}
+            />
+          )}
           {this.getSlick(styles.mobile)}
         </Paper>
         {related.length > 0 && (
