@@ -85,14 +85,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: black;
 }
 
 .iframe {
   position: relative;
   height: 311px;
   min-width: 442px;
-  border: 1px solid $color-grey;
-  box-sizing: border-box;
 
   @media (max-width: $width-portrait-tablet) {
     height: 255px;

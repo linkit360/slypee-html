@@ -73,6 +73,7 @@
   background-color: transparent !important;
   width: 50% !important;
   min-width: 622px;
+  height: 76px !important;
 
   @media (max-width: $width-landscape-tablet) {
     width: 100% !important;
@@ -121,6 +122,10 @@
 
 .icon {
   @media (max-width: $width-portrait-tablet) {
+    width: 20px;
+  }
+
+  @media (max-width: $width-landscape-phone) {
     width: 16px;
   }
 }
