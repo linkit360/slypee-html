@@ -74,7 +74,7 @@ export const fetchUserContent = ({ token, start, contentType, sort }) => {
 
 export const fetchSearch = ({ search, start, limit }) =>
   Req.GET({
-    url: `content`,
+    url: `content/search`,
     headers: {
       'slypee-content-pagination-start': start,
       'slypee-content-pagination-limit': limit,
