@@ -84,9 +84,11 @@ class Product extends React.PureComponent {
   };
 
   updateShowButtonMore() {
-    this.setState({
-      isShowButtonMore: this.description.offsetHeight > MIN_HEIGHT_DESCRIPTION
-    });
+    if (this.description) {
+      this.setState({
+        isShowButtonMore: this.description.offsetHeight > MIN_HEIGHT_DESCRIPTION
+      });
+    }
   }
 
   toogleLightBox(isLightBoxOpen) {
