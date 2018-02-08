@@ -10,7 +10,7 @@
   font-family: 'Roboto-Regular', sans-serif;
   color: #546e7a;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-tablet) {
     font-size: 14px !important;
   }
 }
@@ -21,7 +21,7 @@
   margin-top: -6px;
   width: 235px !important;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-tablet) {
     font-size: 14px !important;
     width: 176px !important;
   }
@@ -34,7 +34,7 @@
   display: flex !important;
   align-items: center;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-tablet) {
     font-size: 14px !important;
   }
 }

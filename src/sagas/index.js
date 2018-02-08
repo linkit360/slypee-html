@@ -5,6 +5,12 @@ import * as api from '_api';
 
 import { push } from 'react-router-redux';
 
+const START_LIMIT_TOP_CHARTS = 30;
+const MORE_LIMIT_TOP_CHARTS = 20;
+const LIMIT_USER_CONTENT = 20;
+const START_LIMIT_SEARCH = 30;
+const MORE_LIMIT_SEARCH = 20;
+
 const getCountCategoryContent = state => state.category.content.list.length;
 const getCountTopChartsContent = state => state.topCharts.list.length;
 const getCountSearch = state => state.search.length;
@@ -36,7 +42,10 @@ function* request(name, apiFunc, params = {}, expectedParameter) {
       yield put({ type: `${name}_ERROR`, data });
     }
   } catch (e) {
-    if (e.message === 'Request failed with status code 500') {
+    if (
+      e.message === 'Request failed with status code 500' ||
+      e.message === 'Request failed with status code 504'
+    ) {
       yield put({ type: `CONNECTION_PROBLEM`, err: e.message });
     }
     yield put({ type: `${name}_FAILURE`, err: e.message });
@@ -86,7 +95,7 @@ function* fetchCategoryNew({ data }) {
 function* fetchTopCharts({ data }) {
   yield fetch('TOP_CHARTS', api.fetchTopCharts, {
     start: 0,
-    limit: 30,
+    limit: START_LIMIT_TOP_CHARTS,
     ...data
   });
 }
@@ -96,7 +105,7 @@ function* fetchMoreTopCharts({ data }) {
 
   yield fetch('MORE_TOP_CHARTS', api.fetchTopCharts, {
     start,
-    limit: 20,
+    limit: MORE_LIMIT_TOP_CHARTS,
     ...data
   });
 }
@@ -105,7 +114,7 @@ function* fetchUserContent() {
   const params = yield select(getParamsUserContent);
   yield fetch('USER_CONTENT', api.fetchUserContent, {
     start: 0,
-    limit: 6,
+    limit: LIMIT_USER_CONTENT,
     ...params
   });
 }
@@ -116,7 +125,7 @@ function* fetchMoreUserContent() {
 
   yield fetch('MORE_USER_CONTENT', api.fetchUserContent, {
     start,
-    limit: 6,
+    limit: LIMIT_USER_CONTENT,
     ...params
   });
 }
@@ -124,7 +133,7 @@ function* fetchMoreUserContent() {
 function* fetchSearch({ data }) {
   yield fetch('SEARCH', api.fetchSearch, {
     start: 0,
-    limit: 30,
+    limit: START_LIMIT_SEARCH,
     search: encodeURIComponent(data.search)
   });
 }
@@ -134,7 +143,7 @@ function* fetchMoreSearch({ data }) {
 
   yield fetch('MORE_SEARCH', api.fetchSearch, {
     start,
-    limit: 20,
+    limit: MORE_LIMIT_SEARCH,
     ...data
   });
 }

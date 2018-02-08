@@ -18,12 +18,11 @@ const getSlides = (video, screenshots, onImageClick) => {
   const slides = [];
   if (video) {
     slides.push(
-      <div className={styles.videoWrapper}>
+      <div key={-1} className={styles.videoWrapper}>
         <div className={styles.preloaderWrapper}>
           <CircularProgress color="#8d9396" thickness={5} />
         </div>
         <iframe
-          key={-1}
           className={styles.iframe}
           src={video}
           frameBorder="0"
@@ -56,7 +55,8 @@ class Product extends React.PureComponent {
 
   state = {
     isButtonMoreClicked: false,
-    isShowButtonMore: false
+    isShowButtonMore: false,
+    isLightBoxOpen: false
   };
 
   componentDidMount() {
@@ -68,6 +68,8 @@ class Product extends React.PureComponent {
       this.updateShowButtonMore();
     }
   }
+
+  lightBoxIndex = 0;
 
   getSlick = className => {
     const { video, screenshots } = this.props;

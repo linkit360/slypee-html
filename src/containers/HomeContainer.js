@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchSlider, fetchMain } from '_actions';
 import Home from '_components/Home';
+import PreloaderPage from '_pages/PreloaderPage';
 
 class HomeContainer extends React.Component {
   static propTypes = {
@@ -29,7 +30,7 @@ class HomeContainer extends React.Component {
     const { slider, main } = this.props;
 
     if (!slider.readyStatus === 'SUCCESS' || !main.readyStatus === 'SUCCESS') {
-      return null;
+      return <PreloaderPage />;
     }
 
     return <Home slider={slider.list} main={main.list} />;

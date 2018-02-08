@@ -116,12 +116,14 @@
 }
 
 .descriptionWrapper {
-  padding-top: 3px;
-  height: 77px;
-  overflow: hidden;
+  @media (max-width: $width-landscape-phone) {
+    padding-top: 3px;
+    height: 77px;
+    overflow: hidden;
 
-  .isButtonMoreClicked & {
-    height: auto;
+    .isButtonMoreClicked & {
+      height: auto;
+    }
   }
 }
 

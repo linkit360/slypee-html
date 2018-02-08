@@ -11,7 +11,7 @@
     background-color: $color-orange-hover !important;
   }
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-tablet) {
     font-size: 12px !important;
     width: 160px !important;
   }
@@ -21,7 +21,7 @@
     line-height: 48px !important;
     color: white !important;
 
-    @media (max-width: $width-portrait-tablet) {
+    @media (max-width: $width-landscape-tablet) {
       padding-right: 0 !important;
     }
   }
@@ -33,7 +33,7 @@
   & button {
     margin-top: -4px !important;
 
-    @media (max-width: $width-portrait-tablet) {
+    @media (max-width: $width-landscape-tablet) {
       right: 0 !important;
     }
   }
@@ -46,7 +46,7 @@
   display: flex !important;
   align-items: center;
 
-  @media (max-width: $width-portrait-tablet) {
+  @media (max-width: $width-landscape-tablet) {
     font-size: 14px !important;
   }
 }

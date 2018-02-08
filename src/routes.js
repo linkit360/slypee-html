@@ -45,6 +45,6 @@ export default [
   },
   {
     path: '*',
-    component: NotFoundPage
+    component: MainPage
   }
 ];

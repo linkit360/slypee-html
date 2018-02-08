@@ -113,6 +113,11 @@ export const changeTab = tabName => ({
   tabName
 });
 
+export const goToRoute = data => ({
+  type: 'GO_TO_ROUTE',
+  data
+});
+
 export const goToSearch = () => ({
   type: 'GO_TO_SEARCH'
 });
