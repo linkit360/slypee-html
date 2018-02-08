@@ -78,8 +78,7 @@ export default class Category extends React.PureComponent {
         </Paper>
         <div className={styles.content}>
           <AppsGrid
-            cards={content.list}
-            isFetchedAll={content.isFetchedAll}
+            cards={content}
             startCountRows={2}
             onFetchMore={this.handleFetchMoreContent}
           />

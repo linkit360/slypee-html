@@ -38,6 +38,11 @@ export default class FilterTypeBlock extends React.PureComponent {
             value="subscription"
             primaryText="Subscription"
           />
+          <MenuItem
+            className={styles.filterItem}
+            value="single"
+            primaryText="One-time purchasing"
+          />
         </DropDownMenu>
       </div>
     );

@@ -2,10 +2,7 @@ import _ from 'lodash/fp';
 
 const initialState = {
   slug: '',
-  content: {
-    readyStatus: '',
-    list: []
-  },
+  content: null,
   newApps: []
 };
 
@@ -17,7 +14,7 @@ export default (state = initialState, action) => {
       });
     case 'FETCH_CATEGORY_CONTENT':
       return _.assign(state, {
-        content: { readyStatus: 'REQUESTING', list: [], isFetchedAll: false }
+        content: null
       });
     case 'FETCH_CATEGORY_CONTENT_SUCCESS':
       return _.assign(state, {

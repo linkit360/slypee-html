@@ -4,7 +4,6 @@ import Paper from 'material-ui/Paper';
 import AppsGrid from '_components/Interface/AppsGrid';
 import FilterTypeBlock from '_components/Interface/FilterTypeBlock';
 import FilterCategoryBlock from '_components/Interface/FilterCategoryBlock';
-import PreloaderPage from '_pages/PreloaderPage';
 import styles from './styles.scss';
 
 export default class TopCharts extends React.PureComponent {
@@ -66,17 +65,13 @@ export default class TopCharts extends React.PureComponent {
           </div>
         </Paper>
         <div className={styles.content}>
-          {isFetching ? (
-            <PreloaderPage />
-          ) : (
-            <AppsGrid
-              className={styles.grid}
-              cards={apps.list}
-              isFetchedAll={apps.isFetchedAll}
-              startCountRows={3}
-              onFetchMore={this.handleFetchMoreContent}
-            />
-          )}
+          <AppsGrid
+            className={styles.grid}
+            isFetching={isFetching}
+            cards={apps}
+            startCountRows={3}
+            onFetchMore={this.handleFetchMoreContent}
+          />
         </div>
       </div>
     );
