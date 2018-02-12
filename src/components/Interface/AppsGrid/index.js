@@ -12,8 +12,6 @@ export default class AppsGrid extends React.PureComponent {
   render() {
     const { cards, className } = this.props;
 
-    console.log(cards);
-
     if (!cards) {
       return <PreloaderPage />;
     }

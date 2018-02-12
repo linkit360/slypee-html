@@ -26,9 +26,8 @@ export default class Search extends React.PureComponent {
     return (
       <AppsGrid
         className={styles.grid}
-        cards={apps}
+        cards={{ list: apps }}
         startCountRows={3}
-        isFetchedAll
         onFetchMore={onFetchMoreContent}
       />
     );

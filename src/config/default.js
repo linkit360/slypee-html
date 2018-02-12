@@ -8,7 +8,7 @@ module.exports = {
     meta: [
       {
         name: 'description',
-        content: 'The best react universal starter boilerplate in the world.'
+        content: 'Mobile apps for android.'
       }
     ]
   }
