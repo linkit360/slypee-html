@@ -13,7 +13,7 @@ export default class Category extends React.PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    content: PropTypes.object.isRequired,
+    content: PropTypes.object,
     newApps: PropTypes.arrayOf(PropTypes.object.isRequired),
     onFetchContent: PropTypes.func.isRequired,
     onFetchMoreContent: PropTypes.func.isRequired

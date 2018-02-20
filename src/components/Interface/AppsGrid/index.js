@@ -6,7 +6,7 @@ import Grid from './Grid';
 export default class AppsGrid extends React.PureComponent {
   static propTypes = {
     className: PropTypes.string,
-    cards: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired
+    cards: PropTypes.object
   };
 
   render() {

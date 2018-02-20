@@ -7,6 +7,7 @@ import CircularProgress from 'material-ui/CircularProgress';
 import SlickWithSlider from '_components/Interface/SlickWithSlider';
 import AppCard from '_components/Interface/AppCard';
 import environmentHOC from '_utils/environmentHOC';
+import ReactPlayer from 'react-player';
 import Header from './Header';
 import LightBox from './LightBox';
 import ImageSlide from './ImageSlide';
@@ -22,9 +23,9 @@ const getSlides = (video, screenshots, onImageClick) => {
         <div className={styles.preloaderWrapper}>
           <CircularProgress color="#8d9396" thickness={5} />
         </div>
-        <iframe
-          className={styles.iframe}
-          src={video}
+        <ReactPlayer
+          className={styles.player}
+          url={video}
           frameBorder="0"
           allowFullScreen
           title="video"

@@ -16,7 +16,7 @@ class CategoryContainer extends React.Component {
   static propTypes = {
     categorySlug: PropTypes.string.isRequired,
     category: PropTypes.object,
-    content: PropTypes.object.isRequired,
+    content: PropTypes.object,
     newApps: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
     fetchCategoryContent: PropTypes.func.isRequired,
     fetchMoreCategoryContent: PropTypes.func.isRequired,

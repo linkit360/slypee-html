@@ -88,19 +88,19 @@
   background-color: black;
 }
 
-.iframe {
+.player {
   position: relative;
-  height: 311px;
-  min-width: 442px;
+  height: 311px !important;
+  width: 442px !important;
 
   @media (max-width: $width-portrait-tablet) {
-    height: 255px;
-    min-width: 380px;
+    height: 255px !important;
+    width: 380px !important;
   }
 
   @media (max-width: 535px) {
-    height: 180px;
-    min-width: 290px;
+    height: 180px !important;
+    width: 290px !important;
   }
 }
 

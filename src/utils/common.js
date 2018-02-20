@@ -1,5 +1,9 @@
 export const getCategoryUrl = category =>
-  `/category/${category.replace(/\s+/g, '_').toUpperCase()}`;
+  `/category/${category
+    .replace(/[^a-zA-Z -]/g, '')
+    .replace(/\s+/g, '_')
+    .replace(/[^a-zA-Z_]/g, '')
+    .toUpperCase()}`;
 
 export const getCategoryUrlFromSlug = slug =>
   `/category/${slug.replace(/-+/g, '_').toUpperCase()}`;
