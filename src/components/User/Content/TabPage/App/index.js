@@ -98,7 +98,7 @@ export default class App extends React.PureComponent {
                 name="file-download"
               />
             }
-            onClick={this.handleDownloadAgainClick}
+            href="http://xmp.linkit360.ru/get-content"
           />
           <FlatButton
             className={styles.buttonView}
