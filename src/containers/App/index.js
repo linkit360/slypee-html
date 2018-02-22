@@ -2,7 +2,6 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import type { Element } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Route, Switch, withRouter } from 'react-router-dom';
@@ -28,7 +27,7 @@ const muiTheme = getMuiTheme({
   }
 });
 
-const RouteWithSubRoutes = (route): Element<typeof Route> => (
+const RouteWithSubRoutes = route => (
   <Route
     key={_.uniqueId()}
     exact={route.exact || false}

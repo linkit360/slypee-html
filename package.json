@@ -50,7 +50,8 @@
     "clean:all": "yarn clean:build && yarn clean:test",
     "clean:build": "better-npm-run clean:build",
     "clean:test": "better-npm-run clean:test",
-    "coveralls": "better-npm-run coveralls && yarn clean:test"
+    "coveralls": "better-npm-run coveralls && yarn clean:test",
+    "deploy": "ssh-add -K ~/.ssh/id_rsa && sh ./deploy.sh -e production -b develop -n slypee"
   },
   "betterScripts": {
     "start": {
