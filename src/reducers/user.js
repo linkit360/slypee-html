@@ -45,7 +45,6 @@ export default (state = initialState, action) => {
       });
     case 'FETCH_USER_FAILURE':
       return _.assign(state, {
-        ...action.data,
         isFetching: false,
         status: 'FAILURE'
       });

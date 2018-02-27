@@ -29,7 +29,7 @@ class HeaderContainer extends React.Component {
     logout: PropTypes.func.isRequired
   };
 
-  componentWillMount() {
+  componentDidMount() {
     const {
       user,
       mainMenu,

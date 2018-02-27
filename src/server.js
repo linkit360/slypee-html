@@ -108,7 +108,7 @@ app.get('*', (req, res) => {
   (async () => {
     try {
       // Load data from server-side first
-      await loadBranchData();
+      // await loadBranchData();
 
       // Setup React-Router server-side rendering
       const routerContext = {};
