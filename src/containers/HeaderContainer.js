@@ -39,7 +39,7 @@ class HeaderContainer extends React.Component {
       fetchUser
     } = this.props;
 
-    if (!user || !user.token) {
+    if (user.status === '') {
       fetchUser();
     }
 

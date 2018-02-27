@@ -1,7 +1,8 @@
 import _ from 'lodash/fp';
 
 const initialState = {
-  updateUserError: {}
+  updateUserError: {},
+  status: ''
 };
 
 export default (state = initialState, action) => {
@@ -33,12 +34,20 @@ export default (state = initialState, action) => {
       });
     case 'FETCH_USER':
       return _.assign(state, {
-        isFetching: true
+        isFetching: true,
+        status: 'REQUEST'
       });
     case 'FETCH_USER_SUCCESS':
       return _.assign(state, {
         ...action.data,
-        isFetching: false
+        isFetching: false,
+        status: 'SUCCESS'
+      });
+    case 'FETCH_USER_FAILURE':
+      return _.assign(state, {
+        ...action.data,
+        isFetching: false,
+        status: 'FAILURE'
       });
     case 'UPDATE_PROFILE':
       return _.assign(state, {
