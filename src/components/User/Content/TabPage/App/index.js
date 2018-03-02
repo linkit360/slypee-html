@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import moment from 'moment';
 import FlatButton from 'material-ui/FlatButton';
@@ -100,11 +101,9 @@ export default class App extends React.PureComponent {
             }
             href="http://xmp.linkit360.ru/get-content"
           />
-          <FlatButton
-            className={styles.buttonView}
-            label="VIEW APP PAGE"
-            href={`/apps/${contentId}`}
-          />
+          <Link to={`/apps/${contentId}`}>
+            <FlatButton className={styles.buttonView} label="VIEW APP PAGE" />
+          </Link>
         </div>
       </div>
     );

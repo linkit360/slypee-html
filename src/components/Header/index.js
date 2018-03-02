@@ -131,19 +131,20 @@ export default class Header extends React.Component {
             />
           </Popover>
           {!isLogin && (
-            <FlatButton
-              className={styles.buttonSignIn}
-              href="/signIn"
-              label="Sign in"
-              icon={
-                <Icon
-                  className={styles.buttonSignInIcon}
-                  name="account-circle"
-                  width={30}
-                  height={30}
-                />
-              }
-            />
+            <Link to="/signIn">
+              <FlatButton
+                className={styles.buttonSignIn}
+                label="Sign in"
+                icon={
+                  <Icon
+                    className={styles.buttonSignInIcon}
+                    name="account-circle"
+                    width={30}
+                    height={30}
+                  />
+                }
+              />
+            </Link>
           )}
           {isLogin && (
             <AvatarBlock

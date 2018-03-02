@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import TextField from '_components/Interface/TextField';
 import Dialog from 'material-ui/Dialog';
 import Button from '_components/Interface/Button';
@@ -82,7 +83,9 @@ export default class RecoveryPasswordForm extends React.PureComponent {
         <Dialog
           title="Success"
           actions={
-            <Button href="/" label="Go back to the main page" color="orange" />
+            <Link to="/">
+              <Button label="Go back to the main page" color="orange" />
+            </Link>
           }
           modal
           open={openModal}

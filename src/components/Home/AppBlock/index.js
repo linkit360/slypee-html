@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Button from '_components/Interface/Button';
 import AppCard from '_components/Interface/AppCard';
 import SlickWithSlider from '_components/Interface/SlickWithSlider';
@@ -23,7 +24,11 @@ export default class AppBlock extends React.PureComponent {
   getButton = () => {
     const { href } = this.props;
 
-    return <Button className={styles.buttonMore} href={href} label="More" />;
+    return (
+      <Link to={href}>
+        <Button className={styles.buttonMore} label="More" />
+      </Link>
+    );
   };
 
   getSlick = () => {

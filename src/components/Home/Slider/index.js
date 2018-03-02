@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import FlatButton from 'material-ui/FlatButton';
 import Slick from '_components/Interface/Slick';
 import styles from './styles.scss';
@@ -36,11 +37,12 @@ export default class Slider extends React.PureComponent {
               <div className={styles.sliderText1}>{slide.title}</div>
               <div className={styles.sliderText2}>{slide.subtitle}</div>
               <div className={styles.sliderText3}>{slide.description}</div>
-              <FlatButton
-                className={styles.sliderButton}
-                label="Learn more"
-                href={slide.link}
-              />
+              <Link to={slide.link}>
+                <FlatButton
+                  className={styles.sliderButton}
+                  label="Learn more"
+                />
+              </Link>
             </div>
           </div>
         ))}

@@ -37,7 +37,7 @@ class StatusPage extends React.PureComponent {
   };
 
   handleContinueClick = () => {
-    this.props.goTo(localStorage.getItem('pathnameBeforeRedirect'));
+    this.props.goTo(localStorage.getItem('pathnameBeforeRedirect') || '/');
   };
 
   render() {

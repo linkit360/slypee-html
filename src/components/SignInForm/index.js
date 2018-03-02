@@ -63,12 +63,13 @@ export default class SignInForm extends React.PureComponent {
           <Link className={styles.forgotPasswordLink} to="/forgotPassword">
             Forgot password?
           </Link>
-          <FlatButton
-            className={styles.buttonCreateAccount}
-            href="/signUp"
-            label="CREATE ACCOUNT"
-            icon={<Icon className={styles.buttonMenuIcon} name="person" />}
-          />
+          <Link to="/signUp">
+            <FlatButton
+              className={styles.buttonCreateAccount}
+              label="CREATE ACCOUNT"
+              icon={<Icon className={styles.buttonMenuIcon} name="person" />}
+            />
+          </Link>
           <Button
             className={styles.buttonSignIn}
             label="SIGN IN"
